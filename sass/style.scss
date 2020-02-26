@@ -104,3 +104,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
 --------------------------------------------------------------*/
 @import "media/media";
+
+/*--------------------------------------------------------------
+## Hero Banner
+--------------------------------------------------------------*/
+@import "site/pages/front-page";
+
+/*--------------------------------------------------------------
+## Slick Slider
+--------------------------------------------------------------*/
+@import "slick/slick";
+@import "slick/slick-theme";

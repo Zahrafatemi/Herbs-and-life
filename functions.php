@@ -129,6 +129,29 @@ function herblife_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+/** Slick Slider Setting in front page top */
+// enqueue slick slider if it is the front page
+if ( is_front_page( ) ) {
+
+    // call in the js files
+    wp_enqueue_script( 
+		'hlproject-slickslider', 
+		get_template_directory_uri().'/js/slick.min.js', 
+		array('jquery'), 
+		'20200128', 
+		true );
+
+    wp_enqueue_script( 
+		'hlproject-slickslider-settings', 
+		get_template_directory_uri().'/js/slick-settings.js', 
+		array('jquery', 
+		'hlproject-slickslider'), 
+		'20200225', 
+		true );
+
+}
+
 }
 add_action( 'wp_enqueue_scripts', 'herblife_scripts' );
 
@@ -174,6 +197,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page();
-	
+	acf_add_options_sub_page('Header');
 }
 

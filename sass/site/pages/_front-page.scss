@@ -1,0 +1,20 @@
+/*--------------------------------------------------------------
+## Hero Banner
+--------------------------------------------------------------*/
+.hero-banner{
+    position: relative;
+    max-height: 350px;
+    
+    
+    .hero-banner-text-box{
+        position:absolute;
+        top: 0;
+        left: 0;
+    }
+   
+}
+
+img{
+    height: 100%;
+    object-fit: cover;
+}

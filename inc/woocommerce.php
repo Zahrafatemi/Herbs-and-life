@@ -29,7 +29,6 @@ add_action( 'after_setup_theme', 'herblife_woocommerce_setup' );
  * @return void
  */
 function herblife_woocommerce_scripts() {
-	wp_enqueue_style( 'herblife-woocommerce-style', get_template_directory_uri() . '/woocommerce.css' );
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {

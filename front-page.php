@@ -113,6 +113,39 @@ get_header();
 
 				?>
 			</section>
+
+			<section class="why-us"> 
+				<h2>Why Choose Us?</h2>
+				<?php if(get_field('why_us') ):?>
+					<?php while(has_sub_field('why_us')): 
+					$title = get_sub_field('why_us_title');
+					$images = get_sub_field('why_us_image');
+					$size = 'medium'; // (thumbnail, medium, large, full or custom size)
+					$lists = get_sub_field('why_us_list');
+					?>
+					<div class = "whyus-wrapper">
+							<h3>
+							<?php echo $title?>
+							</h3>
+							<?php echo wp_get_attachment_image( $images, $size ); ?>
+						
+							<?php if($lists):?>
+							<ul>
+								<?php foreach($lists as $list):?>
+									<?php foreach($list as $list_item):?>
+									<li><?php echo $list_item ?></li>
+									<?php endforeach;?> 
+								<?php endforeach;?>
+							</ul>
+							<?php endif; ?>	
+						</div>	
+					</div>
+					
+					<?php endwhile;?>
+				<?php endif;?>
+			</section>
+		
+
 			
 
 		<?php

@@ -200,3 +200,50 @@ if( function_exists('acf_add_options_page') ) {
 
 }
 
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function hl_widgets_init() {
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Support', 'hl' ),
+		'id'            => 'footer-support',
+		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer About', 'hl' ),
+		'id'            => 'footer-about',
+		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Address', 'hl' ),
+		'id'            => 'footer-address',
+		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Social Media', 'hl' ),
+		'id'            => 'social',
+		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		
+	) );
+}
+add_action( 'widgets_init', 'hl_widgets_init' );
+

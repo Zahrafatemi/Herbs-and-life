@@ -25,6 +25,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'herblife' ); ?></a>
 
 	<header id="masthead" class="site-header">
+		
 
 		<?php 
 		if (function_exists('get_field')):
@@ -32,6 +33,14 @@
 				the_field('top_banner'); 
 			endif;
 		endif; ?>
+
+		<div class = "top-header">
+		<?php if(is_active_sidebar('social')){
+				dynamic_sidebar('social');
+			}
+		?>
+		</div>
+
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
@@ -44,11 +53,7 @@
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
 			endif;
-			$herblife_description = get_bloginfo( 'description', 'display' );
-			if ( $herblife_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $herblife_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
+			?>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">

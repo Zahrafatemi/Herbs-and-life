@@ -85,4 +85,11 @@ function hl_register_custom_post_types() {
 }
 add_action( 'init', 'hl_register_custom_post_types' );
 
+//When activating this theme, flush permalinks
+function hl_rewrite_flush() {
+	hl_register_custom_post_types();
+	flush_rewrite_rules();
+}
+add_action( 'after_switch_theme', 'hl_rewrite_flush' );
+
 

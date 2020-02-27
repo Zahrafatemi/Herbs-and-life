@@ -188,21 +188,47 @@ get_header();
 
 		<section class="awards">
 			<h2>Awards & Certificates</h2>
+			<?php 
+				$args = array(
+					'post_type' => 'hl-award',
+					'posts_per_page' => -1,   // If you want to all posts, set up -1  default minimum 10
+				);
+
+				$query = new WP_Query( $args );
+
+				if ( $query->have_posts() ) {
+					while ( $query->have_posts() ) {
+						$query->the_post();
+
+						the_content();
+
+					}
+					wp_reset_postdata();
+				} 
+			?>
+		</section>
+		<section class="testimonials">
+			<h2>Testimonials</h2>
+			<?php 
+				$args = array(
+					'post_type' => 'hl-testimonial',
+					'posts_per_page' => 2,   // If you want to all posts, set up -1  default minimum 10
+				);
+
+				$query = new WP_Query( $args );
+
+				if ( $query->have_posts() ) {
+					while ( $query->have_posts() ) {
+						$query->the_post();
+
+						the_content();
+
+					}
+					wp_reset_postdata();
+				} 
+			?>
 		</section>
 			
-
-		<?php
-		// while ( have_posts() ) :
-		// 	the_post();
-
-		// 	get_template_part( 'template-parts/content', 'page' );
-
-		// 	// If comments are open or we have at least one comment, load up the comment template.
-		// 	if ( comments_open() || get_comments_number() ) :
-		// 		comments_template();
-		// 	endif;
-		// endwhile; // End of the loop.
-		?>
 
 	
 

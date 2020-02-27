@@ -20,7 +20,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
-/*-------------------------------------------------------------- >>> TABLE OF CONTENTS: ---------------------------------------------------------------- # Normalize # Typography # Elements # Forms # Navigation ## Links ## Menus # Accessibility # Alignments # Clearings # Widgets # Content ## Posts and pages ## Comments # Infinite scroll # Media ## Captions ## Galleries --------------------------------------------------------------*/
+/*-------------------------------------------------------------- >>> TABLE OF CONTENTS: ---------------------------------------------------------------- # Normalize # Typography # Elements ## Banner # Forms # Navigation ## Links ## Menus # Accessibility # Alignments # Clearings # Widgets # Content ## Posts and pages ## Comments # Page ## Front page # Infinite scroll # Media ## Captions ## Galleries # WooCommerce --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -364,17 +364,8 @@ embed, iframe, object { max-width: 100%; }
 .gallery-caption { display: block; }
 
 /*--------------------------------------------------------------
-## Hero Banner
+## Front page
 --------------------------------------------------------------*/
-/*--------------------------------------------------------------
-## Hero Banner
---------------------------------------------------------------*/
-.hero-banner { position: relative; max-height: 350px; }
-
-.hero-banner .hero-banner-text-box { position: absolute; top: 0; left: 0; }
-
-img { height: 100%; -o-object-fit: cover; object-fit: cover; }
-
 /*--------------------------------------------------------------
 ## Slick Slider
 --------------------------------------------------------------*/
@@ -466,7 +457,7 @@ img { height: 100%; -o-object-fit: cover; object-fit: cover; }
 .slick-dots li.slick-active button:before { color: black; opacity: 0.75; }
 
 /*--------------------------------------------------------------
-## Slider
+# WooCommerce
 --------------------------------------------------------------*/
 /*
 Theme Name: Herb & Life
@@ -673,5 +664,15 @@ p.stars.selected a:not(.active):before { content: "\53"; color: royalblue; opaci
 .widget_price_filter .ui-slider-horizontal { height: .5em; }
 
 .widget_price_filter .ui-slider-horizontal .ui-slider-range { height: 100%; }
+
+/*--------------------------------------------------------------
+## Banner
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Hero Banner (Front page)
+--------------------------------------------------------------*/
+.hero-banner img, .promo-banner img { max-height: 400px; -o-object-fit: cover; object-fit: cover; }
+
+.hero-banner-text-box, .promo-banner-text-box { background-color: lemonchiffon; }
 
 /*# sourceMappingURL=../herblife/sass/maps/style.css.map */

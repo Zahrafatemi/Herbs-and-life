@@ -32,22 +32,22 @@ get_header();
                     ?>
                 
                     <div class="promo-banner">
-                            
-                            <?php echo wp_get_attachment_image( $images, $size ); ?>
-                            <div class="promo-banner-text-box">
-                                <h3>
-                                <?php echo $header?>
-                                </h3>
-                                <?php if($description):?>
-                                <p>
-                                <?php echo $description?>
-                                <p>
-                                <?php endif; ?>
-                                <?php if($buttonText):
-                                    echo '<button src=".$buttonLink.">'.$buttonText.'</button>'
-                                ?>
-                                <?php endif; ?>
-                            </div>	
+                        
+                        <?php echo wp_get_attachment_image( $images, $size ); ?>
+                        <div class="promo-banner-text-box">
+                            <h3>
+                            <?php echo $header?>
+                            </h3>
+                            <?php if($description):?>
+                            <p>
+                            <?php echo $description?>
+                            <p>
+                            <?php endif; ?>
+                            <?php if($buttonText):
+                                echo '<button src=".$buttonLink.">'.$buttonText.'</button>'
+                            ?>
+                            <?php endif; ?>
+                        </div>	
                     </div>							
                     <?php endwhile; ?>
                                             

@@ -24,7 +24,6 @@ get_header();
 			<?php 
 			if(get_field('hero_image_slider') ):?>
 			
-			
 				<?php while(has_sub_field('hero_image_slider')): 
 				$images = get_sub_field('hero_image');
 				$header = get_sub_field('hero_header');
@@ -35,22 +34,21 @@ get_header();
 				?>
 			
 				<div class = "hero-banner">
-						
-						<?php echo wp_get_attachment_image( $images, $size ); ?>
-						<div class="hero-banner-text-box">
-							<h3>
-							<?php echo $header?>
-							</h3>
-							<?php if($description):?>
-							<p>
-							<?php echo $description?>
-							<p>
-							<?php endif; ?>
-							<?php if($buttonText):
-								echo '<button src=".$buttonLink.">'.$buttonText.'</button>'
-							?>
-							<?php endif; ?>
-						</div>	
+					<?php echo wp_get_attachment_image( $images, $size ); ?>
+					<div class="hero-banner-text-box">
+						<h3>
+						<?php echo $header?>
+						</h3>
+						<?php if($description):?>
+						<p>
+						<?php echo $description?>
+						<p>
+						<?php endif; ?>
+						<?php if($buttonText):
+							echo '<button src=".$buttonLink.">'.$buttonText.'</button>'
+						?>
+						<?php endif; ?>
+					</div>	
 				</div>							
 				<?php endwhile; ?>
 										

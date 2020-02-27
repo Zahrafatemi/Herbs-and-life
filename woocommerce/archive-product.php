@@ -62,7 +62,7 @@ if ( woocommerce_product_loop() ) {
 		while ( have_posts() ) {
 			the_post();
 			// output mini banner conditional
-			//get template part ..
+			// get template part .. count...
 			/**
 			 * Hook: woocommerce_shop_loop.
 			 */

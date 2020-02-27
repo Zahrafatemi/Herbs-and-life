@@ -26,6 +26,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Normalize
 # Typography
 # Elements
+	## Banner
 # Forms
 # Navigation
 	## Links
@@ -37,10 +38,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Content
 	## Posts and pages
 	## Comments
+# Page
+	## Front page
 # Infinite scroll
 # Media
 	## Captions
 	## Galleries
+# WooCommerce
 --------------------------------------------------------------*/
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
@@ -105,8 +109,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 @import "media/media";
 
+
 /*--------------------------------------------------------------
-## Hero Banner
+## Front page
 --------------------------------------------------------------*/
 @import "site/pages/front-page";
 
@@ -117,6 +122,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "slick/slick-theme";
 
 /*--------------------------------------------------------------
-## Slider
+# WooCommerce
 --------------------------------------------------------------*/
 @import "woocommerce";
+
+/*--------------------------------------------------------------
+## Banner
+--------------------------------------------------------------*/
+@import "elements/banner";

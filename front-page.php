@@ -89,11 +89,29 @@ get_header();
 				<div class="featured-text-box">
 				<h3><?php echo $title ?></h3>
 				<p><?php echo $text ?><p>
-				<button><a href = "<?php the_permalink(); ?>"><?php echo $buttonText ?></a></button>
+				<button><a href = "<?php get_the_permalink(); ?>"><?php echo $buttonText ?></a></button>
 				</div>
 				<?php endwhile; ?>
 				<?php endif;?>        
 				<!-- Featured products loop -->  
+			</section>
+
+			<section class = "category">
+				<h2>Categories</h2>
+				<?php
+				$prod_cat_args = array(
+						'taxonomy'=>'product_cat',
+						'orderby'=>'name',
+						'empty' => 0,
+						'parent'=>0  //exclude subcategory
+				);
+				$terms = get_categories($prod_cat_args);
+				foreach($terms as $term){
+					$term_link = get_term_link($term);
+					echo '<div><a class = "category" href="'.esc_url($term_link).'">'.$term->name . '</a></div>';
+				}
+
+				?>
 			</section>
 			
 

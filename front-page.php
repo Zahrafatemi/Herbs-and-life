@@ -145,7 +145,50 @@ get_header();
 				<?php endif;?>
 			</section>
 		
+		<section class = "latest-blog">
+			<h2>Latest News</h2>
+			<?php 
+			$arg = array('posts_per_page'=> 1);
+			$blog_query = new WP_Query($arg);
+			if($blog_query->have_posts()):
+				while($blog_query->have_posts()):
+					$blog_query->the_post(); ?>
+				<?php the_post_thumbnail(); ?>
+				<h3><a href = "<?php the_permalink(); ?>">
+				<?php the_title();?>
+				</a></h3>
+				<?php the_content()?>
+			<?php
+				endwhile;
+				wp_reset_postdata();
+			endif;
+			?>
+		</section>
 
+		<section class = "upcoming-events">
+		<h2>Upcoming Events</h2>
+		<ul>
+			<?php 
+			$args = array( 'post_type' => 'product', 'posts_per_page' => 3, 'product_cat' => 'events', 'orderby' => 'rand' );
+			$loop = new WP_Query( $args );
+			while ( $loop->have_posts() ) : $loop->the_post(); global $product; ?>
+					<li class="events">    
+					 <a href="<?php echo get_permalink( $loop->post->ID ) ?>" title="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
+						 <?php woocommerce_show_product_sale_flash( $post, $product ); ?>
+						 <?php if (has_post_thumbnail( $loop->post->ID )) echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog'); else echo '<img src="'.woocommerce_placeholder_img_src().'" alt="Placeholder" width="300px" height="300px" />'; ?>
+						 <h3><?php the_title(); ?></h3>
+						 <p><?php the_content();?></p>                  
+					 </a>
+					 <?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
+				 </li>
+			<?php endwhile; ?>
+			<?php wp_reset_query(); ?>
+		</ul>
+		</section>
+
+		<section class="awards">
+			<h2>Awards & Certificates</h2>
+		</section>
 			
 
 		<?php

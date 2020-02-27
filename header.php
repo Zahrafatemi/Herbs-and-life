@@ -25,14 +25,14 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'herblife' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		
+	<?php the_field('top_banner', 'option'); ?>
 
 		<?php 
-		if (function_exists('get_field')):
-			if(get_field('top_banner')):
-				the_field('top_banner'); 
-			endif;
-		endif; ?>
+		// if (function_exists('get_field')):
+		// 	if(get_field('top_banner')):
+		// 		the_field('top_banner'); 
+		// 	endif;
+		//endif; ?>
 
 		<div class = "top-header">
 		<?php if(is_active_sidebar('social')){

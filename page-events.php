@@ -33,6 +33,14 @@ get_header();
 		?>
 
 		<?php
+		
+		global $post;
+
+		$short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
+
+		?>
+
+		<?php
 		$args = array(
 			'posts_per_page' => '-1',
 			'product_cat' => 'events',
@@ -46,9 +54,12 @@ get_header();
 				: $query->the_post();
 		?>
 		<div class="single-event">
-			<p>
-				<?php the_title(); ?>
-			</p>
+			<span class="excerpt"><?php the_excerpt() ?></span>
+			<span class="title">
+				<a href="<?php the_permalink() ?>">
+					<?php the_title(); ?>
+				</a>
+			</span>
 			<?php the_post_thumbnail('event-thumbnail'); ?>
 		</div>
 		<?php endwhile; ?>

@@ -61,12 +61,15 @@ get_header();
 				$prod_cat_args = array(
 						'taxonomy'=>'product_cat',
 						'orderby'=>'name',
-						'empty' => 0,
+                        'empty' => 0,
+                        'exclude' => array(47),
 						'parent'=>0  //exclude subcategory
 				);
 				$terms = get_categories($prod_cat_args);
 				foreach($terms as $term){
-					$term_link = get_term_link($term);
+                    $term_link = get_term_link($term);
+                     $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
+                    echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail');
 					echo '<div><a class = "category" href="'.esc_url($term_link).'">'.$term->name . '</a></div>';
 				}
 				?>

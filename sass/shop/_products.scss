@@ -29,6 +29,7 @@ ul.products {
 	ul.products {
 		li.product {
 			@include column-width(3);
+			//grid, flex..
 			float: left;
 			margin-right: $columns__margin;
 

@@ -24,7 +24,6 @@ get_header();
 			<?php 
 			if(get_field('hero_image_slider') ):?>
 			
-			
 				<?php while(has_sub_field('hero_image_slider')): 
 				$images = get_sub_field('hero_image');
 				$header = get_sub_field('hero_header');
@@ -35,22 +34,21 @@ get_header();
 				?>
 			
 				<div class = "hero-banner">
-						
-						<?php echo wp_get_attachment_image( $images, $size ); ?>
-						<div class="hero-banner-text-box">
-							<h3>
-							<?php echo $header?>
-							</h3>
-							<?php if($description):?>
-							<p>
-							<?php echo $description?>
-							<p>
-							<?php endif; ?>
-							<?php if($buttonText):
-								echo '<button src=".$buttonLink.">'.$buttonText.'</button>'
-							?>
-							<?php endif; ?>
-						</div>	
+					<?php echo wp_get_attachment_image( $images, $size ); ?>
+					<div class="hero-banner-text-box">
+						<h3>
+						<?php echo $header?>
+						</h3>
+						<?php if($description):?>
+						<p>
+						<?php echo $description?>
+						<p>
+						<?php endif; ?>
+						<?php if($buttonText):
+							echo '<button src=".$buttonLink.">'.$buttonText.'</button>'
+						?>
+						<?php endif; ?>
+					</div>	
 				</div>							
 				<?php endwhile; ?>
 										
@@ -76,43 +74,43 @@ get_header();
 					$title = get_sub_field('featured_title');
 					$text = get_sub_field('featured_text');
 					$buttonText = get_sub_field('featured_button_label');
-					$posts = get_sub_field('featured_image');
-					if($posts):?>
+					$image = get_sub_field('featured_image');
+					$link = get_sub_field('featured_link');
+					$size = 'medium'; // (thumbnail, medium, large, full or custom size)
+				?>
 					<div class = "featured-image">
-					<?php foreach($posts as $post):?>	
-					<?php setup_postdata($post); ?>
-					<?php the_post_thumbnail( 'medium' );?>
-					<?php endforeach;
-					wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+					<?php echo wp_get_attachment_image( $image, $size ); ?>
 					</div>
-					<?php endif;?>
+
 				<div class="featured-text-box">
 				<h3><?php echo $title ?></h3>
 				<p><?php echo $text ?><p>
-				<button><a href = "<?php get_the_permalink(); ?>"><?php echo $buttonText ?></a></button>
+				<a href = "<?php echo $link ?>"><button><?php echo $buttonText ?></button></a>
 				</div>
 				<?php endwhile; ?>
 				<?php endif;?>        
 				<!-- Featured products loop -->  
 			</section>
 
-			<section class = "category">
+			<section class="category">
 				<h2>Categories</h2>
 				<?php
 				$prod_cat_args = array(
 						'taxonomy'=>'product_cat',
 						'orderby'=>'name',
-						'empty' => 0,
+                        'empty' => 0,
+                        'exclude' => array(47),
 						'parent'=>0  //exclude subcategory
 				);
 				$terms = get_categories($prod_cat_args);
 				foreach($terms as $term){
-					$term_link = get_term_link($term);
+                    $term_link = get_term_link($term);
+                     $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
+                    echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail');
 					echo '<div><a class = "category" href="'.esc_url($term_link).'">'.$term->name . '</a></div>';
 				}
-
 				?>
-			</section>
+			</section><!-- category-->
 
 			<section class="why-us"> 
 				<h2>Why Choose Us?</h2>

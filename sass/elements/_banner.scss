@@ -1,0 +1,15 @@
+/*--------------------------------------------------------------
+## Hero Banner (Front page)
+--------------------------------------------------------------*/
+.hero-banner,
+.promo-banner {
+    img {
+        max-height: 400px;
+        object-fit: cover;
+    }
+}
+
+.hero-banner-text-box,
+.promo-banner-text-box {
+    background-color: lemonchiffon;
+}

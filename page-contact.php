@@ -32,8 +32,13 @@ get_header();
 		?>
 		</section>
 
-		<section class = "location">
+		<section class = "store-locator">
 			<h2>Locations</h2>
+
+			<?php if(is_active_sidebar('store-locator')){
+				dynamic_sidebar('store-locator');
+			}
+		    ?>    
 		</section>
 
 

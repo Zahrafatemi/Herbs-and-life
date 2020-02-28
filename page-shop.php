@@ -120,10 +120,11 @@ get_header();
             </section><!-- testimonials-->
 
             <section class = "store-locator">
+            <h2>Store Finder</h2>
             <?php if(is_active_sidebar('store-locator')){
 				dynamic_sidebar('store-locator');
 			}
-		?>     
+		    ?>     
 
             </section>
 

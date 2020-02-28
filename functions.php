@@ -122,6 +122,8 @@ add_action( 'widgets_init', 'herblife_widgets_init' );
 function herblife_scripts() {
 	wp_enqueue_style( 'herblife-style', get_stylesheet_uri() );
 
+	wp_enqueue_script('googlemapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDkumcU-Bh1GOJ3VqkVNnl04RvBxWSNG9U'); 
+
 	wp_enqueue_script( 'herblife-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'herblife-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -340,5 +342,15 @@ add_image_size( 'event-thumbnail', 200, 200, array( 'left', 'top' ) );
  * Hooks - Single Product Page
  */
 require get_template_directory() . '/inc/hooks-product.php';
+
+/**
+ * Google API
+ */
+function my_acf_google_map_api( $api ){
+	$api['key'] = 'AIzaSyDkumcU-Bh1GOJ3VqkVNnl04RvBxWSNG9U';
+	return $api;
+ }  
+ add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+ 
  
 

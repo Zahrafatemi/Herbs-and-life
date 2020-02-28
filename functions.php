@@ -303,6 +303,8 @@ function hl_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Store Locator', 'hl' ),
 		'id'            => 'store-locator',
+		'name'          => esc_html__( 'Event Map', 'hl' ),
+		'id'            => 'event-map',
 		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -323,3 +325,5 @@ add_image_size( 'event-thumbnail', 200, 200, array( 'left', 'top' ) );
  * Hooks - Single Product Page
  */
 require get_template_directory() . '/inc/hooks-product.php';
+ 
+

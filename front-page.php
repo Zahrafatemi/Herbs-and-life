@@ -47,7 +47,7 @@ get_header();
 							<p>
 							<?php endif; ?>
 							<?php if($buttonText):
-								echo '<button src=".$buttonLink.">'.$buttonText.'</button>'
+								echo '<a href ="'.$buttonText.'"<button>.$buttonText.</a></button>'
 							?>
 							<?php endif; ?>
 						</div>	
@@ -76,20 +76,18 @@ get_header();
 					$title = get_sub_field('featured_title');
 					$text = get_sub_field('featured_text');
 					$buttonText = get_sub_field('featured_button_label');
-					$posts = get_sub_field('featured_image');
-					if($posts):?>
+					$image = get_sub_field('featured_image');
+					$link = get_sub_field('featured_link');
+					$size = 'medium'; // (thumbnail, medium, large, full or custom size)
+				?>
 					<div class = "featured-image">
-					<?php foreach($posts as $post):?>	
-					<?php setup_postdata($post); ?>
-					<?php the_post_thumbnail( 'medium' );?>
-					<?php endforeach;
-					wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+					<?php echo wp_get_attachment_image( $image, $size ); ?>
 					</div>
-					<?php endif;?>
+
 				<div class="featured-text-box">
 				<h3><?php echo $title ?></h3>
 				<p><?php echo $text ?><p>
-				<button><a href = "<?php get_the_permalink(); ?>"><?php echo $buttonText ?></a></button>
+				<a href = "<?php echo $link ?>"><button><?php echo $buttonText ?></button></a>
 				</div>
 				<?php endwhile; ?>
 				<?php endif;?>        

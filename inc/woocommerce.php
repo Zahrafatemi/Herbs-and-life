@@ -232,7 +232,10 @@ if ( ! function_exists( 'herblife_woocommerce_cart_link' ) ) {
 				WC()->cart->get_cart_contents_count()
 			);
 			?>
-			<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo esc_html( $item_count_text ); ?></span>
+			<span class="count">
+				<img src= "<?php echo get_template_directory_uri();?>/images/cart-logo.png">
+				<?php echo esc_html( $item_count_text ); ?>
+			</span>
 		</a>
 		<?php
 	}

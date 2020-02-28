@@ -465,4 +465,9 @@ img { height: 100%; -o-object-fit: cover; object-fit: cover; }
 
 .slick-dots li.slick-active button:before { color: black; opacity: 0.75; }
 
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+.count img { width: 30px; height: 30px; }
+
 /*# sourceMappingURL=../herblife/sass/maps/style.css.map */

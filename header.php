@@ -25,22 +25,26 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'herblife' ); ?></a>
 
 	<header id="masthead" class="site-header">
+	<!-- Top Banner Nav -->
 	<?php the_field('top_banner', 'option'); ?>
 
-		<?php 
-		// if (function_exists('get_field')):
-		// 	if(get_field('top_banner')):
-		// 		the_field('top_banner'); 
-		// 	endif;
-		//endif; ?>
+	<!-- Second Banner Nav (Social Menu, Search, Cart, Login(NTH))-->
+		 
 
 		<div class = "top-header">
-		<?php if(is_active_sidebar('social')){
-				dynamic_sidebar('social');
+		<?php if(is_active_sidebar('top-social')){
+				dynamic_sidebar('top-social');
 			}
 		?>
+	
+		<!-- Cart from Woocommerce See woocommerce.php -->	
+		<?php
+		if ( function_exists( 'herblife_woocommerce_header_cart' ) ) {
+			herblife_woocommerce_header_cart();
+		}
+		?>
+		
 		</div>
-
 		<div class="site-branding">
 			<?php
 			the_custom_logo();

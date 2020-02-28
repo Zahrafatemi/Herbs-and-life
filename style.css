@@ -680,4 +680,19 @@ p.stars.selected a:not(.active):before { content: "\53"; color: royalblue; opaci
 
 .hero-banner-text-box, .promo-banner-text-box { background-color: lemonchiffon; }
 
+/*--------------------------------------------------------------
+## Events Page
+--------------------------------------------------------------*/
+.single-event { display: grid; margin: 30px; grid-template-columns: repeat(3, 1fr [col]); text-align: center; align-items: center; }
+
+.single-event img { grid-column-start: col 2; grid-column-end: col 3; }
+
+.single-event span .excerpt { align-self: center; /* grid-column-start: col 1; */ grid-column-end: col 1; }
+
+.single-event span .title { align-self: center; grid-column-start: col 1; grid-column-end: col 2; }
+
+/*--------------------------------------------------------------
+## Single Event Page
+--------------------------------------------------------------*/
+
 /*# sourceMappingURL=../herblife/sass/maps/style.css.map */

@@ -460,6 +460,7 @@ embed, iframe, object { max-width: 100%; }
 ## Header
 --------------------------------------------------------------*/
 .count img { width: 30px; height: 30px; }
+
 /*--------------------------------------------------------------
 # WooCommerce
 --------------------------------------------------------------*/
@@ -679,48 +680,11 @@ p.stars.selected a:not(.active):before { content: "\53"; color: royalblue; opaci
 
 .hero-banner-text-box, .promo-banner-text-box { background-color: lemonchiffon; }
 
+/*--------------------------------------------------------------
+## Events Page
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Single Event Page
+--------------------------------------------------------------*/
+
 /*# sourceMappingURL=../herblife/sass/maps/style.css.map */
-
-/*
-* Events Page
-*/
-.single-event{
-	display: grid;
-	margin: 30px;
-	grid-template-columns: repeat(3, 1fr [col]);
-	text-align: center;
-	align-items: center;
-}
-
-.single-event span .excerpt{
-	align-self: center;
-	/* grid-column-start: col 1; */
-	grid-column-end: col 1;
-}
-
-.single-event span .title{
-	align-self: center;
-	grid-column-start: col 1;
-	grid-column-end: col 2;
-}
-
-.single-event img{
-	grid-column-start: col 2;
-	grid-column-end: col 3;
-}
-
-/*
-* Single Event Page
-*/
-
-.wc-bookings-booking-form {
-    border: none;
-    padding: 0;
-	margin: 0;
-	width: 200px;
-	height: auto;
-}
-
-.wc-bookings-booking-form fieldset{
-	padding: 5px;
-}

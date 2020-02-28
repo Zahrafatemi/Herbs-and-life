@@ -273,4 +273,20 @@ function hl_widgets_init() {
 		
 	) );
 }
+<<<<<<< Updated upstream
 add_action( 'widgets_init', 'hl_widgets_init' );
+=======
+add_action( 'widgets_init', 'hl_widgets_init' );
+
+/**
+ * Adding image size for Event page
+ */
+
+add_image_size( 'event-thumbnail', 200, 200, array( 'left', 'top' ) );
+
+
+/**
+ * Hooks - Single Product Page
+ */
+require get_template_directory() . '/inc/hooks-product.php';
+>>>>>>> Stashed changes

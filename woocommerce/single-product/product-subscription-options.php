@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<span class="price">
 		<?php foreach ( $options as $option ): ?>
-			<span class="<?php echo esc_attr( $option[ 'class' ] ). ' ' .esc_attr( $option[ 'value' ] ); ?>">
+			<span class="<?php echo esc_attr( $option[ 'class' ] ); ?>" id="<?php echo esc_attr( $product_id ) . '-' . esc_attr( $option[ 'value' ] ) . '-price'; ?>">
 				<?php if( $option[ 'value' ] == 0 ){
 					echo $product->$price;
 				}else{
@@ -38,9 +38,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<ul class="wcsatt-options-product">
 		<?php foreach ( $options as $option ): ?>
-			<li class="<?php echo esc_attr( $option[ 'class' ] ); ?>">
+			<li class="<?php echo esc_attr( $option[ 'class' ] ) . ' frequency-option'; ?>">
 				<label>
 					<input 	type="radio"
+							class="frequency-option"
 							name="convert_to_sub_<?php echo absint( $product_id ); ?>"
 							data-custom_data="<?php echo esc_attr( json_encode( $option[ 'data' ] ) ); ?>"
 							value="<?php echo esc_attr( $option[ 'value' ] ); ?>"

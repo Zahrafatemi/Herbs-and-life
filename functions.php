@@ -130,28 +130,40 @@ function herblife_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-/** Slick Slider Setting in front page top */
-// enqueue slick slider if it is the front page
-if ( is_front_page() || is_page('14') ) {
+	/** Slick Slider Setting in front page top */
+	// enqueue slick slider if it is the front page
+	if ( is_front_page() || is_page('14') ) {
 
-    // call in the js files
-    wp_enqueue_script( 
-		'hlproject-slickslider', 
-		get_template_directory_uri().'/js/slick.min.js', 
-		array('jquery'), 
-		'20200128', 
-		true );
+		// call in the js files
+		wp_enqueue_script( 
+			'hlproject-slickslider', 
+			get_template_directory_uri().'/js/slick.min.js', 
+			array('jquery'), 
+			'20200128', 
+			true );
 
-    wp_enqueue_script( 
-		'hlproject-slickslider-settings', 
-		get_template_directory_uri().'/js/slick-settings.js', 
-		array('jquery', 
-		'hlproject-slickslider'), 
-		'20200225', 
-		true );
+		wp_enqueue_script( 
+			'hlproject-slickslider-settings', 
+			get_template_directory_uri().'/js/slick-settings.js', 
+			array('jquery', 
+			'hlproject-slickslider'), 
+			'20200225', 
+			true );
 
-}
+	}
 
+	/**
+	 * Product Subscription Enqueues
+	 */
+
+	if ( is_singular( 'product' ) ) {
+		wp_enqueue_script( 
+			'hl-product-subscription', 
+			get_template_directory_uri().'/js/product-subscription.js', 
+			array('jquery'), 
+			'20200128', 
+			true );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'herblife_scripts' );
 
@@ -263,3 +275,11 @@ function hl_widgets_init() {
 }
 add_action( 'widgets_init', 'hl_widgets_init' );
 
+/**
+ * Single product hooks
+ */
+function hl_single_product_hooks() {
+	// Remove SKU / Categories
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+}
+add_action( 'init', 'hl_single_product_hooks');

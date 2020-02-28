@@ -18,30 +18,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="wcsatt-options-wrapper" <?php echo count( $options ) === 1 ? 'style="display:none;"' : '' ?>>
-	<?php if ( $prompt ) {
-		echo $prompt;
-	} ?>
-
 	<span class="price">
 		<?php foreach ( $options as $option ): ?>
 			<span class="<?php echo esc_attr( $option[ 'class' ] ); ?>" id="<?php echo esc_attr( $product_id ) . '-' . esc_attr( $option[ 'value' ] ) . '-price'; ?>">
 				<?php if( $option[ 'value' ] == 0 ){
-					echo $product->$price;
+					echo get_woocommerce_currency_symbol() . $product->get_price();					;
 				}else{
 					echo $option[ 'description' ];
 				} ?>
 			</span>
 		<?php endforeach; ?>
 	</span>
+
+	<?php if ( $prompt ) {
+		echo $prompt;
+	} ?>
 	
 	<h3><?php _e( 'Deliver', 'woocommerce-subscribe-all-the-things' ); ?></h3>
 
 	<ul class="wcsatt-options-product">
 		<?php foreach ( $options as $option ): ?>
-			<li class="<?php echo esc_attr( $option[ 'class' ] ) . ' frequency-option'; ?>">
+			<li class="<?php echo esc_attr( $option[ 'class' ] ) . ' product-option'; ?>">
 				<label>
 					<input 	type="radio"
-							class="frequency-option"
+							class="product-option"
 							name="convert_to_sub_<?php echo absint( $product_id ); ?>"
 							data-custom_data="<?php echo esc_attr( json_encode( $option[ 'data' ] ) ); ?>"
 							value="<?php echo esc_attr( $option[ 'value' ] ); ?>"

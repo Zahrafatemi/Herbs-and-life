@@ -1,3 +1,4 @@
 jQuery(document).ready(function($){
-    console.log("Click event handler goes here");
+    console.log('product-subscription.js');
+
 });

@@ -1,0 +1,27 @@
+.single-event{
+	display: grid;
+	margin: 30px;
+	grid-template-columns: repeat(3, 1fr [col]);
+	text-align: center;
+    align-items: center;
+
+    img{
+        grid-column-start: col 2;
+        grid-column-end: col 3;
+    }
+    
+    span {
+        .excerpt{
+        align-self: center;
+        /* grid-column-start: col 1; */
+        grid-column-end: col 1;
+        }
+        .title{
+            align-self: center;
+            grid-column-start: col 1;
+            grid-column-end: col 2;
+        }
+
+    }
+
+}

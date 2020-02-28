@@ -308,3 +308,13 @@ add_action( 'widgets_init', 'hl_widgets_init' );
 
 add_image_size( 'event-thumbnail', 200, 200, array( 'left', 'top' ) );
 
+
+/**
+ * Single product hooks
+ */
+function hl_single_product_hooks() {
+	// Remove SKU / Categories
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+}
+add_action( 'init', 'hl_single_product_hooks');
+

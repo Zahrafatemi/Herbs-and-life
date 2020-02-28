@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php foreach ( $options as $option ): ?>
 			<span class="<?php echo esc_attr( $option[ 'class' ] ); ?>" id="<?php echo esc_attr( $product_id ) . '-' . esc_attr( $option[ 'value' ] ) . '-price'; ?>">
 				<?php if( $option[ 'value' ] == 0 ){
-					echo get_woocommerce_currency_symbol() . $product->get_price();					;
+					echo wc_price($product->get_price());					;
 				}else{
 					echo $option[ 'description' ];
 				} ?>

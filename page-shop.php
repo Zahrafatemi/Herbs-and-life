@@ -119,6 +119,14 @@ get_header();
                 ?>
             </section><!-- testimonials-->
 
+            <section class = "store-locator">
+            <?php if(is_active_sidebar('store-locator')){
+				dynamic_sidebar('store-locator');
+			}
+		?>     
+
+            </section>
+
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

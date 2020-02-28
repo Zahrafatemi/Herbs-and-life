@@ -24,7 +24,6 @@ get_header();
 			<?php 
 			if(get_field('hero_image_slider') ):?>
 			
-			
 				<?php while(has_sub_field('hero_image_slider')): 
 				$images = get_sub_field('hero_image');
 				$header = get_sub_field('hero_header');
@@ -35,22 +34,21 @@ get_header();
 				?>
 			
 				<div class = "hero-banner">
-						
-						<?php echo wp_get_attachment_image( $images, $size ); ?>
-						<div class="hero-banner-text-box">
-							<h3>
-							<?php echo $header?>
-							</h3>
-							<?php if($description):?>
-							<p>
-							<?php echo $description?>
-							<p>
-							<?php endif; ?>
-							<?php if($buttonText):
-								echo '<a href ="'.$buttonText.'"<button>.$buttonText.</a></button>'
-							?>
-							<?php endif; ?>
-						</div>	
+					<?php echo wp_get_attachment_image( $images, $size ); ?>
+					<div class="hero-banner-text-box">
+						<h3>
+						<?php echo $header?>
+						</h3>
+						<?php if($description):?>
+						<p>
+						<?php echo $description?>
+						<p>
+						<?php endif; ?>
+						<?php if($buttonText):
+							echo '<button src=".$buttonLink.">'.$buttonText.'</button>'
+						?>
+						<?php endif; ?>
+					</div>	
 				</div>							
 				<?php endwhile; ?>
 										
@@ -94,23 +92,25 @@ get_header();
 				<!-- Featured products loop -->  
 			</section>
 
-			<section class = "category">
+			<section class="category">
 				<h2>Categories</h2>
 				<?php
 				$prod_cat_args = array(
 						'taxonomy'=>'product_cat',
 						'orderby'=>'name',
-						'empty' => 0,
+                        'empty' => 0,
+                        'exclude' => array(47),
 						'parent'=>0  //exclude subcategory
 				);
 				$terms = get_categories($prod_cat_args);
 				foreach($terms as $term){
-					$term_link = get_term_link($term);
+                    $term_link = get_term_link($term);
+                     $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
+                    echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail');
 					echo '<div><a class = "category" href="'.esc_url($term_link).'">'.$term->name . '</a></div>';
 				}
-
 				?>
-			</section>
+			</section><!-- category-->
 
 			<section class="why-us"> 
 				<h2>Why Choose Us?</h2>

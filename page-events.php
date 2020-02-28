@@ -32,8 +32,46 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 
+		<?php
+		
+		global $post;
+
+		$short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
+
+		?>
+
+		<?php
+		$args = array(
+			'posts_per_page' => '-1',
+			'product_cat' => 'events',
+			'post_type' => 'product',
+			'orderby' => 'title',
+		);
+	
+		$query = new WP_Query( $args );
+		if( $query->have_posts()) : 
+			while( $query->have_posts() ) 
+				: $query->the_post();
+		?>
+		<div class="single-event">
+			<span class="excerpt"><?php the_excerpt() ?></span>
+			<span class="title">
+				<a href="<?php the_permalink() ?>">
+					<?php the_title(); ?>
+				</a>
+			</span>
+			<?php the_post_thumbnail('event-thumbnail'); ?>
+		</div>
+		<?php endwhile; ?>
+		<?php wp_reset_postdata(); ?>
+		<?php else:  ?>
+		<p>
+			<?php _e( 'No Products' ); ?>
+		</p>
+		<?php endif; ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
+//get_sidebar();
 get_footer();

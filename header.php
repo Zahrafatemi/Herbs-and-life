@@ -69,6 +69,17 @@
 			) );
 			?>
 		</nav><!-- #site-navigation -->
+
+		<nav id="category-navigation" class="category-navigation">
+		<?php 
+		
+		if(is_page(array(14, 327))){
+		if(is_active_sidebar('product-category-menu')){
+				dynamic_sidebar('product-category-menu');
+			}
+		}
+		?>
+		</nav><!-- #category-navigation -->
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

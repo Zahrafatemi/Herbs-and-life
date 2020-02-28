@@ -466,3 +466,13 @@ img { height: 100%; -o-object-fit: cover; object-fit: cover; }
 .slick-dots li.slick-active button:before { color: black; opacity: 0.75; }
 
 /*# sourceMappingURL=../herblife/sass/maps/style.css.map */
+
+/*
+* Events Page
+*/
+.single-event{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}

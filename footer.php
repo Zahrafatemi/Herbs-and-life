@@ -10,8 +10,20 @@
  */
 
 ?>
-
+<?php if(is_front_page() || is_home()|| is_page(array(14, 327, 103))):?>
+		<section class = "newletter">
+			<h2>SUBSCRIBE NEWSLETTER</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			
+					<?php if(is_active_sidebar('newsletter')){
+						dynamic_sidebar('newsletter');
+					}
+					?>  
+			
+		</section>
+		<?php endif;?> 
 	</div><!-- #content -->
+
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">

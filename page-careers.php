@@ -19,48 +19,40 @@ get_header();
 		<main id="main" class="site-main">
 
 
-		<?php the_title( '<h1 class="contact-title">', '</h1>' ); ?>
+		    <?php the_title( '<h1 class="contact-title">', '</h1>' ); ?>
 
 		
-		<section class="contact-intro">
-				<?php if(get_field('careers_intro') ):?>	
-				<h3><?php the_field('careers_intro')?></h3>
-				<?php endif;?>
-				
-		</section>
-		<section class= "career-list">
-		<?php 
-                if(get_field('positions') ):?>
-                
+            <section class="contact-intro">
+                <?php if(get_field('careers_intro') ):?>	
+                    <h3><?php the_field('careers_intro')?></h3>
+                <?php endif;?>
+            </section><!--.contact-intro-->
+
+            <section class= "career-list">
+                <?php if(get_field('positions') ):?>
                     <?php while(has_sub_field('positions')): 
-                    $title = get_sub_field('position_title');
-                    $location = get_sub_field('position_location');
-                    $position = get_sub_field('position_type');
-                    $summary = get_sub_field('position_summary');
-                    ?>
+                        $title = get_sub_field('position_title');
+                        $location = get_sub_field('position_location');
+                        $position = get_sub_field('position_type');
+                        $summary = get_sub_field('position_summary');?>
                 
                     <div class="position-list">
+                        <h3><?php echo $title?></h3>
+                        <?php if($location):?>
+                            <p><?php echo $location?><p>
+                        <?php endif; ?>
+
+                        <?php if($position):?>
+                            <p><?php echo $position?><p>
+                        <?php endif; ?>
                         
-                            <h3><?php echo $title?></h3>
-                            <?php if($location):?>
-                                <p><?php echo $location?><p>
-							<?php endif; ?>
-							<?php if($position):?>
-                                <p><?php echo $position?><p>
-                            <?php endif; ?>
-                            <?php if($summary):?>
-                                <p><?php echo $summary?><p>
-                            <?php endif; ?>
-                           
-                    </div>							
-                    <?php endwhile; ?>
-                                            
+                        <?php if($summary):?>
+                            <p><?php echo $summary?><p>
+                        <?php endif; ?>
+                    </div><!--.position-list-->		
+                    <?php endwhile; ?>             
                 <?php endif; ?>
-		</section>
-
-
-
-
+            </section><!--.career-list-->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

@@ -45,6 +45,14 @@
 		?>
 		
 		</div>
+		<!-- Account from Woocommerce See woocommerce.php -->	
+		<span class="account">
+		<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account',''); ?>"><img src= "<?php echo get_template_directory_uri();?>/images/myaccount-logo.png">
+		<?php _e('My Account',''); ?>
+		
+		</a>
+		</span>
+
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
@@ -80,6 +88,7 @@
 		 }
 		?>
 		</nav><!-- #category-navigation -->
+		
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

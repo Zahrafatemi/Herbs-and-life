@@ -103,13 +103,15 @@ get_header();
 						'parent'=>0  //exclude subcategory
 				);
 				$terms = get_categories($prod_cat_args);
-				foreach($terms as $term){
-                    $term_link = get_term_link($term);
-                     $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
-                    echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail');
-					echo '<div><a class = "category" href="'.esc_url($term_link).'">'.$term->name . '</a></div>';
-				}
-				?>
+				foreach($terms as $term):
+                     $term_link = get_term_link($term);
+					 $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );?>
+					<a class = "category" href="<?php echo esc_url($term_link)?>">
+                    	<?php echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail');?>
+						<div><?php echo $term->name; ?> </div>
+					</a>
+				<?php endforeach;?>
+				
 			</section><!-- category-->
 
 			<section class="why-us"> 

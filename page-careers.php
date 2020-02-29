@@ -17,11 +17,8 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
+            <h1><?php the_title(); ?></h1>
 
-
-		    <?php the_title( '<h1 class="contact-title">', '</h1>' ); ?>
-
-		
             <section class="contact-intro">
                 <?php if(get_field('careers_intro') ):?>	
                     <h3><?php the_field('careers_intro')?></h3>
@@ -39,15 +36,15 @@ get_header();
                     <div class="position-list">
                         <h3><?php echo $title?></h3>
                         <?php if($location):?>
-                            <p><?php echo $location?><p>
+                            <p><?php echo $location?></p>
                         <?php endif; ?>
 
                         <?php if($position):?>
-                            <p><?php echo $position?><p>
+                            <p><?php echo $position?></p>
                         <?php endif; ?>
-                        
+
                         <?php if($summary):?>
-                            <p><?php echo $summary?><p>
+                            <p><?php echo $summary?></p>
                         <?php endif; ?>
                     </div><!--.position-list-->		
                     <?php endwhile; ?>             

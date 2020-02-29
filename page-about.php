@@ -17,12 +17,14 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
+			
+			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 
-		<?php if ( has_post_thumbnail() ):?>
-			<div class = "about-featured-image">
-				<?php the_post_thumbnail();?>
-			</div><!--.about-featured-image-->
-		<?php endif;  ?>
+			<?php if ( has_post_thumbnail() ):?>
+				<div class = "about-featured-image">
+					<?php the_post_thumbnail();?>
+				</div><!--.about-featured-image-->
+			<?php endif;  ?>
 	
 			<section class="about-intro">
 				<?php if(get_field('mission_title') ):?>	

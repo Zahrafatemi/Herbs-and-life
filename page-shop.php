@@ -16,9 +16,9 @@ get_header();
 ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
+            <h1 class="screen-reader-text"><?php the_title(); ?></h1>
 
 			<section class = "promo-banner slider">
-			
                 <?php 
                 if(get_field('promo_banner') ):?>
                 
@@ -37,11 +37,11 @@ get_header();
                             <h3><?php echo $header?></h3>
 
                             <?php if($description):?>
-                                <p><?php echo $description?></p>
+                                <p class="promo-description"><?php echo $description?></p>
                             <?php endif; ?>
 
                             <?php if($buttonText):?>
-                                <a href="<?php echo $buttonLink?>"><?php echo $buttonText ?></a>
+                                <a class="promo-btn btn" href="<?php echo $buttonLink?>"><?php echo $buttonText ?></a>
                             <?php endif; ?>
                         </div><!--.promo-banner-text-box-->
                     </div><!--.promo-banner-->		
@@ -49,7 +49,6 @@ get_header();
                     <?php endwhile; ?>
                                             
                 <?php endif; ?>
-				
 			</section><!--.promo-banner slider-->
 
 			<section class="category">

@@ -17,7 +17,8 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-			<?php the_title( '<h1 class="contact-title">', '</h1>' ); ?>
+			<h1><?php the_title(); ?></h1>
+
 			<section class="contact-intro">
 				<?php if(get_field('contact_intro') ):?>	
 					<h3><?php the_field('contact_intro')?></h3>

@@ -17,6 +17,8 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
+			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
+
 			<section class = "hero-slide slider">
 				<?php if(get_field('hero_image_slider') ):?>
 				
@@ -163,8 +165,8 @@ get_header();
 									
 									<?php if (has_post_thumbnail( $loop->post->ID )): 
 										echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog');
-									else ?>
-										<img src="<?php .woocommerce_placeholder_img_src().?>" alt="Placeholder" width="300px" height="300px" />
+									else: ?>
+										<img src="<?php woocommerce_placeholder_img_src()?>" alt="Placeholder" width="300px" height="300px" />
 									<?php endif; ?>
 
 									<h3><?php the_title(); ?></h3>

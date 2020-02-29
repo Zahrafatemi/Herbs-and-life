@@ -26,7 +26,11 @@
 
 	<header id="masthead" class="site-header">
 	<!-- Top Banner Nav -->
-	<?php the_field('top_banner', 'option'); ?>
+	<div class = "top-banner">
+		<?php the_field('top_banner', 'option'); ?>
+	</div>
+
+	
 
 	<!-- Second Banner Nav (Social Menu, Search, Cart, Login(NTH))-->
 		 
@@ -45,19 +49,28 @@
 		?>
 		
 		</div>
+		<!-- Account from Woocommerce See woocommerce.php -->	
+		<span class="account">
+		<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account',''); ?>"><img src= "<?php echo get_template_directory_uri();?>/images/myaccount-logo.png">
+		<?php _e('My Account',''); ?>
+		
+		</a>
+		</span>
+
 		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
+		
+		
+			
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" alt="<?php bloginfo( 'name' ); ?> logo">
+			
+				<?php $image = get_field('top_logo', 'option');
+					$thumb = wp_get_attachment_image_src($image,'medium');
 				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			?>
+				<img src="<?php echo $thumb[0]; ?>"/>
+		
+			</a></h1>
+				
+		
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
@@ -80,6 +93,7 @@
 		 }
 		?>
 		</nav><!-- #category-navigation -->
+		
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

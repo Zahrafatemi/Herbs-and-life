@@ -211,11 +211,29 @@ if ( class_exists( 'WooCommerce' ) ) {
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
-		'page_title' 	=> 'Top Banner',
-		'menu_title'	=> 'Top Banner',
-		'menu_slug' 	=> 'top_banner',
+		'page_title' 	=> 'Extra Settings',
+		'menu_title'	=> 'Extra Settings',
+		'menu_slug' 	=> 'extra_settings',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Top Banner',
+		'menu_title'	=> 'Top Banner',
+		'parent_slug'	=> 'extra_settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Top Logo',
+		'menu_title'	=> 'Top Logo',
+		'parent_slug'	=> 'extra_settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Bottom Logo',
+		'menu_title'	=> 'Bottom Logo',
+		'parent_slug'	=> 'extra_settings',
 	));
 	
 
@@ -309,6 +327,22 @@ function hl_widgets_init() {
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Event Map', 'hl' ),
+		'id'            => 'event-map',
+		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Newsletter', 'hl' ),
+		'id'            => 'newsletter',
+		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
 	) );
 
 }

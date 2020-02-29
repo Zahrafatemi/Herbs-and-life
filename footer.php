@@ -10,10 +10,29 @@
  */
 
 ?>
-
+<?php if(is_front_page() || is_home()|| is_page(array(14, 327, 103))):?>
+		<section class = "newletter">
+			<h2>SUBSCRIBE NEWSLETTER</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			
+					<?php if(is_active_sidebar('newsletter')){
+						dynamic_sidebar('newsletter');
+					}
+					?>  
+			
+		</section>
+		<?php endif;?> 
 	</div><!-- #content -->
 
+
 	<footer id="colophon" class="site-footer">
+
+			<div class="bottom-logo">
+				<?php $image = get_field('bottom_logo', 'option');
+					$thumb = wp_get_attachment_image_src($image,'medium');
+				?>
+				<img src="<?php echo $thumb[0]; ?>"/>
+			</div>
 		<div class="site-info">
 		<?php
 			if(is_active_sidebar('footer-support')

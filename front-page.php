@@ -79,13 +79,13 @@ get_header();
 					$size = 'medium'; // (thumbnail, medium, large, full or custom size)
 				?>
 					<div class = "featured-image">
-					<?php echo wp_get_attachment_image( $image, $size ); ?>
+						<?php echo wp_get_attachment_image( $image, $size ); ?>
 					</div>
 
 				<div class="featured-text-box">
-				<h3><?php echo $title ?></h3>
-				<p><?php echo $text ?><p>
-				<a href = "<?php echo $link ?>"><button><?php echo $buttonText ?></button></a>
+					<h3><?php echo $title ?></h3>
+					<p><?php echo $text ?><p>
+					<a href = "<?php echo $link ?>"><button><?php echo $buttonText ?></button></a>
 				</div>
 				<?php endwhile; ?>
 				<?php endif;?>        
@@ -103,13 +103,15 @@ get_header();
 						'parent'=>0  //exclude subcategory
 				);
 				$terms = get_categories($prod_cat_args);
-				foreach($terms as $term){
-                    $term_link = get_term_link($term);
-                     $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
-                    echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail');
-					echo '<div><a class = "category" href="'.esc_url($term_link).'">'.$term->name . '</a></div>';
-				}
-				?>
+				foreach($terms as $term):
+                     $term_link = get_term_link($term);
+					 $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );?>
+					<a class = "category" href="<?php echo esc_url($term_link)?>">
+                    	<?php echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail');?>
+						<div><?php echo $term->name; ?> </div>
+					</a>
+				<?php endforeach;?>
+				
 			</section><!-- category-->
 
 			<section class="why-us"> 
@@ -164,24 +166,24 @@ get_header();
 		</section>
 
 		<section class = "upcoming-events">
-		<h2>Upcoming Events</h2>
-		<ul>
-			<?php 
-			$args = array( 'post_type' => 'product', 'posts_per_page' => 3, 'product_cat' => 'events', 'orderby' => 'rand' );
-			$loop = new WP_Query( $args );
-			while ( $loop->have_posts() ) : $loop->the_post(); global $product; ?>
-					<li class="events">    
-					 <a href="<?php echo get_permalink( $loop->post->ID ) ?>" title="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
-						 <?php woocommerce_show_product_sale_flash( $post, $product ); ?>
-						 <?php if (has_post_thumbnail( $loop->post->ID )) echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog'); else echo '<img src="'.woocommerce_placeholder_img_src().'" alt="Placeholder" width="300px" height="300px" />'; ?>
-						 <h3><?php the_title(); ?></h3>
-						 <p><?php the_content();?></p>                  
-					 </a>
-					 <?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
-				 </li>
-			<?php endwhile; ?>
-			<?php wp_reset_query(); ?>
-		</ul>
+			<h2>Upcoming Events</h2>
+			<ul>
+				<?php 
+				$args = array( 'post_type' => 'product', 'posts_per_page' => 3, 'product_cat' => 'events', 'orderby' => 'rand' );
+				$loop = new WP_Query( $args );
+				while ( $loop->have_posts() ) : $loop->the_post(); global $product; ?>
+						<li class="events">    
+						<a href="<?php echo get_permalink( $loop->post->ID ) ?>" title="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
+							<?php woocommerce_show_product_sale_flash( $post, $product ); ?>
+							<?php if (has_post_thumbnail( $loop->post->ID )) echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog'); else echo '<img src="'.woocommerce_placeholder_img_src().'" alt="Placeholder" width="300px" height="300px" />'; ?>
+							<h3><?php the_title(); ?></h3>
+							<p><?php the_content();?></p>                  
+						</a>
+						<?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
+					</li>
+				<?php endwhile; ?>
+				<?php wp_reset_query(); ?>
+			</ul>
 		</section>
 
 		<section class="awards">
@@ -211,6 +213,7 @@ get_header();
 				$args = array(
 					'post_type' => 'hl-testimonial',
 					'posts_per_page' => 2,   // If you want to all posts, set up -1  default minimum 10
+					'orderby'=>'rand'
 				);
 
 				$query = new WP_Query( $args );

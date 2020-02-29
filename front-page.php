@@ -14,83 +14,70 @@
 
 get_header();
 ?>
-
-
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
 			<section class = "hero-slide slider">
-			
-			<?php 
-			if(get_field('hero_image_slider') ):?>
-			
-				<?php while(has_sub_field('hero_image_slider')): 
-				$images = get_sub_field('hero_image');
-				$header = get_sub_field('hero_header');
-				$description = get_sub_field('hero_description');
-				$buttonText = get_sub_field('hero_button_label');
-				$buttonLink = get_sub_field('hero_link');
-				$size = 'full'; // (thumbnail, medium, large, full or custom size)
-				?>
-			
-				<div class = "hero-banner">
-					<?php echo wp_get_attachment_image( $images, $size ); ?>
-					<div class="hero-banner-text-box">
-						<h3>
-						<?php echo $header?>
-						</h3>
-						<?php if($description):?>
-						<p>
-						<?php echo $description?>
-						<p>
-						<?php endif; ?>
-						<?php if($buttonText):
-							echo '<button src=".$buttonLink.">'.$buttonText.'</button>'
-						?>
-						<?php endif; ?>
-					</div>	
-				</div>							
-				<?php endwhile; ?>
-										
-			<?php endif; ?>
+				<?php if(get_field('hero_image_slider') ):?>
 				
-			</section>
+					<?php while(has_sub_field('hero_image_slider')): 
+						$images = get_sub_field('hero_image');
+						$header = get_sub_field('hero_header');
+						$description = get_sub_field('hero_description');
+						$buttonText = get_sub_field('hero_button_label');
+						$buttonLink = get_sub_field('hero_link');
+						$size = 'full'; // (thumbnail, medium, large, full or custom size)?>
+				
+						<div class = "hero-banner">
+							<?php echo wp_get_attachment_image( $images, $size ); ?>
+							<div class="hero-banner-text-box">
+								<h3><?php echo $header?></h3>
+								<?php if($description):?>
+									<p><?php echo $description?></p>
+								<?php endif; ?>
+								<?php if($buttonText):?>
+									<button src=".$buttonLink.">'.$buttonText.'</button>'
+								<?php endif; ?>
+							</div><!--.hero-banner-text-box-->
+						</div><!--.hero-banner-->
+					<?php endwhile; ?>
+											
+				<?php endif; ?>
+			</section><!--.her-image.slider-->
 
 			<section class="home-intro">
 				<?php if(get_field('home_intro_title') ):?>	
-				<h1><?php the_field('home_intro_title')?></h1>
+					<h1><?php the_field('home_intro_title')?></h1>
 				<?php endif;?>
 
 				<?php if(get_field('home_intro') ):?>	
-				<p><?php the_field('home_intro')?></p>
+					<p><?php the_field('home_intro')?></p>
 				<?php endif;?>
-				
-			</section>
+			</section><!--.home-intro-->
 
 			<section class ="featured-products">
 				<h2>Featured Products</h2>
 				<?php if(get_field('home_featured') ):?>
-				<?php while(has_sub_field('home_featured')): 
-					$title = get_sub_field('featured_title');
-					$text = get_sub_field('featured_text');
-					$buttonText = get_sub_field('featured_button_label');
-					$image = get_sub_field('featured_image');
-					$link = get_sub_field('featured_link');
-					$size = 'medium'; // (thumbnail, medium, large, full or custom size)
-				?>
-					<div class = "featured-image">
-						<?php echo wp_get_attachment_image( $image, $size ); ?>
-					</div>
+					<?php while(has_sub_field('home_featured')): 
+						$title = get_sub_field('featured_title');
+						$text = get_sub_field('featured_text');
+						$buttonText = get_sub_field('featured_button_label');
+						$image = get_sub_field('featured_image');
+						$link = get_sub_field('featured_link');
+						$size = 'medium'; // (thumbnail, medium, large, full or custom size)?>
 
-				<div class="featured-text-box">
-					<h3><?php echo $title ?></h3>
-					<p><?php echo $text ?><p>
-					<a href = "<?php echo $link ?>"><button><?php echo $buttonText ?></button></a>
-				</div>
-				<?php endwhile; ?>
-				<?php endif;?>        
-				<!-- Featured products loop -->  
-			</section>
+						<div class = "featured-image">
+							<?php echo wp_get_attachment_image( $image, $size ); ?>
+						</div><!--.featured-image-->
+
+						<div class="featured-text-box">
+							<h3><?php echo $title ?></h3>
+							<p><?php echo $text ?><p>
+							<a href = "<?php echo $link ?>"><button><?php echo $buttonText ?></button></a>
+						</div><!--.featured-text-box-->
+					<?php endwhile; ?>
+				<?php endif;?> 
+			</section><!--.featured-products-->
 
 			<section class="category">
 				<h2>Categories</h2>
@@ -102,17 +89,19 @@ get_header();
                         'exclude' => array(47),
 						'parent'=>0  //exclude subcategory
 				);
+				
 				$terms = get_categories($prod_cat_args);
+				
 				foreach($terms as $term):
                      $term_link = get_term_link($term);
 					 $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );?>
-					<a class = "category" href="<?php echo esc_url($term_link)?>">
+					
+					<a class="category" href="<?php echo esc_url($term_link)?>">
                     	<?php echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail');?>
-						<div><?php echo $term->name; ?> </div>
-					</a>
+						<span class="category-name"><?php echo $term->name; ?></span><!--.category-name-->
+					</a><!--.category-->
 				<?php endforeach;?>
-				
-			</section><!-- category-->
+			</section><!--.category-->
 
 			<section class="why-us"> 
 				<h2>Why Choose Us?</h2>
@@ -121,120 +110,117 @@ get_header();
 					$title = get_sub_field('why_us_title');
 					$images = get_sub_field('why_us_image');
 					$size = 'medium'; // (thumbnail, medium, large, full or custom size)
-					$lists = get_sub_field('why_us_list');
-					?>
-					<div class = "whyus-wrapper">
-							<h3>
-							<?php echo $title?>
-							</h3>
+					$lists = get_sub_field('why_us_list');?>
+
+					<div class = "why-us-wrapper">
+							<h3><?php echo $title?></h3>
 							<?php echo wp_get_attachment_image( $images, $size ); ?>
-						
 							<?php if($lists):?>
-							<ul>
-								<?php foreach($lists as $list):?>
-									<?php foreach($list as $list_item):?>
-									<li><?php echo $list_item ?></li>
-									<?php endforeach;?> 
-								<?php endforeach;?>
-							</ul>
-							<?php endif; ?>	
-						</div>	
-					</div>
-					
+								<ul>
+									<?php foreach($lists as $list):?>
+										<?php foreach($list as $list_item):?>
+											<li><?php echo $list_item ?></li>
+										<?php endforeach;?> 
+									<?php endforeach;?>
+								</ul>
+							<?php endif; ?>
+					</div><!--.why-us-wrapper-->
+
 					<?php endwhile;?>
 				<?php endif;?>
-			</section>
+			</section><!--.why-us-->
 		
-		<section class = "latest-blog">
-			<h2>Latest News</h2>
-			<?php 
-			$arg = array('posts_per_page'=> 1);
-			$blog_query = new WP_Query($arg);
-			if($blog_query->have_posts()):
-				while($blog_query->have_posts()):
-					$blog_query->the_post(); ?>
-				<?php the_post_thumbnail(); ?>
-				<h3><a href = "<?php the_permalink(); ?>">
-				<?php the_title();?>
-				</a></h3>
-				<?php the_content()?>
-			<?php
-				endwhile;
-				wp_reset_postdata();
-			endif;
-			?>
-		</section>
-
-		<section class = "upcoming-events">
-			<h2>Upcoming Events</h2>
-			<ul>
+			<section class="latest-blog">
+				<h2>Latest News</h2>
 				<?php 
-				$args = array( 'post_type' => 'product', 'posts_per_page' => 3, 'product_cat' => 'events', 'orderby' => 'rand' );
-				$loop = new WP_Query( $args );
-				while ( $loop->have_posts() ) : $loop->the_post(); global $product; ?>
-						<li class="events">    
-						<a href="<?php echo get_permalink( $loop->post->ID ) ?>" title="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
-							<?php woocommerce_show_product_sale_flash( $post, $product ); ?>
-							<?php if (has_post_thumbnail( $loop->post->ID )) echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog'); else echo '<img src="'.woocommerce_placeholder_img_src().'" alt="Placeholder" width="300px" height="300px" />'; ?>
-							<h3><?php the_title(); ?></h3>
-							<p><?php the_content();?></p>                  
-						</a>
-						<?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
-					</li>
-				<?php endwhile; ?>
-				<?php wp_reset_query(); ?>
-			</ul>
-		</section>
+				$arg = array('posts_per_page'=> 1);
+				$blog_query = new WP_Query($arg);
 
-		<section class="awards">
-			<h2>Awards & Certificates</h2>
-			<?php 
-				$args = array(
-					'post_type' => 'hl-award',
-					'posts_per_page' => -1,   // If you want to all posts, set up -1  default minimum 10
-				);
-
-				$query = new WP_Query( $args );
-
-				if ( $query->have_posts() ) {
-					while ( $query->have_posts() ) {
-						$query->the_post();
-
-						the_content();
-
-					}
+				if($blog_query->have_posts()):
+					while($blog_query->have_posts()):
+						$blog_query->the_post();
+						the_post_thumbnail(); ?>
+						<h3><a href = "<?php the_permalink(); ?>"><?php the_title();?></a></h3>
+						<?php the_content()?>
+					<?php endwhile;
 					wp_reset_postdata();
-				} 
-			?>
-		</section>
-		<section class="testimonials">
-			<h2>Testimonials</h2>
-			<?php 
-				$args = array(
-					'post_type' => 'hl-testimonial',
-					'posts_per_page' => 2,   // If you want to all posts, set up -1  default minimum 10
-					'orderby'=>'rand'
-				);
+				endif; ?>
+			</section><!--.latest-blog-->
 
-				$query = new WP_Query( $args );
+			<section class = "upcoming-events">
+				<h2>Upcoming Events</h2>
+				<ul>
+					<?php 
+					$args = array( 'post_type' => 'product', 'posts_per_page' => 3, 'product_cat' => 'events', 'orderby' => 'rand' );
+					$loop = new WP_Query( $args );
 
-				if ( $query->have_posts() ) {
-					while ( $query->have_posts() ) {
-						$query->the_post();
+					while ( $loop->have_posts() ) :
+						$loop->the_post();
+						global $product; ?>
+							<li class="events">    
+								<a href="<?php echo get_permalink( $loop->post->ID ) ?>" title="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
+									<?php woocommerce_show_product_sale_flash( $post, $product );?>
+									
+									<?php if (has_post_thumbnail( $loop->post->ID )): 
+										echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog');
+									else ?>
+										<img src="<?php .woocommerce_placeholder_img_src().?>" alt="Placeholder" width="300px" height="300px" />
+									<?php endif; ?>
 
-						the_content();
+									<h3><?php the_title(); ?></h3>
+									<p><?php the_content();?></p>                  
+								</a>
+								<?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
+							</li><!--.events-->
+					<?php endwhile; ?>
+					<?php wp_reset_query(); ?>
+				</ul>
+			</section><!--.upcoming-events-->
 
-					}
-					wp_reset_postdata();
-				} 
-			?>
-		</section>
-			
+			<section class="awards">
+				<h2>Awards & Certificates</h2>
+				<?php 
+					$args = array(
+						'post_type' => 'hl-award',
+						'posts_per_page' => -1,   // If you want to all posts, set up -1  default minimum 10
+					);
 
-	
+					$query = new WP_Query( $args );
 
+					if ( $query->have_posts() ) {
+						while ( $query->have_posts() ) {
+							$query->the_post();
 
+							the_content();
 
+						}
+						wp_reset_postdata();
+					} 
+				?>
+			</section><!--.awards-->
+
+			<section class="testimonials">
+				<h2>Testimonials</h2>
+				<?php 
+					$args = array(
+						'post_type' => 'hl-testimonial',
+						'posts_per_page' => 2,   // If you want to all posts, set up -1  default minimum 10
+						'orderby'=>'rand'
+					);
+
+					$query = new WP_Query( $args );
+
+					if ( $query->have_posts() ) {
+						while ( $query->have_posts() ) {
+							$query->the_post();
+
+							the_content();
+
+						}
+						wp_reset_postdata();
+					} 
+				?>
+			</section><!--.testimonials-->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

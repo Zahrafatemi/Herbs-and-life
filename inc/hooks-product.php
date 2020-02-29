@@ -1,8 +1,8 @@
 <?php
 
-/**
- * Herb & Life Hooks for Single Product Pages
- */
+/* --------------------------------------------------
+ * # Hooks - Single Product Page
+ * -------------------------------------------------- /
 
  /**
  * Remove SKU / Categories
@@ -12,12 +12,20 @@ function hl_product_remove_sku_categories() {
 }
 add_action( 'init', 'hl_product_remove_sku_categories');
 
-function hl_product_rename_tabs( $tabs ) {
+
+/* --------------------------------------------------
+ * ## Product Data Tabs
+ * -------------------------------------------------- /
+
+/**
+ * Rename 'Additional Information' tab to 'Shipping'
+ */
+function hl_product_rename_adtl_info_tab( $tabs ) {
 	$tabs[ 'additional_information' ][ 'title' ] = __( 'Shipping' );
 
 	return $tabs;
 }
-add_filter( 'woocommerce_product_tabs', 'hl_product_rename_tabs', 98 );
+add_filter( 'woocommerce_product_tabs', 'hl_product_rename_adtl_info_tab', 98 );
 
 /**
  * Add a custom product data tab
@@ -41,3 +49,16 @@ function hl_product_new_tab_content() {
 	}
 }
 add_filter( 'woocommerce_product_tabs', 'hl_product_new_tab' );
+
+/**
+ * Remove tabs from Events pages
+ */
+// function hl_remove_products_tabs_from_events( $tabs ){
+// 	if( has_term('', 'events') ){
+// 		foreach( $tabs as $tab ){
+// 			unset( $tab );
+// 		}	
+// 		return $tabs;
+// 	}
+// }
+// add_filter( 'woocommerce_product_tabs', 'hl_remove_products_tabs_from_events', 98);

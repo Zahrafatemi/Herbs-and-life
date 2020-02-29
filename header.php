@@ -61,14 +61,14 @@
 		
 		
 			
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" alt="<?php bloginfo( 'name' ); ?> logo">
+			<div class="site-logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" alt="<?php bloginfo( 'name' ); ?> logo">
 			
 				<?php $image = get_field('top_logo', 'option');
 					$thumb = wp_get_attachment_image_src($image,'medium');
 				?>
 				<img src="<?php echo $thumb[0]; ?>"/>
 		
-			</a></h1>
+			</a></div>
 				
 		
 		</div><!-- .site-branding -->

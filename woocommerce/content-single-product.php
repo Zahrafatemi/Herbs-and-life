@@ -61,22 +61,11 @@ if ( post_password_required() ) {
 		?>
 
 		<?php
-			if( has_term( 'events', 'product_cat' ) ) {
-				?>
-					<div class="map">
-						<?php if(is_active_sidebar('event-map')){
-							dynamic_sidebar('event-map');
-						}
-				?>
-			</div>
-
-				<?php
-			}
-		?>
 			
-	</div>
 
-	<?php
+				
+
+	
 	/**
 	 * Hook: woocommerce_after_single_product_summary.
 	 *

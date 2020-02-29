@@ -124,6 +124,8 @@ function herblife_scripts() {
 
 	wp_enqueue_script('googlemapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDkumcU-Bh1GOJ3VqkVNnl04RvBxWSNG9U'); 
 
+	wp_enqueue_script('gmaps-init', get_template_directory_uri().'/gmaps.js', array('jquery'),'20200223' ,true);
+
 	wp_enqueue_script( 'herblife-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'herblife-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -367,8 +369,70 @@ require get_template_directory() . '/inc/hooks-product.php';
 function my_acf_google_map_api( $api ){
 	$api['key'] = 'AIzaSyDkumcU-Bh1GOJ3VqkVNnl04RvBxWSNG9U';
 	return $api;
- }  
- add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+}  
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+/**
+* Custom Post Type: Locations
+*/
+function cpt_location() {
+	$labels = array(
+		"name" => __( "Locations", "text_domain" ),
+		"singular_name" => __( "Location", "text_domain" ),
+	);
+	$args = array(
+		"label" => __( "Locations", "text_domain" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"delete_with_user" => false,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => array( "slug" => "location", "with_front" => true ),
+		"query_var" => true,
+		"supports" => array( "title" ),
+	);
+	register_post_type( "location", $args );
+}
+add_action( 'init', 'cpt_location' );
+
+// Locations Map Shortcode - [location_map]
+function location_map (){
+	$args = array(
+		'post_type' => 'product',
+		'post_taxonomy' => 'events',
+	);
+	$query = new WP_QUERY($args);
+	if ( $query->have_posts() ) {
+	ob_start(); ?>
+	<div class="acf-map" data-zoom="16" style="overflow: hidden; position: relative;">
+		<?php while ( $query->have_posts() ) {
+			$query->the_post();
+			$address = get_field('location');
+			$icon = get_template_directory_uri().'/images/green-marker.png';
+			?>
+			<div class="marker" data-lat="<?php echo $address['lat']; ?>" data-lng="<?php echo $address['lng']; ?>" data-img="<?php echo $icon; ?>">
+				<div class="inside-marker">
+					<h5><?php echo esc_html( $address['address'] ); ?></h5>
+				</div>
+			</div>
+	<?php } ?>
+	</div>
+	<?php wp_reset_postdata();
+	}
+	return ob_get_clean();    
+}
+add_shortcode( 'location_map', 'location_map' );
  
  
 

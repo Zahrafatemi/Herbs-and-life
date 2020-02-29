@@ -20,75 +20,75 @@ get_header();
 
 		<?php if ( has_post_thumbnail() ):?>
 			<div class = "about-featured-image">
-			<?php the_post_thumbnail();?>
-			</div>
-			<?php endif;  ?>
+				<?php the_post_thumbnail();?>
+			</div><!--.about-featured-image-->
+		<?php endif;  ?>
 	
-
-		<section class="about-intro">
+			<section class="about-intro">
 				<?php if(get_field('mission_title') ):?>	
-				<h2><?php the_field('mission_title')?></h2>
+					<h2><?php the_field('mission_title')?></h2>
 				<?php endif;?>
 
 				<?php if(get_field('mission') ):?>	
-				<p><?php the_field('mission')?></p>
+					<p><?php the_field('mission')?></p>
 				<?php endif;?>
+			</section><!--.about-intro-->
+
+			<section class="about-history">
+				<h2>History</h2>
 				
-		</section>
-		<section>
-			<h2>History</h2>
-			
-			<div class = "history-image">
-			<?php if(function_exists('get_field')):
-				$about_image_id = get_field('history_image');
+				<div class="history-image">
+					<?php if(function_exists('get_field')):
+						$about_image_id = get_field('history_image');
+						
+						if($about_image_id){
+							echo wp_get_attachment_image($about_image_id, 'large', '', array('class'=>'alignleft'));
+						}
+
+						echo $image;
+					endif;?> 
+				</div><!--.history-image-->
 				
-			 if($about_image_id){
-			echo wp_get_attachment_image($about_image_id, 'large', '', array('class'=>'alignleft'));
-			} ?>
-				<?php echo $image; ?>
-			<?php endif;?> 
-			</div>
-			<div class ="history-text">
-			<?php if(get_field('history_title') ):?>	
-			<h2><?php the_field('history_title')?></h2>
-			<?php endif;?>
+				<div class ="history-text">
+					<?php if(get_field('history_title') ):?>	
+						<h2><?php the_field('history_title')?></h2>
+					<?php endif;?>
 
-			<?php if(get_field('history') ):?>	
-			<p><?php the_field('history')?></p>
-			<?php endif;?>
-			</div>
-		</section>
+					<?php if(get_field('history') ):?>	
+						<p><?php the_field('history')?></p>
+					<?php endif;?>
+				</div><!--.history-text-->
+			</section><!--.about-history-->
 
-		<section class="awards">
-			<h2>Awards & Certificates</h2>
-			<?php 
-				$args = array(
-					'post_type' => 'hl-award',
-					'posts_per_page' => -1,   // If you want to all posts, set up -1  default minimum 10
-				);
+			<section class="awards">
+				<h2>Awards & Certificates</h2>
+				<?php 
+					$args = array(
+						'post_type' => 'hl-award',
+						'posts_per_page' => -1,   // If you want to all posts, set up -1  default minimum 10
+					);
 
-				$query = new WP_Query( $args );
+					$query = new WP_Query( $args );
 
-				if ( $query->have_posts() ) {
-					while ( $query->have_posts() ) {
-						$query->the_post();
+					if ( $query->have_posts() ) {
+						while ( $query->have_posts() ) {
+							$query->the_post();
 
-						the_content();
+							the_content();
 
+						}
+						wp_reset_postdata();
+					} 
+				?>
+			</section><!--.awards-->
+
+			<section class="supporters">
+				<h2>Our Supporters</h2>
+				<?php if(is_active_sidebar('instagram-feed')){
+						dynamic_sidebar('instagram-feed');
 					}
-					wp_reset_postdata();
-				} 
-			?>
-		</section>
-
-		<section>
-		<h2>Our Supporters</h2>
-		<?php if(is_active_sidebar('instagram-feed')){
-				dynamic_sidebar('instagram-feed');
-			}
-		?>
-		</section>
-
+				?>
+			</section><!--.supporters-->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

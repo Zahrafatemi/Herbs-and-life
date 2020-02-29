@@ -122,9 +122,9 @@ add_action( 'widgets_init', 'herblife_widgets_init' );
 function herblife_scripts() {
 	wp_enqueue_style( 'herblife-style', get_stylesheet_uri() );
 
-	wp_enqueue_script('googlemapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDkumcU-Bh1GOJ3VqkVNnl04RvBxWSNG9U'); 
+	//wp_enqueue_script('googlemapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDkumcU-Bh1GOJ3VqkVNnl04RvBxWSNG9U'); 
 
-	wp_enqueue_script('gmaps-init', get_template_directory_uri().'/gmaps.js', array('jquery'),'20200223' ,true);
+	//wp_enqueue_script('gmaps-init', get_template_directory_uri().'/gmaps.js', array('jquery'),'20200223' ,true);
 
 	wp_enqueue_script( 'herblife-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -168,6 +168,7 @@ function herblife_scripts() {
 			'20200128', 
 			true );
 	}
+	
 }
 add_action( 'wp_enqueue_scripts', 'herblife_scripts' );
 

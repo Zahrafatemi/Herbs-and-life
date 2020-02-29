@@ -36,22 +36,20 @@ get_header();
                     $title = get_sub_field('position_title');
                     $location = get_sub_field('position_location');
                     $position = get_sub_field('position_type');
+                    $summary = get_sub_field('position_summary');
                     ?>
                 
                     <div class="position-list">
                         
-                            <h3>
-                            <?php echo $title?>
-							</h3>
+                            <h3><?php echo $title?></h3>
                             <?php if($location):?>
-                            <p>
-                            <?php echo $location?>
-                            <p>
+                                <p><?php echo $location?><p>
 							<?php endif; ?>
 							<?php if($position):?>
-                            <p>
-                            <?php echo $position?>
-                            <p>
+                                <p><?php echo $position?><p>
+                            <?php endif; ?>
+                            <?php if($summary):?>
+                                <p><?php echo $summary?><p>
                             <?php endif; ?>
                            
                     </div>							

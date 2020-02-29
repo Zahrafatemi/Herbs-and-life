@@ -17,32 +17,28 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-
-		<?php the_title( '<h1 class="contact-title">', '</h1>' ); ?>
-		<section class="contact-intro">
+			<?php the_title( '<h1 class="contact-title">', '</h1>' ); ?>
+			<section class="contact-intro">
 				<?php if(get_field('contact_intro') ):?>	
-				<h3><?php the_field('contact_intro')?></h3>
+					<h3><?php the_field('contact_intro')?></h3>
 				<?php endif;?>
-				
-		</section>
-		<section class= "contact-form">
-		<?php if(is_active_sidebar('contact-form')){
-				dynamic_sidebar('contact-form');
-			}
-		?>
-		</section>
+			</section><!--.contact-intro-->
 
-		<section class = "store-locator">
-			<h2>Locations</h2>
+			<section class="contact-form">
+				<?php if(is_active_sidebar('contact-form')){
+						dynamic_sidebar('contact-form');
+					}
+				?>
+			</section><!--.contact-form-->
 
-			<?php if(is_active_sidebar('store-locator')){
-				dynamic_sidebar('store-locator');
-			}
-		    ?>    
-		</section>
+			<section class = "store-locator">
+				<h2>Locations</h2>
 
-
-
+				<?php if(is_active_sidebar('store-locator')){
+					dynamic_sidebar('store-locator');
+				}
+				?>    
+			</section><!--.contact-form-->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

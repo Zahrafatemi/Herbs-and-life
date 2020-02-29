@@ -32,28 +32,25 @@ get_header();
                     ?>
                 
                     <div class="promo-banner">
-                        
                         <?php echo wp_get_attachment_image( $images, $size ); ?>
                         <div class="promo-banner-text-box">
-                            <h3>
-                            <?php echo $header?>
-                            </h3>
+                            <h3><?php echo $header?></h3>
+
                             <?php if($description):?>
-                            <p>
-                            <?php echo $description?>
-                            <p>
+                                <p><?php echo $description?></p>
                             <?php endif; ?>
-                            <?php if($buttonText):
-                                echo '<button src=".$buttonLink.">'.$buttonText.'</button>'
-                            ?>
+
+                            <?php if($buttonText):?>
+                                <a href="<?php echo $buttonLink?>"><?php echo $buttonText ?></a>
                             <?php endif; ?>
-                        </div>	
-                    </div>							
+                        </div><!--.promo-banner-text-box-->
+                    </div><!--.promo-banner-->		
+                    					
                     <?php endwhile; ?>
                                             
                 <?php endif; ?>
 				
-			</section><!-- promo-banner slider-->
+			</section><!--.promo-banner slider-->
 
 			<section class="category">
 				<h2>Categories</h2>
@@ -69,34 +66,33 @@ get_header();
 				foreach($terms as $term):
                      $term_link = get_term_link($term);
 					 $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );?>
-					<a class = "category" href="<?php echo esc_url($term_link)?>">
+
+					<a class="category" href="<?php echo esc_url($term_link)?>">
                     	<?php echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail');?>
-						<div><?php echo $term->name; ?> </div>
+						<span class="category-name"><?php echo $term->name; ?> </span>
 					</a>
+
 				<?php endforeach;?>
-			</section><!-- category-->
+			</section><!--.category-->
 
 			<section class="we-offer"> 
 				<h2>We Also Offer</h2>
 				<?php if(get_field('we_offer') ):?>
-
 					<?php while(has_sub_field('we_offer')): 
                         $title = get_sub_field('we_offer_title');
                         $images = get_sub_field('we_offer_image');
                         $size = 'medium'; // (thumbnail, medium, large, full or custom size)
                         $link = get_sub_field('we_offer_link');
                         ?>
-                        <div class = "weoffer-wrapper">
-                            <h3>
-                                <?php echo $title?>
-                            </h3>
+
+                        <div class = "we-offer-wrapper">
+                            <h3><?php echo $title?></h3>
                             <?php echo wp_get_attachment_image( $images, $size ); ?>
-                            </div>	
-                        </div>
-					
+                        </div><!--.we-offer-wrapper-->
+
 					<?php endwhile;?>
 				<?php endif;?>
-			</section><!-- we-offer-->
+			</section><!--.we-offer-->
 		
             <section class="testimonials">
                 <h2>Testimonials</h2>
@@ -119,16 +115,15 @@ get_header();
                         wp_reset_postdata();
                     } 
                 ?>
-            </section><!-- testimonials-->
+            </section><!--.testimonials-->
 
             <section class = "store-locator">
-            <h2>Store Finder</h2>
-            <?php if(is_active_sidebar('store-locator')){
-				dynamic_sidebar('store-locator');
-			}
-		    ?>     
-
-            </section>
+                <h2>Store Finder</h2>
+                <?php if(is_active_sidebar('store-locator')){
+                    dynamic_sidebar('store-locator');
+                }
+                ?>     
+            </section><!--.store-locator-->
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

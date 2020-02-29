@@ -102,7 +102,8 @@ get_header();
                 <?php 
                     $args = array(
                         'post_type' => 'hl-testimonial',
-                        'posts_per_page' => 2,   // If you want to all posts, set up -1  default minimum 10
+                        'posts_per_page' => 2, // If you want to all posts, set up -1  default minimum 10
+                        'orderby'=>'rand'  
                     );
 
                     $query = new WP_Query( $args );

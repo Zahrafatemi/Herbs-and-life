@@ -26,6 +26,13 @@
 
 
 	<footer id="colophon" class="site-footer">
+
+			<div class="bottom-logo">
+				<?php $image = get_field('bottom_logo', 'option');
+					$thumb = wp_get_attachment_image_src($image,'medium');
+				?>
+				<img src="<?php echo $thumb[0]; ?>"/>
+			</div>
 		<div class="site-info">
 		<?php
 			if(is_active_sidebar('footer-support')

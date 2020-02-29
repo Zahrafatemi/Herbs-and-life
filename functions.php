@@ -223,6 +223,18 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Top Banner',
 		'parent_slug'	=> 'extra_settings',
 	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Top Logo',
+		'menu_title'	=> 'Top Logo',
+		'parent_slug'	=> 'extra_settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Bottom Logo',
+		'menu_title'	=> 'Bottom Logo',
+		'parent_slug'	=> 'extra_settings',
+	));
 	
 
 }

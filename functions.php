@@ -211,11 +211,17 @@ if ( class_exists( 'WooCommerce' ) ) {
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
-		'page_title' 	=> 'Top Banner',
-		'menu_title'	=> 'Top Banner',
-		'menu_slug' 	=> 'top_banner',
+		'page_title' 	=> 'Extra Settings',
+		'menu_title'	=> 'Extra Settings',
+		'menu_slug' 	=> 'extra_settings',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Top Banner',
+		'menu_title'	=> 'Top Banner',
+		'parent_slug'	=> 'extra_settings',
 	));
 	
 

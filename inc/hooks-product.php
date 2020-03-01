@@ -13,6 +13,15 @@ function hl_product_remove_sku_categories() {
 add_action( 'init', 'hl_product_remove_sku_categories');
 
 
+ /**
+ * Remove 'Choose an Option' from variations dropdown
+ */
+function hl_remove_variations_option_text( $args ) {
+	$args[ 'show_option_none' ] = '';
+	return $args;
+}
+add_filter( 'woocommerce_dropdown_variation_attribute_options_args', 'hl_remove_variations_option_text' );
+
 /* --------------------------------------------------
  * ## Product Data Tabs
  * -------------------------------------------------- /

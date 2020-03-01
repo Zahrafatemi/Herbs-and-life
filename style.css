@@ -586,6 +586,8 @@ ul.products li.product .button { display: block; }
 
 .single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-5 .flex-control-thumbs li:nth-child(5n+1) { clear: both; }
 
+.single-product div.product table.variations .reset_variations { display: none; }
+
 .single-product div.product .woocommerce-variation-price .price { display: none; }
 
 .single-product div.product .woocommerce-variation-price .product-option-price .price { display: block; }

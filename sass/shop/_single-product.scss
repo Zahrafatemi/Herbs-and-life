@@ -67,6 +67,12 @@
 			}
 		}
 
+		table.variations {
+			.reset_variations {
+				display: none;
+			}
+		}
+
 		.woocommerce-variation-price {
 			.price {
 				display: none;

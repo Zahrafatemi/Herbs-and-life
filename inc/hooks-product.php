@@ -25,19 +25,21 @@ function hl_product_rename_adtl_info_tab( $tabs ) {
 
 	return $tabs;
 }
-add_filter( 'woocommerce_product_tabs', 'hl_product_rename_adtl_info_tab', 98 );
+add_filter( 'woocommerce_product_tabs', 'hl_product_rename_adtl_info_tab');
 
 /**
  * Add a custom product data tab
  */
-function hl_product_new_tab( $tabs ) {	
-	$tabs[ 'ingredients' ] = array(
-		'title' 	=> __( 'Ingredients', 'woocommerce' ),
-		'priority' 	=> 12,
-		'callback' 	=> 'hl_product_new_tab_content'
-	);
+function hl_product_new_tab( $tabs ) {
+	if( is_singular( 'product' ) && ( !has_term( 'Events', 'product_cat' ) ) ){
+		$tabs[ 'ingredients' ] = array(
+			'title' 	=> __( 'Ingredients', 'woocommerce' ),
+			'priority' 	=> 12,
+			'callback' 	=> 'hl_product_new_tab_content'
+		);
 
-	return $tabs;
+		return $tabs;		
+	}
 }
 
 function hl_product_new_tab_content() {
@@ -48,17 +50,19 @@ function hl_product_new_tab_content() {
 		}
 	}
 }
-add_filter( 'woocommerce_product_tabs', 'hl_product_new_tab' );
+add_filter( 'woocommerce_product_tabs', 'hl_product_new_tab');
 
 /**
  * Remove tabs from Events pages
  */
-// function hl_remove_products_tabs_from_events( $tabs ){
-// 	if( has_term('', 'events') ){
-// 		foreach( $tabs as $tab ){
-// 			unset( $tab );
-// 		}	
-// 		return $tabs;
-// 	}
-// }
-// add_filter( 'woocommerce_product_tabs', 'hl_remove_products_tabs_from_events', 98);
+function hl_remove_products_tabs_from_events( $tabs ){
+	if( is_singular( 'product' ) && (has_term( 'Events', 'product_cat' )) ){
+		foreach( $tabs as $tab ){
+			unset( $tab );
+		}
+		return $tabs;
+	}
+	
+}
+add_filter( 'woocommerce_product_tabs', 'hl_remove_products_tabs_from_events', 1);
+

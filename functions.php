@@ -160,7 +160,7 @@ function herblife_scripts() {
 	 * Product Subscription Enqueues
 	 */
 
-	if ( is_singular( 'product' ) ) {
+	if ( is_singular( 'product' ) && ( has_term( 'Subscription', 'product_cat' ) ) ) {
 		wp_enqueue_script( 
 			'hl-product-subscription', 
 			get_template_directory_uri().'/js/product-subscription.js', 

@@ -40,7 +40,7 @@ add_filter( 'woocommerce_product_tabs', 'hl_product_rename_adtl_info_tab');
  * Add a custom product data tab
  */
 function hl_product_new_tab( $tabs ) {
-	if( is_singular( 'product' ) ) ){
+	if( is_singular( 'product' ) ){
 		$tabs[ 'ingredients' ] = array(
 			'title' 	=> __( 'Ingredients', 'woocommerce' ),
 			'priority' 	=> 12,
@@ -65,7 +65,7 @@ add_filter( 'woocommerce_product_tabs', 'hl_product_new_tab');
  * Remove tabs from Events pages
  */
 function hl_remove_products_tabs_from_events( $tabs ){
-	if( is_singular( 'product' ) && (has_term( 'Events', 'product_cat' )) ){
+	if( is_singular( 'product' ) && ( has_term( 'Events', 'product_cat' ) ) ){
 		foreach( $tabs as $tab ){
 			unset( $tab );
 		}

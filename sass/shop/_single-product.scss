@@ -2,6 +2,7 @@
  * Single Product
  */
 .single-product {
+	
 	div.product {
 		@include clearfix;
 		position: relative;
@@ -62,6 +63,18 @@
 							}
 						}
 					}
+				}
+			}
+		}
+
+		.woocommerce-variation-price {
+			.price {
+				display: none;
+			}
+			
+			.product-option-price {
+				.price {
+					display: block;
 				}
 			}
 		}

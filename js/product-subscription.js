@@ -1,4 +1,7 @@
 jQuery(document).ready(function($){
-    console.log('product-subscription.js');
-
+    $('body').on('change', 'input.product-option', function() {
+        $(`.product-option-price`).hide();
+        var selectedOption = $( 'input.product-option:checked' ).val();
+        $(`#${selectedOption}-price`).show();
+    });
 });

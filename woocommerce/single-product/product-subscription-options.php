@@ -18,17 +18,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="wcsatt-options-wrapper" <?php echo count( $options ) === 1 ? 'style="display:none;"' : '' ?>>
-	<span class="price">
-		<?php foreach ( $options as $option ): ?>
-			<span class="<?php echo esc_attr( $option[ 'class' ] ); ?>" id="<?php echo esc_attr( $product_id ) . '-' . esc_attr( $option[ 'value' ] ) . '-price'; ?>">
-				<?php if( $option[ 'value' ] == 0 ){
-					echo wc_price($product->get_price());					;
-				}else{
-					echo $option[ 'description' ];
-				} ?>
-			</span>
-		<?php endforeach; ?>
-	</span>
+	<?php foreach ( $options as $option ): ?>
+		<span class="product-option-price <?php echo esc_attr( $option[ 'class' ] ); ?>" id="<?php echo esc_attr( $option[ 'value' ] ) . '-price'; ?>">
+			<?php if( $option[ 'value' ] == 0 ){
+				echo wc_price($product->get_price());					;
+			}else{
+				echo $option[ 'description' ];
+			} ?>
+		</span>
+	<?php endforeach; ?>
 
 	<?php if ( $prompt ) {
 		echo $prompt;

@@ -13,6 +13,9 @@ function hl_product_remove_sku_categories() {
 add_action( 'init', 'hl_product_remove_sku_categories');
 
 
+/* --------------------------------------------------
+ * # Variations
+ * -------------------------------------------------- /
  /**
  * Remove 'Choose an Option' from variations dropdown
  */
@@ -21,6 +24,15 @@ function hl_remove_variations_option_text( $args ) {
 	return $args;
 }
 add_filter( 'woocommerce_dropdown_variation_attribute_options_args', 'hl_remove_variations_option_text' );
+
+ /**
+ * Remove Reset Variations
+ */
+function hl_remove_reset_variations() {
+	return '';
+}
+add_filter('woocommerce_reset_variations_link', 'hl_remove_reset_variations');
+
 
 /* --------------------------------------------------
  * ## Product Data Tabs

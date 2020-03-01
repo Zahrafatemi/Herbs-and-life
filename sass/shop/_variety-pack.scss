@@ -1,0 +1,14 @@
+.postid-185 {
+    
+    .woocommerce-variation-price {
+        .price {
+            display: none;
+        }
+        
+        .product-option-price {
+            .price {
+                display: block;
+            }
+        }
+    }
+}

@@ -159,7 +159,6 @@ function herblife_scripts() {
 	/**
 	 * Product Subscription Enqueues
 	 */
-
 	if ( is_singular( 'product' ) && ( has_term( 'Subscription', 'product_cat' ) ) ) {
 		wp_enqueue_script( 
 			'hl-product-subscription', 
@@ -168,7 +167,18 @@ function herblife_scripts() {
 			'20200128', 
 			true );
 	}
-	
+
+	/**
+	 * Variety Pack Addons
+	 */	
+	if ( is_single( '185' ) ) {
+		wp_enqueue_script( 
+			'hl-variety-pack-addons', 
+			get_template_directory_uri().'/js/variety-pack-addons.js', 
+			array('jquery'), 
+			'20200129', 
+			true );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'herblife_scripts' );
 

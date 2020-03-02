@@ -28,10 +28,13 @@
 	<footer id="colophon" class="site-footer">
 
 			<div class="bottom-logo">
-				<?php $image = get_field('bottom_logo', 'option');
-					$thumb = wp_get_attachment_image_src($image,'medium');
-				?>
-				<img src="<?php echo $thumb[0]; ?>"/>
+				<?php if( function_exists( 'get_field' ) ){
+					if( get_field( 'bottom_logo', 'option' ) ){
+						$image = get_field('bottom_logo', 'option');
+						$thumb = wp_get_attachment_image_src($image,'medium');
+					}
+				} ?>
+				<img src="<?php if( $thumb[0] ) { echo $thumb[0]; } ?>"/>
 			</div>
 		<div class="site-info">
 		<?php

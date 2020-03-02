@@ -81,7 +81,7 @@
 		<nav id="category-navigation" class="category-navigation">
 		<?php 
 		
-		 if(is_product_category() || is_product()||is_page(14)){
+		 if((is_product_category() && !is_tax('product_cat', 'events'))|| is_page(14)||(is_product()&&!has_term('events', 'product_cat', $post->ID))){
 		if(is_active_sidebar('product-category-menu')){
 				dynamic_sidebar('product-category-menu');
 			}

@@ -19,36 +19,28 @@ get_header();
             <h1 class="page-title"><?php the_title(); ?> Online</h1>
 
 			<section class = "promo-banner slider">
-                <?php 
-                if(get_field('promo_banner') ):?>
-                
-                    <?php while(has_sub_field('promo_banner')): 
-                    $images = get_sub_field('promo_image');
-                    $header = get_sub_field('promo_header');
-                    $description = get_sub_field('promo_description');
-                    $buttonText = get_sub_field('promo_button_label');
-                    $buttonLink = get_sub_field('promo_link');
-                    $size = 'full'; // (thumbnail, medium, large, full or custom size)
-                    ?>
-                
-                    <div class="promo-banner">
-                        <?php echo wp_get_attachment_image( $images, $size ); ?>
-                        <div class="promo-banner-text-box">
-                            <h3><?php echo $header?></h3>
-
-                            <?php if($description):?>
-                                <p class="promo-description"><?php echo $description?></p>
-                            <?php endif; ?>
-
-                            <?php if($buttonText):?>
-                                <a class="promo-btn btn" href="<?php echo $buttonLink?>"><?php echo $buttonText ?></a>
-                            <?php endif; ?>
-                        </div><!--.promo-banner-text-box-->
-                    </div><!--.promo-banner-->		
-                    					
-                    <?php endwhile; ?>
+                <?php if( function_exists( 'get_field' ) ):
+                    if( get_field( 'promo_banner' ) ):
+                        while( has_sub_field( 'promo_banner' ) ): 
+                            $images         = get_sub_field('promo_image');
+                            $header         = get_sub_field('promo_header');
+                            $description    = get_sub_field('promo_description');
+                            $buttonText     = get_sub_field('promo_button_label');
+                            $buttonLink     = get_sub_field('promo_link');
+                            $size           = 'full'; // (thumbnail, medium, large, full or custom size) ?>
+                    
+                        <div class="promo-banner">
+                            <?php if( $images && $size ) { echo wp_get_attachment_image( $images, $size ); } ?>
+                            <div class="promo-banner-text-box">
+                                <h3><?php if( $header ) { echo $header; }?></h3>
+                                <p class="promo-description"><?php if( $description ) { echo $description; }?></p>
+                                <a class="promo-btn btn" href="<?php if( $buttonLink ) { echo esc_url( $buttonLink ); }?>"><?php if( $buttonText ){ $buttonText }?></a>
+                            </div><!--.promo-banner-text-box-->
+                        </div><!--.promo-banner-->		
                                             
-                <?php endif; ?>
+                        <?php endwhile;
+                    endif;
+                endif; ?>
 			</section><!--.promo-banner slider-->
 
 			<section class="category">
@@ -76,21 +68,22 @@ get_header();
 
 			<section class="we-offer"> 
 				<h2>We Also Offer</h2>
-				<?php if(get_field('we_offer') ):?>
-					<?php while(has_sub_field('we_offer')): 
-                        $title = get_sub_field('we_offer_title');
-                        $images = get_sub_field('we_offer_image');
-                        $size = 'medium'; // (thumbnail, medium, large, full or custom size)
-                        $link = get_sub_field('we_offer_link');
-                        ?>
+                <?php if( function_exists( 'get_field' ) ):
+                    if( get_field( 'we_offer' ) ):
+                        while( has_sub_field( 'we_offer' ) ): 
+                            $title  = get_sub_field( 'we_offer_title' );
+                            $images = get_sub_field( 'we_offer_image' );
+                            $size   = 'medium'; // (thumbnail, medium, large, full or custom size)
+                            $link   = get_sub_field( 'we_offer_link' ); ?>
 
-                        <div class = "we-offer-wrapper">
-                            <h3><?php echo $title?></h3>
-                            <?php echo wp_get_attachment_image( $images, $size ); ?>
-                        </div><!--.we-offer-wrapper-->
+                            <div class = "we-offer-wrapper">
+                                <h3><?php if( $title ) { echo $title; } ?></h3>
+                                <?php if( $images && $size ) { echo wp_get_attachment_image( $images, $size ); } ?>
+                            </div><!--.we-offer-wrapper-->
 
-					<?php endwhile;?>
-				<?php endif;?>
+                        <?php endwhile;
+                    endif;
+                endif; ?>
 			</section><!--.we-offer-->
 		
             <section class="testimonials">

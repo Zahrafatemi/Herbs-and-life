@@ -20,14 +20,15 @@ get_header();
 			<h1><?php the_title(); ?></h1>
 
 			<section class="contact-intro">
-				<?php if(get_field('contact_intro') ):?>	
-					<h3><?php the_field('contact_intro')?></h3>
-				<?php endif;?>
+				<?php if( function_exists( 'get_field' ) ){
+					$contract_intro = get_field( 'contract_intro' );
+				}?>
+				<p><?php if( $contract_intro ){ echo $contract_intro; }?></p>
 			</section><!--.contact-intro-->
 
 			<section class="contact-form">
-				<?php if(is_active_sidebar('contact-form')){
-						dynamic_sidebar('contact-form');
+				<?php if(is_active_sidebar( 'contact-form' )){
+						dynamic_sidebar( 'contact-form' );
 					}
 				?>
 			</section><!--.contact-form-->

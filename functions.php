@@ -122,9 +122,11 @@ add_action( 'widgets_init', 'herblife_widgets_init' );
 function herblife_scripts() {
 	wp_enqueue_style( 'herblife-style', get_stylesheet_uri() );
 
-	//wp_enqueue_script('googlemapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDkumcU-Bh1GOJ3VqkVNnl04RvBxWSNG9U'); 
+	if('product'== get_post_type()){
+	wp_enqueue_script('googlemapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDkumcU-Bh1GOJ3VqkVNnl04RvBxWSNG9U'); 
 
-	//wp_enqueue_script('gmaps-init', get_template_directory_uri().'/gmaps.js', array('jquery'),'20200223' ,true);
+	wp_enqueue_script('gmaps-init', get_template_directory_uri().'/gmaps.js', array('jquery'),'20200223' ,true);
+	}
 
 	wp_enqueue_script( 'herblife-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -343,14 +345,6 @@ function hl_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Event Map', 'hl' ),
-		'id'            => 'event-map',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-	) );
-
-	register_sidebar( array(
 		'name'          => esc_html__( 'Newsletter', 'hl' ),
 		'id'            => 'newsletter',
 		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
@@ -377,33 +371,6 @@ function my_acf_google_map_api( $api ){
 }  
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
-// Locations Map Shortcode - [location_map]
-function location_map (){
-	$args = array(
-		'post_type' => 'product',
-		'post_taxonomy' => 'events',
-	);
-	$query = new WP_QUERY($args);
-	if ( $query->have_posts() ) {
-	ob_start(); ?>
-	<div class="acf-map" data-zoom="16" style="overflow: hidden; position: relative;">
-		<?php while ( $query->have_posts() ) {
-			$query->the_post();
-			$address = get_field('location');
-			$icon = get_template_directory_uri().'/images/green-marker.png';
-			?>
-			<div class="marker" data-lat="<?php echo $address['lat']; ?>" data-lng="<?php echo $address['lng']; ?>" data-img="<?php echo $icon; ?>">
-				<div class="inside-marker">
-					<h5><?php echo esc_html( $address['address'] ); ?></h5>
-				</div>
-			</div>
-	<?php } ?>
-	</div>
-	<?php wp_reset_postdata();
-	}
-	return ob_get_clean();    
-}
-add_shortcode( 'location_map', 'location_map' );
  
  
 

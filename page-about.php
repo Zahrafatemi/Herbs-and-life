@@ -27,46 +27,38 @@ get_header();
 			<?php endif;  ?>
 	
 			<section class="about-intro">
-				<?php if(function_exists('get_field')):
-					if(get_field('mission_title')):?>	
-						<h2><?php the_field('mission_title')?></h2>
-					<?php endif;
-				endif; ?>
+				<?php if( function_exists( 'get_field' ) ){
+					$mission_title 	= get_field( 'mission_title' );
+					$mission_text	= get_field( 'mission' ); 
+				}?>
 
-				<?php if(function_exists('get_field')):
-					if(get_field('mission')):?>	
-						<p><?php the_field('mission')?></p>
-					<?php endif;
-				endif; ?>
+				<h2 class="mission-title"><?php if( $mission_title ){ echo $mission_title; }?></h2>
+				<p class="mission-text"><?php if( $mission_text ){ echo $mission_text; }?></p>
 			</section><!--.about-intro-->
 
 			<section class="about-history">
 				<h2>History</h2>
 				
 				<div class="history-image">
-					<?php if(function_exists('get_field')):
-						$about_image_id = get_field('history_image');
-						
-						if($about_image_id){
-							echo wp_get_attachment_image($about_image_id, 'large', '', array('class'=>'alignleft'));
+					<?php if( function_exists( 'get_field' ) ){
+						$about_image_id = get_field( 'history_image' );
+
+						if( $about_image_id ){
+							echo wp_get_attachment_image( $about_image_id, 'large', '', array( 'class'=>'alignleft' ) );
 						}
 
 						echo $image;
-					endif;?> 
+					}?>
 				</div><!--.history-image-->
 				
 				<div class ="history-text">
-					<?php if(function_exists('get_field')):
-						if(get_field('history_title')):?>	
-							<h2><?php the_field('history_title')?></h2>
-						<?php endif;
-					endif; ?>
-					
-					<?php if(function_exists('get_field')):
-						if(get_field('history')):?>	
-							<p><?php the_field('history')?></p>
-						<?php endif;
-					endif; ?>
+					<?php if( function_exists( 'get_field' ) ){
+						$history_title 	= get_field( 'history_title' );
+						$history	 	= get_field( 'history' );
+					}?>
+
+					<h2 class="history-title"><?php if( $history_title ){ echo $history_title; }?></h2>
+					<p class="history"><?php if( $history ){ echo $history; }?></p>
 				</div><!--.history-text-->
 			</section><!--.about-history-->
 
@@ -94,8 +86,8 @@ get_header();
 
 			<section class="supporters">
 				<h2>Our Supporters</h2>
-				<?php if(is_active_sidebar('instagram-feed')){
-						dynamic_sidebar('instagram-feed');
+				<?php if(is_active_sidebar( 'instagram-feed' )){
+						dynamic_sidebar( 'instagram-feed' );
 					}
 				?>
 			</section><!--.supporters-->

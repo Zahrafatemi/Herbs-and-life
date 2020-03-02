@@ -59,6 +59,18 @@ if ( post_password_required() ) {
 		 */
 		do_action( 'woocommerce_single_product_summary' );
 		?>
+		
+		<div class="acf-map" data-zoom="16" style="overflow: hidden; position: relative;">
+		<?php 
+			$address = get_field('location');
+			$icon = get_template_directory_uri().'/images/green-marker.png';
+			?>
+			<div class="marker" data-lat="<?php echo $address['lat']; ?>" data-lng="<?php echo $address['lng']; ?>" data-img="<?php echo $icon; ?>">
+				<div class="inside-marker">
+					<h5><?php echo esc_html( $address['address'] ); ?></h5>
+				</div>
+			</div>
+		</div>
 
 		<?php
 			

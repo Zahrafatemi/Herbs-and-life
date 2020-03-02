@@ -34,22 +34,22 @@
 						$thumb = wp_get_attachment_image_src($image,'medium');
 					}
 				} ?>
-				<img src="<?php if( $thumb[0] ) { echo $thumb[0]; } ?>"/>
+				<img src="<?php if( $thumb[0] ) { echo esc_url( $thumb[0]; ) } ?>"/>
 			</div>
 		<div class="site-info">
 		<?php
-			if(is_active_sidebar('footer-support')
-			&& is_active_sidebar('footer-about')
-			&& is_active_sidebar('footer-address')
-			&& is_active_sidebar('social'))
+			if(is_active_sidebar( 'footer-support' )
+			&& is_active_sidebar( 'footer-about' )
+			&& is_active_sidebar( 'footer-address')
+			&& is_active_sidebar( 'social' ))
 			{
-				dynamic_sidebar('footer-support');
-				dynamic_sidebar('footer-about');
-				dynamic_sidebar('footer-address');
-				dynamic_sidebar('social');
+				dynamic_sidebar( 'footer-support' );
+				dynamic_sidebar( 'footer-about' );
+				dynamic_sidebar( 'footer-address' );
+				dynamic_sidebar( 'social' );
 			}
 		?>
-			<p>copyright© HERB&LIFE 2020</p>
+			<p>copyright© HERB&LIFE <?php echo date("Y"); ?></p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

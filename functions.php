@@ -125,7 +125,7 @@ function herblife_scripts() {
 	if('product'== get_post_type()){
 	wp_enqueue_script('googlemapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDkumcU-Bh1GOJ3VqkVNnl04RvBxWSNG9U'); 
 
-	wp_enqueue_script('gmaps-init', get_template_directory_uri().'/gmaps.js', array('jquery'),'20200223' ,true);
+	wp_enqueue_script('gmaps-init', get_template_directory_uri().'/js/gmaps.js', array('jquery'),'20200223' ,true);
 	}
 
 	wp_enqueue_script( 'herblife-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );

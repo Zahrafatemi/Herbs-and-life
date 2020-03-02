@@ -52,7 +52,7 @@ get_header();
 				<?php if(function_exists('get_field')):
 					if(get_field('home_intro_title') ):?>	
 						<h1><?php the_field('home_intro_title')?></h1>
-					<?php endif
+					<?php endif;
 				endif; ?>
 
 				<?php if(function_exists('get_field')):

@@ -376,34 +376,6 @@ function my_acf_google_map_api( $api ){
 	return $api;
 }  
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
-
-// Locations Map Shortcode - [location_map]
-function location_map (){
-	$args = array(
-		'post_type' => 'product',
-		'post_taxonomy' => 'events',
-	);
-	$query = new WP_QUERY($args);
-	if ( $query->have_posts() ) {
-	ob_start(); ?>
-	<div class="acf-map" data-zoom="16" style="overflow: hidden; position: relative;">
-		<?php while ( $query->have_posts() ) {
-			$query->the_post();
-			$address = get_field('location');
-			$icon = get_template_directory_uri().'/images/green-marker.png';
-			?>
-			<div class="marker" data-lat="<?php echo $address['lat']; ?>" data-lng="<?php echo $address['lng']; ?>" data-img="<?php echo $icon; ?>">
-				<div class="inside-marker">
-					<h5><?php echo esc_html( $address['address'] ); ?></h5>
-				</div>
-			</div>
-	<?php } ?>
-	</div>
-	<?php wp_reset_postdata();
-	}
-	return ob_get_clean();    
-}
-add_shortcode( 'location_map', 'location_map' );
  
  
 

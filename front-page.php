@@ -20,65 +20,72 @@ get_header();
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 
 			<section class = "hero-slide slider">
-				<?php if(get_field('hero_image_slider') ):?>
-				
-					<?php while(has_sub_field('hero_image_slider')): 
-						$images = get_sub_field('hero_image');
-						$header = get_sub_field('hero_header');
-						$description = get_sub_field('hero_description');
-						$buttonText = get_sub_field('hero_button_label');
-						$buttonLink = get_sub_field('hero_link');
-						$size = 'full'; // (thumbnail, medium, large, full or custom size)?>
-				
-						<div class = "hero-banner">
-							<?php echo wp_get_attachment_image( $images, $size ); ?>
-							<div class="hero-banner-text-box">
-								<h3><?php echo $header?></h3>
-								<?php if($description):?>
-									<p><?php echo $description?></p>
-								<?php endif; ?>
-								<?php if($buttonText):?>
-									<a href=".$buttonLink."><?php echo $buttonText ?></a>
-								<?php endif; ?>
-							</div><!--.hero-banner-text-box-->
-						</div><!--.hero-banner-->
-					<?php endwhile; ?>
-											
+				<?php if(function_exists('get_field')): 
+						if(get_field('hero_image_slider') ): ?>
+					
+						<?php while(has_sub_field('hero_image_slider')): 
+							$images = get_sub_field('hero_image');
+							$header = get_sub_field('hero_header');
+							$description = get_sub_field('hero_description');
+							$buttonText = get_sub_field('hero_button_label');
+							$buttonLink = get_sub_field('hero_link');
+							$size = 'full'; // (thumbnail, medium, large, full or custom size)?>
+					
+							<div class = "hero-banner">
+								<?php echo wp_get_attachment_image( $images, $size ); ?>
+								<div class="hero-banner-text-box">
+									<h3><?php echo $header?></h3>
+									<?php if($description):?>
+										<p><?php echo $description?></p>
+									<?php endif; ?>
+									<?php if($buttonText):?>
+										<a href=".$buttonLink."><?php echo $buttonText ?></a>
+									<?php endif; ?>
+								</div><!--.hero-banner-text-box-->
+							</div><!--.hero-banner-->
+						<?php endwhile; 
+						endif; ?>
 				<?php endif; ?>
 			</section><!--.her-image.slider-->
 
 			<section class="home-intro">
-				<?php if(get_field('home_intro_title') ):?>	
-					<h1><?php the_field('home_intro_title')?></h1>
-				<?php endif;?>
+				<?php if(function_exists('get_field')):
+					if(get_field('home_intro_title') ):?>	
+						<h1><?php the_field('home_intro_title')?></h1>
+					<?php endif
+				endif; ?>
 
-				<?php if(get_field('home_intro') ):?>	
+				<?php if(function_exists('get_field')):
+					if(get_field('home_intro') ):?>	
 					<p><?php the_field('home_intro')?></p>
-				<?php endif;?>
+					<?php endif
+				endif; ?>
 			</section><!--.home-intro-->
 
 			<section class ="featured-products">
 				<h2>Featured Products</h2>
-				<?php if(get_field('home_featured') ):?>
-					<?php while(has_sub_field('home_featured')): 
-						$title = get_sub_field('featured_title');
-						$text = get_sub_field('featured_text');
-						$buttonText = get_sub_field('featured_button_label');
-						$image = get_sub_field('featured_image');
-						$link = get_sub_field('featured_link');
-						$size = 'medium'; // (thumbnail, medium, large, full or custom size)?>
+				<?php if(function_exists('get_field')):
+					if(get_field('home_featured') ):
+						while(has_sub_field('home_featured')): 
+							$title = get_sub_field('featured_title');
+							$text = get_sub_field('featured_text');
+							$buttonText = get_sub_field('featured_button_label');
+							$image = get_sub_field('featured_image');
+							$link = get_sub_field('featured_link');
+							$size = 'medium'; // (thumbnail, medium, large, full or custom size)?>
 
-						<div class = "featured-image">
-							<?php echo wp_get_attachment_image( $image, $size ); ?>
-						</div><!--.featured-image-->
+							<div class = "featured-image">
+								<?php echo wp_get_attachment_image( $image, $size ); ?>
+							</div><!--.featured-image-->
 
-						<div class="featured-text-box">
-							<h3><?php echo $title ?></h3>
-							<p><?php echo $text ?><p>
-							<a href = "<?php echo $link ?>"><?php echo $buttonText ?></a>
-						</div><!--.featured-text-box-->
-					<?php endwhile; ?>
-				<?php endif;?> 
+							<div class="featured-text-box">
+								<h3><?php echo $title ?></h3>
+								<p><?php echo $text ?><p>
+								<a href = "<?php echo $link ?>"><?php echo $buttonText ?></a>
+							</div><!--.featured-text-box-->
+						<?php endwhile;
+					endif;
+				endif; ?>
 			</section><!--.featured-products-->
 
 			<section class="category">
@@ -107,29 +114,30 @@ get_header();
 
 			<section class="why-us"> 
 				<h2>Why Choose Us?</h2>
-				<?php if(get_field('why_us') ):?>
-					<?php while(has_sub_field('why_us')): 
-					$title = get_sub_field('why_us_title');
-					$images = get_sub_field('why_us_image');
-					$size = 'medium'; // (thumbnail, medium, large, full or custom size)
-					$lists = get_sub_field('why_us_list');?>
+				<?php if(function_exists('get_field')):
+					if(get_field('why_us')):
+						while(has_sub_field('why_us')): 
+							$title = get_sub_field('why_us_title');
+							$images = get_sub_field('why_us_image');
+							$size = 'medium'; // (thumbnail, medium, large, full or custom size)
+							$lists = get_sub_field('why_us_list');?>
 
-					<div class = "why-us-wrapper">
-							<h3><?php echo $title?></h3>
-							<?php echo wp_get_attachment_image( $images, $size ); ?>
-							<?php if($lists):?>
-								<ul>
-									<?php foreach($lists as $list):?>
-										<?php foreach($list as $list_item):?>
-											<li><?php echo $list_item ?></li>
-										<?php endforeach;?> 
-									<?php endforeach;?>
-								</ul>
-							<?php endif; ?>
-					</div><!--.why-us-wrapper-->
-
-					<?php endwhile;?>
-				<?php endif;?>
+							<div class = "why-us-wrapper">
+									<h3><?php echo $title?></h3>
+									<?php echo wp_get_attachment_image( $images, $size );
+									if($lists): ?>
+										<ul>
+											<?php foreach($lists as $list):
+												foreach($list as $list_item):?>
+													<li><?php echo $list_item ?></li>
+												<?php endforeach;
+											endforeach; ?>
+										</ul>
+									<?php endif; ?>
+							</div><!--.why-us-wrapper-->
+						<?php endwhile;
+					endif;
+				endif; ?>
 			</section><!--.why-us-->
 		
 			<section class="latest-blog">

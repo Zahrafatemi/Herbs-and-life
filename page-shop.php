@@ -34,7 +34,7 @@ get_header();
                             <div class="promo-banner-text-box">
                                 <h3><?php if( $header ) { echo $header; }?></h3>
                                 <p class="promo-description"><?php if( $description ) { echo $description; }?></p>
-                                <a class="promo-btn btn" href="<?php if( $buttonLink ) { echo esc_url( $buttonLink ); }?>"><?php if( $buttonText ){ $buttonText }?></a>
+                                <a class="promo-btn btn" href="<?php if( $buttonLink ) { echo esc_url( $buttonLink ); }?>"><?php if( $buttonText ){ echo $buttonText; }?></a>
                             </div><!--.promo-banner-text-box-->
                         </div><!--.promo-banner-->		
                                             

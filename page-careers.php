@@ -20,35 +20,32 @@ get_header();
             <h1><?php the_title(); ?></h1>
 
             <section class="contact-intro">
-                <?php if(get_field('careers_intro') ):?>	
-                    <h3><?php the_field('careers_intro')?></h3>
-                <?php endif;?>
+                <?php if(function_exists('get_field')):
+                    if(get_field('careers_intro') ): ?>	
+                        <h3><?php the_field('careers_intro')?></h3>
+                    <?php endif;
+                endif; ?>
             </section><!--.contact-intro-->
 
             <section class= "career-list">
-                <?php if(get_field('positions') ):?>
-                    <?php while(has_sub_field('positions')): 
-                        $title = get_sub_field('position_title');
-                        $location = get_sub_field('position_location');
-                        $position = get_sub_field('position_type');
-                        $summary = get_sub_field('position_summary');?>
-                
-                    <div class="position-list">
-                        <h3><?php echo $title?></h3>
-                        <?php if($location):?>
-                            <p><?php echo $location?></p>
-                        <?php endif; ?>
+                <?php if(function_exists('get_field')):
+                    if(get_field('positions') ):
+                        while(has_sub_field('positions')): 
+                            $title = get_sub_field('position_title');
+                            $location = get_sub_field('position_location');
+                            $position = get_sub_field('position_type');
+                            $summary = get_sub_field('position_summary'); ?>
+                    
+                        <div class="position-list">
+                            <h3><?php if( $title ) { echo $title } ?></h3>
+                            <span class="location"><?php if( $location ) { echo $location } ?></span>
+                            <span class="position"><?php if( $position ) { echo $position } ?></span>
+                            <p class="summary"><?php if( $summary ) { echo $summary } ?></p>
+                        </div><!--.position-list-->
 
-                        <?php if($position):?>
-                            <p><?php echo $position?></p>
-                        <?php endif; ?>
-
-                        <?php if($summary):?>
-                            <p><?php echo $summary?></p>
-                        <?php endif; ?>
-                    </div><!--.position-list-->		
-                    <?php endwhile; ?>             
-                <?php endif; ?>
+                        <?php endwhile;       
+                    endif;
+                endif; ?>
             </section><!--.career-list-->
 		</main><!-- #main -->
 	</div><!-- #primary -->

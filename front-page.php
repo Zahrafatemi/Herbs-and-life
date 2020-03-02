@@ -58,7 +58,7 @@ get_header();
 				<?php if(function_exists('get_field')):
 					if(get_field('home_intro') ):?>	
 					<p><?php the_field('home_intro')?></p>
-					<?php endif
+					<?php endif;
 				endif; ?>
 			</section><!--.home-intro-->
 

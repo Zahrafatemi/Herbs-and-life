@@ -1,15 +1,18 @@
 <?php
 /**
- * The template for displaying all pages
+ * The Template for displaying products in a product category. Simply includes the archive template
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * This template can be overridden by copying it to yourtheme/woocommerce/taxonomy-product_cat.php.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * HOWEVER, on occasion WooCommerce will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
  *
- * @package Herb_&_Life
+ * @see 	    https://docs.woocommerce.com/document/template-structure/
+ * @package 	WooCommerce/Templates
+ * @version     1.6.4
  */
 
 get_header();
@@ -19,18 +22,6 @@ get_header();
 		<main id="main" class="site-main">
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 			<?php
-
-			while ( have_posts() ) :
-				the_post();
-
-				get_template_part( 'template-parts/content', 'page' );
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-
-			endwhile; // End of the loop.
 			
 			global $post;
 
@@ -66,3 +57,4 @@ get_header();
 <?php
 //get_sidebar();
 get_footer();
+

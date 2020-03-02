@@ -36,41 +36,36 @@
 		 
 
 		<div class = "top-header">
-		<?php if(is_active_sidebar('top-social')){
-				dynamic_sidebar('top-social');
-			}
-		?>
-	
-		<!-- Cart from Woocommerce See woocommerce.php -->	
-		<?php
-		if ( function_exists( 'herblife_woocommerce_header_cart' ) ) {
-			herblife_woocommerce_header_cart();
-		}
-		?>
+			<?php if(is_active_sidebar('top-social')){
+					dynamic_sidebar('top-social');
+				}
+			?>
 		
-		</div>
+			<!-- Cart from Woocommerce See woocommerce.php -->	
+			<?php
+			if ( function_exists( 'herblife_woocommerce_header_cart' ) ) {
+				herblife_woocommerce_header_cart();
+			}
+			?>
+		</div><!--.top-header-->
+
 		<!-- Account from Woocommerce See woocommerce.php -->	
 		<span class="account">
-		<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account',''); ?>"><img src= "<?php echo get_template_directory_uri();?>/images/myaccount-logo.png">
-		<?php _e('My Account',''); ?>
+			<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account',''); ?>"><img src= "<?php echo get_template_directory_uri();?>/images/myaccount-logo.png">
+				<?php _e('My Account',''); ?>
+			</a>
+		</span><!--.account-->
 		
-		</a>
-		</span>
-
 		<div class="site-branding">
-		
-		
-			
-			<div class="site-logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" alt="<?php bloginfo( 'name' ); ?> logo">
-			
-				<?php $image = get_field('top_logo', 'option');
-					$thumb = wp_get_attachment_image_src($image,'medium');
-				?>
-				<img src="<?php echo $thumb[0]; ?>"/>
-		
-			</a></div>
-				
-		
+			<a class="site-logo top-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" alt="<?php bloginfo( 'name' ); ?> logo">
+				<?php if( function_exists( 'get_field' ) ){
+					if( get_field( 'top_logo', 'option' ) ){
+						$image = get_field('top_logo', 'option');
+						$thumb = wp_get_attachment_image_src($image,'medium');
+					}
+				} ?>
+				<img src="<?php if( $thumb[0] ) { echo $thumb[0]; } ?>"/>
+			</a>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">

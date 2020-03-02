@@ -20,68 +20,60 @@ get_header();
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 
 			<section class = "hero-slide slider">
-				<?php if(function_exists('get_field')): 
-						if(get_field('hero_image_slider') ): ?>
+				<?php if( function_exists( 'get_field' ) ): 
+						if( get_field( 'hero_image_slider' ) ): ?>
 					
-						<?php while(has_sub_field('hero_image_slider')): 
-							$images = get_sub_field('hero_image');
-							$header = get_sub_field('hero_header');
-							$description = get_sub_field('hero_description');
-							$buttonText = get_sub_field('hero_button_label');
-							$buttonLink = get_sub_field('hero_link');
+						<?php while( has_sub_field( 'hero_image_slider' ) ): 
+							$images 		= get_sub_field( 'hero_image' );
+							$header 		= get_sub_field( 'hero_header' );
+							$description 	= get_sub_field( 'hero_description' );
+							$buttonText 	= get_sub_field( 'hero_button_label' );
+							$buttonLink 	= get_sub_field( 'hero_link' );
 							$size = 'full'; // (thumbnail, medium, large, full or custom size)?>
 					
 							<div class = "hero-banner">
 								<?php echo wp_get_attachment_image( $images, $size ); ?>
 								<div class="hero-banner-text-box">
-									<h3><?php echo $header?></h3>
-									<?php if($description):?>
-										<p><?php echo $description?></p>
-									<?php endif; ?>
-									<?php if($buttonText):?>
-										<a href=".$buttonLink."><?php echo $buttonText ?></a>
-									<?php endif; ?>
+									<h3><?php if( $header ) { echo $header; } ?></h3>
+									<p class="description"><?php if( $description ) { echo $description; } ?></p>
+									<a class="btn-text btn" href="<?php if( $buttonLink ){ echo esc_url( $buttonLink ); } ?>"><?php if( $buttonText ){ echo $buttonText; }?></a>
 								</div><!--.hero-banner-text-box-->
 							</div><!--.hero-banner-->
 						<?php endwhile; 
 						endif; ?>
 				<?php endif; ?>
-			</section><!--.her-image.slider-->
+			</section><!--.hero-image.slider-->
 
 			<section class="home-intro">
-				<?php if(function_exists('get_field')):
-					if(get_field('home_intro_title') ):?>	
-						<h1><?php the_field('home_intro_title')?></h1>
-					<?php endif
-				endif; ?>
+				<?php if(function_exists('get_field')){
+					$home_intro_title 	= get_field('home_intro_title');
+					$home_intro 		= get_field('home_intro');
+				} ?>
 
-				<?php if(function_exists('get_field')):
-					if(get_field('home_intro') ):?>	
-					<p><?php the_field('home_intro')?></p>
-					<?php endif
-				endif; ?>
+				<h1 class="home-intro-title"><?php if( $home_intro_title ) { echo $home_intro_title; }?></h1>
+				<p class="home-intro-text"><?php if( $home_intro ){ echo $home_intro; } ?></p>
 			</section><!--.home-intro-->
 
 			<section class ="featured-products">
 				<h2>Featured Products</h2>
-				<?php if(function_exists('get_field')):
-					if(get_field('home_featured') ):
-						while(has_sub_field('home_featured')): 
-							$title = get_sub_field('featured_title');
-							$text = get_sub_field('featured_text');
-							$buttonText = get_sub_field('featured_button_label');
-							$image = get_sub_field('featured_image');
-							$link = get_sub_field('featured_link');
-							$size = 'medium'; // (thumbnail, medium, large, full or custom size)?>
+				<?php if( function_exists( 'get_field' ) ):
+					if( get_field( 'home_featured' ) ):
+						while( has_sub_field( 'home_featured' ) ): 
+							$title 		= get_sub_field( 'featured_title' );
+							$text 		= get_sub_field( 'featured_text' );
+							$buttonText = get_sub_field( 'featured_button_label' );
+							$image 		= get_sub_field( 'featured_image' );
+							$link 		= get_sub_field( 'featured_link' );
+							$size 		= 'medium'; // (thumbnail, medium, large, full or custom size)?>
 
 							<div class = "featured-image">
-								<?php echo wp_get_attachment_image( $image, $size ); ?>
+								<?php if( $image && $size ) { echo wp_get_attachment_image( $image, $size ); } ?>
 							</div><!--.featured-image-->
 
 							<div class="featured-text-box">
-								<h3><?php echo $title ?></h3>
-								<p><?php echo $text ?><p>
-								<a href = "<?php echo $link ?>"><?php echo $buttonText ?></a>
+								<h3><?php if( $title ) { echo $title; } ?></h3>
+								<p><?php if( $text ) { echo $text; } ?><p>
+								<a href = "<?php echo if( $link ) { echo esc_url( $link ); } ?>"><?php echo if( $buttonText ) { echo $buttonText; } ?></a>
 							</div><!--.featured-text-box-->
 						<?php endwhile;
 					endif;
@@ -105,8 +97,8 @@ get_header();
                      $term_link = get_term_link($term);
 					 $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );?>
 					
-					<a class="category" href="<?php echo esc_url($term_link)?>">
-                    	<?php echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail');?>
+					<a class="category" href="<?php if( $term_link ) { echo esc_url( $term_link ); } ?>">
+                    	<?php if( $thumbnail_id ) { echo wp_get_attachment_image( $thumbnail_id, 'woocommerce_thumbnail' ); }?>
 						<span class="category-name"><?php echo $term->name; ?></span><!--.category-name-->
 					</a><!--.category-->
 				<?php endforeach;?>
@@ -114,16 +106,16 @@ get_header();
 
 			<section class="why-us"> 
 				<h2>Why Choose Us?</h2>
-				<?php if(function_exists('get_field')):
-					if(get_field('why_us')):
-						while(has_sub_field('why_us')): 
-							$title = get_sub_field('why_us_title');
-							$images = get_sub_field('why_us_image');
-							$size = 'medium'; // (thumbnail, medium, large, full or custom size)
-							$lists = get_sub_field('why_us_list');?>
+				<?php if( function_exists( 'get_field' ) ):
+					if( get_field( 'why_us' ) ):
+						while( has_sub_field( 'why_us' ) ): 
+							$title 	= get_sub_field( 'why_us_title' );
+							$images = get_sub_field( 'why_us_image' );
+							$size 	= 'medium'; // (thumbnail, medium, large, full or custom size)
+							$lists 	= get_sub_field( 'why_us_list' ); ?>
 
-							<div class = "why-us-wrapper">
-									<h3><?php echo $title?></h3>
+							<div class="why-us-wrapper">
+									<h3><?php if( $title ) { echo $title } ?></h3>
 									<?php echo wp_get_attachment_image( $images, $size );
 									if($lists): ?>
 										<ul>

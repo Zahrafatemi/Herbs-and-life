@@ -27,13 +27,17 @@ get_header();
 			<?php endif;  ?>
 	
 			<section class="about-intro">
-				<?php if(get_field('mission_title') ):?>	
-					<h2><?php the_field('mission_title')?></h2>
-				<?php endif;?>
+				<?php if(function_exists('get_field')):
+					if(get_field('mission_title')):?>	
+						<h2><?php the_field('mission_title')?></h2>
+					<?php endif;
+				endif; ?>
 
-				<?php if(get_field('mission') ):?>	
-					<p><?php the_field('mission')?></p>
-				<?php endif;?>
+				<?php if(function_exists('get_field')):
+					if(get_field('mission')):?>	
+						<p><?php the_field('mission')?></p>
+					<?php endif;
+				endif; ?>
 			</section><!--.about-intro-->
 
 			<section class="about-history">
@@ -52,13 +56,17 @@ get_header();
 				</div><!--.history-image-->
 				
 				<div class ="history-text">
-					<?php if(get_field('history_title') ):?>	
-						<h2><?php the_field('history_title')?></h2>
-					<?php endif;?>
-
-					<?php if(get_field('history') ):?>	
-						<p><?php the_field('history')?></p>
-					<?php endif;?>
+					<?php if(function_exists('get_field')):
+						if(get_field('history_title')):?>	
+							<h2><?php the_field('history_title')?></h2>
+						<?php endif;
+					endif; ?>
+					
+					<?php if(function_exists('get_field')):
+						if(get_field('history')):?>	
+							<p><?php the_field('history')?></p>
+						<?php endif;
+					endif; ?>
 				</div><!--.history-text-->
 			</section><!--.about-history-->
 

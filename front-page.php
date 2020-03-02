@@ -73,7 +73,7 @@ get_header();
 							<div class="featured-text-box">
 								<h3><?php if( $title ) { echo $title; } ?></h3>
 								<p><?php if( $text ) { echo $text; } ?><p>
-								<a href = "<?php echo if( $link ) { echo esc_url( $link ); } ?>"><?php echo if( $buttonText ) { echo $buttonText; } ?></a>
+								<a href = "<?php if( $link ) { echo esc_url( $link ); } ?>"><?php if( $buttonText ) { echo $buttonText; } ?></a>
 							</div><!--.featured-text-box-->
 						<?php endwhile;
 					endif;
@@ -115,7 +115,7 @@ get_header();
 							$lists 	= get_sub_field( 'why_us_list' ); ?>
 
 							<div class="why-us-wrapper">
-									<h3><?php if( $title ) { echo $title } ?></h3>
+									<h3><?php if( $title ) { echo $title; } ?></h3>
 									<?php echo wp_get_attachment_image( $images, $size );
 									if($lists): ?>
 										<ul>

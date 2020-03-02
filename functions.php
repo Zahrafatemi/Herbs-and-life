@@ -368,12 +368,6 @@ add_action( 'widgets_init', 'hl_widgets_init' );
 
 add_image_size( 'event-thumbnail', 200, 200, array( 'left', 'top' ) );
 
-
-/**
- * Hooks - Single Product Page
- */
-require get_template_directory() . '/inc/hooks-product.php';
-
 /**
  * Google API
  */
@@ -382,40 +376,6 @@ function my_acf_google_map_api( $api ){
 	return $api;
 }  
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
-
-/**
-* Custom Post Type: Locations
-*/
-function cpt_location() {
-	$labels = array(
-		"name" => __( "Locations", "text_domain" ),
-		"singular_name" => __( "Location", "text_domain" ),
-	);
-	$args = array(
-		"label" => __( "Locations", "text_domain" ),
-		"labels" => $labels,
-		"description" => "",
-		"public" => true,
-		"publicly_queryable" => true,
-		"show_ui" => true,
-		"delete_with_user" => false,
-		"show_in_rest" => true,
-		"rest_base" => "",
-		"rest_controller_class" => "WP_REST_Posts_Controller",
-		"has_archive" => false,
-		"show_in_menu" => true,
-		"show_in_nav_menus" => true,
-		"exclude_from_search" => false,
-		"capability_type" => "post",
-		"map_meta_cap" => true,
-		"hierarchical" => false,
-		"rewrite" => array( "slug" => "location", "with_front" => true ),
-		"query_var" => true,
-		"supports" => array( "title" ),
-	);
-	register_post_type( "location", $args );
-}
-add_action( 'init', 'cpt_location' );
 
 // Locations Map Shortcode - [location_map]
 function location_map (){

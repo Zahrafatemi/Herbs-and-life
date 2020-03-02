@@ -38,7 +38,7 @@ get_header();
 									<p><?php echo $description?></p>
 								<?php endif; ?>
 								<?php if($buttonText):?>
-									<button src=".$buttonLink.">'.$buttonText.'</button>'
+									<a href=".$buttonLink."><?php echo $buttonText ?></a>
 								<?php endif; ?>
 							</div><!--.hero-banner-text-box-->
 						</div><!--.hero-banner-->
@@ -75,7 +75,7 @@ get_header();
 						<div class="featured-text-box">
 							<h3><?php echo $title ?></h3>
 							<p><?php echo $text ?><p>
-							<a href = "<?php echo $link ?>"><button><?php echo $buttonText ?></button></a>
+							<a href = "<?php echo $link ?>"><?php echo $buttonText ?></a>
 						</div><!--.featured-text-box-->
 					<?php endwhile; ?>
 				<?php endif;?> 

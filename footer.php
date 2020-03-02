@@ -34,7 +34,7 @@
 						$thumb = wp_get_attachment_image_src($image,'medium');
 					}
 				} ?>
-				<img src="<?php if( $thumb[0] ) { echo esc_url( $thumb[0]; ) } ?>"/>
+				<img src="<?php if($thumb[0]) { echo esc_url( $thumb[0]);} ?>"/>
 			</div>
 		<div class="site-info">
 		<?php

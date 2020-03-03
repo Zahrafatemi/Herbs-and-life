@@ -8,13 +8,32 @@ $color__background-ins: #fff9c0;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: royalblue;
-$color__link-visited: purple;
-$color__link-hover: midnightblue;
-$color__text-main: #404040;
+$color__link: #282828;
+$color__link-visited: rgb(2, 1, 2);
+$color__link-hover: #5E6850;
+$color__text-main: #282828;
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+
+// Brand color
+// ...apply to banner background, ui cards.. 
+$color__beige: #FFF8EC;
+$color__mossgreen: #5E6850;
+$color__coolgray: #CDD6DB;
+
+// footer, read more button
+$color__darkgray: #36474F;
+
+// Brand color for each category
+// ...apply to sub navigation and buttons
+$color__cat_herb: #5E6850;
+$color__cat_vinegar: #605341;
+$color__cat_beauty: #E5CDDE;
+
+// botanical border below headings
+$color__page_border: #5E6850;
+$color__cat_border: #9F5D06; 

@@ -10,6 +10,27 @@ textarea {
 	line-height: $font__line-height-body;
 }
 
+// Remove list style and text decoration
+ul {
+	li {
+        a {
+            text-decoration: none;
+        }
+    }
+
+}
+
+// Remove a tag text decoration
+a {
+	text-decoration: none;
+}
+
+// Normalize default font weight
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
+
 @import "headings";
 
 @import "copy";

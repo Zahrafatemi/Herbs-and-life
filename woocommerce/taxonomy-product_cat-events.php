@@ -21,36 +21,90 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
-			<?php
-			
-			global $post;
+			<div class="events">
+				<?php
+				
+				global $post;
 
-			$short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
+				$short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
 
-			$args = array(
-				'posts_per_page' => '-1',
-				'product_cat' => 'events',
-				'post_type' => 'product',
-				'orderby' => 'title',
-			);
-		
-			$query = new WP_Query( $args );
-			if( $query->have_posts()) : 
-				while( $query->have_posts() ) : 
-					$query->the_post();
-			?>
+				//$today = date('Ymd');
+				$today = 20200315;
 
-					<div class="single-event">
-						<span class="excerpt"><?php the_excerpt() ?></span>
-						<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-						<?php the_post_thumbnail('event-thumbnail'); ?>
-					</div><!--.single-event-->
+				$args_future_events = array(
+					'posts_per_page' => '-1',
+					'product_cat' => 'events',
+					'post_type' => 'product',
+					'orderby'   => 'meta_value_num',
+					'order'     => 'ASC',
+					'meta_query' => array(
+						array(
+							'key'     => 'date',
+							'compare' => '>=',
+							'value'   => $today,
+						),
+					),
+				);
+
+				$args_past_events = array(
+					'posts_per_page' => '-1',
+					'product_cat' => 'events',
+					'post_type' => 'product',
+					'orderby'   => 'meta_value_num',
+					'order'     => 'ASC',
+					'meta_query' => array(
+						array(
+							'key'     => 'date',
+							'compare' => '<',
+							'value'   => $today,
+						),
+					),
+				);
+				?>
+
+				<div class="future-events">
+
 				<?php 
-				endwhile;
-				wp_reset_postdata();
-			else: ?>
-				<p><?php _e( 'No Products' ); ?></p>
-			<?php endif; ?>
+				$query = new WP_Query( $args_future_events );
+				if( $query->have_posts()) :
+					while( $query->have_posts() ) : 
+							$query->the_post();
+					?>
+						<div class="future-single-event">
+							<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+							<?php the_post_thumbnail('event-thumbnail'); ?>
+						</div><!--.future-single-event-->
+					<?php 
+					endwhile;
+						wp_reset_postdata();
+				else: ?>
+					<p><?php _e( 'No Products' ); ?></p>
+				<?php endif; ?>
+				</div>
+
+				<button class="see-past-events" id="see-past-events" >Past Events</button>
+
+				<div class="past-events" id="past-events">
+
+				<?php
+				$query = new WP_Query( $args_past_events );
+				if( $query->have_posts()) : 
+					while( $query->have_posts() ) : 
+						$query->the_post();
+				?>
+						<div class="past-single-event">
+							<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+							<?php the_post_thumbnail('event-thumbnail'); ?>
+						</div><!--.past-single-event-->
+					<?php 
+					endwhile;
+					wp_reset_postdata();
+				else: ?>
+					<p><?php _e( 'No Products' ); ?></p>
+					
+				<?php endif; ?>
+				</div><!-- end of past events -->
+			</div><!-- end of events -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	

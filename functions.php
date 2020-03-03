@@ -256,6 +256,17 @@ function my_acf_google_map_api( $api ){
 }  
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
+function custom_admin_marker_dir() {
+
+   //$admin_marker_dir = get_stylesheet_directory() . '/wpsl-markers/';
+    $admin_marker_dir = get_stylesheet_directory() . '/images/markers/';
+
+    return $admin_marker_dir;
+}
+add_filter( 'wpsl_admin_marker_dir', 'custom_admin_marker_dir' );
+
+//define( 'WPSL_MARKER_URI', dirname( get_bloginfo( 'stylesheet_url') ) . '/wpsl-markers/' );
+define( 'WPSL_MARKER_URI', dirname( get_bloginfo( 'stylesheet_url') ) . '/images/markers/' );
 
  
  

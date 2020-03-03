@@ -28,8 +28,7 @@ get_header();
 
 				$short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
 
-				//$today = date('Ymd');
-				$today = 20200315;
+				$today = date('Ymd');
 
 				$args_future_events = array(
 					'posts_per_page' => '-1',

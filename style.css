@@ -738,4 +738,9 @@ p.stars.selected a:not(.active):before { content: "\53"; color: #282828; opacity
 --------------------------------------------------------------*/
 .wrapper { max-width: 1250px; margin: 0 auto; }
 
+/*--------------------------------------------------------------
+## CTA-Button SCSS
+--------------------------------------------------------------*/
+.cta-btn { width: 120px; height: 30px; border: 1px solid #282828; text-align: center; line-height: 30px; }
+
 /*# sourceMappingURL=../herblife/sass/maps/style.css.map */

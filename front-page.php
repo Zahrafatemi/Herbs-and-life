@@ -73,7 +73,14 @@ get_header();
 									<div class="featured-text-box">
 										<h3><?php if( $title ) { echo $title; } ?></h3>
 										<p><?php if( $text ) { echo $text; } ?><p>
-										<a href = "<?php if( $link ) { echo esc_url( $link ); } ?>"><?php if( $buttonText ) { echo $buttonText; } ?></a>
+										<a href = "<?php if( $link ) { echo esc_url( $link ); } ?>">
+										<?php if( $buttonText ):?>
+										<div class = "cta-btn"> 
+										
+										<?php { echo $buttonText; } ?>
+										</div>
+										<?php endif;?>
+										</a>
 									</div><!--.featured-text-box-->
 								<?php endwhile;
 							endif;

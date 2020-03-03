@@ -40,7 +40,15 @@
 @mixin sanserif-heading(){
 	font-family: $font__main;
 	font-weight: 500;
-}
+} 
+
+//centerizing margin-center
+@mixin margin-center {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+} 
 
 // Media Query Mixin
 @mixin mq($w) {

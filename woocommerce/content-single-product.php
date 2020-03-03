@@ -59,8 +59,10 @@ if ( post_password_required() ) {
 		 */
 		do_action( 'woocommerce_single_product_summary' );
 		?>
-		
+		<?php if((is_product() && has_term('events', 'product_cat', $post->ID))):?>
 		<div class="acf-map" data-zoom="16" style="overflow: hidden; position: relative;">
+		<?php endif;?>
+		
 		<?php 
 			$address = get_field('location');
 			$icon = get_template_directory_uri().'/images/green-marker.png';

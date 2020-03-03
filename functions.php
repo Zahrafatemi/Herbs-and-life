@@ -126,11 +126,11 @@ add_action( 'widgets_init', 'herblife_widgets_init' );
 function herblife_scripts() {
 	wp_enqueue_style( 'herblife-style', get_stylesheet_uri() );
 
-	//if(has_term('events', 'product_cat')){
+	if(has_term('events', 'product_cat')){
 
 		wp_enqueue_script( 'herblife-past-events', get_template_directory_uri() . '/js/past-events-button.js', array(), '20200301', true );
 
-	//}
+	}
 
 	if('product'== get_post_type() && has_term('events', 'product_cat', $post->ID)){
 

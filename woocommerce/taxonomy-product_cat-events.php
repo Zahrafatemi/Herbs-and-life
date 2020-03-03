@@ -71,6 +71,7 @@ get_header();
 					?>
 						<div class="future-single-event">
 							<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+							<?php the_excerpt(); ?>
 							<?php the_post_thumbnail('event-thumbnail'); ?>
 						</div><!--.future-single-event-->
 					<?php 

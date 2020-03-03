@@ -125,6 +125,7 @@ add_action( 'widgets_init', 'herblife_widgets_init' );
  */
 function herblife_scripts() {
 	wp_enqueue_style( 'herblife-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'herblife-font', 'https://use.typekit.net/hgw2ysu.css' );
 
 	if(has_term('events', 'product_cat')){
 
@@ -281,37 +282,37 @@ define( 'WPSL_MARKER_URI', dirname( get_bloginfo( 'stylesheet_url') ) . '/images
 /*
  * Register custom fonts.
  */
-function hl_fonts_url() {
-	$fonts_url = '';
+// function hl_fonts_url() {
+// 	$fonts_url = '';
 
-	/*
-	 * translators: If there are characters in your language that are not supported
-	 * by Mono45-headline and Railway, translate this to 'off'. Do not translate into your own language.
-	 */
-	$Vollkorn = _x( 'on', 'Vollkorn font: on or off', 'herblife' );
-	$AvantGarde = _x( 'on', 'ITC Avant Garde Gothic Pro font: on or off', 'herblife' );
+// 	/*
+// 	 * translators: If there are characters in your language that are not supported
+// 	 * by Mono45-headline and Railway, translate this to 'off'. Do not translate into your own language.
+// 	 */
+// 	$Vollkorn = _x( 'on', 'Vollkorn font: on or off', 'herblife' );
+// 	$AvantGarde = _x( 'on', 'ITC Avant Garde Gothic Pro font: on or off', 'herblife' );
 
-	$font_families = array();
+// 	$font_families = array();
 
-	if ( 'off' !== $Vollkorn ) {
-		$font_families[] = 'Vollkorn font:400,700';
-	}
+// 	if ( 'off' !== $Vollkorn ) {
+// 		$font_families[] = 'Vollkorn font:400,700';
+// 	}
 
-	if ( 'off' !== $AvantGarde ) {
-		$font_families[] = 'ITC Avant Garde Gothic Pro:300,300i,500,500i';
-	}
+// 	if ( 'off' !== $AvantGarde ) {
+// 		$font_families[] = 'ITC Avant Garde Gothic Pro:300,300i,500,500i';
+// 	}
 
-	if ( in_array( 'on', array($Vollkorn,$AvantGarde) ) ) {
+// 	if ( in_array( 'on', array($Vollkorn,$AvantGarde) ) ) {
 
-		$query_args = array(
-			'family'  => urlencode( implode( '|', $font_families ) ),
-			'subset'  => urlencode( 'latin,latin-ext' ),
-			'display' => urlencode( 'fallback' ),
-		);
+// 		$query_args = array(
+// 			'family'  => urlencode( implode( '|', $font_families ) ),
+// 			'subset'  => urlencode( 'latin,latin-ext' ),
+// 			'display' => urlencode( 'fallback' ),
+// 		);
 
-		$fonts_url = add_query_arg( $query_args, 'https://use.typekit.net/hgw2ysu.css' );
-	}
+// 		$fonts_url = add_query_arg( $query_args, 'https://use.typekit.net/hgw2ysu.css' );
+// 	}
 
-	return esc_url_raw( $fonts_url );
-} 
+// 	return esc_url_raw( $fonts_url );
+// } 
 

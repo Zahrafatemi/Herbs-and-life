@@ -36,7 +36,7 @@ get_header();
 								<div class="hero-banner-text-box">
 									<h3><?php if( $header ) { echo $header; } ?></h3>
 									<p class="description"><?php if( $description ) { echo $description; } ?></p>
-									<a class="btn-text btn" href="<?php if( $buttonLink ){ echo esc_url( $buttonLink ); } ?>"><?php if( $buttonText ){ echo $buttonText; }?></a>
+									<a class="cta-banner-btn btn-text btn" href="<?php if( $buttonLink ){ echo esc_url( $buttonLink ); } ?>"><?php if( $buttonText ){ echo $buttonText; }?></a>
 								</div><!--.hero-banner-text-box-->
 							</div><!--.hero-banner-->
 						<?php endwhile; 
@@ -73,12 +73,9 @@ get_header();
 									<div class="featured-text-box">
 										<h3><?php if( $title ) { echo $title; } ?></h3>
 										<p><?php if( $text ) { echo $text; } ?><p>
-										<a href = "<?php if( $link ) { echo esc_url( $link ); } ?>">
-										<?php if( $buttonText ):?>
-										<div class = "cta-btn"> 
-										
+										<a class="cta-btn" href = "<?php if( $link ) { echo esc_url( $link ); } ?>">
+										<?php if( $buttonText ):?>		
 										<?php { echo $buttonText; } ?>
-										</div>
 										<?php endif;?>
 										</a>
 									</div><!--.featured-text-box-->

@@ -26,6 +26,9 @@ get_header();
 				<header>
 					<h1 class="page-title"><?php single_post_title(); ?></h1>
 				</header>
+
+
+		<div class="wrapper">
 				<?php
 			endif;
 
@@ -50,7 +53,7 @@ get_header();
 
 		endif;
 		?>
-
+	</div><!-- .wrapper -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

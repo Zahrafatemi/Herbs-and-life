@@ -43,6 +43,7 @@ get_header();
                 endif; ?>
 			</section><!--.promo-banner slider-->
 
+        <div class="wrapper">
 			<section class="category">
 				<h2>Categories</h2>
                 <?php
@@ -116,7 +117,7 @@ get_header();
                 }
                 ?>     
             </section><!--.store-locator-->
-
+            </div><!--.wrapper-->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

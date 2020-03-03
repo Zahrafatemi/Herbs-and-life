@@ -21,6 +21,9 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
+	
+			<!-- (Maybe) Add some banner  -->
+		<div class="wrapper">
 			<?php
 			
 			global $post;
@@ -51,6 +54,8 @@ get_header();
 			else: ?>
 				<p><?php _e( 'No Products' ); ?></p>
 			<?php endif; ?>
+
+			</div> <!-- .wrapper -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	

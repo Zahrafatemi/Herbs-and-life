@@ -24,6 +24,12 @@
 		'page_title' 	=> 'Bottom Logo',
 		'menu_title'	=> 'Bottom Logo',
 		'parent_slug'	=> 'extra_settings',
+    ));
+    
+    acf_add_options_sub_page(array(
+		'page_title' 	=> 'Footer Contact',
+		'menu_title'	=> 'Footer Contact',
+		'parent_slug'	=> 'extra_settings',
 	));
 	
 

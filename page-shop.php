@@ -111,10 +111,9 @@ get_header();
 
             <section class = "store-locator">
                 <h2>Store Finder</h2>
-                <?php if(is_active_sidebar('store-locator')){
-                    dynamic_sidebar('store-locator');
-                }
-                ?>     
+                <div class = "locator-map">
+                <?php echo do_shortcode ("[wpsl]"); ?>
+                </div>    
             </section><!--.store-locator-->
 
 		</main><!-- #main -->

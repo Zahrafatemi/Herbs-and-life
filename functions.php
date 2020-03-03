@@ -45,6 +45,10 @@ if ( ! function_exists( 'herblife_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'herblife' ),
+			'fotter-1' => esc_html__( 'Footer1', 'herblife' ),
+			'fotter-2' => esc_html__( 'Footer2', 'herblife' ),
+			'category-menu' => esc_html__( 'Category Menu', 'herblife' ),
+			'social-menu'=>esc_html__('Social Menu', 'herblife')
 		) );
 
 		/*
@@ -235,102 +239,7 @@ require get_template_directory().'/inc/register-options-page.php';
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function hl_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Support', 'hl' ),
-		'id'            => 'footer-support',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer About', 'hl' ),
-		'id'            => 'footer-about',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Address', 'hl' ),
-		'id'            => 'footer-address',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Social Media', 'hl' ),
-		'id'            => 'social',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Top Social Media', 'hl' ),
-		'id'            => 'top-social',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Instagram Feed', 'hl' ),
-		'id'            => 'instagram-feed',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Contact Form', 'hl' ),
-		'id'            => 'contact-form',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Product Category Menu', 'hl' ),
-		'id'            => 'product-category-menu',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Store Locator', 'hl' ),
-		'id'            => 'store-locator',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Newsletter', 'hl' ),
-		'id'            => 'newsletter',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-	) );
-
-}
-
-add_action( 'widgets_init', 'hl_widgets_init' );
 
 /**
  * Adding image size for Event page
@@ -346,6 +255,43 @@ function my_acf_google_map_api( $api ){
 	return $api;
 }  
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
- 
+
+
  
 
+/*
+ * Register custom fonts.
+ */
+function hl_fonts_url() {
+	$fonts_url = '';
+
+	/*
+	 * translators: If there are characters in your language that are not supported
+	 * by Mono45-headline and Railway, translate this to 'off'. Do not translate into your own language.
+	 */
+	$Vollkorn = _x( 'on', 'Vollkorn font: on or off', 'herblife' );
+	$AvantGarde = _x( 'on', 'ITC Avant Garde Gothic Pro font: on or off', 'herblife' );
+
+	$font_families = array();
+
+	if ( 'off' !== $Vollkorn ) {
+		$font_families[] = 'Vollkorn font:400,700';
+	}
+
+	if ( 'off' !== $AvantGarde ) {
+		$font_families[] = 'ITC Avant Garde Gothic Pro:300,300i,500,500i';
+	}
+
+	if ( in_array( 'on', array($Vollkorn,$AvantGarde) ) ) {
+
+		$query_args = array(
+			'family'  => urlencode( implode( '|', $font_families ) ),
+			'subset'  => urlencode( 'latin,latin-ext' ),
+			'display' => urlencode( 'fallback' ),
+		);
+
+		$fonts_url = add_query_arg( $query_args, 'https://use.typekit.net/hgw2ysu.css' );
+	}
+
+	return esc_url_raw( $fonts_url );
+}

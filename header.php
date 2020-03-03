@@ -36,10 +36,24 @@
 		 
 
 		<div class = "top-header">
-			<?php if(is_active_sidebar('top-social')){
-					dynamic_sidebar('top-social');
-				}
-			?>
+			
+			<nav id="social-navigation" class="social-navigation">
+			<!-- For search bar -->
+				<div class= "search-bar">		
+					<?php get_search_form();?>
+				<div>
+			<!-- For social menu -->
+					<?php 
+						wp_nav_menu(
+							array(
+									'theme_location' => 'social-menu',
+									'memu_id' =>'social-menu',
+									
+							)
+						);
+					?>
+			</nav>
+			
 		
 			<!-- Cart from Woocommerce See woocommerce.php -->	
 			<?php
@@ -81,12 +95,19 @@
 		<nav id="category-navigation" class="category-navigation">
 		<?php 
 		
-		 if((is_product_category() && !is_tax('product_cat', 'events'))|| is_page(14)||(is_product()&&!has_term('events', 'product_cat', $post->ID))){
-		if(is_active_sidebar('product-category-menu')){
-				dynamic_sidebar('product-category-menu');
-			}
-		 }
-		?>
+		 if((is_product_category() && !is_tax('product_cat', 'events'))|| is_page(14)||(is_product()&&!has_term('events', 'product_cat', $post->ID))):?>
+		
+		<nav id="category-navigation" class="category-navigation">
+					<?php 
+						wp_nav_menu(
+							array(
+									'theme_location' => 'category-menu',
+									'memu_id' =>'category-menu'
+							)
+						);
+					?>
+		</nav>
+		<?php endif;?>
 		</nav><!-- #category-navigation -->
 		
 	</header><!-- #masthead -->

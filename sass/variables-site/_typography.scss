@@ -1,5 +1,10 @@
-$font__main: sans-serif;
+$font__main: 'ITC Avant Garde Gothic Pro', sans-serif;
+$font__heading: 'Vollkorn', serif;
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
-$font__line-height-body: 1.5;
+
+$font__line-height-body: 1.4;
+$font__line-height-heading: 1.4;
 $font__line-height-pre: 1.6;
+
+$font__letter-spacing-heading: 0.06em;

@@ -10,15 +10,12 @@
  */
 
 ?>
-<?php if(is_front_page() || is_home()|| is_page(array(14, 327, 103))):?>
+<?php if(is_front_page() || is_home()|| is_page(array(14, 327, 103))||(is_product() && !has_term('events', 'product_cat', $post->ID))):?>
 		<section class = "newletter">
 			<h2>SUBSCRIBE NEWSLETTER</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 			
-					<?php if(is_active_sidebar('newsletter')){
-						dynamic_sidebar('newsletter');
-					}
-					?>  
+			<?php echo do_shortcode ('[mc4wp_form id="392"]'); ?>
 			
 		</section>
 		<?php endif;?> 
@@ -36,16 +33,23 @@
 				} ?>
 				<img src="<?php if($thumb[0]) { echo esc_url( $thumb[0]);} ?>"/>
 			</div>
+			<div class = "company-info">
+				<ul>
+					<li><?php the_field('company_name', 'option'); ?></li>
+					<li><?php the_field('company_address', 'option'); ?></li>
+					<li><?php the_field('company_number', 'option'); ?></li>
+					<li><?php the_field('company_email', 'option'); ?></li>
+				</ul>
+			</div>
 		<div class="site-info">
 		<?php
 			if(is_active_sidebar( 'footer-support' )
 			&& is_active_sidebar( 'footer-about' )
-			&& is_active_sidebar( 'footer-address')
 			&& is_active_sidebar( 'social' ))
 			{
 				dynamic_sidebar( 'footer-support' );
 				dynamic_sidebar( 'footer-about' );
-				dynamic_sidebar( 'footer-address' );
+			
 				dynamic_sidebar( 'social' );
 			}
 		?>

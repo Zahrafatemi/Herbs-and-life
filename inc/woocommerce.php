@@ -278,10 +278,11 @@ if ( ! function_exists( 'herblife_woocommerce_header_cart' ) ) {
  /**
  * Remove SKU / Categories
  */
-function hl_product_remove_sku_categories() {
+function hl_product_remove_actions() {
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+	remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar',10);
 }
-add_action( 'init', 'hl_product_remove_sku_categories');
+add_action( 'init', 'hl_product_remove_actions');
 
 
 /* --------------------------------------------------

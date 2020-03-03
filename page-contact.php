@@ -27,19 +27,14 @@ get_header();
 			</section><!--.contact-intro-->
 
 			<section class="contact-form">
-				<?php if(is_active_sidebar( 'contact-form' )){
-						dynamic_sidebar( 'contact-form' );
-					}
-				?>
+				<?php echo do_shortcode ('[contact-form-7 id="10" title="Contact form 1"]]'); ?>  
 			</section><!--.contact-form-->
 
 			<section class = "store-locator">
 				<h2>Locations</h2>
-
-				<?php if(is_active_sidebar('store-locator')){
-					dynamic_sidebar('store-locator');
-				}
-				?>    
+				<div class = "locator-map">
+				<?php echo do_shortcode ("[wpsl]"); ?>  
+				</div> 
 			</section><!--.contact-form-->
 		</main><!-- #main -->
 	</div><!-- #primary -->

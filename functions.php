@@ -256,15 +256,7 @@ function hl_widgets_init() {
 		'after_title'   => '</h3>',
 	) );
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Address', 'hl' ),
-		'id'            => 'footer-address',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
+
 
 	register_sidebar( array(
 		'name'          => esc_html__( 'Social Media', 'hl' ),
@@ -284,23 +276,8 @@ function hl_widgets_init() {
 		
 	) );
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Instagram Feed', 'hl' ),
-		'id'            => 'instagram-feed',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		
-	) );
+	
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Contact Form', 'hl' ),
-		'id'            => 'contact-form',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		
-	) );
 
 	register_sidebar( array(
 		'name'          => esc_html__( 'Product Category Menu', 'hl' ),
@@ -311,22 +288,8 @@ function hl_widgets_init() {
 		
 	) );
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Store Locator', 'hl' ),
-		'id'            => 'store-locator',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		
-	) );
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Newsletter', 'hl' ),
-		'id'            => 'newsletter',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-	) );
+
 
 }
 
@@ -346,6 +309,8 @@ function my_acf_google_map_api( $api ){
 	return $api;
 }  
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+
  
  
 

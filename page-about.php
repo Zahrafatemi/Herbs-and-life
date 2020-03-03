@@ -86,10 +86,7 @@ get_header();
 
 			<section class="supporters">
 				<h2>Our Supporters</h2>
-				<?php if(is_active_sidebar( 'instagram-feed' )){
-						dynamic_sidebar( 'instagram-feed' );
-					}
-				?>
+					<?php echo do_shortcode ("[instagram-feed cols=6]"); ?>
 			</section><!--.supporters-->
 		</main><!-- #main -->
 	</div><!-- #primary -->

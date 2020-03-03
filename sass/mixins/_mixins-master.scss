@@ -1,8 +1,66 @@
+/*
+ * Font Style Mixins
+ */
+// Set serif heading
+@mixin serif-heading(){
+	font-family: $font__heading;
+	letter-spacing: $font__letter-spacing-heading;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+// Set light san-serif heading
+@mixin sanserif-heading(){
+	font-family: $font__main;
+	font-weight: 500;
+} 
+
+
+/*
+ * Button Styles Mixins
+ */
+// Set up Basic button styles
+@mixin btn-style() {
+	@include serif-heading();
+	
+	display: inline-block;
+	width: 100%;
+	max-width: 140px;
+	border: 1px solid $color__mossgreen;
+	background-color: #fff;
+    text-align: center;
+	line-height: 25px;
+	padding: 2px 5px;
+	letter-spacing: 0.1em;;
+	font-size: 0.9em;
+}
+
+
+/*
+ * Media Query
+ */
+@mixin mq($w) {
+    @media (min-width: $w){
+        @content;
+    }
+}
+
+/*
+ * Basic Layout settings
+ */
 // Rem output with px fallback
 @mixin font-size($sizeValue: 1) {
 	font-size: ($sizeValue * 16) * 1px;
 	font-size: $sizeValue * 1rem;
 }
+
+// centerizing margin-center
+@mixin margin-center {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+} 
 
 // Center block
 @mixin center-block {
@@ -26,33 +84,4 @@
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
-}
-
-// Set serif heading
-@mixin serif-heading(){
-	font-family: $font__heading;
-	letter-spacing: $font__letter-spacing-heading;
-	text-transform: uppercase;
-	font-weight: 700;
-}
-
-// Set light san-serif heading
-@mixin sanserif-heading(){
-	font-family: $font__main;
-	font-weight: 500;
-} 
-
-//centerizing margin-center
-@mixin margin-center {
-    margin: {
-        left: auto;
-        right: auto;
-    }
-} 
-
-// Media Query Mixin
-@mixin mq($w) {
-    @media (min-width: $w){
-        @content
-    }
 }

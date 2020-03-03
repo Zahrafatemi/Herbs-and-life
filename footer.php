@@ -42,17 +42,40 @@
 				</ul>
 			</div>
 		<div class="site-info">
-		<?php
-			if(is_active_sidebar( 'footer-support' )
-			&& is_active_sidebar( 'footer-about' )
-			&& is_active_sidebar( 'social' ))
-			{
-				dynamic_sidebar( 'footer-support' );
-				dynamic_sidebar( 'footer-about' );
-			
-				dynamic_sidebar( 'social' );
-			}
-		?>
+
+		<div class="footer-menus">
+				<nav id="footer-navigation1" class="footer-navigation">
+					<?php 
+						wp_nav_menu(
+							array(
+									'theme_location' => 'fotter-1',
+									'memu_id' =>'footer1-menu'
+							)
+						);
+					?>
+				</nav>
+				<nav id="footer-navigation2" class="footer-navigation">
+					<?php 
+						wp_nav_menu(
+							array(
+									'theme_location' => 'fotter-2',
+									'memu_id' =>'footer2-menu'
+							)
+						);
+					?>
+				</nav>
+				<nav id="social-navigation" class="social-navigation">
+					<?php 
+						wp_nav_menu(
+							array(
+									'theme_location' => 'social-menu',
+									'memu_id' =>'social-menu',
+									
+							)
+						);
+					?>
+				</nav>
+			</div>
 			<p>copyright© HERB&LIFE <?php echo date("Y"); ?></p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

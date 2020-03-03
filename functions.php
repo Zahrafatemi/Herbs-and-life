@@ -45,6 +45,10 @@ if ( ! function_exists( 'herblife_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'herblife' ),
+			'fotter-1' => esc_html__( 'Footer1', 'herblife' ),
+			'fotter-2' => esc_html__( 'Footer2', 'herblife' ),
+			'category-menu' => esc_html__( 'Category Menu', 'herblife' ),
+			'social-menu'=>esc_html__('Social Menu', 'herblife')
 		) );
 
 		/*
@@ -235,65 +239,7 @@ require get_template_directory().'/inc/register-options-page.php';
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function hl_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Support', 'hl' ),
-		'id'            => 'footer-support',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer About', 'hl' ),
-		'id'            => 'footer-about',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-
-
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Social Media', 'hl' ),
-		'id'            => 'social',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Top Social Media', 'hl' ),
-		'id'            => 'top-social',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		
-	) );
-
-	
-
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Product Category Menu', 'hl' ),
-		'id'            => 'product-category-menu',
-		'description'   => esc_html__( 'Add widgets here.', 'hl' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		
-	) );
-
-
-
-
-}
-
-add_action( 'widgets_init', 'hl_widgets_init' );
 
 /**
  * Adding image size for Event page

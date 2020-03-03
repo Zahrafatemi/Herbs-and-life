@@ -15,6 +15,3 @@ function displayPastEvents() {
         past_events_display = false;
     }
 }
-
-const past_events_button = document.getElementsByClassName('single_add_to_cart_button');
-

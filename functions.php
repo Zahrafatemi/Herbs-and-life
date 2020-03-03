@@ -122,7 +122,7 @@ add_action( 'widgets_init', 'herblife_widgets_init' );
 function herblife_scripts() {
 	wp_enqueue_style( 'herblife-style', get_stylesheet_uri() );
 
-	if('product'== get_post_type()){
+	if('product'== get_post_type() && has_term('events', 'product_cat', $post->ID)){
 	wp_enqueue_script('googlemapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDkumcU-Bh1GOJ3VqkVNnl04RvBxWSNG9U'); 
 
 	wp_enqueue_script('gmaps-init', get_template_directory_uri().'/js/gmaps.js', array('jquery'),'20200223' ,true);

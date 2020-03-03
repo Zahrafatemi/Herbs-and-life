@@ -58,6 +58,8 @@ if ( post_password_required() ) {
 		 * @hooked WC_Structured_Data::generate_product_data() - 60
 		 */
 		do_action( 'woocommerce_single_product_summary' );
+
+		if(get_field('location')):
 		?>
 		
 		<div class="acf-map" data-zoom="16" style="overflow: hidden; position: relative;">
@@ -73,7 +75,7 @@ if ( post_password_required() ) {
 		</div>
 		
 		<?php
-			
+		endif;
 
 				
 

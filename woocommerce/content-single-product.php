@@ -58,7 +58,44 @@ if ( post_password_required() ) {
 		 * @hooked WC_Structured_Data::generate_product_data() - 60
 		 */
 		do_action( 'woocommerce_single_product_summary' );
+		?>
+		<?php if(get_field('place')):?>
+			<div class="event-place">
+				<?php the_field('place') ?>
+			</div>
+		<?php endif;?>
 
+		<?php if(get_field('address')):?>
+			<div class="event-address">
+				<?php the_field('address') ?>
+			</div>
+		<?php endif;?>
+
+		<?php if(get_field('date')):?>
+			<div class="event-date">
+				<?php the_field('date') ?>
+			</div>
+		<?php endif;?>
+
+		<?php if(get_field('start_time')):?>
+			<div class="event-start-time">
+				<?php the_field('start_time') ?>
+			</div>
+		<?php endif;?>
+
+		<?php if(get_field('end_time')):?>
+			<div class="event-end-time">
+				<?php the_field('end_time') ?>
+			</div>
+		<?php endif;?>
+
+		<?php if(get_field('note')):?>
+			<div class="event-note">
+				<?php the_field('note') ?>
+			</div>
+		<?php endif;?>
+
+		<?php
 		if(get_field('location')):
 		?>
 		<?php if((is_product() && has_term('events', 'product_cat', $post->ID))):?>
@@ -74,7 +111,7 @@ if ( post_password_required() ) {
 					<h5><?php echo esc_html( $address['address'] ); ?></h5>
 				</div>
 			</div>
-		</div>
+		</div><!--end of acf-map-->
 		
 		<?php
 		endif;

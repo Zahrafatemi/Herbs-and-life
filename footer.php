@@ -37,7 +37,7 @@
 				<ul>
 					<li><?php the_field('company_name', 'option'); ?></li>
 					<li><?php the_field('company_address', 'option'); ?></li>
-					<li><?php the_field('company_number', 'option'); ?></li>
+					<li><?php the_field('company_phone_number', 'option'); ?></li>
 					<li><?php the_field('company_email', 'option'); ?></li>
 				</ul>
 			</div>

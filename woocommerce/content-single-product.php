@@ -67,7 +67,7 @@ if ( post_password_required() ) {
 		
 		<?php 
 			$address = get_field('location');
-			$icon = get_template_directory_uri().'/images/green-marker.png';
+			$icon = get_template_directory_uri().'/images/markers/green-marker.png';
 			?>
 			<div class="marker" data-lat="<?php echo $address['lat']; ?>" data-lng="<?php echo $address['lng']; ?>" data-img="<?php echo $icon; ?>">
 				<div class="inside-marker">

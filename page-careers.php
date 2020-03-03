@@ -19,6 +19,7 @@ get_header();
 		<main id="main" class="site-main">
             <h1><?php the_title(); ?></h1>
 
+        <div class="wrapper">
             <section class="career-intro">
                 <?php if(function_exists( 'get_field' )){
                     $careers_intro = get_field( 'careers_intro' );
@@ -47,6 +48,7 @@ get_header();
                     endif;
                 endif; ?>
             </section><!--.career-list-->
+            </div><!--.wrapper-->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

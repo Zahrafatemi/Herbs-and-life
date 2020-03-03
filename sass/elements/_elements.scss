@@ -32,6 +32,12 @@ figure {
 
 @import "tables";
 
+// Function to
+// Convert Px to Ems
+@function em($px, $bc: 16){
+    @return #{$px/$bc}em; 
+}
+
 // Media Query Breakpoints
 $mq1920:em(1920); //desktoplarge
 $mq1600:em(1600); //desktopsmall

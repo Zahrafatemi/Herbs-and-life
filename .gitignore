@@ -99,3 +99,4 @@ style.css
 *.swp
 *.vi
 *~
+.DS_Store

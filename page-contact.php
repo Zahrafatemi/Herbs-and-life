@@ -18,7 +18,7 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<h1><?php the_title(); ?></h1>
-
+		<div class="wrapper">
 			<section class="contact-intro">
 				<?php if( function_exists( 'get_field' ) ){
 					$contract_intro = get_field( 'contract_intro' );
@@ -36,6 +36,7 @@ get_header();
 				<?php echo do_shortcode ("[wpsl]"); ?>  
 				</div> 
 			</section><!--.contact-form-->
+			</div><!-- .wrapper -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

@@ -9,7 +9,24 @@
     }
 }
 
-.hero-banner-text-box,
+.hero-banner-text-box {
+    background-color: $color__beige;
+}
+
 .promo-banner-text-box {
-    background-color: lemonchiffon;
+    background-color: $color__coolgray;
+}
+
+.hero-banner-text-box {
+    h3 {
+        font-family: $font__main;
+        text-transform: capitalize;
+        color: blue;
+        font-weight: 500;
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
 }

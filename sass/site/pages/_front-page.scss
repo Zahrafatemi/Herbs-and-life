@@ -1,0 +1,52 @@
+// Front Page Styles
+
+// Featured products
+.featured-text-box {
+    h3 {
+        @include sanserif-heading();
+    }
+
+    // p {
+    //     font-size: 0.8em;
+    // }
+}
+
+
+// Why choose us
+.why-us-wrapper {
+    h3 {
+        @include serif-heading();
+    }
+
+    ul {
+        font-size: 0.85em;
+    }
+
+}
+
+
+// Latest Blog
+// Upcomign Event
+.latest-blog, .upcoming-events{
+    h3 {
+        @include sanserif-heading();
+    }
+
+    // p {
+    //     font-size: 0.8em;
+    // }
+}
+
+
+// Testimonials
+.testimonials {
+    p {
+        // font-size: 0.85em;
+        line-height: 1.5;
+    }
+
+    cite {
+        font-weight: 500;
+        font-style: normal;
+    }
+}

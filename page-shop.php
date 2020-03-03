@@ -43,6 +43,7 @@ get_header();
                 endif; ?>
 			</section><!--.promo-banner slider-->
 
+        <div class="wrapper">
 			<section class="category">
 				<h2>Categories</h2>
                 <?php
@@ -115,7 +116,7 @@ get_header();
                 <?php echo do_shortcode ("[wpsl]"); ?>
                 </div>    
             </section><!--.store-locator-->
-
+            </div><!--.wrapper-->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

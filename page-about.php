@@ -25,7 +25,7 @@ get_header();
 					<?php the_post_thumbnail();?>
 				</div><!--.about-featured-image-->
 			<?php endif;  ?>
-	
+	 <div class="wrapper">
 			<section class="about-intro">
 				<?php if( function_exists( 'get_field' ) ){
 					$mission_title 	= get_field( 'mission_title' );
@@ -88,6 +88,7 @@ get_header();
 				<h2>Our Supporters</h2>
 					<?php echo do_shortcode ("[instagram-feed cols=6]"); ?>
 			</section><!--.supporters-->
+			</div> <!--.wrapper -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

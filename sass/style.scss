@@ -145,3 +145,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 ## Single Event Page
 --------------------------------------------------------------*/
 @import "site/pages/single-event";
+
+/*--------------------------------------------------------------
+## Wrapper SCSS
+--------------------------------------------------------------*/
+@import "layout/wrapper";
+
+/*--------------------------------------------------------------
+## CTA-Button SCSS
+--------------------------------------------------------------*/
+@import "elements/cta-btn";

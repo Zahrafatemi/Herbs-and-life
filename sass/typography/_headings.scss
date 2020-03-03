@@ -1,24 +1,3 @@
 h1, h2, h3, h4, h5, h6 {
-    clear: both;
-    line-height: $font__line-height-heading;
-}
-
-h1, h2 {
-    font-family: $font__heading;
-    letter-spacing: $font__letter-spacing-heading;
-    text-transform: uppercase;
-    color: green;
-    font-weight: 700;
-}
-
-h1 {
-    font-size: 1.65em;
-}
-
-h2 {
-    font-size: 1.4em;
-}
-
-p {
-    font-size: 0.85em;
+	clear: both;
 }

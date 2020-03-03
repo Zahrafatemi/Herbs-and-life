@@ -28,20 +28,6 @@
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
 
-// Set serif heading
-@mixin serif-heading(){
-	font-family: $font__heading;
-	letter-spacing: $font__letter-spacing-heading;
-	text-transform: uppercase;
-	font-weight: 700;
-}
-
-// Set light san-serif heading
-@mixin sanserif-heading(){
-	font-family: $font__main;
-	font-weight: 500;
-}
-
 // Media Query Mixin
 @mixin mq($w) {
     @media (min-width: $w){

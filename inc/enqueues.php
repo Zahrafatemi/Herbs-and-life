@@ -51,16 +51,22 @@ function herblife_scripts() {
 	}
 
 	/**
-	 * Index Enqueues
+	 * Isotope
 	 */
-	if ( is_home() && ! is_front_page() ) {
-		wp_enqueue_script( 
-			'hlproject-isotope', 
-			get_template_directory_uri().'/js/isotope.pkgd.min.js', 
-			array('jquery'), 
-			'20200304', 
-			true );
-	}
+    wp_enqueue_script( 
+        'hl-isotope', 
+        get_template_directory_uri().'/js/isotope.pkgd.min.js', 
+        array('jquery'), 
+        '20200304', 
+        true );
+        
+    wp_enqueue_script( 
+        'hl-isotope-settings', 
+        get_template_directory_uri().'/js/isotope.js', 
+        array('jquery', 
+        'hl-isotope'), 
+        '20200304', 
+        true );
 
 	/**
 	 * Product Subscription Enqueues

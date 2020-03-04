@@ -21,7 +21,7 @@ get_header();
 			<div class="filters">
 				<div class="ui-group">
 					<h3>Type</h3>
-					<div class="button-group js-radio-button-group" data-filter-group="color">
+					<div class="button-group js-radio-button-group" data-filter-group="type">
 						<button class="button is-checked" data-filter="">Any</button>
 						<button class="button" data-filter=".news">News</button>
 						<button class="button" data-filter=".recipe">Recipes</button>

@@ -52,7 +52,7 @@
 	li {
 		float: left;
 		position: relative;
-
+		padding: 10px 0;
 		&:hover > a,
 		&.focus > a {
 		}
@@ -73,7 +73,8 @@
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
-	display: block;
+	//display: block;
+	display: none;
 }
 
 @media screen and (min-width: 37.5em) {
@@ -82,7 +83,10 @@
 	}
 	.main-navigation ul {
 		display: block;
+		width: 100%;
+		
 	}
+	
 }
 
 .comment-navigation,

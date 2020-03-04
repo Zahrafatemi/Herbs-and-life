@@ -175,9 +175,12 @@ require get_template_directory().'/inc/register-options-page.php';
 require get_template_directory().'/inc/hooks.php';
 
 /**
- * Adding image size for Event page
+ * Custom image sizes
  */
+// Featured Images
+set_post_thumbnail_size( 300, 400, true );
 
+//  Events
 add_image_size( 'event-thumbnail', 200, 200, array( 'left', 'top' ) );
 
 /**

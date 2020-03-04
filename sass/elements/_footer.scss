@@ -1,4 +1,5 @@
 .site-footer{
+    
     padding: 30px 30px;
     background-color: $color__darkgray;
     color:$color__coolgray;
@@ -137,4 +138,9 @@
         }
     }
 
+}
+.site-footer:before{
+    content: none;
+    display: none;
+    table-layout:unset;
 }

@@ -13,3 +13,8 @@
     padding: 6.5px;
     max-width: 200px;;
 }
+
+// WooCommerce button with <button> tag
+.woo-btn {
+    @include woo-btn-style();
+}

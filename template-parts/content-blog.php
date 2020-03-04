@@ -8,7 +8,9 @@
  */
 
 ?>
-<?php $tagsAsClassNames = tagsToClass(); ?>
+<?php $tagsAsClassNames = tagsToString(); ?>
+
+<div class="filters">
 
 <article class="blog-post <?php echo $tagsAsClassNames; ?>" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 

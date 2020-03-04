@@ -56,16 +56,21 @@ get_header();
 				}else {
 					return;
 				}
-			}
+			}?>
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			<div class="grid">
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) :
+					the_post();
 
-				get_template_part( 'template-parts/content', 'blog' );
+					get_template_part( 'template-parts/content', 'blog' );
 
-			endwhile;
+				endwhile;
+				?>
+			</div><!--.grid-->
 
+			<?php
 			the_posts_navigation();
 
 		else :

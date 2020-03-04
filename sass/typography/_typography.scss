@@ -6,12 +6,18 @@ optgroup,
 textarea {
 	color: $color__text-main;
 	font-family: $font__main;
+	font-weight: 300;
 	@include font-size(1);
 	line-height: $font__line-height-body;
 }
 
+
+
 // Remove list style and text decoration
 ul {
+	margin: 0;
+	padding: 0;
+
 	li {
         a {
             text-decoration: none;
@@ -25,9 +31,16 @@ a {
 	text-decoration: none;
 }
 
-// Normalize default font weight
+// Normalize font style and margin
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+p {
+	font-weight: 300;
+	margin: 0;
+	padding: 0;
 }
 
 

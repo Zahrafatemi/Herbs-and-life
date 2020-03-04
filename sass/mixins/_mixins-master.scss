@@ -43,6 +43,7 @@
 	text-transform: uppercase;
 	font-weight: 700;
 	font-size: 80%;
+	background-color: #fff;
 }
 
 @mixin reset-button() {
@@ -51,7 +52,7 @@
     padding: 0;
     border: 0;
     color: $color__bodyfont;
-    background: white;
+    background: transparent;
     // font: inherit; // Inherit font settings (doesn’t work in IE7-)
     line-height: normal; // Override line-height to avoid spacing issues
     cursor: pointer; 

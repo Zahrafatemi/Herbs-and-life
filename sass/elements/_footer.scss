@@ -58,13 +58,12 @@
     }
 
     .footer-nav-wrapper-left {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
         align-items: center;
+        grid-template-columns: 1fr 1fr;
 
     ul{
             display:flex;
-            justify-content: space-around;
             margin: 0;
             padding: 0;
 
@@ -102,6 +101,15 @@
         display: grid;
         grid-template-columns: 40% 60%;
      
+        .footer-mqm-wrapper {
+            grid-gap: 32px;
+            padding-right: 50px;
+
+            .bottom-logo {
+                width: 150px;
+            }
+        }
+
         .company-info {
             padding-bottom: 0px;
         }
@@ -120,8 +128,7 @@
             align-self: normal;
             }
             .footer-nav-wrapper-left {
-            flex-direction: column;
-            justify-content: start;
+                display: block;
 
             #social-navigation {
                 padding-bottom: 20px;

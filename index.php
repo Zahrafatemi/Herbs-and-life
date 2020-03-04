@@ -29,6 +29,22 @@ get_header();
 				<?php
 			endif;
 
+			function tagsToClass() {
+				$tags = [];
+				$tagObjects = get_the_tags();
+
+				foreach( $tagObjects as $tagObject ) {
+					$tags[] = $tagObject->name;
+				}
+
+				if( $tags ) {
+					$tags = implode( ' ', $tags );
+					return $tags;
+				}else {
+					return;
+				}
+			}
+
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();

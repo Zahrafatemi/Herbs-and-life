@@ -43,7 +43,7 @@ get_header();
 						endif; ?>
 				<?php endif; ?>
 			</section><!--.hero-image.slider-->
- 		<div class = "wrapper">
+ 			<div class = "wrapper pattern01">
 					<section class="home-intro">
 						<?php if(function_exists('get_field')){
 							$home_intro_title 	= get_field('home_intro_title');
@@ -85,7 +85,7 @@ get_header();
 					</section><!--.featured-products-->
 
 					<section class="category">
-						<h2>Categories</h2>
+						<h2>Product Categories</h2>
 						<?php
 						$prod_cat_args = array(
 								'taxonomy'=>'product_cat',

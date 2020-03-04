@@ -16,8 +16,6 @@ get_header();
 ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-            <h1 class="page-title"><?php the_title(); ?> Online</h1>
-
 			<section class = "promo-banner slider">
                 <?php if( function_exists( 'get_field' ) ):
                     if( get_field( 'promo_banner' ) ):
@@ -41,11 +39,19 @@ get_header();
                         <?php endwhile;
                     endif;
                 endif; ?>
-			</section><!--.promo-banner slider-->
+            </section><!--.promo-banner slider-->
+        <div class="wrapper pattern02">
+            <section class="shop_intro">
+                <?php if(function_exists('get_field')){
+                    $shop_intro_title 	= get_field('shop_intro_title');
+                    $shop_intro 		= get_field('shop_intro');
+                } ?>
 
-        <div class="wrapper">
+                <h1 class="shop-intro-title"><?php if( $shop_intro_title ) { echo $shop_intro_title; }?></h1>
+                <p class="shop-intro-text"><?php if( $shop_intro ){ echo $shop_intro; } ?></p>
+            </section><!--.shop-intro-->
 			<section class="category">
-				<h2>Categories</h2>
+				<h2>Product Categories</h2>
                 <?php
 				$prod_cat_args = array(
 						'taxonomy'=>'product_cat',

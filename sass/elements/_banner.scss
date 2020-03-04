@@ -3,10 +3,9 @@
  */
 .hero-banner,
 .promo-banner {
-    margin-bottom: 70px;
+    // margin-bottom: 70px;
 
     img {
-        // max-height: 430px;
         height: 430px;
         object-fit: cover;
     }
@@ -38,7 +37,7 @@
     h3 {
         font-family: $font__main;
         text-transform: capitalize;
-        // color: blue;
+
         font-weight: 500;
         font-size: 1.5em;
     }

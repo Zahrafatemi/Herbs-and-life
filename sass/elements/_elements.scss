@@ -19,8 +19,6 @@ hr {
 	margin-bottom: 1.5em;
 }
 
-@import "lists";
-
 img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
@@ -30,7 +28,6 @@ figure {
 	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
 }
 
-@import "tables";
 
 // Function to
 // Convert Px to Ems
@@ -48,3 +45,7 @@ $mq670:em(670);//phoneLandscape
 $mq615:em(615);//phoneLandscapeSmall
 $mq500:em(500);//phonePortraitLarge
 $mq420:em(420);//phonePortrait
+
+@import "lists";
+@import "tables";
+@import "title";

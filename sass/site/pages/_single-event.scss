@@ -1,11 +1,40 @@
+.event-wrapper{
 
+	margin: 0;
+	padding:0;
 
-.acf-map {
-    width: 100%;
-    height: 700px;
-    border: #ccc solid 1px;
-    margin: 20px 0;
- }
+	.acf-map {
+		width: 100%;
+		height: 700px;
+		border: #ccc solid 1px;
+		margin: 20px 0;
+	}
+
+	.site-footer{
+		position: relative;
+	}
+
+	form{
+		position: absolute;
+		bottom: 0;
+		background-color: $color__coolgray;
+		width: 100vw;
+		z-index: 1000;
+
+		fieldset{
+			border: none;
+		}
+	}
+
+	button, input {
+		@include woo-btn-style();
+	}
+}
+
+@mixin form() {
+
+	@import url(sass/forms);
+}
 
  /* 
    Modify the color styles of the WooCommerce Bookings datepicker calendar.
@@ -13,21 +42,50 @@
    the color hex codes to your choice. They're all black here.
 */
 
+$form-bgc: transparent;
+$form-input: white;
+$form-text: black;
+
 .wc-bookings-booking-form{
-    background-color: #000000;
+	background-color: $form-bgc;
+	@include form();
+
+	.wc-bookings-booking-cost{
+		background-color: $form-bgc;
+		border: none;
+	}
 }
 
-.wc-bookings-date-picker{
-    background-color: #000000;
+.event-wrapper .wc-bookings-date-picker{
+	 padding-left: none;
+	 padding-inline-start: none;
+	 padding-block-start: none;
+	 padding: 0;
+ 	.wc-bookings-date-picker-date-fields{
+ 		color: $form-input;
+ 		label span{
+			color: $form-text;
+		}
+ 	}
 }
 
-.wc-bookings-booking-form input{
-    background-color: #000000;
+.wc-bookings-date-picker .ui-datepicker th{
+		background: none;
+		background-color: $color__beige;
 }
 
+// .wc-bookings-booking-form input{
+//     background-color: #000000;
+// }
+
+
+.wc-bookings-date-picker .ui-widget-content{
+	background: none;
+	background-color: transparent;
+}
 /* Month header background color */
 #wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker-header {
-	background-color: #000000;
+	background-color: $color__coolgray;
 }
 
 /* Previous/Next month arrow background color */
@@ -44,28 +102,35 @@
 }
 
 /* Days of the week header background color */
-.ui-datepicker-calendar thead {
-	background-color: #000000;
-}
+// .ui-datepicker-calendar thead {
+ 	//background-color: red;
+// }
 
 /* Days of the week header font color */
 #wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker th {
-	color: #000000;
+	color: #5E6850;
+	font-weight: bold;
+	font-family: $font__heading;
 }
 
 /* Past calendar days background color (not available) */
 .ui-datepicker-calendar tbody {
-	background-color: #000000;
+	background-color: none !important;
+}
+.wc-bookings-date-picker .ui-datepicker td.not_bookable{
+	background-color: none !important;
 }
 
 /* Available calendar days background color */
-#wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker td.bookable a {
-	background-color: #000000 !important;
+.wc-bookings-date-picker .ui-datepicker td.bookable a{
+	background-color: $color__beige !important;
+	color:$color__mossgreen !important;
 }
 
 /* Available calendar day hover background color */
-#wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker td.bookable a:hover {
-	background-color: #000000 !important;
+.wc-bookings-date-picker .ui-datepicker td.bookable a:hover {
+	background-color: $color__mossgreen !important;
+	color:black !important;
 }
 
 /* Fully booked calendar days */
@@ -76,7 +141,11 @@
 
 /* Days not bookable based on the availability rules */
 .wc-bookings-date-picker .ui-datepicker td.not_bookable {
-	background-color: #FFFFFF !important;
+	//background-color: #FFFFFF !important;
+}
+
+.wc-bookings-date-picker .ui-datepicker td{
+	border:#5E6850;
 }
 
 /* Today's date on calendar background color */ 
@@ -96,7 +165,8 @@
 
 /* Selected Date*/ 
 #wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker td.ui-datepicker-current-day a {
-	background-color: #000000 !important; 
+	background-color: $color__mossgreen !important; 
+	color: black !important;
 } 
 
 /* Selected Time Block */ 

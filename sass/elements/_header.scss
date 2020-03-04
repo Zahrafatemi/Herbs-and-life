@@ -3,3 +3,38 @@
     width: 30px;
     height: 30px;
 }
+
+.top-banner{
+    font-size: 0.6em;
+    text-align: center;
+    padding: 5px 0px;
+    background-color:$color__bodyfont;
+    color: #ffffff;
+    border-bottom: 5px solid #F4EAD3;
+}
+
+.header-mb-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 52px;
+
+        .top-header{
+            // display:none;
+        
+            form.search-form {
+                position: relative;
+
+                input.search-submit {
+                    position: absolute;
+                }
+            }
+            .icon-wrapper {
+                display: none;
+                @include mq($mq670){
+                display: block;
+            }
+            }
+
+            
+        }
+}

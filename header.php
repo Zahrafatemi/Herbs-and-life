@@ -34,15 +34,16 @@
 
 	<!-- Second Banner Nav (Social Menu, Search, Cart, Login(NTH))-->
 		 
-
+<div class="header-mb-wrapper">
 		<div class = "top-header">
-			
-			<nav id="social-navigation" class="social-navigation">
+		
 			<!-- For search bar -->
 				<div class= "search-bar">		
 					<?php get_search_form();?>
-				<div>
+				</div><!-- .search-bar -->
 			<!-- For social menu -->
+		<div class="icon-wrapper">
+			<nav id="social-navigation" class="social-navigation">
 					<?php 
 						wp_nav_menu(
 							array(
@@ -61,15 +62,16 @@
 				herblife_woocommerce_header_cart();
 			}
 			?>
-		</div><!--.top-header-->
-
-		<!-- Account from Woocommerce See woocommerce.php -->	
-		<span class="account">
-			<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account',''); ?>"><img src= "<?php echo get_template_directory_uri();?>/images/myaccount-logo.png">
-				<?php _e('My Account',''); ?>
-			</a>
-		</span><!--.account-->
 		
+
+			<!-- Account from Woocommerce See woocommerce.php -->	
+			<span class="account">
+				<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account',''); ?>"><img src= "<?php echo get_template_directory_uri();?>/images/myaccount-logo.png">
+					<?php _e('My Account',''); ?>
+				</a>
+			</span><!--.account-->
+			</div><!--.icon-wrapper-->
+		</div><!--.top-header-->
 		<div class="site-branding">
 			<a class="site-logo top-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" alt="<?php bloginfo( 'name' ); ?> logo">
 				<?php if( function_exists( 'get_field' ) ){
@@ -109,7 +111,7 @@
 		</nav>
 		<?php endif;?>
 		</nav><!-- #category-navigation -->
-		
+		</div><!-- .header-mb-wrapper -->		
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

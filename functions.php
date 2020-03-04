@@ -48,7 +48,8 @@ if ( ! function_exists( 'herblife_setup' ) ) :
 			'fotter-1' => esc_html__( 'Footer1', 'herblife' ),
 			'fotter-2' => esc_html__( 'Footer2', 'herblife' ),
 			'category-menu' => esc_html__( 'Category Menu', 'herblife' ),
-			'social-menu'=>esc_html__('Social Menu', 'herblife')
+			'social-menu'=>esc_html__('Social Menu', 'herblife'),
+			'social-footer-menu'=>esc_html__('Social Footer Menu', 'herblife'),
 		) );
 
 		/*

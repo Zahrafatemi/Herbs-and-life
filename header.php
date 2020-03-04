@@ -38,7 +38,9 @@
 		<div class = "top-header">
 		
 			<!-- For search bar -->
-				<div class= "search-bar">		
+			<img class = "search-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/search.svg" alt="search-icon">	
+				<div class= "search-bar">	
+					
 					<?php get_search_form();?>
 				</div><!-- .search-bar -->
 			<!-- For social menu -->
@@ -85,6 +87,7 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
+		<img class = "hm-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/hamburger.svg" alt="hm-icon">	
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'herblife' ); ?></button>
 			<?php
 			wp_nav_menu( array(

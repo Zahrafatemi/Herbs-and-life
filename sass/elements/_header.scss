@@ -15,17 +15,27 @@
 
 .header-mb-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 160px 1fr;
     height: 52px;
+    align-items: center;
+    padding: 0 10px;
 
         .top-header{
-            // display:none;
+
+            .search-icon {
+                width: 25px;
+            }
         
+            .search-bar {
+                display: none;
+            }
             form.search-form {
                 position: relative;
 
                 input.search-submit {
                     position: absolute;
+                    top: 0;
+                    left: 0;
                 }
             }
             .icon-wrapper {
@@ -34,7 +44,31 @@
                 display: block;
             }
             }
+            
+                
+            
 
             
+        }
+
+        .site-branding{
+            position: relative;
+
+         img {
+                position: absolute;
+                z-index: 2;
+                top: -26px;
+            }
+        }
+        #site-navigation {
+            text-align: right;
+        }
+
+        #category-navigation {
+            display: none;
+        }
+
+        button.menu-toggle {
+            display: none;
         }
 }

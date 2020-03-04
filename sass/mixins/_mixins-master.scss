@@ -22,7 +22,7 @@
 // Set up Basic button styles
 @mixin btn-style() {
 	@include serif-heading();
-	
+
 	display: inline-block;
 	width: 100%;
 	max-width: 140px;
@@ -33,6 +33,37 @@
 	padding: 2px 5px;
 	letter-spacing: 0.1em;;
 	font-size: 0.9em;
+}
+
+@mixin woo-btn-style() {
+	@include reset-button();
+	@include btn-style();
+	font-family: $font__heading;
+	letter-spacing: $font__letter-spacing-heading;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 80%;
+}
+
+@mixin reset-button() {
+    overflow: visible; // Shrinkwrap the text in IE7-
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: $color__bodyfont;
+    background: white;
+    // font: inherit; // Inherit font settings (doesn’t work in IE7-)
+    line-height: normal; // Override line-height to avoid spacing issues
+    cursor: pointer; 
+    -moz-user-select: text; // Make button text selectable in Gecko
+
+    /* Remove mystery padding in Gecko browsers.
+     * See https://bugzilla.mozilla.org/show_bug.cgi?id=140562
+     */
+    &::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
 }
 
 

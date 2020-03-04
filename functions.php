@@ -239,23 +239,22 @@ if ( class_exists( 'WooCommerce' ) ) {
 }
 
 /**
- * CustomPost Types & Taxonomies
+ * Custom Post Types & Taxonomies
  */
 require get_template_directory().'/inc/register-options-page.php';
 
-
+/**
+ * Hooks
+ */
+require get_template_directory().'/inc/hooks.php';
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ * Custom image sizes
  */
+// Featured Images
+set_post_thumbnail_size( 300, 400, true );
 
-
-/**
- * Adding image size for Event page
- */
-
+//  Events
 add_image_size( 'event-thumbnail', 200, 200, array( 'left', 'top' ) );
 
 /**

@@ -36,7 +36,7 @@ get_header();
 								<div class="hero-banner-text-box">
 									<h3><?php if( $header ) { echo $header; } ?></h3>
 									<p class="description"><?php if( $description ) { echo $description; } ?></p>
-									<a class="cta-banner-btn btn-text btn" href="<?php if( $buttonLink ){ echo esc_url( $buttonLink ); } ?>"><?php if( $buttonText ){ echo $buttonText; }?></a>
+									<a class="cta-btn btn-text btn" href="<?php if( $buttonLink ){ echo esc_url( $buttonLink ); } ?>"><?php if( $buttonText ){ echo $buttonText; }?></a>
 								</div><!--.hero-banner-text-box-->
 							</div><!--.hero-banner-->
 						<?php endwhile; 

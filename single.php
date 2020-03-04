@@ -17,8 +17,6 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
-
 			if ( has_tag( 'recipe' ) ){
 				get_template_part( 'template-parts/content', 'recipe' );
 			}else{

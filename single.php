@@ -19,6 +19,12 @@ get_header();
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
+			if ( has_tag( 'recipe' ) ){
+				get_template_part( 'template-parts/content', 'recipe' );
+			}else{
+				get_template_part( 'template-parts/content', get_post_type() );
+			}
+			
 			the_post_navigation();
 
 			// If comments are open or we have at least one comment, load up the comment template.

@@ -3,25 +3,41 @@
  * Enqueue scripts and styles.
  */
 function herblife_scripts() {
+	/**
+	 * Fonts
+	 */
+	wp_enqueue_style( 'herblife-font', 'https://use.typekit.net/hgw2ysu.css' );
+
+	/**
+	 * Template stylesheet
+	 */
 	wp_enqueue_style( 'herblife-style', get_stylesheet_uri() );
 
+	/**
+	 * Events Button JS
+	 */
 	if(has_term('events', 'product_cat')){
-
 		wp_enqueue_script( 'herblife-past-events', get_template_directory_uri() . '/js/past-events-button.js', array(), '20200301', true );
-
 	}
 
+	/**
+	 * Event Page Google Maps
+	 */
 	if('product'== get_post_type() && has_term('events', 'product_cat', $post->ID)){
-
 		wp_enqueue_script('googlemapsapi', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDkumcU-Bh1GOJ3VqkVNnl04RvBxWSNG9U'); 
-
 		wp_enqueue_script('gmaps-init', get_template_directory_uri().'/js/gmaps.js', array('jquery'),'20200223' ,true);
 	}
 
+	/**
+	 * Navigation JS
+	 */
 	wp_enqueue_script( 'herblife-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'herblife-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
+	/**
+	 * Comments JS
+	 */
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 
 		wp_enqueue_script( 'comment-reply' );
@@ -51,7 +67,7 @@ function herblife_scripts() {
 	}
 
 	/**
-	 * Isotope
+	 * Isotope for Blog page
 	 */
     wp_enqueue_script( 
         'hl-isotope', 

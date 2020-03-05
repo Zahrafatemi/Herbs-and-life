@@ -25,22 +25,36 @@ get_header();
 				<div class="filters">
 					<div class="ui-group">
 						<div class="button-group js-radio-button-group" data-filter-group="type">
-							<button class="button is-checked" data-filter="">Any</button>
-							<button class="button" data-filter=".news">News</button>
-							<button class="button" data-filter=".recipe">Recipes</button>
+							<input type="radio" name="type" id="any" class="button is-checked" data-filter="" />
+							<label for="any">Any</label>
+							
+							<input type="radio" name="type" id="news" class="button" data-filter=".news" />
+							<label for="news">News</label>
+
+							
+							<input type="radio" name="type" id="recipe" class="button" data-filter=".recipe" />
+							<label for="recipe">Recipes</label>
 						</div><!--.button-group js-radio-button-group-->
 					</div><!--.ui-group-->
 				</div><!--.filters-->
 
+				<div class="grid">
+					<?php
+					while( have_posts() ){
+						the_post();
+						get_template_part('template-parts/content', 'blog');
+					}					
+					?>
+				</div><!--.grid-->
 				<?php
-					if( $wp_query->max_num_pages > 1){
-						echo do_shortcode( '[ajax_load_more container_type="div" css_classes="grid" post_type="post" transition="masonry" masonry_selector=".blog-post" posts_per_page="6" scroll_container=".grid" button_label="Load More" button_loading_label="Loading ..." no_results_text="&lt;span class="no-results"&gt;No more results&lt;/span&gt;"]' );
-					}else{
-						while( have_posts() ){
-							the_post();
-							get_template_part('template-parts/content', 'blog');
-						}
-					}
+					// if( $wp_query->max_num_pages > 1){
+					// 	echo do_shortcode( '[ajax_load_more container_type="div" css_classes="grid" post_type="post" transition="masonry" masonry_selector=".blog-post" posts_per_page="6" scroll_container=".grid" button_label="Load More" button_loading_label="Loading ..." no_results_text="&lt;span class="no-results"&gt;No more results&lt;/span&gt;"]' );
+					// }else{
+					// 	while( have_posts() ){
+					// 		the_post();
+					// 		get_template_part('template-parts/content', 'blog');
+					// 	}
+					// }
 				
 				?>
 		</div><!-- .wrapper -->

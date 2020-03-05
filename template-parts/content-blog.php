@@ -13,44 +13,39 @@
 <div class="filters">
 
 <article class="blog-post <?php echo $tagsAsClassNames; ?>" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<a class="post-link" href="<?php echo get_permalink( get_the_ID() ) ?>">
+		<?php the_post_thumbnail( 'blog-thumbnail' ); ?>
+		
+		<header class="entry-header">
+			<div class="meta-info">
+				<?php
+					$targetCategories 	= array( 'news', 'recipe' );
+					$postCategories 	= [];
+					$postCategory 		= "";
 
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+					$categories 		= get_the_category();
+					if( $categories ) {
+						foreach( $categories as $category ) {
+							$postCategories[] = $category->name;
+						}
+					}
 
-	<?php herblife_post_thumbnail(); ?>
+					foreach( $targetCategories as $targetCategory ){
+						$index = array_search( $targetCategory, $postCategories );
+						if( $index >= 0 ) {
+							$postCategory = $postCategories[ $index ];		
+						}
+					}
+				?>
 
-	<div class="entry-content">
-		<?php
-		the_content();
+				<span class="author"><?php echo "Written by " . get_the_author(); ?></span><!--.author-->
+				<span class="category"><?php echo ucwords($postCategory); ?></span><!--.category-->
+			</div><!--.meta-info-->
+			<h2 class="title"><?php the_title(); ?></h2><!--.title-->
+		</header>
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'herblife' ),
-			'after'  => '</div>',
-		) );
-		?>
-	</div><!-- .entry-content -->
-
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
-			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'herblife' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-			?>
-		</footer><!--.entry-footer-->
-	<?php endif; ?>
+		<div class="entry-content">
+			<?php the_excerpt(); ?>
+		</div><!-- .entry-content -->
+	</a><!--.post-link-->
 </article><!--.blog-post#post-<?php the_ID(); ?> -->

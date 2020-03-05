@@ -179,7 +179,7 @@ require get_template_directory().'/inc/hooks.php';
  * Custom image sizes
  */
 // Featured Images
-set_post_thumbnail_size( 300, 400, true );
+add_image_size( 'blog-thumbnail', 400, 600, true );
 
 //  Events
 add_image_size( 'event-thumbnail', 200, 200, array( 'left', 'top' ) );

@@ -27,7 +27,12 @@
 	<header id="masthead" class="site-header">
 	<!-- Top Banner Nav -->
 	<div class = "top-banner">
-		<?php the_field('top_banner', 'option'); ?>
+		<?php if( function_exists( 'get_field' ) ) {
+			$topBanner = get_field('top_banner', 'option'); 
+			if( $topBanner ){
+				echo $topBanner;
+			}
+		}?>
 	</div>
 
 	

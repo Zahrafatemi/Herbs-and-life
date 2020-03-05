@@ -92,13 +92,14 @@
     cite {
         font-weight: 500;
         font-style: normal;
+        padding-left: 30px;
 
         &:before {
             display: inline-block;
             content: "";
             // margin: 0 auto;
             margin: 0;
-            position: relative;
+            position: absolute;
             display: block;
             width: 18px;
             height: 18px;

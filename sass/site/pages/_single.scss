@@ -5,7 +5,6 @@
         margin: 0 auto;
         max-width: emCalc(800);
     }
-   
 
     header {
         text-align: center;
@@ -15,38 +14,44 @@
         }
     }
 
-    .overview {
-        padding: emRhythm(1, $ms-down1) emRhythm();
-        background-color: $color__background-ins;
-
-        @include mq($mq850){
-            display: flex;
-        }
+    .recipe {
         
-        .text {
-            @include mq($mq850) {
-                padding-left: emRhythm(1, $ms-down1);
-            }
+    
+        .overview {
+            padding: emRhythm(1, $ms-down1) emRhythm();
+            background-color: $color__background-ins;
 
-            .summary {
-                span {
-                    display: block;
+            @include mq($mq850){
+                display: flex;
+            }
+            
+            .text {
+                @include mq($mq850) {
+                    padding-left: emRhythm(1, $ms-down1);
                 }
 
-                h3 {
-                    display: inline;
-                    font-size: 1em;
-                    font-weight: bold;
-                }            
-            }
+                .summary {
+                    span {
+                        display: block;
+                    }
 
-            .description {
-                padding-top: emRhythm();
+                    h3 {
+                        display: inline;
+                        font-size: 1em;
+                        font-weight: bold;
+                    }            
+                }
+
+                .description {
+                    padding-top: emRhythm();
+                }
             }
         }
+
+        .ingredients {
+            padding-top: emRhythm();
+        }    
     }
 
-    .ingredients {
-        padding-top: emRhythm();
-    }
+
 }

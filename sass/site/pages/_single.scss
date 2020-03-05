@@ -16,7 +16,8 @@
     }
 
     .overview {
-        padding-bottom: emRhythm();
+        padding: emRhythm(1, $ms-down1) emRhythm();
+        background-color: $color__background-ins;
 
         @include mq($mq850){
             display: flex;
@@ -24,7 +25,7 @@
         
         .text {
             @include mq($mq850) {
-                padding-left: emRhythm();
+                padding-left: emRhythm(1, $ms-down1);
             }
 
             .summary {
@@ -45,5 +46,7 @@
         }
     }
 
-
+    .ingredients {
+        padding-top: emRhythm();
+    }
 }

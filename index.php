@@ -14,77 +14,37 @@
 
 get_header();
 ?>
-
-	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-			<div class="filters">
-				<div class="ui-group">
-					<h3>Type</h3>
-					<div class="button-group js-radio-button-group" data-filter-group="type">
-						<button class="button is-checked" data-filter="">Any</button>
-						<button class="button" data-filter=".news">News</button>
-						<button class="button" data-filter=".recipe">Recipes</button>
-					</div><!--.button-group js-radio-button-group-->
-				</div><!--.ui-group-->
-			</div><!--.filters-->
+			<header class="pattern01">
+				<h1 class="page-title"><?php single_post_title(); ?></h1>
+			</header>
 
-		<?php
-		if ( have_posts() ) :
+			<div class="wrapper">
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title"><?php single_post_title(); ?></h1>
-				</header>
+				<div class="filters">
+					<div class="ui-group">
+						<div class="button-group js-radio-button-group" data-filter-group="type">
+							<button class="button is-checked" data-filter="">Any</button>
+							<button class="button" data-filter=".news">News</button>
+							<button class="button" data-filter=".recipe">Recipes</button>
+						</div><!--.button-group js-radio-button-group-->
+					</div><!--.ui-group-->
+				</div><!--.filters-->
 
-
-		<div class="wrapper">
 				<?php
-			endif;
-
-			function tagsToString() {
-				$tags = [];
-				$tagObjects = get_the_tags();
-
-				if( $tagObjects ) {
-					foreach( $tagObjects as $tagObject ) {
-						$tags[] = $tagObject->name;
+					if( $wp_query->max_num_pages > 1){
+						echo do_shortcode( '[ajax_load_more container_type="div" css_classes="grid" post_type="post" transition="masonry" masonry_selector=".blog-post" posts_per_page="6" scroll_container=".grid" button_label="Load More" button_loading_label="Loading ..." no_results_text="&lt;span class="no-results"&gt;No more results&lt;/span&gt;"]' );
+					}else{
+						while( have_posts() ){
+							the_post();
+							get_template_part('template-parts/content', 'blog');
+						}
 					}
-				}
-
-				if( $tags ) {
-					$tags = implode( ' ', $tags );
-					return $tags;
-				}else {
-					return;
-				}
-			}?>
-
-			<div class="grid">
-				<?php
-				/* Start the Loop */
-				while ( have_posts() ) :
-					the_post();
-
-					get_template_part( 'template-parts/content', 'blog' );
-
-				endwhile;
+				
 				?>
-			</div><!--.grid-->
-
-			<?php
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-	</div><!-- .wrapper -->
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</div><!-- .wrapper -->
+	</main><!-- #main -->
 
 <?php
 //get_sidebar();

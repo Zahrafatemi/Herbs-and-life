@@ -13,6 +13,6 @@
  * Replace excerpt from [...] to link
  */
 function hl_replace_excerpt_more( $more ) {
-	return ' ... <a class="read-more" href="' . get_permalink( get_the_ID() ) . '">Read more</a> ';
+	return ' ... <span class="read-more">Read more</span>';
 }
 add_action( 'excerpt_more', 'hl_replace_excerpt_more' );

@@ -11,17 +11,12 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h1><?php the_title(); ?></h1>
-		
-		<div class="entry-meta">
-			<?php
-			herblife_posted_on();
-			herblife_posted_by();
-			?>
-		</div><!-- .entry-meta -->
+		<span class="pattern01">
+			<h1><?php the_title(); ?></h1>
+		</span>
 	</header><!-- .entry-header -->
 
-	<?php herblife_post_thumbnail(); ?>
+	
 
 	<div class="entry-content">
 		<?php
@@ -42,15 +37,22 @@
 				}
 			}
 		?>	
-
-			<section class="recipe-description description">
-				<?php if( $description ) { echo $description; } ?>
-			</section><!--.recipe-description.description-->
-
 			<section class="recipe-overview overview">
-				<span class="serving-size"><?php if( $servingSize ) { echo 'Serves: ' . $servingSize; }?></span>
-				<span class="prep-time"><?php if( $prepTime ) { echo 'Prep Time: ' . $prepTime[ 'time' ] . $prepUnit; } ?></span>
-				<span class="calories"><?php if( $calories ) { echo $calories . 'cal'; }?></span>
+				<div class="thumbnail">
+					<?php herblife_post_thumbnail(); ?>
+				</div><!--.thumbnail-->
+
+				<div class="text">
+					<div class="summary">
+						<span class="serving-size"><?php if( $servingSize ) { echo '<h3>Serves:</h3> ' . $servingSize; }?></span>
+						<span class="prep-time"><?php if( $prepTime ) { echo '<h3>Prep Time:</h3> ' . $prepTime[ 'time' ] . $prepUnit; } ?></span>
+						<span class="calories"><?php if( $calories ) { echo '<h3>Calories:</h3> ' . $calories . 'cal'; }?></span>
+					</div><!--.overview-->
+					<p class="description"><?php if( $description ) { echo $description; } ?></p>
+					<a href="<?php if( $source ) { echo $source; } else { echo "#0"; } ?>" class="source">Credits</a>
+				</div><!--.text-->
+
+				
 			</section><!--.recipe-overview.overview-->
 
 			<section class="recipe-ingredients ingredients">
@@ -93,15 +95,5 @@
 		
 		<?php endif; ?>
 		<!------------------------------------>
-
-		<?php wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'herblife' ),
-			'after'  => '</div>',
-		) );
-		?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php herblife_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

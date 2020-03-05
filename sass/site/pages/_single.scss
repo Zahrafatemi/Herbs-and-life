@@ -1,0 +1,49 @@
+.single {
+    padding: 0 emRhythm();
+
+    main {
+        margin: 0 auto;
+        max-width: emCalc(800);
+    }
+   
+
+    header {
+        text-align: center;
+
+        h1 {
+            padding-top: emRhythm();
+        }
+    }
+
+    .overview {
+        padding-bottom: emRhythm();
+
+        @include mq($mq850){
+            display: flex;
+        }
+        
+        .text {
+            @include mq($mq850) {
+                padding-left: emRhythm();
+            }
+
+            .summary {
+                span {
+                    display: block;
+                }
+
+                h3 {
+                    display: inline;
+                    font-size: 1em;
+                    font-weight: bold;
+                }            
+            }
+
+            .description {
+                padding-top: emRhythm();
+            }
+        }
+    }
+
+
+}

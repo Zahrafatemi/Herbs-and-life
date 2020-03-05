@@ -8,11 +8,14 @@
 }
 
 // banner button
-.cta-banner-btn {
+.cta-banner-btn,
+.promo-btn {
     @include btn-style();
     padding: 6.5px;
     max-width: 230px;
 }
+
+
 
 // WooCommerce button with <button> tag
 .woo-btn {

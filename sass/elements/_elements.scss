@@ -12,6 +12,14 @@ body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
 }
 
+a {
+	color: $color__link;
+
+	#{$link-hover-selector}{ 
+		color: $color__link-hover;
+	}
+}
+
 hr {
 	background-color: $color__background-hr;
 	border: 0;

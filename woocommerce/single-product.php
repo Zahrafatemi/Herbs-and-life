@@ -21,11 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
-<div class="wrapper">
-	<?php if((is_product() && has_term('events', 'product_cat'))):?>
-		<div class="event-wrapper">
-	<?php endif;?>
-
+<div class="wrapper <?php if((is_product() && has_term('events', 'product_cat'))):?>event-wrapper<?php endif;?>">
 		<?php
 			/**
 			 * woocommerce_before_main_content hook.
@@ -50,9 +46,6 @@ get_header( 'shop' ); ?>
 			 */
 			do_action( 'woocommerce_after_main_content' );
 		?>
-	<?php if((is_product() && has_term('events', 'product_cat'))):?>
-		</div>
-	<?php endif;?>
 </div><!-- .wrapper -->
 	<?php
 		/**

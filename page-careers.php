@@ -19,6 +19,16 @@ get_header();
 		<main id="main" class="site-main">
             <h1><?php the_title(); ?></h1>
 
+			<?php if( function_exists( 'get_field' ) ):?>
+				<div class = "careers-image">
+					<?php 
+					if(get_field('careers_image')):
+						echo wp_get_attachment_image( get_field('careers_image') , 'full' );
+					endif;
+					?>
+				</div><!--.careers-image-->
+			<?php endif;  ?>
+
         <div class="wrapper">
             <section class="career-intro">
                 <?php if(function_exists( 'get_field' )){

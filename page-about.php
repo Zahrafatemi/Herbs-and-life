@@ -22,9 +22,11 @@ get_header();
 
 			<?php if( function_exists( 'get_field' ) ):?>
 				<div class = "about-image">
-					<?php if(get_field('about_us_image')): ?>
-						<img src="<?php the_field('about_us_image'); ?>">
-					<?php endif;?>
+					<?php 
+					if(get_field('about_us_image')):
+						echo wp_get_attachment_image( get_field('about_us_image') , 'full' );
+					endif;
+					?>
 				</div><!--.about-image-->
 			<?php endif;  ?>
 	 <div class="wrapper pattern01">

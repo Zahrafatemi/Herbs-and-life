@@ -20,13 +20,13 @@ get_header();
 			
 			<h1 class="page-title"><?php the_title(); ?></h1>
 
-			<?php //if( function_exists( 'get_field' ) ):?>
+			<?php if( function_exists( 'get_field' ) ):?>
 				<div class = "about-image">
 					<?php if(get_field('about_us_image')): ?>
 						<img src="<?php the_field('about_us_image'); ?>">
 					<?php endif;?>
 				</div><!--.about-image-->
-			<?php //endif;  ?>
+			<?php endif;  ?>
 	 <div class="wrapper pattern01">
 			<section class="about-intro">
 				<?php if( function_exists( 'get_field' ) ){

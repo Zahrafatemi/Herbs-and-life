@@ -3,51 +3,121 @@
  */
 .hero-banner,
 .promo-banner {
-    // margin-bottom: 70px;
-
     img {
         height: 430px;
         object-fit: cover;
     }
-
-
 }
 
 .hero-banner-text-box,
-.hero-banner-text-box {
-    background-color: $color__beige;
+.promo-banner-text-box {
     height: 300px;
     padding: 35px 40px;
 
-    @include mq($mq670){
-
-        height: 200px;
-     }
-
     h3 {
         margin-bottom: 10px;
-    }
-}
-
-.promo-banner-text-box {
-    background-color: $color__coolgray;
-}
-
-.hero-banner-text-box {
-    h3 {
         font-family: $font__main;
         text-transform: capitalize;
-
         font-weight: 500;
         font-size: 1.5em;
+
+        @include mq($mq1600) {
+            font-size: 2em;
+            margin-bottom: 0;
+        }
     }
 
     p {
         font-size: 0.9em;
+
+        @include mq($mq1600) {
+            font-size: 1em;
+            margin-bottom: 0;
+        }
+
+    }
+
+    @include mq($mq670){
+        height: 200px;
+    }
+
+    @include mq($mq850) {
+        padding: 35px 100px;
+
+        h3 {
+            grid-area: heading;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+        .description {
+            grid-area: description;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            
+        }
+        .cta-banner-btn{
+            grid-area: button;
+            line-height: 28px;
+            height: 45px;
+        }
+
+        .promo-btn{
+            grid-area: button;
+            line-height: 28px;
+            height: 45px;
+        }
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 40px;
+        grid-template-areas: 
+        "heading description"
+        ". button"
+    }
+
+    @include mq($mq1200) {
+        padding: 35px 200px;
+        grid-template-columns: 1fr 2fr;
+        grid-column-gap: 40px;
+    }
+
+    @include mq($mq1600) {
+        padding: 35px 300px;
+    }
+
+    @include mq($mq1920) {
+        grid-column-gap: 50px;
+        padding: 35px 400px;
+    }
+
+}
+
+/*
+ * Front page Banner
+ */
+.hero-banner-text-box {
+    background-color: $color__beige;
+
+    @include mq($mq850) {
+        .cta-banner-btn{
+            grid-area: button;
+            line-height: 28px;
+            height: 45px;
+        }
     }
 }
 
-
 /*
- * Promo Banner Styles (shop page)
+ * Shop Page Banner
  */
+.promo-banner-text-box {
+    background-color: $color__coolgray;
+
+    @include mq($mq850) {
+        .promo-btn{
+            grid-area: button;
+            line-height: 28px;
+            height: 45px;
+        }
+    }
+}

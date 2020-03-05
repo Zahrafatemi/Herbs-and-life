@@ -82,8 +82,8 @@ function herblife_scripts() {
         array('jquery', 
         'hl-isotope'), 
         '20200304', 
-        true );
-
+		true );
+	 
 	/**
 	 * Product Subscription Enqueues
 	 */

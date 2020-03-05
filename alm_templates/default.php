@@ -1,15 +1,4 @@
 <?php
-/**
- * Template part for displaying page content in page.php
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Herb_&_Life
- */
-
-?>
-
-<?php
 	$tags = [];
 	$tagObjects = get_the_tags();
 

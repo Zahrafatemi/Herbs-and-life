@@ -9,10 +9,10 @@ jQuery(document).ready(function($){
   // store filter for each group
   var filters = {};
   
-  $('.filters').on( 'click', '.button', function( event ) {
+  $('.filters').on( 'click', '.option', function( event ) {
     var $button = $( event.currentTarget );
     // get group key
-    var $buttonGroup = $button.parents('.button-group');
+    var $buttonGroup = $button.parents('.filter-group');
     var filterGroup = $buttonGroup.attr('data-filter-group');
     // set filter for group
     filters[ filterGroup ] = $button.attr('data-filter');
@@ -23,9 +23,9 @@ jQuery(document).ready(function($){
   });
   
   // change is-checked class on buttons
-  $('.button-group').each( function( i, buttonGroup ) {
+  $('.filter-group').each( function( i, buttonGroup ) {
     var $buttonGroup = $( buttonGroup );
-    $buttonGroup.on( 'click', 'button', function( event ) {
+    $buttonGroup.on( 'click', 'option', function( event ) {
       $buttonGroup.find('.is-checked').removeClass('is-checked');
       var $button = $( event.currentTarget );
       $button.addClass('is-checked');

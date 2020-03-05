@@ -10,13 +10,18 @@
  */
 
 ?>
-<?php if(is_front_page() || is_home()|| is_page(array(14, 327, 103))||(is_product() && !has_term('events', 'product_cat', $post->ID))):?>
+
+		<?php if(is_front_page() || is_home()|| is_page(array(14, 327, 103))||(is_product() && !has_term('events', 'product_cat', $post->ID))):?>
 		<section class = "newletter">
-			<h2>SUBSCRIBE NEWSLETTER</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<div class="newsletter-wrapper">
+			<div class="newsletter-image-left"></div><!-- .newsletter-image-left -->
+			<h2>GET IN TOUCH !</h2>
+			<p>Join our newsletter to receive updates news from our blog. <br/>
+			 Learn about our products, services and get exiciting discounts ahead of time.</p>
 			
 			<?php echo do_shortcode ('[mc4wp_form id="392"]'); ?>
-			
+			<div class="newsletter-image-right"></div><!-- .newsletter-image-right-->
+			</div><!-- .newsletter-wrapper -->
 		</section>
 		<?php endif;?> 
 	</div><!-- #content -->

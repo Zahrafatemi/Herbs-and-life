@@ -225,15 +225,15 @@ if ( ! function_exists( 'herblife_woocommerce_cart_link' ) ) {
 		?>
 		<a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'herblife' ); ?>">
 			<?php
-			$item_count_text = sprintf(
-				/* translators: number of items in the mini cart. */
-				_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'herblife' ),
-				WC()->cart->get_cart_contents_count()
-			);
+			// $item_count_text = sprintf(
+			// 	/* translators: number of items in the mini cart. */
+			// 	_n( '%d', '%d', WC()->cart->get_cart_contents_count(), 'herblife' ),
+			// 	WC()->cart->get_cart_contents_count()
+			// );
 			?>
 			<span class="count">
 				<img src= "<?php echo get_template_directory_uri();?>/images/cart-logo.png">
-				<?php echo esc_html( $item_count_text ); ?>
+				<?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?>
 			</span>
 		</a>
 		<?php

@@ -62,7 +62,7 @@
 					<?php get_search_form();?>
 				</div><!-- .search-bar -->
 				<!-- For search bar -->
-				<img class = "search-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/search.svg" alt="search-icon">	
+				<img class = "search-icon" id = "search-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/search.svg" alt="search-icon">	
 		
 			<!-- Cart from Woocommerce See woocommerce.php -->	
 			<?php
@@ -92,7 +92,7 @@
 			</a>
 		</div><!-- .site-branding -->
 
-		<img class = "hm-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/hamburger.svg" alt="hm-icon">	
+		<img class = "hm-icon" id = "hm-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/hamburger.svg" alt="hm-icon">	
 		</div><!-- .header-mb-wrapper -->
 
 		<nav id="site-navigation" class="main-navigation">

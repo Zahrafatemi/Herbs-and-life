@@ -171,11 +171,6 @@ require get_template_directory() . '/inc/enqueues.php';
 require get_template_directory().'/inc/register-options-page.php';
 
 /**
- * Hooks
- */
-require get_template_directory().'/inc/hooks.php';
-
-/**
  * Custom image sizes
  */
 // Featured Images

@@ -1,21 +1,53 @@
 .blog {
-    header.title{
+    main {
         padding-top: emRhythm();
     }
     
-    .filter-group {
-        display: flex;
-        justify-content: center;
+    .filters {
+        padding: emRhythm();
 
-        .filter-option {
-            padding: emRhythm();
+        li {
+            list-style-type: none;
         }
+
+        .filter-group {
+            display: flex;
+            justify-content: center;
+            
+            .filter-option {
+                padding: 0 emRhythm();
+            }
+        }
+
+        .recipes-filters {
+            display: none;
+
+            &.show {
+                display: flex;
+                justify-content: center;
+            }
+
+            .filter-group {
+                margin: 0 emRhythm();
+            }
+
+            .filter-category {
+                padding: 0 emRhythm(1);
+            }
+
+            .filter-option {
+                padding: 0 emRhythm(1);
+            }
+        }
+        
+
     }
 
-    .grid {
+
+    .blog-feed {
         .blog-post {
             width: map-get($columns, 1);
-            padding: emRhythm() emRhythm();
+            padding: emRhythm();
 
             @include mq($mq850) {
                 width: map-get($columns, 2);
@@ -35,7 +67,7 @@
             }
 
             .meta-info {
-                padding: emRhythm(1, $ms-down1) 0;
+                padding: emRhythm(1) 0;
 
                 & * {
                     display: block;
@@ -55,8 +87,6 @@
                     }
                 }                
             }
-
-
         }
     }
 }

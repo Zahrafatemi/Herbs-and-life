@@ -10,39 +10,40 @@
 ?>
 
 <?php
-	$tags = [];
-	$tagObjects = get_the_tags();
+	$categories = '';
+	$catObjects = get_the_category();
 
-	if( $tagObjects ) {
-		foreach( $tagObjects as $tagObject ) {
-			$tags[] = $tagObject->name;
+	if( $catObjects ) {
+		foreach( $catObjects as $catObject ) {
+			if( $categories ){
+				$categories .= ' ';
+			}
+			$categories .= $catObject->slug;
 		}
 	}
+?>
 
-	$tags = implode( ' ', $tags ); ?>
-
-<a class="blog-post <?php echo $tags; ?>" href="<?php echo get_permalink( get_the_ID() ) ?>">
+<a class="blog-post <?php echo $categories; ?>" href="<?php echo get_permalink( get_the_ID() ) ?>">
 	<article class="content" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<?php the_post_thumbnail( 'blog-thumbnail' ); ?>
 			
 			<header class="entry-header">
 				<div class="meta-info">
 					<?php
-						$targetCategories 	= array( 'news', 'recipe' );
+						$targetCategories 	= array( 'news', 'recipes' );
 						$postCategories 	= [];
-						$postCategory 		= "";
+						$postCategory 		= '';
 
-						$categories 		= get_the_category();
+						$categories 		= get_the_category( );
 						if( $categories ) {
 							foreach( $categories as $category ) {
-								$postCategories[] = $category->name;
+								$postCategories[] = $category->slug;
 							}
 						}
 
 						foreach( $targetCategories as $targetCategory ){
-							$index = array_search( $targetCategory, $postCategories );
-							if( $index >= 0 ) {
-								$postCategory = $postCategories[ $index ];		
+							if( in_array( $targetCategory, $postCategories ) ) {
+								$postCategory = $targetCategory;
 							}
 						}
 					?>

@@ -23,35 +23,35 @@ get_header();
 			<div class="wrapper">
 
 				<?php
-				function getFilters( $category='categories', $type='radio' ){
+				function getFilters( $category='category', $type='radio' ){
 					$filters = '';
-					
-					// Default option for filter group
-					if( $type == 'dropdown' ){
-						$filters .= "<option name=" . $category . "value='*' selected='selected'>Choose Option</option>\r\n";
-					}else{
-						$filters .= "<li class='filter-option'>\r\n";
-						$filters .= "<input type=" . $type . " id='any' name=" . $category . " value='*' checked='checked' />\r\n";
-						$filters .= "<label for='any'>Any</label>\r\n";
-						$filters .= "</li>\r\n";
 
-					}
-
-					$category = get_category_by_slug( $category );
+					$categorySlug = get_category_by_slug( $category );
 					
 					$args = array(
-						'taxonomy' => 'category',
-						'parent' => $category->term_id
+						'parent' => $categorySlug->term_id
 					);
 
-					$subcategories = get_terms( $args );
+					$subcategories = get_categories( $args );
+
+					if( $subcategories ){
+						// Default option for filter group
+						if( $type == 'dropdown' ){
+							$filters .= "<option class='default' name=" . $category . " data-filter='' selected='selected'>Choose Option</option>\r\n";
+						}else{
+							$filters .= "<li class='filter-option' data-filter=''>\r\n";
+							$filters .= "<input class='default' type=" . $type . " id='any-" . $category . "' name=" . $category . " checked='checked' />\r\n";
+							$filters .= "<label for='any-" . $category ."'>Any</label>\r\n";
+							$filters .= "</li>\r\n";
+						}
+					}
 
 					foreach( $subcategories as $subcategory ){
 						if( $type == 'dropdown' ){
-							$filters .= "<option name=" . $category->slug . "value=" . $subcategory->slug . ">" . $subcategory->name . "</option>\r\n";
+							$filters .= "<option name=" . $category . " data-filter=." . $subcategory->slug . ">" . $subcategory->name . "</option>\r\n";
 						}else{
-							$filters .= "<li class='filter-option'>\r\n";
-							$filters .= "<input type=" . $type . " id=" . $subcategory->slug . " name=" . $category->slug . " value=" . $subcategory->slug . "/>\r\n";
+							$filters .= "<li class='filter-option' data-filter=." . $subcategory->slug . ">\r\n";
+							$filters .= "<input type=" . $type . " id=" . $subcategory->slug . " name=" . $category . " />\r\n";
 							$filters .= "<label for=" . $subcategory->slug . ">" . $subcategory->name . "</label>\r\n";
 							$filters .= "</li>\r\n";
 						}
@@ -62,48 +62,39 @@ get_header();
 				?>
 
 				<div class="filters">
-					<ul class="main filter-group">
+					<ul class="main filter-group" data-filter-cat="type">
 						<?php echo getFilters(); ?>
-					</ul><!--.filter-group-->
+					</ul><!--.main-->
 
-					<select class="cuisine news-filter filter-group">
-						<?php echo getFilters('cuisine', 'dropdown');?>
-					</select>
+					<div class="recipes-filters">
+						<div class="cuisine filter-group" data-filter-cat="cuisine">
+							<label class="filter-category" for="cuisine">Cuisine: </label>
+							<select class="filter-option" id="cuisine">
+								<?php echo getFilters( "cuisine", "dropdown" );?>
+							</select>						
+						</div><!--.cuisine-->
 
-					<ul class="meal news-filter filter-group">
-						<?php echo getFilters('meal');?>
-					</ul>
+						<ul class="meal filter-group" data-filter-cat="meal">
+							<span class="filter-category">Meal:</span>
+							<?php echo getFilters( "meal" );?>
+						</ul><!--.meal-->
+
+						<ul class="ingredients filter-group" data-filter-cat="ingredients">
+							<?php echo getFilters( "ingredients" );?>
+						</ul><!--.ingredients-->						
+					</div>
+
+
 				</div><!--.filters-->
-
-				<div class="filters">
-					<div class="ui-group">
-						<div class="filter-group js-radio-button-group" data-filter-group="type">
-							<div class="filter-option">
-								<input type="radio" name="type" id="any" class="option is-checked" checked="checked" data-filter="" />
-								<label for="any">Any</label>
-							</div><!--.filter-option-->
-
-							<div class="filter-option">
-								<input type="radio" name="type" id="news" class="option" data-filter=".news" />
-								<label for="news">News</label>
-							</div><!--.filter-option-->
-
-							<div class="filter-option">
-								<input type="radio" name="type" id="recipe" class="option" data-filter=".recipe" />
-								<label for="recipe">Recipes</label>
-							</div><!--.filter-option-->
-						</div><!--.filter-group-->
-					</div><!--.ui-group-->
-				</div><!--.filters-->
-
-				<div class="grid">
+				
+				<div class="blog-feed">
 					<?php
 					while( have_posts() ){
 						the_post();
 						get_template_part('template-parts/content', 'blog');
 					}					
 					?>
-				</div><!--.grid-->
+				</div><!--.blog-feed-->
 				<?php
 					// if( $wp_query->max_num_pages > 1){
 					// 	echo do_shortcode( '[ajax_load_more container_type="div" css_classes="grid" post_type="post" transition="masonry" masonry_selector=".blog-post" posts_per_page="6" scroll_container=".grid" button_label="Load More" button_loading_label="Loading ..." no_results_text="&lt;span class="no-results"&gt;No more results&lt;/span&gt;"]' );
@@ -113,7 +104,6 @@ get_header();
 					// 		get_template_part('template-parts/content', 'blog');
 					// 	}
 					// }
-				
 				?>
 		</div><!-- .wrapper -->
 	</main><!-- #main -->

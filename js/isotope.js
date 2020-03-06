@@ -2,37 +2,38 @@
 jQuery(document).ready(function($){
   console.log('isotope test');
 
-  var $grid = $('.grid').isotope({
-    itemSelector: '.blog-post'
+  var $container = $('.blog-feed');
+
+  $container.isotope({
+      itemSelector: '.blog-post',
+      layoutMode: 'masonry'
   });
-  
-  // store filter for each group
+
   var filters = {};
-  
-  $('.filters').on( 'click', '.option', function( event ) {
-    var $button = $( event.currentTarget );
-    // get group key
-    var $buttonGroup = $button.parents('.filter-group');
-    var filterGroup = $buttonGroup.attr('data-filter-group');
-    // set filter for group
-    filters[ filterGroup ] = $button.attr('data-filter');
-    // combine filters
-    var filterValue = concatValues( filters );
-    // set filter for Isotope
-    $grid.isotope({ filter: filterValue });
+
+  // Toggle recipes filter options when 'recipes' filter is chosen
+  $('.main.filter-group').on( 'change', 'input', function() {
+      if( $( '#recipes' ).is( ':checked' ) ){
+        $( '.recipes-filters' ).addClass( 'show' );
+      }else{
+        $( '.recipes-filters' ).removeClass( 'show' );
+        resetFilters();
+      }
+      
   });
-  
-  // change is-checked class on buttons
-  $('.filter-group').each( function( i, buttonGroup ) {
-    var $buttonGroup = $( buttonGroup );
-    $buttonGroup.on( 'click', 'option', function( event ) {
-      $buttonGroup.find('.is-checked').removeClass('is-checked');
-      var $button = $( event.currentTarget );
-      $button.addClass('is-checked');
-    });
+
+  $('.filters').on( 'change', '.filter-option', function() {
+      var category = $( this ).parents( '.filter-group' ).attr( 'data-filter-cat' );
+      
+      if( $( this ).is( 'select' ) ) {
+        filters[ category ] = $( this ).find( 'option:selected' ).attr( 'data-filter');
+      }else {
+        filters[ category ] = $( this ).attr( 'data-filter' );
+      }
+
+      applyFilters();
   });
-    
-  // flatten object by concatinating values
+
   function concatValues( obj ) {
     var value = '';
     for ( var prop in obj ) {
@@ -40,5 +41,16 @@ jQuery(document).ready(function($){
     }
     return value;
   }
+
+  function applyFilters() {
+    console.log(`filters is ${concatValues(filters)}`);
+    $container.isotope( {filter: concatValues( filters )} );
+  }
+
+  function resetFilters() {
+    filters = {};
+    applyFilters();
+  }
+
 });
 

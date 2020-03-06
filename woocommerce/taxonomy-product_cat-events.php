@@ -21,6 +21,17 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
+
+			<?php if( function_exists( 'get_field' ) ):?>
+				<div class = "events_image">
+					<?php 
+					if(get_field('events_image', 'option')):
+						echo wp_get_attachment_image( get_field('events_image', 'option') , 'full' );
+					endif;
+					?>
+				</div><!--.events-image-->
+			<?php endif;  ?>
+
 			<div class="events">
 				<?php
 				

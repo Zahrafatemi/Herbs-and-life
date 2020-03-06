@@ -20,10 +20,14 @@ get_header();
 			
 			<h1 class="page-title"><?php the_title(); ?></h1>
 
-			<?php if ( has_post_thumbnail() ):?>
-				<div class = "about-featured-image">
-					<?php the_post_thumbnail();?>
-				</div><!--.about-featured-image-->
+			<?php if( function_exists( 'get_field' ) ):?>
+				<div class = "about-image">
+					<?php 
+					if(get_field('about_us_image')):
+						echo wp_get_attachment_image( get_field('about_us_image') , 'full' );
+					endif;
+					?>
+				</div><!--.about-image-->
 			<?php endif;  ?>
 	 <div class="wrapper pattern01">
 			<section class="about-intro">

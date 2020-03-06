@@ -1,0 +1,120 @@
+.newsletter{
+    background-color: $color__coolgray;
+    text-align: center;
+    padding: 25px 20px;
+
+    @include mq($mq670){
+        padding-top: 10px;
+        padding-bottom: 10px; 
+
+        p:nth-child(2){
+            padding-left:10px;
+        }
+    }
+
+    @include mq($mq1920){
+        padding-top: 30px;
+        padding-bottom: 30px; 
+    }
+
+    .newsletter-wrapper{
+        position: relative;
+
+        @include mq($mq670){
+        max-width: 800px;
+        margin: 0 auto;
+        }
+        @include mq($mq1024){
+            max-width: 980px;
+        }
+        @include mq($mq1024){
+        max-width: 1250px;
+        }
+    }
+
+
+
+    h2 {
+        padding: 15px 0px;
+    }
+     p{
+         font-size: 0.8em;
+     }
+
+    .mc4wp-form-fields{
+        padding: 0 15px;
+        text-align: left;
+
+        input[type="email"] {
+            width: 250px;
+            @include mq($mq670){
+                width: 430px; 
+            }
+        }
+
+        @include mq($mq670){
+            display: flex; 
+            justify-content: center; 
+        }
+
+    }
+
+    .newsletter-image-left{
+        width: 126px;
+        height: 95px;
+        background: url(images/assets/botanic-doodle/doodle-subscribe-left.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        position: absolute;
+        top: -55px;
+        left:0;
+        @include mq($mq670){
+            top: -3vh;  
+        }
+
+        @include mq($mq1024){
+            top: -5vh;
+            width: 180px;
+            height: 160px;
+        }
+
+         @include mq($mq1920){
+            width: 275px;
+            height: 205px;
+            // top: -5vh;
+         }
+
+    }
+
+    .newsletter-image-right{
+        width: 160px;
+        height: 112px;
+        background: url(images/assets/botanic-doodle/doodle-subscribe-right.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        position: absolute;
+        right: 0;
+        bottom: -75px;
+
+
+
+        @include mq($mq670){
+            bottom: -3vh;  
+        }
+
+        @include mq($mq1024){
+            bottom: -6vh;
+            width: 207px;
+            height: 142px;
+        }
+
+         @include mq($mq1920){
+            width: 360px;
+            height: 250px;
+         }
+
+
+    }
+} 

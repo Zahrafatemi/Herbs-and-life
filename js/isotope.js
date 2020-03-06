@@ -11,7 +11,9 @@ jQuery(document).ready(function($){
 
   var filters = {};
 
-  // Toggle recipes filter options when 'recipes' filter is chosen
+  // ------------------------------------------
+  // Recipes Filters toggle
+  // ------------------------------------------
   $('.main.filter-group').on( 'change', 'input', function() {
       if( $( '#recipes' ).is( ':checked' ) ){
         $( '.recipes-filters' ).addClass( 'show' );
@@ -22,6 +24,9 @@ jQuery(document).ready(function($){
       
   });
 
+  // ------------------------------------------
+  // Filtering
+  // ------------------------------------------
   $('.filters').on( 'change', '.filter-option', function() {
       var category = $( this ).parents( '.filter-group' ).attr( 'data-filter-cat' );
       
@@ -51,6 +56,10 @@ jQuery(document).ready(function($){
     filters = {};
     applyFilters();
   }
+
+  // ------------------------------------------
+  // Infinite Scroll
+  // ------------------------------------------
 
 });
 

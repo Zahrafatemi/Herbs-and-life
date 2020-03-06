@@ -95,16 +95,8 @@ get_header();
 					}					
 					?>
 				</div><!--.blog-feed-->
-				<?php
-					// if( $wp_query->max_num_pages > 1){
-					// 	echo do_shortcode( '[ajax_load_more container_type="div" css_classes="grid" post_type="post" transition="masonry" masonry_selector=".blog-post" posts_per_page="6" scroll_container=".grid" button_label="Load More" button_loading_label="Loading ..." no_results_text="&lt;span class="no-results"&gt;No more results&lt;/span&gt;"]' );
-					// }else{
-					// 	while( have_posts() ){
-					// 		the_post();
-					// 		get_template_part('template-parts/content', 'blog');
-					// 	}
-					// }
-				?>
+
+				<button class="load-more">Load More</button>
 		</div><!-- .wrapper -->
 	</main><!-- #main -->
 

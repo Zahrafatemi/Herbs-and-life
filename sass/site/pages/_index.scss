@@ -1,6 +1,6 @@
 .blog {
     main {
-        padding-top: emRhythm();
+        padding: emRhythm() 0;
     }
     
     .filters {
@@ -39,8 +39,6 @@
                 padding: 0 emRhythm(1);
             }
         }
-        
-
     }
 
 
@@ -88,5 +86,10 @@
                 }                
             }
         }
+    }
+
+    .load-more {
+        display: block;
+        margin: 0 auto;
     }
 }

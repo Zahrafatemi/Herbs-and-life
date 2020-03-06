@@ -12,6 +12,7 @@
   @return $number / ($number * 0 + 1);
 }
 
+
 // Returns an EM value. For example 24px becomes 1.5em
 @function emCalc($target, $context: $base-font-size) {
   @return stripUnits(($target / $context)) + 0em;

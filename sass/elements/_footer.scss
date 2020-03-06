@@ -64,6 +64,7 @@
         }
         #footer-navigation2 {
             display: grid;
+            grid-template-rows: 52px 1fr;
 
             @include mq($mq615){
                 display: block;
@@ -72,7 +73,9 @@
             @include mq($mq1024){
                 display: grid;
             }
-
+            @include mq($mq1350){
+            grid-template-rows: 25% 1fr;
+            }
             
         }
     }
@@ -154,15 +157,8 @@
             }
             }
         }
-        .menu-footer-menu-about-container {
-            margin-top: -15px;
-        }
     }
-    @include mq($mq1350){
-            .menu-footer-menu-about-container {
-                margin-top: -25px;
-            }
-    }
+   
 }
 .site-footer:before{
     content: none;

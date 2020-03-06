@@ -1,22 +1,19 @@
 .single {
-    padding: 0 emRhythm();
-
     main {
         margin: 0 auto;
-        max-width: emCalc(800);
+        padding: emRhythm();
+        max-width: emCalc(1000);
     }
 
     header {
         text-align: center;
 
         h1 {
-            padding-top: emRhythm();
+            @include serif-heading;
         }
     }
 
     .recipe {
-        
-    
         .overview {
             padding: emRhythm(1, $ms-down1) emRhythm();
             background-color: $color__background-ins;

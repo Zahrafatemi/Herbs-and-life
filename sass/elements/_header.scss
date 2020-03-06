@@ -201,12 +201,15 @@
       display: block;
       #menu-product-category-menu {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 20% 20% 1fr;
         height: 40px;
         margin-top: 30px;
         align-items: center;
         justify-items: center;
         background-color:#CDD6DB;
+        position: static;
+        width: 100%;
+        z-index: 2;
       }
     
     }

@@ -22,37 +22,43 @@
 
         .top-header{
 
-            .search-icon {
-                width: 25px;
-                @include mq($mq670){
-                    display: none;
-                }
-            }
+            
         
             .search-bar {
-                display: none;
+              
+                .search-icon {
+                    width: 25px;
+                    @include mq($mq670){
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        margin-right: 19px;
+                        padding: 3px 0;
+                        
+                    }
+                }
+                form.search-form {
+            
+                    input.search-submit {
+                         display: none;
+                    }
+                }
                 @include mq($mq670){
                     display: block;
+                    position: relative;
                 }
             }
             .site-header-cart {
                 list-style: none;
+                justify-self: end;
             }
 
-            form.search-form {
-                position: relative;
-
-                input.search-submit {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                }
-            }
+            
             .icon-wrapper {
-                display: none;
+                // display: none;
                     @include mq($mq670){
                     display: grid;
-                    grid-template-columns: 63% 1fr 1fr 1fr;
+                    grid-template-columns: 63% 1fr 5% 5%;
                     padding: 0 35px;
                     }
                 }
@@ -65,15 +71,20 @@
 
         .site-branding{
             position: relative;
+            width:160px;
+            margin: 0 auto;
+
+            
 
          img {
                 position: absolute;
                 z-index: 2;
                 top: -26px;
-                @include mq($mq670){
-                    left: 38vw;
-                    width: 160px;
-                }
+            }
+
+
+            @include mq($mq670){
+                width: 200px;
             }
         }
         #site-navigation {
@@ -84,7 +95,7 @@
         
 
         #category-navigation {
-            display: none;
+            //display: none;
             @include mq($mq670){
 
               display: block;
@@ -102,24 +113,30 @@
 
         }
 
+        ul#menu-social-menu {
+            display: none;
+            @include mq($mq670){
+            display: flex;
+            li{
+                    padding: 0 5px;
+                    width: 25px;
+               
+            }
+            }
+        }
      
 
         @include mq($mq670){
             padding: 0;
             height: inherit;
             grid-template-columns: 1fr;
+            max-width: 1250px;
+            margin: 0 auto;
 
-            ul#menu-social-menu {
-                display: flex;
-                li{
-                        padding: 0 5px;
-                        width: 25px;
-                   
-                }
-            }
+            
             #site-navigation{
                 .hm-icon{
-                    display: none;
+                 //   display: none;
                 }
                 >.menu-main-menu-container {
                     padding: 0 30px;
@@ -138,8 +155,9 @@
             .account,
             .count{
                 font-size: 0.2em;
-               
+                justify-self: end;
             }
+            
             
         }
 

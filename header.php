@@ -42,9 +42,7 @@
 <div class="header-mb-wrapper">
 		<div class = "top-header">
 		
-			<!-- For search bar -->
-			<img class = "search-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/search.svg" alt="search-icon">	
-				
+			
 			<!-- For social menu -->
 		<div class="icon-wrapper">
 			<nav id="social-navigation" class="social-navigation">
@@ -61,6 +59,9 @@
 			<div class= "search-bar">	
 					
 					<?php get_search_form();?>
+					<!-- For search bar -->
+			<img class = "search-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/search.svg" alt="search-icon">	
+				
 				</div><!-- .search-bar -->
 		
 			<!-- Cart from Woocommerce See woocommerce.php -->	

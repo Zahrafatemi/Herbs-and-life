@@ -57,17 +57,22 @@ get_header();
 						'taxonomy'=>'product_cat',
 						'orderby'=>'name',
                         'empty' => 0,
-                        'exclude' => array(47),
+                        'exclude' => array(47, 56), //exclude events, subscription category
 						'parent'=>0  //exclude subcategory
 				);
-				$terms = get_categories($prod_cat_args);
+                $terms = get_categories($prod_cat_args);
+                
 				foreach($terms as $term):
                      $term_link = get_term_link($term);
 					 $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );?>
 
-					<a class="category" href="<?php echo esc_url($term_link)?>">
-                    	<?php echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail');?>
-						<span class="category-name"><?php echo $term->name; ?> </span>
+                    <a class="category" href="<?php echo esc_url($term_link)?>">
+                    <?php if( $thumbnail_id ) { ?>
+                        <figure class="category-container">
+                        <?php echo wp_get_attachment_image( $thumbnail_id, 'woocommerce_thumbnail' ); ?>
+                        </figure>
+                    <?php }?>
+                    <p class="category-name"><?php echo $term->name; ?></p><!--.category-name-->
 					</a>
 
 				<?php endforeach;?>

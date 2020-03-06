@@ -24,17 +24,22 @@ get_header();
 
 				<div class="filters">
 					<div class="ui-group">
-						<div class="button-group js-radio-button-group" data-filter-group="type">
-							<input type="radio" name="type" id="any" class="button is-checked" data-filter="" />
-							<label for="any">Any</label>
-							
-							<input type="radio" name="type" id="news" class="button" data-filter=".news" />
-							<label for="news">News</label>
+						<div class="filter-group js-radio-button-group" data-filter-group="type">
+							<div class="filter-option">
+								<input type="radio" name="type" id="any" class="option is-checked" checked="checked" data-filter="" />
+								<label for="any">Any</label>
+							</div><!--.filter-option-->
 
-							
-							<input type="radio" name="type" id="recipe" class="button" data-filter=".recipe" />
-							<label for="recipe">Recipes</label>
-						</div><!--.button-group js-radio-button-group-->
+							<div class="filter-option">
+								<input type="radio" name="type" id="news" class="option" data-filter=".news" />
+								<label for="news">News</label>
+							</div><!--.filter-option-->
+
+							<div class="filter-option">
+								<input type="radio" name="type" id="recipe" class="option" data-filter=".recipe" />
+								<label for="recipe">Recipes</label>
+							</div><!--.filter-option-->
+						</div><!--.filter-group-->
 					</div><!--.ui-group-->
 				</div><!--.filters-->
 

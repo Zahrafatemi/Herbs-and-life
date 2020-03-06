@@ -76,6 +76,7 @@
                         top: 40px;
                         width: 95vw;
                         padding: 10px 0px;
+                        background-color: white;
                         @include mq($mq670){
                             position: static;
                             width: 100%; 

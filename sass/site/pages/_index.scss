@@ -23,9 +23,13 @@
         .filter-group {
             display: flex;
             justify-content: center;
-            
-            .filter-option {
-                padding: 0 emRhythm();
+        }
+
+        .filter-option {
+            padding: emRhythm(1) emRhythm();
+
+            #{$link-hover-selector} {
+                background-color: $color__coolgray;
             }
         }
 
@@ -42,11 +46,11 @@
             }
 
             .filter-category {
-                padding: 0 emRhythm(1);
+                padding: emRhythm(1) emRhythm(1);
             }
 
             .filter-option {
-                padding: 0 emRhythm(1);
+                padding: emRhythm(1);
             }
         }
     }

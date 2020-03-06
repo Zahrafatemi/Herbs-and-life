@@ -2,28 +2,56 @@
     main {
         margin: 0 auto;
         padding: emRhythm();
-        max-width: emCalc(1000);
+        max-width: emCalc(800);
+        font-size: 1.25em;
     }
 
     header {
-        text-align: center;
-
         h1 {
             @include serif-heading;
         }
     }
 
+    .entry-content {
+        @include mq($mq850) {
+            display: flex;
+        }
+        
+        .post-thumbnail {
+            @include mq($mq850) {
+                flex: 1;
+            }
+        }
+
+        .text {
+            padding-left: emRhythm(1, $ms-down1);
+
+            @include mq($mq850) {
+                flex: 2;
+            }
+        }
+    }
+
     .recipe {
+        .entry-content {
+            display: block;
+        }
+        
         .overview {
             padding: emRhythm(1, $ms-down1) emRhythm();
             background-color: $color__coolgray;
 
             @include mq($mq850){
                 display: flex;
+                width: 100%;
             }
 
             .thumbnail {
                 margin: 0;
+
+                @include mq($mq850){
+                    flex: 1;
+                }
 
                 img {
                     width: 100%;
@@ -31,16 +59,11 @@
                     object-fit: cover;
                 } 
             }
-
-            .thumbnail {
-                img {
-                    object-fit: cover;
-                }
-            }
             
             .text {
                 @include mq($mq850) {
-                    padding-left: emRhythm(1, $ms-down1);
+                    flex: 1;
+                    padding-left: emRhythm();
                 }
 
                 .summary {

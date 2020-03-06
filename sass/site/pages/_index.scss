@@ -1,4 +1,14 @@
 .blog {
+    $blog-post-width-mobile: map-get($columns, 1);
+    $blog-post-width-tablet: map-get($columns, 2);
+    $blog-post-width-desktop: map-get($columns, 3);
+    $blog-post-padding: emRhythm();
+
+    $load-more-width-mobile: calc(#{$blog-post-width-mobile} - (2 * #{$blog-post-padding}));
+    $load-more-width-tablet: calc(#{$blog-post-width-tablet} - (2 * #{$blog-post-padding}));
+    $load-more-width-desktop: calc(#{$blog-post-width-desktop} - (2 * #{$blog-post-padding}));
+
+
     main {
         padding: emRhythm() 0;
     }
@@ -44,19 +54,19 @@
 
     .blog-feed {
         .blog-post {
-            width: map-get($columns, 1);
-            padding: emRhythm();
+            width: $blog-post-width-mobile;
+            padding: $blog-post-padding;
 
             @include mq($mq850) {
-                width: map-get($columns, 2);
+                width: $blog-post-width-tablet;
             }
 
             @include mq($mq1024) {
-                width: map-get($columns, 3);
+                width: $blog-post-width-desktop;
             }
 
-            img {
-                width: 100%;
+            #{$link-hover-selector} {
+                background-color: $color__coolgray;
             }
 
             h2.title {
@@ -69,7 +79,7 @@
 
                 & * {
                     display: block;
-                    color: $color__cat_herb;
+                    color: $color__mossgreen;
                 }
             }
 
@@ -78,7 +88,7 @@
 
                 .read-more {
                     display: block;
-                    color: $color__text-input;
+                    color: $color__mossgreen;
 
                     #{$link-hover-selector} {
                         color: $color__text-input-focus;
@@ -89,7 +99,31 @@
     }
 
     .load-more {
+        @include serif-heading;
         display: block;
         margin: 0 auto;
+        padding: emRhythm(3) 0;
+        width: $load-more-width-mobile;
+        font-size: 1em;
+        color: $color__background-body;
+        background-color: $color__darkgray;
+        border: emCalc(1) solid;
+        border-color: $color__border-button;
+        cursor: pointer;
+
+        @include mq($mq850) {
+            width: $load-more-width-tablet;
+        }
+
+        @include mq($mq1024) {
+            width: $load-more-width-desktop;
+        }
+
+        #{$link-hover-selector} {
+            color: $color__bodyfont;
+            background-color: $color__coolgray;
+            border-color: $color__border-button-focus;
+        }
+
     }
 }

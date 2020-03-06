@@ -38,9 +38,9 @@
 			}
 		?>	
 			<section class="recipe-overview overview">
-				<div class="thumbnail">
-					<?php herblife_post_thumbnail(); ?>
-				</div><!--.thumbnail-->
+				<figure class="thumbnail">
+					<img src=<?php the_post_thumbnail_url(); ?> alt="<?php the_title(); ?>">
+				</figure><!--.thumbnail-->
 
 				<div class="text">
 					<div class="summary">

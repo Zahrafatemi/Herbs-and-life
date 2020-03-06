@@ -232,8 +232,8 @@ if ( ! function_exists( 'herblife_woocommerce_cart_link' ) ) {
 			// );
 			?>
 			<span class="count">
-				<img src= "<?php echo get_template_directory_uri();?>/images/cart-logo.png">
-				<?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?>
+				<img src= "<?php echo get_template_directory_uri();?>/images/assets/header/cart.svg">
+				<div class="count-text"><?php echo esc_html( WC()->cart->get_cart_contents_count()); ?></div>
 			</span>
 		</a>
 		<?php

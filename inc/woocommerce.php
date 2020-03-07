@@ -358,3 +358,55 @@ function hl_remove_products_tabs_from_events( $tabs ){
 	
 }
 add_filter( 'woocommerce_product_tabs', 'hl_remove_products_tabs_from_events', 1);
+
+/* --------------------------------------------------
+ * ## Products Page Promo Banners
+ * -------------------------------------------------- /
+
+ /**
+ * Output a template part
+ * SOURCE: https://stackoverflow.com/questions/5817726/wordpress-save-get-template-part-to-variable
+ */
+function load_template_part($template_name, $part_name=null) {
+    ob_start();
+    get_template_part($template_name, $part_name);
+    $var = ob_get_contents();
+    ob_end_clean();
+    return $var;
+}
+
+/**
+ * Get promotional banners ACFs and convert to template
+ */
+function hl_get_promotional_banners(){
+	if( function_exists( 'have_rows' ) ){
+		if( have_rows( 'promotional_banner', 'option' ) ){
+			$promotionalBanners = [];
+
+			while( have_rows( 'promotional_banner', 'option' ) ){
+				the_row();
+
+				$promotionalBanner = array(
+					'title' 			=> get_sub_field( 'title' ),
+					'size' 				=> get_sub_field( 'size' ),
+					'heading_text' 		=> get_sub_field( 'heading_text' ),
+					'subheading_text' 	=> get_sub_field( 'subheading_text' ),
+					'background_image' 	=> get_sub_field( 'background_image' ),
+					'background_colour' => get_sub_field( 'background_colour' ),
+					'link' 				=> get_sub_field( 'link' ),
+					'priority' 			=> get_sub_field( 'priority' )
+				);
+				
+				set_query_var( 'promotionalBanner', $promotionalBanner );
+				$promotionalBanners[] = load_template_part( 'template-parts/content', 'promo-banner' );
+				set_query_var( 'promotionalBanner', false );
+			}
+
+			echo "\$promotionalBanners test:";
+			foreach( $promotionalBanners as $promotionalBanner ){
+				echo $promotionalBanner;
+			}
+		}
+	}	
+}
+add_action( 'woocommerce_before_shop_loop', 'hl_get_promotional_banners');

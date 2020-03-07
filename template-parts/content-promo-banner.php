@@ -14,22 +14,38 @@
 $banner = get_query_var( 'promotionalBanner' );
 
 // Format the title
-$title = preg_replace('/[^a-z0-9-]/i', '' , str_replace(' ', '-', strtolower( $banner[ 'title' ] ) ));
+$title = preg_replace('/[^a-z0-9-]/i', '' , str_replace( ' ', '-', trim(strtolower( $banner[ 'title' ] ) ) ) );
 
-// Assign default image alt value
-if( !$banner[ 'background_image' ][ 'alt' ] ){
-    $banner[ 'background_image' ][ 'alt' ] = "Promotional banner";
+// Get the size
+$size = "col-0" . $banner[ 'size' ];
+
+// Get the classes
+$class = "{$title} {$size} {$banner[ 'style' ]} promotional-banner";
+
+// Assign image alt
+if( $banner[ 'background_image' ][ 'alt' ] ){
+    $alt = $banner[ 'background_image' ][ 'alt' ];
+}else{
+    $alt = "Promotional banner";
+}
+
+// Format URLs
+if( $banner[ 'background_image' ][ 'url' ] ){
+    $imgURL = esc_url( $banner[ 'background_image' ][ 'url' ] );
+}
+if( $banner[ 'link' ][ 'link_url' ] ){
+    $bannerURL = esc_url( $banner[ 'link' ][ 'link_url' ] );
 }
 
 ?>
 
-<li class="<?php echo $title . ' ' . $banner[ 'size' ]; ?> promotional-banner" style="background-color:<?php echo $banner[ 'background_colour' ]; ?>;">
-    <?php if( $banner[ 'link' ][ 'link_url' ] && $banner[ 'link' ][ 'link_placement' ] == 'banner' ): ?>
+<li class="<?php echo $class; ?>">
+    <?php if( $bannerURL && $banner[ 'link' ][ 'link_placement' ] == 'banner' ): ?>
         <a class="banner-link banner" href="<?php echo esc_url( $banner[ 'link' ][ 'link_url' ] ); ?>">
     <?php endif; ?>
 
-            <?php if( $banner[ 'background_image' ][ 'url' ] ): ?>
-                <img class="background-image" src="<?php echo $banner[ 'background_image' ][ 'url' ]; ?>" alt="<?php echo $banner[ 'background_image' ][ 'alt' ]; ?>" /><!--.background-image-->
+            <?php if( $imgURL ): ?>
+                <img class="background-image" src="<?php echo $imgURL; ?>" alt="<?php echo $alt; ?>" /><!--.background-image-->
             <?php endif; ?>
 
             <div class="content">
@@ -44,14 +60,14 @@ if( !$banner[ 'background_image' ][ 'alt' ] ){
                 </div><!--.text-->
 
                 <?php if( $banner[ 'link' ][ 'link_placement' ] == 'button' ): ?>
-                    <a class="banner-link button" href="<?php echo esc_url( $banner[ 'link' ][ 'link_url' ] ); ?>" style="background-color: <?php echo $banner[ 'link' ][ 'button_colour' ]?>; color: <?php echo $banner[ 'link' ][ 'button_text_colour' ]?>;">
+                    <a class="banner-link button" href="<?php echo $bannerURL; ?>" >
                         <?php echo $banner[ 'link' ][ 'button_text' ]; ?>
                     </a><!--.banner-link.button-->
                 <?php endif; ?>
             </div><!--.content-->
-    <?php if( $banner[ 'link' ][ 'link_url' ] && $banner[ 'link' ][ 'link_placement' ] == 'banner' ): ?>
+    <?php if( $bannerURL && $banner[ 'link' ][ 'link_placement' ] == 'banner' ): ?>
         </a><!--.banner-link.banner-->
     <?php endif; ?>
 
 
-</li><!--.<?php echo $banner[ 'title' ] . ' ' . $banner[ 'size' ]; ?>.promotional-banner"-->
+</li><!--.<?php echo str_replace( ' ', '.', $class ) ; ?>.promotional-banner"-->

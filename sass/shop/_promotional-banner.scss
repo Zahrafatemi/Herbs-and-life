@@ -2,32 +2,55 @@
     position: relative;
     padding: 0;
 
-    @include mq($mq850) {
-        &.size-25 {
-            .button {
-                width: 50%;
-            }
-        }
+    &.style-01 {
+        background-color: $color__coolgray;
+    }
 
-        &.size-50 {
+    &.style-02 {
+        background-color: $color__beige;
+    }
+
+    &.style-03 {
+        background-color: $color__mossgreen;
+    }
+
+    &.col-01 {
+        .button {
+            width: 50%;
+        }
+    }
+
+    &.col-02, 
+    &.col-03, 
+    &.col-04 {
+        display: none;
+    }
+
+    @include mq($mq670){
+        &.col-02 {
+            display: block;
             grid-column-start: span 2;
-            
+
             .button {
                 width: calc(50% / 2);
             }
         }
+	}
 
-        &.size-75, &.size-100 {
+	@include mq($mq850) {
+        &.col-03 {
+            display: block;
             grid-column-start: span 3;
 
             .button {
                 width: calc(50% / 3);
             }
         }
-    }
+	}
 
     @include mq($mq1024) {
-        &.size-100 {
+        &.col-04 {
+            display: block;
             grid-column-start: span 4;
 
             .button {

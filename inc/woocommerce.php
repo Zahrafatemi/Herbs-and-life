@@ -389,8 +389,10 @@ function hl_get_promotional_banners() {
 				$promotionalBanner = array(
 					'title' 			=> get_sub_field( 'title' ),
 					'size' 				=> get_sub_field( 'size' ),
+					'style'				=> get_sub_field( 'style' ),
 					'heading_text' 		=> get_sub_field( 'heading_text' ),
 					'subheading_text' 	=> get_sub_field( 'subheading_text' ),
+					'subheading_colour'	=> get_sub_field( 'subheading_text_colour' ),
 					'background_image' 	=> get_sub_field( 'background_image' ),
 					'background_colour' => get_sub_field( 'background_colour' ),
 					'link' 				=> get_sub_field( 'link' ),

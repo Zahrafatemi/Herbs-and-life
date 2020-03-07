@@ -378,7 +378,7 @@ function load_template_part($template_name, $part_name=null) {
 /**
  * Get promotional banners ACFs and convert to template
  */
-function hl_get_promotional_banners(){
+function hl_get_promotional_banners() {
 	if( function_exists( 'have_rows' ) ){
 		if( have_rows( 'promotional_banner', 'option' ) ){
 			$promotionalBanners = [];
@@ -402,11 +402,49 @@ function hl_get_promotional_banners(){
 				set_query_var( 'promotionalBanner', false );
 			}
 
-			echo "\$promotionalBanners test:";
-			foreach( $promotionalBanners as $promotionalBanner ){
-				echo $promotionalBanner;
-			}
+			return $promotionalBanners;
 		}
 	}	
 }
-add_action( 'woocommerce_before_shop_loop', 'hl_get_promotional_banners');
+
+/**
+ * Remove current product loop
+ */
+function hl_remove_product_loop() {
+	wc_set_loop_prop('total', 0);
+}
+add_action( 'woocommerce_product_loop_start' , 'hl_remove_product_loop' );
+
+/**
+ * Add new product loop with promotional banners
+ */
+function hl_new_product_loop() {
+	if ( wc_get_loop_prop( 'total' ) ) {
+		while ( have_posts() ) {
+			the_post();
+			// output mini banner conditional
+			// get template part .. count...
+			/**
+			 * Hook: woocommerce_shop_loop.
+			 */
+			do_action( 'woocommerce_shop_loop' );
+
+			wc_get_template_part( 'content', 'product' );
+		}
+	}
+
+	woocommerce_product_loop_end();
+}
+add_action( 'woocommerce_product_loop_start' , 'hl_new_product_loop', 1 );
+
+/**
+ * Insert promotional banners into shop loop
+ */
+// function hl_display_promotional_banners() {
+// 	for( $i = 0; $i < wc_get_loop_prop( 'total' ); $i++ ){
+// 		if( $i % 4 == 0 ){
+// 			echo "4 products have been looped";
+// 		}
+// 	}
+// }
+// add_action( 'woocommerce_product_loop_start', 'hl_display_promotional_banners');

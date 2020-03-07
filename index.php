@@ -98,15 +98,16 @@ get_header();
 						}
 						?>
 					</div><!--#infinite-scroll.blog-feed-->
+
+					<div id="infinite-handle">
+						<button class="load-more button">Load More</button>
+					</div><!--#infinite-handle-->
 				<?php
 				else:
 					get_template_part( 'template-parts/content', 'none' );
 				endif;
 				?>
 		</div><!-- .wrapper -->
-		<div id="infinite-handle">
-			<button class="load-more button">Load More</button>
-		</div><!--#infinite-handle-->
 	</main><!-- #main -->
 
 <?php

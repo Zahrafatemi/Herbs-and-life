@@ -84,9 +84,30 @@ if ( ! function_exists( 'herblife_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+		
+
 	}
 endif;
 add_action( 'after_setup_theme', 'herblife_setup' );
+
+function hl_blog_post_infinite_scroll(){
+	while( have_posts() ) {
+		the_post();
+		get_template_part( 'template-parts/content', 'blog' );
+	}
+}
+
+function herblife_infinite_scroll() {
+	add_theme_support( 'infinite-scroll', array(
+		'container' 		=> 'infinite-scroll',
+		'type' 				=> 'click',
+		'footer_widgets' 	=> true,
+		'render' 			=> 'hl_blog_post_infinite_scroll',
+		'wrapper'			=> false,
+		'posts_per_page'	=> 3
+	) );
+}
+add_action( 'after_setup_theme', 'herblife_infinite_scroll' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.

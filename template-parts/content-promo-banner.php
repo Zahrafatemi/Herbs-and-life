@@ -20,14 +20,15 @@ $title = preg_replace('/[^a-z0-9-]/i', '' , str_replace(' ', '-', strtolower( $b
 if( !$banner[ 'background_image' ][ 'alt' ] ){
     $banner[ 'background_image' ][ 'alt' ] = "Promotional banner";
 }
+
 ?>
 
-<div class="<?php echo $title . ' ' . $banner[ 'size' ]; ?> promotional-banner" style="background-color:<?php $banner[ 'background_colour' ] ?>;">
-    <?php if( $banner[ 'link' ][ 'link_placement' ] == 'banner' ): ?>
+<div class="<?php echo $title . ' ' . $banner[ 'size' ]; ?> promotional-banner" style="background-color:<?php echo $banner[ 'background_colour' ]; ?>;">
+    <?php if( $banner[ 'link' ][ 'linkURL' ] && $banner[ 'link' ][ 'link_placement' ] == 'banner' ): ?>
         <a class="banner-link banner" href="<?php echo esc_url( $banner[ 'link' ][ 'linkURL' ] ); ?>">
     <?php endif; ?>
 
-            <?php if( $banner[ 'background_image' ] ): ?>
+            <?php if( $banner[ 'background_image' ][ 'url' ] ): ?>
                 <img class="background-image" src="<?php echo $banner[ 'background_image' ][ 'url' ]; ?>" alt="<?php echo $banner[ 'background_image' ][ 'alt' ]; ?>" /><!--.background-image-->
             <?php endif; ?>
 
@@ -41,8 +42,8 @@ if( !$banner[ 'background_image' ][ 'alt' ] ){
                 <?php endif; ?>
 
                 <?php if( $banner[ 'link' ][ 'link_placement' ] == 'button' ): ?>
-                    <a class="banner-link button" style="background-color: <?php echo $banner[ 'link' ][ 'button_colour' ]?>;">
-                        <span class="button-text" style="color: <?php echo $banner[ 'link' ][ 'button_text_colour' ]?>;"><?php echo $banner[ 'link' ][ 'button_text' ]; ?></span>
+                    <a class="banner-link button" style="background-color: <?php echo $banner[ 'link' ][ 'button_colour' ]?>; color: <?php echo $banner[ 'link' ][ 'button_text_colour' ]?>;">
+                        <?php echo $banner[ 'link' ][ 'button_text' ]; ?>
                     </a><!--.banner-link.button-->
                 <?php endif; ?>
             </div><!--.content-->

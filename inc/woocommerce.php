@@ -408,43 +408,51 @@ function hl_get_promotional_banners() {
 }
 
 /**
- * Remove current product loop
- */
-function hl_remove_product_loop() {
-	wc_set_loop_prop('total', 0);
-}
-add_action( 'woocommerce_product_loop_start' , 'hl_remove_product_loop' );
-
-/**
  * Add new product loop with promotional banners
  */
 function hl_new_product_loop() {
+
 	if ( wc_get_loop_prop( 'total' ) ) {
+
+		$i = 0;
+		$j = 4;
+		$k = 0;
+		$promotionalBanners = hl_get_promotional_banners();
+
+		echo '<ul class="product-list">';
 		while ( have_posts() ) {
+
 			the_post();
-			// output mini banner conditional
-			// get template part .. count...
-			/**
-			 * Hook: woocommerce_shop_loop.
-			 */
+			
 			do_action( 'woocommerce_shop_loop' );
-
+			
 			wc_get_template_part( 'content', 'product' );
-		}
-	}
+			
+			$i++;
 
-	woocommerce_product_loop_end();
+			if( $i % $j == 0 ) {
+				if( $promotionalBanners ) {
+					echo $promotionalBanners[ $k ];
+					$k++;
+					if( $k == count( $promotionalBanners ) ){
+						$k = 0;
+					}
+				}
+			}
+			
+		}
+		echo '</ul>';
+	}
 }
-add_action( 'woocommerce_product_loop_start' , 'hl_new_product_loop', 1 );
+add_action( 'woocommerce_after_shop_loop' , 'hl_new_product_loop', 5);
 
 /**
  * Insert promotional banners into shop loop
  */
-// function hl_display_promotional_banners() {
+// function hl_display_promotional_banners( $interval = 4 ) {
 // 	for( $i = 0; $i < wc_get_loop_prop( 'total' ); $i++ ){
-// 		if( $i % 4 == 0 ){
+// 		if( $i % $interval == 0 ){
 // 			echo "4 products have been looped";
 // 		}
 // 	}
 // }
-// add_action( 'woocommerce_product_loop_start', 'hl_display_promotional_banners');

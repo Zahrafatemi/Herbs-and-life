@@ -1,18 +1,31 @@
 /**
  * Products
  */
+
 ul.products {
-	@include clearfix;
-	margin: 0;
-	padding: 0;
+	display: none;
+}
 
-	li.product {
+.product-list {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-column-gap: emRhythm(1);
+	grid-row-gap: emRhythm();
+
+	@include mq($mq850) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@include mq($mq1024) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	li {
+		margin: 0;
 		list-style: none;
-		position: relative;
-		margin-bottom: 2em;
 
-		.woocommerce-loop-product__title {
-			font-size: 1rem;
+		&.product {
+			padding: emRhythm();
 		}
 
 		img {
@@ -25,40 +38,70 @@ ul.products {
 	}
 }
 
-@media screen and (min-width: 48em) {
-	ul.products {
-		li.product {
-			@include column-width(3);
-			//grid, flex..
-			float: left;
-			margin-right: $columns__margin;
 
-			&.first {
-				clear: both;
-			}
 
-			&.last {
-				margin-right: 0;
-			}
-		}
-	}
 
-	.columns-1 {
-		ul.products {
-			li.product {
-				float: none;
-				width: 100%;
-			}
-		}
-	}
+ /**
+ * Products - Default Styles
+ */
+// ul.products {
+// 	@include clearfix;
+// 	margin: 0;
+// 	padding: 0;
 
-	@for $i from 2 through 6 {
-		.columns-#{$i} {
-			ul.products {
-				li.product {
-					@include column-width( $i );
-				}
-			}
-		}
-	}
-}
+// 	li.product {
+// 		list-style: none;
+// 		position: relative;
+// 		margin-bottom: 2em;
+
+// 		.woocommerce-loop-product__title {
+// 			font-size: 1rem;
+// 		}
+
+// 		img {
+// 			display: block;
+// 		}
+
+// 		.button {
+// 			display: block;
+// 		}
+// 	}
+// }
+
+// @media screen and (min-width: 48em) {
+// 	ul.products {
+// 		li.product {
+// 			@include column-width(3);
+// 			//grid, flex..
+// 			float: left;
+// 			margin-right: $columns__margin;
+
+// 			&.first {
+// 				clear: both;
+// 			}
+
+// 			&.last {
+// 				margin-right: 0;
+// 			}
+// 		}
+// 	}
+
+// 	.columns-1 {
+// 		ul.products {
+// 			li.product {
+// 				float: none;
+// 				width: 100%;
+// 			}
+// 		}
+// 	}
+
+// 	@for $i from 2 through 6 {
+// 		.columns-#{$i} {
+// 			ul.products {
+// 				li.product {
+// 					@include column-width( $i );
+// 				}
+// 			}
+// 		}
+// 	}
+// }

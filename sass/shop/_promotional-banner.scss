@@ -1,0 +1,85 @@
+.promotional-banner {
+    position: relative;
+    padding: 0;
+
+    @include mq($mq850) {
+        &.size-25 {
+            .button {
+                width: 50%;
+            }
+        }
+
+        &.size-50 {
+            grid-column-start: span 2;
+            
+            .button {
+                width: calc(50% / 2);
+            }
+        }
+
+        &.size-75, &.size-100 {
+            grid-column-start: span 3;
+
+            .button {
+                width: calc(50% / 3);
+            }
+        }
+    }
+
+    @include mq($mq1024) {
+        &.size-100 {
+            grid-column-start: span 4;
+
+            .button {
+                width: calc(50% / 4);
+            }
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .content {
+        z-index: 99;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            transform: translate( -50%, -50% );
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .button {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX( -50% );
+            margin-bottom: emRhythm();
+            padding: emRhythm(1) 0;
+            text-align: center;
+            font-size: 1em;
+            @include serif-heading;
+            color: $color__background-body;
+            background-color: $color__darkgray;
+            cursor: pointer;
+    
+            #{$link-hover-selector} {
+                color: $color__bodyfont;
+                background-color: $color__coolgray;
+            }
+        }
+    }
+}

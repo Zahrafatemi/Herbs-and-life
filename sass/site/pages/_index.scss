@@ -27,6 +27,7 @@
 
         .filter-option {
             padding: emRhythm(1) emRhythm();
+            white-space: nowrap;
 
             #{$link-hover-selector} {
                 background-color: $color__coolgray;
@@ -37,8 +38,11 @@
             display: none;
 
             &.show {
-                display: flex;
-                justify-content: center;
+                display: block;
+                @include mq($mq850) {
+                    display: flex;
+                    justify-content: center;
+                }
             }
 
             .filter-group {
@@ -46,7 +50,7 @@
             }
 
             .filter-category {
-                padding: emRhythm(1) emRhythm(1);
+                padding: emRhythm(1);
             }
 
             .filter-option {

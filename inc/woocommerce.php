@@ -359,20 +359,72 @@ function hl_remove_products_tabs_from_events( $tabs ){
 }
 add_filter( 'woocommerce_product_tabs', 'hl_remove_products_tabs_from_events', 1);
 
+
 /* --------------------------------------------------
- * ## Products Page Promo Banners
+ * # Hooks - Products Page
+ * -------------------------------------------------- /
+
+/* --------------------------------------------------
+ * ## Promotional Banners
  * -------------------------------------------------- /
 
  /**
  * Output a template part
  * SOURCE: https://stackoverflow.com/questions/5817726/wordpress-save-get-template-part-to-variable
  */
-function load_template_part($template_name, $part_name=null) {
+function hl_load_template_part($template_name, $part_name=null) {
     ob_start();
     get_template_part($template_name, $part_name);
     $var = ob_get_contents();
     ob_end_clean();
     return $var;
+}
+
+ /**
+ * Shuffle an associative array
+ */
+function hl_shuffle_arr( $arr ) {
+	$keys = array_keys( $arr );
+
+	shuffle( $keys );
+
+	foreach( $keys as $key ) {
+		$shuffled[ $key ] = $arr[ $key ];
+	}
+
+	return $shuffled;
+  }
+
+
+/**
+ * Sort array based on the element's priority value
+ * Where the higher priority,
+ * the earlier it is placed in the array
+ */
+function hl_sort_by_priority( $x, $y ){
+	return $x[ 'priority' ] > $y[ 'priority' ];
+}
+
+/**
+ * Reorder Promotional Banners array depending on Display Order ACF
+ */
+function hl_reorder_promotional_banners( $promoBannersArr ) {
+	if( function_exists( 'get_field' ) ) {
+
+		$settings = get_field( 'promotional_banners_settings', 'options' );
+		$displayOrder = $settings[ 'display_order' ];
+
+        if( $displayOrder == 'random' ) {
+			
+			$promoBannersArr = hl_shuffle_arr( $promoBannersArr );
+			
+        }else if( $displayOrder == 'priority' ) {
+
+			$promoBannersArr = usort( $promoBannersArr, 'hl_sort_by_priority' );
+
+		}
+	}
+	return $promoBannersArr;
 }
 
 /**
@@ -381,9 +433,11 @@ function load_template_part($template_name, $part_name=null) {
 function hl_get_promotional_banners() {
 	if( function_exists( 'have_rows' ) ){
 		if( have_rows( 'promotional_banner', 'option' ) ){
-			$promotionalBanners = [];
+
+			$promotionalBannersData = [];
 
 			while( have_rows( 'promotional_banner', 'option' ) ){
+
 				the_row();
 
 				$promotionalBanner = array(
@@ -398,9 +452,17 @@ function hl_get_promotional_banners() {
 					'link' 				=> get_sub_field( 'link' ),
 					'priority' 			=> get_sub_field( 'priority' )
 				);
-				
+
+				$promotionalBannersData[] = $promotionalBanner;
+			}
+
+			$reorderedPBD = hl_reorder_promotional_banners( $promotionalBannersData );
+
+			foreach( $reorderedPBD as $promotionalBanner ){
 				set_query_var( 'promotionalBanner', $promotionalBanner );
-				$promotionalBanners[] = load_template_part( 'template-parts/content', 'promo-banner' );
+
+				$promotionalBanners[] = hl_load_template_part( 'template-parts/content', 'promo-banner' );
+
 				set_query_var( 'promotionalBanner', false );
 			}
 
@@ -422,6 +484,7 @@ function hl_new_product_loop() {
 		$promotionalBanners = hl_get_promotional_banners();
 
 		echo '<ul class="product-list">';
+
 		while ( have_posts() ) {
 
 			the_post();
@@ -447,14 +510,3 @@ function hl_new_product_loop() {
 	}
 }
 add_action( 'woocommerce_after_shop_loop' , 'hl_new_product_loop', 5);
-
-/**
- * Insert promotional banners into shop loop
- */
-// function hl_display_promotional_banners( $interval = 4 ) {
-// 	for( $i = 0; $i < wc_get_loop_prop( 'total' ); $i++ ){
-// 		if( $i % $interval == 0 ){
-// 			echo "4 products have been looped";
-// 		}
-// 	}
-// }

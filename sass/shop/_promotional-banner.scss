@@ -29,7 +29,7 @@
     @include mq($mq670){
         &.col-02 {
             display: block;
-            grid-column-start: 1 span 2;
+            grid-column-start: span 2;
 
             .button {
                 width: calc(50% / 2);
@@ -38,13 +38,9 @@
 	}
 
 	@include mq($mq850) {
-        &.col-02 {
-            grid-column-start: auto span 2;
-        }
-
         &.col-03 {
             display: block;
-            grid-column-start: 1 span 3;
+            grid-column-start: span 3;
 
             .button {
                 width: calc(50% / 3);
@@ -53,10 +49,6 @@
 	}
 
     @include mq($mq1024) {
-        &.col-03 {
-            grid-column-start: span 3;
-        }
-
         &.col-04 {
             display: block;
             grid-column-start: span 4;

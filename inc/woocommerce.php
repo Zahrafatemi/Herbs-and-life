@@ -402,7 +402,7 @@ function hl_shuffle_arr( $arr ) {
  * the earlier it is placed in the array
  */
 function hl_sort_by_priority( $x, $y ){
-	return $x[ 'priority' ] > $y[ 'priority' ];
+	return $x[ 'priority' ] < $y[ 'priority' ];
 }
 
 /**
@@ -420,7 +420,7 @@ function hl_reorder_promotional_banners( $promoBannersArr ) {
 			
         }else if( $displayOrder == 'priority' ) {
 
-			$promoBannersArr = usort( $promoBannersArr, 'hl_sort_by_priority' );
+			usort( $promoBannersArr, 'hl_sort_by_priority' );
 
 		}
 	}
@@ -450,16 +450,23 @@ function hl_get_promotional_banners() {
 					'background_image' 	=> get_sub_field( 'background_image' ),
 					'background_colour' => get_sub_field( 'background_colour' ),
 					'link' 				=> get_sub_field( 'link' ),
-					'priority' 			=> get_sub_field( 'priority' )
+					'priority' 			=> get_sub_field( 'priority' ),
+					'display'			=> get_sub_field( 'display' )
 				);
 
-				$promotionalBannersData[] = $promotionalBanner;
+				if( !$promotionalBanner[ 'display'][ 'display_all'] ){
+					if( is_product_category( $promotionalBanner[ 'display' ][ 'display_page' ][0] ) ){
+						$promotionalBannersData[] = $promotionalBanner;
+					}
+				}else{
+					$promotionalBannersData[] = $promotionalBanner;
+				}
 			}
 
 			$reorderedPBD = hl_reorder_promotional_banners( $promotionalBannersData );
 
-			foreach( $reorderedPBD as $promotionalBanner ){
-				set_query_var( 'promotionalBanner', $promotionalBanner );
+			foreach( $reorderedPBD as $promotionalBannerData ){
+				set_query_var( 'promotionalBanner', $promotionalBannerData );
 
 				$promotionalBanners[] = hl_load_template_part( 'template-parts/content', 'promo-banner' );
 

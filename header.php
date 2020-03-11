@@ -75,13 +75,8 @@
 
 			<!-- Account from Woocommerce See woocommerce.php -->	
 			<span class="account">
-<<<<<<< HEAD
-				<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account',''); ?>"><img src= "<?php echo get_template_directory_uri();?>/images/myaccount-logo.png">
-					<span class = "screen-reader-text"><?php _e('My Account',''); ?></span>
-=======
 				<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account',''); ?>"><img src= "<?php echo get_template_directory_uri();?>/images/assets/header/account.svg">
 				<span class = "screen-reader-text">	<?php _e('My Account',''); ?></span>
->>>>>>> timemachine
 				</a>
 			</span><!--.account-->
 			</div><!--.icon-wrapper-->

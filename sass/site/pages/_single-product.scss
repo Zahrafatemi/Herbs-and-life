@@ -31,4 +31,34 @@
             }
         }
     }
+
+    .variations {
+        td.value {
+            @include mq($mq850) {
+                display: flex;
+            }
+
+            div {
+                @include mq($mq850) {
+                    flex: 1;
+                    margin-right: emRhythm();
+                }
+
+                input[type=radio]{
+                    opacity: 0;
+                    position: fixed;
+                    width: 0;
+                }
+
+                label {
+                    display: block;
+                    @include serif-heading;
+                    padding: emRhythm($ms-up2);
+                    text-align: center;
+                    border: emCalc(1) solid $color__mossgreen;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 }

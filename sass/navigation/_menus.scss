@@ -9,13 +9,14 @@
 		margin: 0;
 		padding-left: 0;
 		position: absolute;
-		z-index: 2;
+		z-index: 1;
 		background-color: rgba(255, 255, 255, 0.909);
 		width: 100%;
 		display: grid;
 		justify-content: center;
 		text-align: center;
-		padding: 30px 0;
+		padding-top: 50px;
+		padding-bottom:30px;
 
 		@include mq($mq670){
 			padding: 0;
@@ -99,7 +100,7 @@
 	.main-navigation ul {
 		display: block;
 		width: 100%;
-		
+		height: 100%;
 	}
 	
 }

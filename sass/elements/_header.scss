@@ -1,11 +1,15 @@
 
 .top-banner{
-    font-size: 0.6em;
+    font-size: 0.9em;
     text-align: center;
     padding: 5px 0px;
     background-color:$color__bodyfont;
     color: #ffffff;
     border-bottom: 5px solid #F4EAD3;
+
+    @include mq($mq670){
+        font-size: 0.8em;
+    }
 }
 
 .header-mb-wrapper {
@@ -54,13 +58,16 @@
                 .search-icon {
                     width: 25px;
                     position: absolute;
-                    top: 30px;
-                    left: 10px;
+                    z-index: 3;
+                    top: -12px;
+                    left: 0;
                 
                     @include mq($mq670){
-                    // position: static;
-                        left: 83%;
-                        top: 20px;
+                        top: 7px;
+                        right: 0;
+                        left: auto;
+                        width: 20px;
+                    
                     }
                 }
 
@@ -70,12 +77,11 @@
 
                     
                     .search-form {
-                        display: none;
                         position: absolute;
-                        z-index: 3;
-                        top: 40px;
-                        width: 95vw;
-                        padding: 10px 0px;
+                        z-index: 2;
+                        top: -11px;
+                        left: 29px;
+                        width: 35vw;
                         background-color: white;
                         @include mq($mq670){
                             position: static;

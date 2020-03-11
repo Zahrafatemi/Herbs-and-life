@@ -9,6 +9,10 @@
 
     .menu-item a{
         font-size: 0.8em;
+
+        @include mq($mq670){
+            font-size: 1em;
+        }
     }
    
 }

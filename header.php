@@ -60,9 +60,10 @@
 			<div class= "search-bar">	
 					
 					<?php get_search_form();?>
-				</div><!-- .search-bar -->
-				<!-- For search bar -->
+			<!-- For search bar -->
 				<img class = "search-icon" id = "search-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/search.svg" alt="search-icon">	
+			</div><!-- .search-bar -->
+				
 		
 			<!-- Cart from Woocommerce See woocommerce.php -->	
 			<?php

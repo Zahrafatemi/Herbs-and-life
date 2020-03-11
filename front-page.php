@@ -170,7 +170,7 @@ get_header();
 											<?php if (has_post_thumbnail( $loop->post->ID )): 
 												echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog');
 											else: ?>
-												<img src="<?php woocommerce_placeholder_img_src()?>" alt="Placeholder" width="300px" height="300px" />
+												<img src="<?php woocommerce_placeholder_img_src()?>" alt="Paceholder" width="300px" height="300px" />
 											<?php endif; ?>
 
 											<h3><?php the_title(); ?></h3>

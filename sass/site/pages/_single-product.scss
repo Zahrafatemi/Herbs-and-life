@@ -1,0 +1,34 @@
+.single-product {
+    .woocommerce-tabs.wc-tabs-wrapper {
+        .tabs {
+            display: flex;
+        }
+
+        li {
+            margin-right: emRhythm();
+
+            &.active a {
+                color: $color__mossgreen;
+                border-color: $color__mossgreen;
+            }
+        }
+
+        a {
+            padding-bottom: 0;
+            border-bottom: emCalc(1) solid $color__bodyfont;
+            @include serif-heading;
+
+            #{$link-hover-selector} {
+                color: $color__mossgreen;
+                border-color: $color__mossgreen;
+            }
+        }
+
+        .woocommerce-Tabs-panel--description.panel,
+        .woocommerce-Tabs-panel--additional_information {
+            h2 {
+                display: none;
+            }
+        }
+    }
+}

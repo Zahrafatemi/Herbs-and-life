@@ -48,13 +48,35 @@
                 color:$color__coolgray;
 
             }
+            ul#menu-footer-order_support,
+            ul#menu-footer-menu-about{
+                font-family: $font__main;
+                font-weight: 300;
+                text-transform: capitalize;
+            }
+            
+        }
+
+        #footer-navigation1{
+            @include mq($mq1095){
+                display: grid;
+            }
         }
         #footer-navigation2 {
             display: grid;
+            grid-template-rows: 52px 1fr;
 
-            h3{
-                align-self: end;
+            @include mq($mq615){
+                display: block;
             }
+
+            @include mq($mq1024){
+                display: grid;
+            }
+            @include mq($mq1350){
+            grid-template-rows: 25% 1fr;
+            }
+            
         }
     }
 
@@ -96,6 +118,7 @@
                         width:180px;
                     }
                 }
+                
         
     }
     @include mq($mq1024){
@@ -122,9 +145,7 @@
              padding-bottom: 0px;
          }
         
-            #footer-navigation2{
-                display: block;
-            } 
+            
             h3 {
             align-self: normal;
             }
@@ -137,7 +158,7 @@
             }
         }
     }
-
+   
 }
 .site-footer:before{
     content: none;

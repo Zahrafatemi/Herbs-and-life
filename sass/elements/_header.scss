@@ -1,16 +1,15 @@
-.count img,
-.account>a img{
-    width: 25px;
-    height: 25px;
-}
 
 .top-banner{
-    font-size: 0.6em;
+    font-size: 0.9em;
     text-align: center;
     padding: 5px 0px;
     background-color:$color__bodyfont;
     color: #ffffff;
     border-bottom: 5px solid #F4EAD3;
+
+    @include mq($mq670){
+        font-size: 0.8em;
+    }
 }
 
 .header-mb-wrapper {
@@ -19,130 +18,208 @@
     height: 52px;
     align-items: center;
     padding: 0 10px;
+    max-width: 1240px;
+    margin: 0 auto;
+
+    @include mq($mq670){
+        padding: 0;
+        height: inherit;
+        grid-template-columns: 1fr;
+        padding: 0 30px;
+    }
 
         .top-header{
 
-            .search-icon {
-                width: 25px;
-                @include mq($mq670){
-                    display: none;
-                }
-            }
-        
-            .search-bar {
-                display: none;
-                @include mq($mq670){
-                    display: block;
-                }
-            }
             .site-header-cart {
                 list-style: none;
             }
-
-            form.search-form {
-                position: relative;
-
-                input.search-submit {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                }
-            }
+        
             .icon-wrapper {
-                display: none;
+                // display: none;
+            
                     @include mq($mq670){
                     display: grid;
-                    grid-template-columns: 63% 1fr 1fr 1fr;
-                    padding: 0 35px;
+                    grid-template-columns: 58% 1fr 6% 6%;
+                    }
+                    .social-navigation{
+                    ul#menu-social-menu {
+                        display:none;
+                                @include mq($mq670){
+                                display: flex;
+                                        li{
+                                                padding: 0 5px;
+                                                width: 25px;
+                                        
+                                        }
+                                }
                     }
                 }
-            
                 
-            
+                .search-icon {
+                    width: 25px;
+                    position: absolute;
+                    z-index: 3;
+                    top: -12px;
+                    left: 0;
+                
+                    @include mq($mq670){
+                        top: 7px;
+                        right: 0;
+                        left: auto;
+                        width: 20px;
+                    
+                    }
+                }
 
+                .search-bar {
+                    position: relative;
+                    width:100%;
+
+                    
+                    .search-form {
+                        position: absolute;
+                        z-index: 2;
+                        top: -11px;
+                        left: 29px;
+                        width: 35vw;
+                        background-color: white;
+                        @include mq($mq670){
+                            position: static;
+                            width: 100%; 
+                            padding:0;
+                        }
+
+                        input.search-field {
+                            width: 100%;
+                            border: none;
+                            border-bottom: 1px solid rgb(202, 202, 202);
+                            border-radius: 0px;
+
+                            background-color: transparent;
+                        }
+                    
+                        input.search-submit {
+                            display: none;
+                           }
+                    }
+                }
+            }
+            .site-header-cart,
+            .account{
+                display: none;
+                @include mq($mq670){
+                    display: block;
+                    justify-self: end;
+                }
+            }
+            .site-header-cart{
+                font-size: 0.5em;
+                
+                .cart-contents{
+                 
+                    .count {
+                        
+                        img{
+                        width: 23px;
+                        height: 23px;
+                        position: relative;
+                        margin-top: 3px;
+                        }
+                        .count-text{
+                            position: absolute;
+                            top: 40%;
+                            left:40%;
+                        }
+                        @include mq($mq670){    
+                            font-size: 0.3em;
+                            justify-self: end;
+                          
+                        }
+                    }
+                }
+            }
+            .account {
+                padding-top: 3px;
+            >a img{
+                width: 20px;
+                height: 20px;
+            }
+        }
             
         }
 
         .site-branding{
             position: relative;
+            width: 160px;
+            margin: 0 auto;
 
          img {
                 position: absolute;
                 z-index: 2;
                 top: -26px;
                 @include mq($mq670){
-                    left: 38vw;
-                    width: 160px;
+                    z-index: 3;
+    
                 }
             }
         }
-        #site-navigation {
-            text-align: right;
-            
-        }
 
-        
+        .hm-icon{
+            justify-self: end;
 
-        #category-navigation {
-            display: none;
             @include mq($mq670){
-
-              display: block;
-              #menu-product-category-menu {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                height: 40px;
-                margin-top: 30px;
-                align-items: center;
-                justify-items: center;
-                background-color:#CDD6DB;
-              }
-            
+                display: none;
             }
+        }    
+}
 
-        }
-
-     
-
+#site-navigation {
+    text-align: right;
+    .menu-main-menu-container {
+        position: relative;
+        display: none;
         @include mq($mq670){
-            padding: 0;
-            height: inherit;
-            grid-template-columns: 1fr;
+        width: 100%;
+        height: 37px;
+        display: block;
 
-            ul#menu-social-menu {
-                display: flex;
-                li{
-                        padding: 0 5px;
-                        width: 25px;
-                   
-                }
-            }
-            #site-navigation{
-                .hm-icon{
-                    display: none;
-                }
-                >.menu-main-menu-container {
-                    padding: 0 30px;
-                
-                    #primary-menu {
-                        display: grid;
-                        grid-template-columns: 10% 10% 10% 1fr 10% 10%;
-                        justify-items: center;
+        #primary-menu {
+            display: grid;
+            grid-template-columns: 13% 13% 13% 1fr 13% 13%;;
+            justify-items: center;
 
-                        #menu-item-229 {
-                            justify-self: end;
-                        }
-                    }
-                }
-            } 
-            .account,
-            .count{
-                font-size: 0.2em;
-               
+            #menu-item-229 {
+                justify-self: end;
+                padding-right: 3vw;
             }
-            
         }
+    }
+    }
+    
+    
+}
 
 
+
+
+#category-navigation {
+    display: none;
+    @include mq($mq670){
+
+      display: block;
+      #menu-product-category-menu {
+        display: grid;
+        grid-template-columns: 20% 20% 1fr;
+        height: 40px;
+        margin-top: 30px;
+        align-items: center;
+        justify-items: center;
+        background-color:#CDD6DB;
+        position: static;
+        width: 100%;
+        z-index: 2;
+      }
+    
+    }
 
 }

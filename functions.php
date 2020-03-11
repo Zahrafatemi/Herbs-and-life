@@ -220,3 +220,12 @@ add_filter( 'wpsl_admin_marker_dir', 'custom_admin_marker_dir' );
 
 //define( 'WPSL_MARKER_URI', dirname( get_bloginfo( 'stylesheet_url') ) . '/wpsl-markers/' );
 define( 'WPSL_MARKER_URI', dirname( get_bloginfo( 'stylesheet_url') ) . '/images/markers/' );
+
+//Remoce Search placeholder from search bar
+function wpforo_search_form( $html ) {
+
+	$html = str_replace( 'placeholder="Search ', 'placeholder=""', $html );
+
+	return $html;
+}
+add_filter( 'get_search_form', 'wpforo_search_form' );

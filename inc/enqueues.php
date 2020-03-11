@@ -107,5 +107,15 @@ function herblife_scripts() {
 			'20200129', 
 			true );
 	}
+
+	/**
+	 * Header toggle JS
+	 */	
+	wp_enqueue_script( 
+		'header-toggle', 
+		get_template_directory_uri().'/js/header-toggle.js', 
+		array('jquery'), 
+		'20200306', 
+		true );
 }
 add_action( 'wp_enqueue_scripts', 'herblife_scripts' );

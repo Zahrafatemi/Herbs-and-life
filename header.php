@@ -42,8 +42,7 @@
 <div class="header-mb-wrapper">
 		<div class = "top-header">
 		
-			<!-- For search bar -->
-			<img class = "search-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/search.svg" alt="search-icon">	
+			
 				
 			<!-- For social menu -->
 		<div class="icon-wrapper">
@@ -61,7 +60,10 @@
 			<div class= "search-bar">	
 					
 					<?php get_search_form();?>
-				</div><!-- .search-bar -->
+			<!-- For search bar -->
+				<img class = "search-icon" id = "search-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/search.svg" alt="search-icon">	
+			</div><!-- .search-bar -->
+				
 		
 			<!-- Cart from Woocommerce See woocommerce.php -->	
 			<?php
@@ -73,8 +75,13 @@
 
 			<!-- Account from Woocommerce See woocommerce.php -->	
 			<span class="account">
+<<<<<<< HEAD
 				<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account',''); ?>"><img src= "<?php echo get_template_directory_uri();?>/images/myaccount-logo.png">
 					<span class = "screen-reader-text"><?php _e('My Account',''); ?></span>
+=======
+				<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account',''); ?>"><img src= "<?php echo get_template_directory_uri();?>/images/assets/header/account.svg">
+				<span class = "screen-reader-text">	<?php _e('My Account',''); ?></span>
+>>>>>>> timemachine
 				</a>
 			</span><!--.account-->
 			</div><!--.icon-wrapper-->
@@ -91,8 +98,11 @@
 			</a>
 		</div><!-- .site-branding -->
 
+		<img class = "hm-icon" id = "hm-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/hamburger.svg" alt="hm-icon">	
+		</div><!-- .header-mb-wrapper -->
+
 		<nav id="site-navigation" class="main-navigation">
-		<img class = "hm-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/hamburger.svg" alt="hm-icon">	
+		
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'herblife' ); ?></button>
 			<?php
 			wp_nav_menu( array(
@@ -119,7 +129,7 @@
 		</nav>
 		<?php endif;?>
 		</nav><!-- #category-navigation -->
-		</div><!-- .header-mb-wrapper -->		
+				
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

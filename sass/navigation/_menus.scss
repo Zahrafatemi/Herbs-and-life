@@ -5,10 +5,26 @@
 	width: 100%;
 
 	ul {
-		display: none;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
+		position: absolute;
+		z-index: 1;
+		background-color: rgba(255, 255, 255, 0.909);
+		width: 100%;
+		display: grid;
+		justify-content: center;
+		text-align: center;
+		padding-top: 50px;
+		padding-bottom:30px;
+
+		@include mq($mq670){
+			padding: 0;
+			background-color: rgb(255, 255, 255);
+			max-width:1240px;
+			margin: 0 auto;
+			position: inherit;
+		}
 
 		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -84,7 +100,7 @@
 	.main-navigation ul {
 		display: block;
 		width: 100%;
-		
+		height: 100%;
 	}
 	
 }

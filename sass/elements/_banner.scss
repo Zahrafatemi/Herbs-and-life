@@ -36,8 +36,8 @@
 }
 
 // Static banner images
-.events_image,
-.careers-image {
+.events-banner,
+.careers-banner {
     img {
         height: 430px;
         object-fit: cover;
@@ -135,7 +135,8 @@
  * Front page Banner
  */
 .hero-banner-text-box,
-.events-banner-text-box {
+.events-banner-text-box,
+.about-banner-text-box {
     background-color: $color__beige;
 
     @include mq($mq850) {

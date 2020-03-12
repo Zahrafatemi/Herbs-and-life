@@ -21,7 +21,7 @@ get_header();
             <h1 class="page-title title-on-banner"><?php the_title(); ?></h1>
 
 			<?php if( function_exists( 'get_field' ) ):?>
-				<div class = "careers-image">
+				<div class = "careers-banner">
 					<?php 
 					if(get_field('careers_image')):
 						echo wp_get_attachment_image( get_field('careers_image') , 'full' );

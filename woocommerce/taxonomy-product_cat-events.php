@@ -25,7 +25,7 @@ get_header();
 			<!-- <div class = "events-banner"> -->
 				<?php if( function_exists( 'get_field' ) ):?>
 					<h1 class="title-on-banner">Events & Workshops</h1>
-					<div class = "events_image">
+					<div class = "events-banner">
 						<?php if( function_exists( 'get_field' ) ){
 							if( get_field( 'events_image', 'option' ) ){
 								$image = get_field('events_image', 'option');

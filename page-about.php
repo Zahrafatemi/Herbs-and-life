@@ -21,7 +21,7 @@ get_header();
 			<h1 class="page-title title-on-banner"><?php the_title(); ?></h1>
 
 			<?php if( function_exists( 'get_field' ) ):?>
-				<div class = "about-image">
+				<div class="about-image">
 					<?php 
 					if(get_field('about_us_image')):
 						echo wp_get_attachment_image( get_field('about_us_image') , 'full' );
@@ -35,9 +35,10 @@ get_header();
 					$mission_title 	= get_field( 'mission_title' );
 					$mission_text	= get_field( 'mission' ); 
 				}?>
-
-				<h2 class="mission-title"><?php if( $mission_title ){ echo $mission_title; }?></h2>
-				<p class="mission-text"><?php if( $mission_text ){ echo $mission_text; }?></p>
+				<div class="about-banner-text-box">
+					<h3 class="mission-title"><?php if( $mission_title ){ echo $mission_title; }?></h3>
+					<p class="mission-text description"><?php if( $mission_text ){ echo $mission_text; }?></p>
+				</div><!--.about-banner-text-box-->
 			</section><!--.about-intro-->
 
 			<section class="about-history">

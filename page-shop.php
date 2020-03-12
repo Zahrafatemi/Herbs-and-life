@@ -51,7 +51,7 @@ get_header();
                 <h1 class="shop-intro-title"><?php if( $shop_intro_title ) { echo $shop_intro_title; }?></h1>
                 <p class="shop-intro-text"><?php if( $shop_intro ){ echo $shop_intro; } ?></p>
             </section><!--.shop-intro-->
-			<section class="category">
+			<section class="category-wrapper">
 				<h2>Product Categories</h2>
                 <?php
 				$prod_cat_args = array(
@@ -77,7 +77,7 @@ get_header();
 					</a>
 
 				<?php endforeach;?>
-			</section><!--.category-->
+			</section><!--..category-wrapper-->
 
 			<section class="we-offer"> 
 				<h2>We Also Offer</h2>

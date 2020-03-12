@@ -17,7 +17,8 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-            <h1><?php the_title(); ?></h1>
+            <h1 class="screen-reader-text"><?php the_title(); ?></h1>
+            <h1 class="page-title title-on-banner"><?php the_title(); ?></h1>
 
 			<?php if( function_exists( 'get_field' ) ):?>
 				<div class = "careers-image">

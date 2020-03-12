@@ -16,7 +16,8 @@ get_header();
 ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-			<section class = "promo-banner slider">
+            <?php the_title( '<h1 class="title-on-banner">', '</h1>' ); ?>
+			<section class = "promo-slide slider">
                 <?php if( function_exists( 'get_field' ) ):
                     if( get_field( 'promo_banner' ) ):
                         while( has_sub_field( 'promo_banner' ) ): 

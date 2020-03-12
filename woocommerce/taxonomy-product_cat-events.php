@@ -21,8 +21,9 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
-
+		
 			<?php if( function_exists( 'get_field' ) ):?>
+				<h1 class="title-on-banner">Events & Workshops</h1>
 				<div class = "events_image">
 					<?php 
 					if(get_field('events_image', 'option')):

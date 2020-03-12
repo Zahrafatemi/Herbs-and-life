@@ -1,8 +1,43 @@
 /*
  * Basic Banner Styles
  */
+
+
+// Set Slick Slider relative
+.slider {
+    position: relative;
+}
+
+// Set page title on slick slider
+.title-on-banner {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    font-size: 2.5em;
+    font-weight: 400;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+/*
+ * Basic Banner Styles
+ */
+// Slick slider banner images
 .hero-banner,
 .promo-banner {
+    img {
+        height: 430px;
+        object-fit: cover;
+    }
+}
+
+// Static banner images
+.events_image,
+.careers-image {
     img {
         height: 430px;
         object-fit: cover;

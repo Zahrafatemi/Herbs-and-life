@@ -18,17 +18,19 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
             <h1 class="screen-reader-text"><?php the_title(); ?></h1>
-            <h1 class="page-title title-on-banner"><?php the_title(); ?></h1>
 
-			<?php if( function_exists( 'get_field' ) ):?>
-				<div class = "careers-banner">
-					<?php 
-					if(get_field('careers_image')):
-						echo wp_get_attachment_image( get_field('careers_image') , 'full' );
-					endif;
-					?>
-				</div><!--.careers-image-->
-			<?php endif;  ?>
+            <div class="banner-wrapper">
+                <h1 class="page-title title-on-banner"><?php the_title(); ?></h1>
+                <?php if( function_exists( 'get_field' ) ):?>
+                    <div class = "careers-banner">
+                        <?php 
+                        if(get_field('careers_image')):
+                            echo wp_get_attachment_image( get_field('careers_image') , 'full' );
+                        endif;
+                        ?>
+                    </div><!--.careers-image-->
+                <?php endif;  ?>
+            </div><!--.banner-wrapper-->
 
         <div class="wrapper">
             <section class="career-intro">

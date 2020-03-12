@@ -114,10 +114,21 @@ get_header();
                         while ( $query->have_posts() ) {
                             $query->the_post();
 
+                            // output customer images
+                            if( function_exists( 'get_field' ) ):
+                                if( get_field( 'customer_image' ) ): ?>
+
+                                    <figure class="customer-image">
+                                        <?php echo wp_get_attachment_image( get_field('customer_image'), 'medium' ); ?>
+                                    </figure>
+                                <?php endif;
+                            endif; 
+
+                            // output testimonials
                             the_content();
 
                         }
-                        wp_reset_postdata();
+                        wp_reset_postdata(); 
                     } 
                 ?>
             </section><!--.testimonials-->

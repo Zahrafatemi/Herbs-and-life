@@ -22,15 +22,32 @@ get_header();
 		<main id="main" class="site-main">
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 
-			<?php if( function_exists( 'get_field' ) ):?>
-				<div class = "events_image">
-					<?php 
-					if(get_field('events_image', 'option')):
-						echo wp_get_attachment_image( get_field('events_image', 'option') , 'full' );
-					endif;
-					?>
-				</div><!--.events-image-->
-			<?php endif;  ?>
+			<!-- <div class = "events-banner"> -->
+				<?php if( function_exists( 'get_field' ) ):?>	
+					<div class = "events-banner">
+						<?php if( function_exists( 'get_field' ) ){
+							if( get_field( 'events_image', 'option' ) ){
+								$image = get_field('events_image', 'option');
+								$header = get_field('events_header', 'option');
+								$description = get_field('events_description', 'option');
+								$buttonText = get_field('events_button_label', 'option');
+								$buttonLink = get_field('events_link', 'option'); ?>
+
+								<div class="banner-wrapper">
+									<?php echo wp_get_attachment_image( $image, 'full' ); ?>
+									<h1 class="title-on-banner">Events & Workshops</h1>
+								</div><!--.banner-wrapper-->
+								<div class="events-banner-text-box">
+									<h3><?php echo $header ?></h3>
+									<p class="description"><?php echo $description ?></p>
+									<a class="cta-banner-btn btn-text btn" href="<?php if( $buttonLink ){ echo esc_url( $buttonLink ); } ?>"><?php if( $buttonText ){ echo $buttonText; }?></a>
+								</div><!--.events-banner-text-box-->	
+						<?php }
+						} ?>
+					</div><!--.events-image-->
+				<?php endif;  ?>
+			<!-- </div> -->
+			<!--.events-banner-->
 
 			<div class="events">
 				<?php

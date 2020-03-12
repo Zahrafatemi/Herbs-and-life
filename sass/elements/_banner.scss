@@ -1,18 +1,63 @@
 /*
  * Basic Banner Styles
  */
+
+
+// Set Slick Slider relative
+// .slider {
+//     position: relative;
+// }
+
+.banner-wrapper {
+    position: relative;
+
+    // Set page title on slick slider
+    .title-on-banner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 2.5em;
+        font-weight: 400;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 2px #9c9c9c;
+    }
+}
+
+
+/*
+ * Basic Banner Styles
+ */
+// Slick slider banner images
 .hero-banner,
 .promo-banner {
     img {
-        height: 430px;
+        height: 55vh;
         object-fit: cover;
+        display: block;
+    }
+}
+
+// Static banner images
+.events-banner,
+.careers-banner,
+.about-banner {
+    img {
+        height: 55vh;
+        object-fit: cover;
+        display: block;
     }
 }
 
 .hero-banner-text-box,
-.promo-banner-text-box {
-    height: 300px;
-    padding: 35px 40px;
+.promo-banner-text-box,
+.events-banner-text-box,
+.about-banner-text-box {
+
+    padding: 30px 40px;
 
     h3 {
         margin-bottom: 10px;
@@ -35,10 +80,6 @@
             margin-bottom: 0;
         }
 
-    }
-
-    @include mq($mq670){
-        height: 200px;
     }
 
     @include mq($mq850) {
@@ -77,7 +118,7 @@
 
     @include mq($mq1200) {
         padding: 35px 200px;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1.5fr 2fr;
         grid-column-gap: 40px;
     }
 
@@ -92,10 +133,23 @@
 
 }
 
+// Override grid style on about page(no button) 
+.about-banner-text-box {
+
+    @include mq($mq1200) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+/* Color, detail settings for each banner */
+
 /*
  * Front page Banner
  */
-.hero-banner-text-box {
+.hero-banner-text-box,
+.events-banner-text-box,
+.about-banner-text-box {
     background-color: $color__beige;
 
     @include mq($mq850) {
@@ -121,3 +175,4 @@
         }
     }
 }
+

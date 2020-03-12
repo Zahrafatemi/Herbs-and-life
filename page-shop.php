@@ -16,7 +16,7 @@ get_header();
 ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-			<section class = "promo-banner slider">
+            <section class = "promo-slide slider">
                 <?php if( function_exists( 'get_field' ) ):
                     if( get_field( 'promo_banner' ) ):
                         while( has_sub_field( 'promo_banner' ) ): 
@@ -26,20 +26,23 @@ get_header();
                             $buttonText     = get_sub_field('promo_button_label');
                             $buttonLink     = get_sub_field('promo_link');
                             $size           = 'full'; // (thumbnail, medium, large, full or custom size) ?>
-                    
+
                         <div class="promo-banner">
-                            <?php if( $images && $size ) { echo wp_get_attachment_image( $images, $size ); } ?>
+                            <div class="banner-wrapper">
+                                <?php the_title( '<h1 class="title-on-banner">', '</h1>' ); ?>
+                                <?php if( $images && $size ) { echo wp_get_attachment_image( $images, $size ); } ?>
+                            </div><!--.banner-wrapper-->
                             <div class="promo-banner-text-box">
                                 <h3><?php if( $header ) { echo $header; }?></h3>
                                 <p class="promo-description"><?php if( $description ) { echo $description; }?></p>
                                 <a class="promo-btn btn" href="<?php if( $buttonLink ) { echo esc_url( $buttonLink ); }?>"><?php if( $buttonText ){ echo $buttonText; }?></a>
                             </div><!--.promo-banner-text-box-->
-                        </div><!--.promo-banner-->		
-                                            
+                        </div><!--.promo-banner-->		          
                         <?php endwhile;
                     endif;
                 endif; ?>
             </section><!--.promo-banner slider-->
+           
         <div class="wrapper pattern02">
             <section class="shop_intro">
                 <?php if(function_exists('get_field')){
@@ -50,7 +53,7 @@ get_header();
                 <h1 class="shop-intro-title"><?php if( $shop_intro_title ) { echo $shop_intro_title; }?></h1>
                 <p class="shop-intro-text"><?php if( $shop_intro ){ echo $shop_intro; } ?></p>
             </section><!--.shop-intro-->
-			<section class="category">
+			<section class="category-wrapper">
 				<h2>Product Categories</h2>
                 <?php
 				$prod_cat_args = array(
@@ -76,7 +79,7 @@ get_header();
 					</a>
 
 				<?php endforeach;?>
-			</section><!--.category-->
+			</section><!--..category-wrapper-->
 
 			<section class="we-offer"> 
 				<h2>We Also Offer</h2>
@@ -113,10 +116,21 @@ get_header();
                         while ( $query->have_posts() ) {
                             $query->the_post();
 
+                            // output customer images
+                            if( function_exists( 'get_field' ) ):
+                                if( get_field( 'customer_image' ) ): ?>
+
+                                    <figure class="customer-image">
+                                        <?php echo wp_get_attachment_image( get_field('customer_image'), 'medium' ); ?>
+                                    </figure>
+                                <?php endif;
+                            endif; 
+
+                            // output testimonials
                             the_content();
 
                         }
-                        wp_reset_postdata();
+                        wp_reset_postdata(); 
                     } 
                 ?>
             </section><!--.testimonials-->

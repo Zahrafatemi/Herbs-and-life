@@ -85,7 +85,7 @@ get_header();
 						endif; ?>
 					</section><!--.featured-products-->
 
-					<section class="p-category">
+					<section class="category-wrapper">
 						<h2>Product Categories</h2>
 						<div class="category-wrapper">
 						<?php
@@ -112,8 +112,7 @@ get_header();
 								<p class="category-name"><?php echo $term->name; ?></p><!--.category-name-->
 							</a><!--.category-->
 						<?php endforeach;?>
-						</div><!--.category-wrapper-->
-					</section><!--.category-->
+					</section><!--.category-wrapper-->
 
 					<section class="why-us"> 
 						<h2>Why Choose Us?</h2>

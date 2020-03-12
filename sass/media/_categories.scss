@@ -12,6 +12,10 @@
         width: 300px;
         display: block;
 
+        @include mq($mq1350) {
+            width: 400px;
+        }
+
         // Sketch border
         .category-container {  
             margin: 0;
@@ -23,6 +27,11 @@
             height: 300px;
             background-size: cover;
 
+            @include mq($mq1350) {
+                width: 400px;
+                height: 400px;
+            }
+
             // Category image
             img {
                 position: relative;
@@ -32,6 +41,11 @@
                 height: 300px;
                 width: 300px;
                 object-fit: cover;
+
+                @include mq($mq1350) {
+                    width: 400px;
+                    height: 400px;
+                }
             }
         }
 
@@ -43,11 +57,16 @@
             text-align: center;
             position: absolute;
             top: 50%;
-            left: 0%;
-            transform: translateY(-50%);
+            left: 50%;
+            transform: translate(-50%, -50%);
             margin: 0;
             padding: 0;
             width: 300px;
+
+            @include mq($mq1350) {
+                font-size: 2em;
+                width: 400px;
+            }
 
             &:after {
                 content: "";
@@ -61,6 +80,11 @@
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center center;
+
+                @include mq($mq1350) {
+                    width: 230px;
+                    height: 23px;
+                }
             }
         }
     }

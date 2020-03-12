@@ -1,0 +1,57 @@
+.category {
+    position: relative;
+    width: 300px;
+    display: block;
+
+    // Sketch border
+    .category-container {  
+        margin: 0;
+        box-sizing: border-box; 
+        background-image: url(images/assets/sketch-border/sketch-border-square.svg);    
+        background-repeat: no-repeat;    
+        z-index: 1;
+
+        // Category image
+        img {
+            position: relative;
+            z-index: -1;
+            max-width: 600px;
+            filter: brightness(60%);
+
+        }
+
+    }
+
+    p {
+        font-size: 1.2em;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+        color: white;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translateY(-50%);
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+        &:after {
+            content: "";
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            display: block;
+            width: 25vw;
+            height: 17px;
+            background: url(images/assets/category/cat-herb-underline.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+        }
+        @include mq($mq670){
+            font-size: 1.5em;
+        }
+    }
+
+}

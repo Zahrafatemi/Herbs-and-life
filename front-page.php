@@ -65,7 +65,7 @@ get_header();
 									$image 		= get_sub_field( 'featured_image' );
 									$link 		= get_sub_field( 'featured_link' );
 									$size 		= 'medium'; // (thumbnail, medium, large, full or custom size)?>
-
+								<div class="featured-wrapper">
 									<div class = "featured-image">
 										<?php if( $image && $size ) { echo wp_get_attachment_image( $image, $size ); } ?>
 									</div><!--.featured-image-->
@@ -79,6 +79,7 @@ get_header();
 										<?php endif;?>
 										</a>
 									</div><!--.featured-text-box-->
+								</div><!--.featured-wrapper-->
 								<?php endwhile;
 							endif;
 						endif; ?>
@@ -86,6 +87,7 @@ get_header();
 
 					<section class="category-wrapper">
 						<h2>Product Categories</h2>
+						<div class="category-wrapper">
 						<?php
 						$prod_cat_args = array(
 								'taxonomy'=>'product_cat',
@@ -100,7 +102,8 @@ get_header();
 						foreach($terms as $term):
 							$term_link = get_term_link($term);
 							$thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );?>
-							<a class="category" href="<?php if( $term_link ) { echo esc_url( $term_link ); } ?>">
+					
+						<a class="category" href="<?php if( $term_link ) { echo esc_url( $term_link ); } ?>">
 								<?php if( $thumbnail_id ) { ?>
 									<figure class="category-container">
 									<?php echo wp_get_attachment_image( $thumbnail_id, 'woocommerce_thumbnail' ); ?>
@@ -113,6 +116,7 @@ get_header();
 
 					<section class="why-us"> 
 						<h2>Why Choose Us?</h2>
+						<div class="why-us-wrapper">
 						<?php if( function_exists( 'get_field' ) ):
 							if( get_field( 'why_us' ) ):
 								while( has_sub_field( 'why_us' ) ): 
@@ -121,7 +125,7 @@ get_header();
 									$size 	= 'medium'; // (thumbnail, medium, large, full or custom size)
 									$lists 	= get_sub_field( 'why_us_list' ); ?>
 
-									<div class="why-us-wrapper">
+									<div class="why-us-list-wrapper">
 											<h3><?php if( $title ) { echo $title; } ?></h3>
 											<?php echo wp_get_attachment_image( $images, $size );
 											if($lists): ?>
@@ -133,27 +137,33 @@ get_header();
 													endforeach; ?>
 												</ul>
 											<?php endif; ?>
-									</div><!--.why-us-wrapper-->
+									</div><!--.why-us-list-wrapper-->
 								<?php endwhile;
 							endif;
 						endif; ?>
+						</div><!--.why-us-wrapper-->
 					</section><!--.why-us-->
-				
+			<div class="blog-events-wrapper">
 					<section class="latest-blog">
 						<h2>Latest News</h2>
+						<div class="latest-blog-wrapper">
 						<?php 
 						$arg = array('posts_per_page'=> 1);
 						$blog_query = new WP_Query($arg);
 
-						if($blog_query->have_posts()):
-							while($blog_query->have_posts()):
-								$blog_query->the_post();
-								the_post_thumbnail(); ?>
-								<h3><a href = "<?php the_permalink(); ?>"><?php the_title();?></a></h3>
-								<?php the_content()?>
-							<?php endwhile;
-							wp_reset_postdata();
-						endif; ?>
+								if($blog_query->have_posts()):
+									while($blog_query->have_posts()):
+										$blog_query->the_post();
+										the_post_thumbnail(); ?>
+										<div class="latest-blog-text-wrapper">
+										<h3><a href = "<?php the_permalink(); ?>"><?php the_title();?></a></h3>
+										<div class="blog-border-img"></div>
+										<?php the_excerpt();?>
+									<?php endwhile;
+									wp_reset_postdata();
+								endif; ?>
+							</div><!--.latest-blog-text-wrapper-->
+						</div><!--.latest-blog-wrapper-->
 					</section><!--.latest-blog-->
 
 					<section class = "upcoming-events">
@@ -171,13 +181,14 @@ get_header();
 											<?php woocommerce_show_product_sale_flash( $post, $product );?>
 											
 											<?php if (has_post_thumbnail( $loop->post->ID )): 
-												echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog');
+												//echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog');
 											else: ?>
-												<img src="<?php woocommerce_placeholder_img_src()?>" alt="Paceholder" width="300px" height="300px" />
-											<?php endif; ?>
+												<!-- <img src="<?php //woocommerce_placeholder_img_src()?>" alt="Paceholder" width="300px" height="300px" />-->
+											<?php endif; ?> 
 
 											<h3><?php the_title(); ?></h3>
-											<p><?php the_content();?></p>                  
+											<p> Farm visit | Mar 28, 2020 | 09:00 - 16:00<?php //the_content();?></p>  
+											
 										</a>
 										<?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
 									</li><!--.events-->
@@ -185,9 +196,10 @@ get_header();
 							<?php wp_reset_query(); ?>
 						</ul>
 					</section><!--.upcoming-events-->
-
+			</div><!-- .blog-events-wrapper -->
 					<section class="awards">
 						<h2>Awards & Certificates</h2>
+						<div class="award-slider">
 						<?php 
 							$args = array(
 								'post_type' => 'hl-award',
@@ -197,19 +209,21 @@ get_header();
 							$query = new WP_Query( $args );
 
 							if ( $query->have_posts() ) {
-								while ( $query->have_posts() ) {
-									$query->the_post();
-
-									the_content();
-
-								}
+								while ( $query->have_posts() ) { ?>
+									<?php $query->the_post();?>
+									
+									<div class="ac-image"><?php the_content();?></div><!--.ac-image-->
+									
+							<?php	}
 								wp_reset_postdata();
 							} 
 						?>
+						</div><!--.award-slides-->
 					</section><!--.awards-->
 
 					<section class="testimonials">
 						<h2>Testimonials</h2>
+						<div class="tm-wrapper">
 						<?php 
 							$args = array(
 								'post_type' => 'hl-testimonial',
@@ -222,13 +236,16 @@ get_header();
 							if ( $query->have_posts() ) {
 								while ( $query->have_posts() ) {
 									$query->the_post();
+							?>
 
-									the_content();
-
+									<!-- //the_content(); -->
+								<div class="tm-text"><?php	the_excerpt();?></div>
+							<?php		
 								}
 								wp_reset_postdata();
 							} 
 						?>
+						</div> <!--.tm-wrapper-->
 					</section><!--.testimonials-->
 			</div><!--.wrapper-->
 		</main><!-- #main -->

@@ -1,34 +1,212 @@
 // Front Page Styles
 
 // Featured products
-.featured-text-box {
-    h3 {
-        @include sanserif-heading();
-    }
+.featured-products{
+  
+    .featured-wrapper{
 
-    // p {
-    //     font-size: 0.8em;
-    // }
+        .featured-image{
+            img{
+                width:100%;
+            }
+            @include mq($mq670){
+                width:50%;
+             }
+
+        }
+        
+        .featured-text-box {
+            background-color:$color__beige;
+
+            
+            @include mq($mq670){
+               width:50%;
+            }
+        
+            h3 {
+                @include sanserif-heading();
+            }
+
+            // p {
+            //     font-size: 0.8em;
+            // }
+
+        }
+        @include mq($mq670){
+            display:flex;
+            &:last-child{
+                flex-direction: row-reverse;
+            }
+        }
+    }
 }
 
+//category
+.p-category{
+    padding-bottom: 50px;
+    .category-wrapper {
+        width:100%;
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
+        justify-items: center;
+        min-height: 210px;
+    
+           .category{
+               width:inherit;
+               .category-container{
+                background-size: 210px 100%;
+                padding: 2px;
+                   img{
+                      max-width: 100%;
+                       min-height: 210px;
+                   }
+
+                   
+               }
+           }
+           @include mq($mq615){
+            .category{
+                    .category-container{
+                        background-size: 100% 100%;
+                    }
+                }
+            }
+
+           @include mq($mq670){
+            .category{
+            .category-container{
+                    img{
+                        height: 250px;
+                    }
+                }
+            }
+            @include mq($mq850){
+                .category{
+                    min-width: 300px;
+                .category-container{
+                    
+                        img{
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+    }
+      
+    }
+
+}
 
 // Why choose us
 .why-us-wrapper {
-    h3 {
-        @include serif-heading();
+    padding: 30px 0px;
+
+    @include mq($mq670){
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
     }
 
-    ul {
-        font-size: 0.85em;
-    }
+    .why-us-list-wrapper {
+            text-align: center;
+            padding-bottom: 30px;
+        
+            h3 {
+                @include serif-heading();
+                padding-bottom: 30px;
+            }
 
+            ul {
+                font-size: 0.85em;
+                list-style:none;
+                margin: 0;
+                display: grid;
+                grid-template-columns: 50% 50%;
+                text-align: left;
+                padding: 0px 30px;
+
+            }
+
+    }
 }
 
 
 // Latest Blog
-// Upcomign Event
-.latest-blog, .upcoming-events{
+.latest-blog{
     h3 {
         @include sanserif-heading();
+    }
+    .latest-blog-wrapper {
+        display: grid;
+        grid-template-columns: 45% 55%;
+        .latest-blog-text-wrapper{
+            padding: 10px;
+            .blog-border-img{
+                display: block;
+                width: 40vw;
+                height: 20px;
+                background: url(images/assets/botanic-border/botanic-border-main.svg);
+                background-repeat: repeat-x;
+                background-position: center;
+                margin: 20px auto;
+            }
+        }
+    }
+}
+// Upcomign Event
+ .upcoming-events{
+    h3 {
+        @include sanserif-heading();
+    }
+    ul{
+        list-style: none;
+        margin: 0;
+        text-align: center;
+        padding: 30px;
+        li {
+            border-bottom:1px solid $color__mossgreen;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@include mq($mq670){
+    .blog-events-wrapper {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+}
+
+//award & certificate
+.awards{
+    .award-slider{
+        padding: 20px 30px;
+        .slick-prev {
+            left: 5px;
+        }
+        .slick-next {
+            right: 5px;
+        }
+        .slick-prev:before, .slick-next:before {
+            color:$color__bodyfont;
+          
+        }
+        figure.wp-block-image.size-medium img {
+            height: 80px;
+        }
+    }
+}
+
+.testimonials{
+    padding: 30px;
+    .tm-text{
+        padding-bottom: 30px;
+    }
+
+    @include mq($mq670){
+        .tm-wrapper{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
     }
 }

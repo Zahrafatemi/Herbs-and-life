@@ -1,4 +1,31 @@
+$s : 700px;
+$n : 900px;
 .event-wrapper{
+
+	.content-area {
+		.site-main{
+			padding: 0;
+			.product-summary{
+
+				padding: 0 0.8rem;
+				h1{
+					font-size: 1.65rem;
+				}
+				.event-description{
+					font-size: 0.85rem;
+
+					@include mq($n){
+						// padding: 2.25em;
+						// font-size: 1.25em;
+					}
+				}
+
+				.event-details{
+					font-size: 0.85rem;
+				}
+			}
+		}
+	}
 
 	margin: 0;
 	padding:0;

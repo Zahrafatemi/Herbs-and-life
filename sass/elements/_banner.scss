@@ -11,7 +11,7 @@
 // Set page title on slick slider
 .title-on-banner {
     position: absolute;
-    top: 30%;
+    top: 35.5vh;
     left: 50%;
     font-size: 2.5em;
     font-weight: 400;
@@ -20,8 +20,25 @@
     color: white;
     text-align: center;
     text-transform: uppercase;
+    text-shadow: 1px 1px 2px #9c9c9c;
 }
 
+// Set shop page title 
+.page-id-14 {
+    .title-on-banner-shop {
+        position: absolute;
+        top: calc(35.5vh + 40px); // add second nav height to centerize
+        left: 50%;
+        font-size: 2.5em;
+        font-weight: 400;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 2px #9c9c9c;
+    }
+}
 
 /*
  * Basic Banner Styles
@@ -30,7 +47,7 @@
 .hero-banner,
 .promo-banner {
     img {
-        height: 430px;
+        height: 55vh;
         object-fit: cover;
     }
 }
@@ -40,7 +57,7 @@
 .careers-banner,
 .about-banner {
     img {
-        height: 430px;
+        height: 55vh;
         object-fit: cover;
     }
 }
@@ -49,8 +66,8 @@
 .promo-banner-text-box,
 .events-banner-text-box,
 .about-banner-text-box {
-    height: 300px;
-    padding: 35px 40px;
+    // height: 300px;
+    padding: 30px 40px;
 
     h3 {
         margin-bottom: 10px;

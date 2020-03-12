@@ -339,18 +339,19 @@ function hl_remove_products_tabs_from_events( $tabs ){
 add_filter( 'woocommerce_product_tabs', 'hl_remove_products_tabs_from_events', 1);
 
 /* --------------------------------------------------
- * ## Product Gallery
+ * ## Single Product Summary
  * -------------------------------------------------- /
-
 /**
- * Move product gallery into product summary
+ * Enclose single product summary items in a div
  */
-function hl_product_move_product_gallery( ) {
-	remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
-	add_action( 'woocommerce_single_product_summary', 'woocommerce_show_product_images', 40 );
+function hl_product_summary_opening_div() {
+	echo '<div class="product-summary">';
 }
-add_filter( 'woocommerce_before_single_product_summary', 'hl_product_move_product_gallery' );
-
+function hl_product_summary_closing_div() {
+	echo '</div><!--.product-summary-->';
+}
+add_action( 'woocommerce_single_product_summary', 'hl_product_summary_opening_div', 1 );
+add_action( 'woocommerce_after_single_product_summary', 'hl_product_summary_closing_div', 1 );
 
 /* --------------------------------------------------
  * ## Variations

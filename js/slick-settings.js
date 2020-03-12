@@ -17,11 +17,22 @@ jQuery(document).ready(function($){
         arrow: true,
         dots: false,
         infinite: true,
-        slidesToShow: 1,
+        centerPadding: '40px',
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 5000, // speed is in milliseconds
-        speed: 300
+        speed: 300,
+        // responsive: [
+        //     {
+        //       breakpoint: 768,
+        //       settings: {
+        //         centerMode: true,
+        //         // centerPadding: '40px',
+        //         slidesToShow: 3
+        //       }
+        //     }
+        //   ]
     });
 
 

@@ -229,3 +229,5 @@ function wpforo_search_form( $html ) {
 	return $html;
 }
 add_filter( 'get_search_form', 'wpforo_search_form' );
+
+

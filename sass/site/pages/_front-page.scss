@@ -5,9 +5,9 @@
   
     .featured-wrapper{
 
-        .featured-image{
+        // .featured-image{
 
-        }
+        // }
         
         .featured-text-box {
             background-color:$color__beige;
@@ -28,6 +28,7 @@
 
 //category
 .p-category{
+    padding-bottom: 50px;
     .category-wrapper {
         display: grid;
         grid-template-columns: repeat(3, 33%);
@@ -52,21 +53,98 @@
 
 // Why choose us
 .why-us-wrapper {
-    h3 {
-        @include serif-heading();
-    }
+    padding: 30px 0px;
 
-    ul {
-        font-size: 0.85em;
-    }
+    .why-us-list-wrapper {
+            text-align: center;
+            padding-bottom: 30px;
+        
+            h3 {
+                @include serif-heading();
+                padding-bottom: 30px;
+            }
 
+            ul {
+                font-size: 0.85em;
+                list-style:none;
+                margin: 0;
+                display: grid;
+                grid-template-columns: 50% 50%;
+                text-align: left;
+                padding: 0px 30px;
+
+            }
+
+    }
 }
 
 
 // Latest Blog
-// Upcomign Event
-.latest-blog, .upcoming-events{
+.latest-blog{
     h3 {
         @include sanserif-heading();
+    }
+    .latest-blog-wrapper {
+        display: grid;
+        grid-template-columns: 45% 55%;
+        .latest-blog-text-wrapper{
+            padding: 10px;
+            .blog-border-img{
+                display: block;
+                width: 40vw;
+                height: 20px;
+                background: url(images/assets/botanic-border/botanic-border-main.svg);
+                background-repeat: repeat-x;
+                background-position: center;
+                margin: 20px auto;
+            }
+        }
+    }
+}
+// Upcomign Event
+ .upcoming-events{
+    h3 {
+        @include sanserif-heading();
+    }
+    ul{
+        list-style: none;
+        margin: 0;
+        text-align: center;
+        padding: 30px;
+        li {
+            border-bottom:1px solid $color__mossgreen;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+//award & certificate
+.awards{
+    .award-slider{
+        padding: 20px 30px;
+        .slick-prev {
+            left: 5px;
+        }
+        .slick-next {
+            right: 5px;
+        }
+        .slick-prev:before, .slick-next:before {
+            color:$color__bodyfont;
+          
+        }
+    }
+}
+
+.testimonials{
+    padding: 30px;
+    .tm-text{
+        padding-bottom: 30px;
+    }
+
+    @include mq($mq670){
+        .tm-wrapper{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
     }
 }

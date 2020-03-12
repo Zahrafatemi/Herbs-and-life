@@ -45,7 +45,8 @@
 }
 
 .hero-banner-text-box,
-.promo-banner-text-box {
+.promo-banner-text-box,
+.events-banner-text-box {
     height: 300px;
     padding: 35px 40px;
 
@@ -127,10 +128,14 @@
 
 }
 
+
+/* Color, detail settings for each banner */
+
 /*
  * Front page Banner
  */
-.hero-banner-text-box {
+.hero-banner-text-box,
+.events-banner-text-box {
     background-color: $color__beige;
 
     @include mq($mq850) {
@@ -156,3 +161,4 @@
         }
     }
 }
+

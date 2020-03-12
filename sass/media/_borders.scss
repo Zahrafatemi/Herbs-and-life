@@ -23,7 +23,7 @@
     }
 
     p {
-        font-size: 1.5em;
+        font-size: 1.2em;
         font-weight: 400;
         letter-spacing: 0.03em;
         color: white;
@@ -34,7 +34,7 @@
         transform: translateY(-50%);
         margin: 0;
         padding: 0;
-        width: 300px;
+        width: 100%;
 
         &:after {
             content: "";
@@ -42,12 +42,15 @@
             left: 50%;
             transform: translateX(-50%);
             display: block;
-            width: 170px;
+            width: 25vw;
             height: 17px;
             background: url(images/assets/category/cat-herb-underline.svg);
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: contain;
             background-position: center center;
+        }
+        @include mq($mq670){
+            font-size: 1.5em;
         }
     }
 

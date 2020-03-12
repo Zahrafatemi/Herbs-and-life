@@ -144,7 +144,7 @@ get_header();
 						endif; ?>
 						</div><!--.why-us-wrapper-->
 					</section><!--.why-us-->
-				
+			<div class="blog-events-wrapper">
 					<section class="latest-blog">
 						<h2>Latest News</h2>
 						<div class="latest-blog-wrapper">
@@ -197,7 +197,7 @@ get_header();
 							<?php wp_reset_query(); ?>
 						</ul>
 					</section><!--.upcoming-events-->
-
+			</div><!-- .blog-events-wrapper -->
 					<section class="awards">
 						<h2>Awards & Certificates</h2>
 						<div class="award-slider">

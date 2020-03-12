@@ -93,12 +93,14 @@
 			</a>
 		</div><!-- .site-branding -->
 
-		<img class = "hm-icon" id = "hm-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/hamburger.svg" alt="hm-icon">	
+		
 		</div><!-- .header-mb-wrapper -->
 
 		<nav id="site-navigation" class="main-navigation">
 		
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'herblife' ); ?></button>
+			<button class="menu-toggle" aria-controls="" aria-expanded="false">
+			<img id = "hm-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/hamburger.svg" alt="hm-icon">	
+			</button>
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',

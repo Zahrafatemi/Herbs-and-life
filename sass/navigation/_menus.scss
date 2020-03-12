@@ -12,7 +12,7 @@
 		z-index: 1;
 		background-color: rgba(255, 255, 255, 0.909);
 		width: 100%;
-		display: grid;
+		display: none;
 		justify-content: center;
 		text-align: center;
 		padding-top: 50px;
@@ -87,10 +87,12 @@
 }
 
 /* Small menu. */
-.menu-toggle,
+.menu-toggle{
+	// display: block;
+}
 .main-navigation.toggled ul {
-	//display: block;
-	display: none;
+	display: grid;
+	
 }
 
 @media screen and (min-width: 37.5em) {
@@ -98,7 +100,7 @@
 		display: none;
 	}
 	.main-navigation ul {
-		display: block;
+		display: grid;
 		width: 100%;
 		height: 100%;
 	}

@@ -239,7 +239,7 @@ get_header();
 							?>
 
 									<!-- //the_content(); -->
-								<div class="tm-text"><?php	the_excerpt();?></div>
+								<div class="tm-text"><?php	the_content();?></div>
 							<?php		
 								}
 								wp_reset_postdata();

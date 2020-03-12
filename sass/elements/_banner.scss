@@ -37,7 +37,8 @@
 
 // Static banner images
 .events-banner,
-.careers-banner {
+.careers-banner,
+.about-banner {
     img {
         height: 430px;
         object-fit: cover;
@@ -46,7 +47,8 @@
 
 .hero-banner-text-box,
 .promo-banner-text-box,
-.events-banner-text-box {
+.events-banner-text-box,
+.about-banner-text-box {
     height: 300px;
     padding: 35px 40px;
 
@@ -128,6 +130,14 @@
 
 }
 
+// Override grid style on about page(no button) 
+.about-banner-text-box {
+
+    @include mq($mq1200) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
 
 /* Color, detail settings for each banner */
 

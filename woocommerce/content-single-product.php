@@ -64,41 +64,58 @@ if ( post_password_required() ) {
 				<?php the_content(); ?>
 			</div>
 		<?php endif; ?>
-		<?php if(get_field('place')):?>
-			<div class="event-place">
-				<?php the_field('place') ?>
-			</div>
-		<?php endif;?>
 
-		<?php if(get_field('address')):?>
-			<div class="event-address">
-				<?php the_field('address') ?>
-			</div>
-		<?php endif;?>
+		<div class="event-details">
+			<div class="details location"></div>
+				<div class="location-icon">
+					<?php if(get_field('location-icon')):?>
+						<div class="location-icon">
+							<?php echo wp_get_attachment_image( get_field('location_icon') , 'medium' ); ?>
+						</div>
+					<?php endif;?>
+				</div>
 
-		<?php if(get_field('date')):?>
-			<div class="event-date">
-				<?php the_field('date') ?>
-			</div>
-		<?php endif;?>
+				<div class="location-details">
+					<?php if(get_field('place')):?>
+						<div class="event-place">
+							<p><?php the_field('place') ?></p>
+						</div>
+					<?php endif;?>
 
-		<?php if(get_field('start_time')):?>
-			<div class="event-start-time">
-				<?php the_field('start_time') ?>
+					<?php if(get_field('address')):?>
+						<div class="event-address">
+							<p><?php the_field('address') ?></p>
+						</div>
+					<?php endif;?>
+				</div>
 			</div>
-		<?php endif;?>
 
-		<?php if(get_field('end_time')):?>
-			<div class="event-end-time">
-				<?php the_field('end_time') ?>
-			</div>
-		<?php endif;?>
+			<div class="time-details">
+				<?php if(get_field('date')):?>
+					<div class="event-date">
+						<p><?php the_field('date') ?></p>
+					</div>
+				<?php endif;?>
 
-		<?php if(get_field('note')):?>
-			<div class="event-note">
-				<?php the_field('note') ?>
+				<?php if(get_field('start_time') && get_field('end_time')):?>
+					<div class="event-time">
+						<p><?php echo the_field('start_time')?> to <?php the_field('end_time') ?></p>
+					</div>
+				<?php endif;?>
 			</div>
-		<?php endif;?>
+
+			<!-- <?php //if(get_field('end_time')):?>
+				<div class="event-end-time">
+					<?php //the_field('end_time') ?>
+				</div>
+			<?php //endif;?> -->
+
+			<?php if(get_field('note')):?>
+				<div class="event-note">
+					<p><?php the_field('note') ?></p>
+				</div>
+			<?php endif;?>
+		</div><!--end of event-details-->
 
 		<?php
 		if(get_field('location')):

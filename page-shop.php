@@ -16,8 +16,7 @@ get_header();
 ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-            <?php the_title( '<h1 class="title-on-banner-shop">', '</h1>' ); ?>
-			<section class = "promo-slide slider">
+            <section class = "promo-slide slider">
                 <?php if( function_exists( 'get_field' ) ):
                     if( get_field( 'promo_banner' ) ):
                         while( has_sub_field( 'promo_banner' ) ): 
@@ -27,20 +26,23 @@ get_header();
                             $buttonText     = get_sub_field('promo_button_label');
                             $buttonLink     = get_sub_field('promo_link');
                             $size           = 'full'; // (thumbnail, medium, large, full or custom size) ?>
-                    
+
                         <div class="promo-banner">
-                            <?php if( $images && $size ) { echo wp_get_attachment_image( $images, $size ); } ?>
+                            <div class="banner-wrapper">
+                                <?php the_title( '<h1 class="title-on-banner">', '</h1>' ); ?>
+                                <?php if( $images && $size ) { echo wp_get_attachment_image( $images, $size ); } ?>
+                            </div><!--.banner-wrapper-->
                             <div class="promo-banner-text-box">
                                 <h3><?php if( $header ) { echo $header; }?></h3>
                                 <p class="promo-description"><?php if( $description ) { echo $description; }?></p>
                                 <a class="promo-btn btn" href="<?php if( $buttonLink ) { echo esc_url( $buttonLink ); }?>"><?php if( $buttonText ){ echo $buttonText; }?></a>
                             </div><!--.promo-banner-text-box-->
-                        </div><!--.promo-banner-->		
-                                            
+                        </div><!--.promo-banner-->		          
                         <?php endwhile;
                     endif;
                 endif; ?>
             </section><!--.promo-banner slider-->
+           
         <div class="wrapper pattern02">
             <section class="shop_intro">
                 <?php if(function_exists('get_field')){

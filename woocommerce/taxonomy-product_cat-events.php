@@ -23,8 +23,7 @@ get_header();
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 
 			<!-- <div class = "events-banner"> -->
-				<?php if( function_exists( 'get_field' ) ):?>
-					<h1 class="title-on-banner">Events & Workshops</h1>
+				<?php if( function_exists( 'get_field' ) ):?>	
 					<div class = "events-banner">
 						<?php if( function_exists( 'get_field' ) ){
 							if( get_field( 'events_image', 'option' ) ){
@@ -34,8 +33,10 @@ get_header();
 								$buttonText = get_field('events_button_label', 'option');
 								$buttonLink = get_field('events_link', 'option'); ?>
 
-								<?php echo wp_get_attachment_image( $image, 'full' ); ?>
-								
+								<div class="banner-wrapper">
+									<?php echo wp_get_attachment_image( $image, 'full' ); ?>
+									<h1 class="title-on-banner">Events & Workshops</h1>
+								</div><!--.banner-wrapper-->
 								<div class="events-banner-text-box">
 									<h3><?php echo $header ?></h3>
 									<p class="description"><?php echo $description ?></p>

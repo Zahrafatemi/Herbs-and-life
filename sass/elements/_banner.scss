@@ -4,30 +4,17 @@
 
 
 // Set Slick Slider relative
-.slider {
+// .slider {
+//     position: relative;
+// }
+
+.banner-wrapper {
     position: relative;
-}
 
-// Set page title on slick slider
-.title-on-banner {
-    position: absolute;
-    top: 35.5vh;
-    left: 50%;
-    font-size: 2.5em;
-    font-weight: 400;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    color: white;
-    text-align: center;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 2px #9c9c9c;
-}
-
-// Set shop page title 
-.page-id-14 {
-    .title-on-banner-shop {
+    // Set page title on slick slider
+    .title-on-banner {
         position: absolute;
-        top: calc(35.5vh + 40px); // add second nav height to centerize
+        top: 50%;
         left: 50%;
         font-size: 2.5em;
         font-weight: 400;
@@ -40,6 +27,7 @@
     }
 }
 
+
 /*
  * Basic Banner Styles
  */
@@ -49,6 +37,7 @@
     img {
         height: 55vh;
         object-fit: cover;
+        display: block;
     }
 }
 
@@ -59,6 +48,7 @@
     img {
         height: 55vh;
         object-fit: cover;
+        display: block;
     }
 }
 

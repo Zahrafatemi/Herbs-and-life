@@ -284,28 +284,6 @@ function hl_product_remove_actions() {
 }
 add_action( 'init', 'hl_product_remove_actions');
 
-
-/* --------------------------------------------------
- * # Variations
- * -------------------------------------------------- /
- /**
- * Remove 'Choose an Option' from variations dropdown
- */
-function hl_remove_variations_option_text( $args ) {
-	$args[ 'show_option_none' ] = '';
-	return $args;
-}
-add_filter( 'woocommerce_dropdown_variation_attribute_options_args', 'hl_remove_variations_option_text' );
-
- /**
- * Remove Reset Variations
- */
-function hl_remove_reset_variations() {
-	return '';
-}
-add_filter('woocommerce_reset_variations_link', 'hl_remove_reset_variations');
-
-
 /* --------------------------------------------------
  * ## Product Data Tabs
  * -------------------------------------------------- /
@@ -345,6 +323,7 @@ function hl_product_new_tab_content() {
 }
 add_filter( 'woocommerce_product_tabs', 'hl_product_new_tab');
 
+
 /**
  * Remove tabs from Events pages
  */
@@ -359,6 +338,64 @@ function hl_remove_products_tabs_from_events( $tabs ){
 }
 add_filter( 'woocommerce_product_tabs', 'hl_remove_products_tabs_from_events', 1);
 
+/* --------------------------------------------------
+ * ## Single Product Summary
+ * -------------------------------------------------- /
+/**
+ * Enclose single product summary items in a div
+ */
+function hl_product_summary_opening_div() {
+	echo '<div class="product-summary">';
+}
+function hl_product_summary_closing_div() {
+	echo '</div><!--.product-summary-->';
+}
+add_action( 'woocommerce_single_product_summary', 'hl_product_summary_opening_div', 1 );
+add_action( 'woocommerce_after_single_product_summary', 'hl_product_summary_closing_div', 1 );
+
+/* --------------------------------------------------
+ * ## Variations
+ * -------------------------------------------------- /
+ /**
+ * Remove 'Choose an Option' from variations dropdown
+ */
+function hl_remove_variations_option_text( $args ) {
+	$args[ 'show_option_none' ] = '';
+	return $args;
+}
+add_filter( 'woocommerce_dropdown_variation_attribute_options_args', 'hl_remove_variations_option_text' );
+
+ /**
+ * Remove Reset Variations
+ */
+function hl_remove_reset_variations() {
+	return '';
+}
+add_filter('woocommerce_reset_variations_link', 'hl_remove_reset_variations');
+
+ /**
+ * Hide variable product price range
+ * SOURCE: https://learnwoo.com/hide-price-range-woocommerce-variable-products/
+ */
+function hl_remove_variation_price_range( $v_price, $v_product ) {
+	$v_product_types = array( 'variable' );
+
+	if ( in_array ( $v_product->product_type, $v_product_types ) && !(is_shop()) ) {
+		return '';
+	}
+
+	return $v_price;
+}
+add_filter( 'woocommerce_get_price_html', 'hl_remove_variation_price_range', 10, 2 );
+
+ /**
+ * Move selected variation price to below product name
+ */
+function hl_move_selected_variation_price() {
+	remove_action( 'woocommerce_single_variation', 'woocommerce_single_variation', 10 );
+	add_action( 'woocommerce_before_variations_form', 'woocommerce_single_variation', 10 );
+}
+add_action( 'woocommerce_before_add_to_cart_form', 'hl_move_selected_variation_price', 10 );
 
 /* --------------------------------------------------
  * # Hooks - Products Page

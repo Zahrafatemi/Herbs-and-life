@@ -39,6 +39,7 @@
 
         .footer-navigation{
             padding-bottom: 20px;
+            font-size: 0.8em;
             h3{
                 margin:0;
                 @include serif-heading();
@@ -53,6 +54,7 @@
                 font-family: $font__main;
                 font-weight: 300;
                 text-transform: capitalize;
+               
             }
             
         }
@@ -75,10 +77,12 @@
             }
             @include mq($mq1350){
             grid-template-rows: 25% 1fr;
-            }
+            }  
             
         }
+        
     }
+    
 
     .footer-nav-wrapper-left {
         display: grid;

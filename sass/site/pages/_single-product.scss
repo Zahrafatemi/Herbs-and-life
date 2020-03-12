@@ -53,7 +53,7 @@
                 label {
                     display: block;
                     @include serif-heading;
-                    padding: emRhythm($ms-up2);
+                    padding: emRhythm(1);
                     text-align: center;
                     border: emCalc(1) solid $color__mossgreen;
                     cursor: pointer;

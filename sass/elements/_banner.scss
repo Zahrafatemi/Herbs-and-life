@@ -66,7 +66,7 @@
 .promo-banner-text-box,
 .events-banner-text-box,
 .about-banner-text-box {
-    // height: 300px;
+
     padding: 30px 40px;
 
     h3 {
@@ -90,10 +90,6 @@
             margin-bottom: 0;
         }
 
-    }
-
-    @include mq($mq670){
-        height: 200px;
     }
 
     @include mq($mq850) {
@@ -132,7 +128,7 @@
 
     @include mq($mq1200) {
         padding: 35px 200px;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1.5fr 2fr;
         grid-column-gap: 40px;
     }
 

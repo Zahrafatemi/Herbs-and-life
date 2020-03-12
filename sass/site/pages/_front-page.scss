@@ -1,16 +1,54 @@
 // Front Page Styles
 
 // Featured products
-.featured-text-box {
-    h3 {
-        @include sanserif-heading();
-    }
+.featured-products{
+  
+    .featured-wrapper{
 
-    // p {
-    //     font-size: 0.8em;
-    // }
+        .featured-image{
+
+        }
+        
+        .featured-text-box {
+            background-color:$color__beige;
+
+            
+        
+            h3 {
+                @include sanserif-heading();
+            }
+
+            // p {
+            //     font-size: 0.8em;
+            // }
+
+        }
+    }
 }
 
+//category
+.p-category{
+    .category-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
+        height: 210px;
+        margin-right: 5px;
+    
+           .category{
+               width:inherit;
+               .category-container{
+                background-size: 210px 100%;
+                   img{
+                      max-width: 100%;
+                       height: 210px;
+                   }
+               }
+           }
+        
+      
+    }
+
+}
 
 // Why choose us
 .why-us-wrapper {

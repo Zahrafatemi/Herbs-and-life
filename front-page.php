@@ -65,7 +65,7 @@ get_header();
 									$image 		= get_sub_field( 'featured_image' );
 									$link 		= get_sub_field( 'featured_link' );
 									$size 		= 'medium'; // (thumbnail, medium, large, full or custom size)?>
-
+								<div class="featured-wrapper">
 									<div class = "featured-image">
 										<?php if( $image && $size ) { echo wp_get_attachment_image( $image, $size ); } ?>
 									</div><!--.featured-image-->
@@ -79,13 +79,15 @@ get_header();
 										<?php endif;?>
 										</a>
 									</div><!--.featured-text-box-->
+								</div><!--.featured-wrapper-->
 								<?php endwhile;
 							endif;
 						endif; ?>
 					</section><!--.featured-products-->
 
-					<section class="category">
+					<section class="p-category">
 						<h2>Product Categories</h2>
+						<div class="category-wrapper">
 						<?php
 						$prod_cat_args = array(
 								'taxonomy'=>'product_cat',
@@ -100,7 +102,8 @@ get_header();
 						foreach($terms as $term):
 							$term_link = get_term_link($term);
 							$thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );?>
-							<a class="category" href="<?php if( $term_link ) { echo esc_url( $term_link ); } ?>">
+					
+						<a class="category" href="<?php if( $term_link ) { echo esc_url( $term_link ); } ?>">
 								<?php if( $thumbnail_id ) { ?>
 									<figure class="category-container">
 									<?php echo wp_get_attachment_image( $thumbnail_id, 'woocommerce_thumbnail' ); ?>
@@ -109,6 +112,7 @@ get_header();
 								<p class="category-name"><?php echo $term->name; ?></p><!--.category-name-->
 							</a><!--.category-->
 						<?php endforeach;?>
+						</div><!--.category-wrapper-->
 					</section><!--.category-->
 
 					<section class="why-us"> 

@@ -58,7 +58,16 @@
                     border: emCalc(1) solid $color__mossgreen;
                     cursor: pointer;
                 }
+
+                & input[type=radio]:checked+label {
+                    background-color: $color__mossgreen;
+                    color: #fff;
+                }
             }
         }
+    }
+
+    .quantity {
+        margin-bottom: emRhythm();
     }
 }

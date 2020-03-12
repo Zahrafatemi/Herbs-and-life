@@ -275,15 +275,6 @@ if ( ! function_exists( 'herblife_woocommerce_header_cart' ) ) {
  * # Hooks - Single Product Page
  * -------------------------------------------------- /
 
- /**
- * Remove SKU / Categories
- */
-function hl_product_remove_actions() {
-	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
-	remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar',10);
-}
-add_action( 'init', 'hl_product_remove_actions');
-
 /* --------------------------------------------------
  * ## Product Data Tabs
  * -------------------------------------------------- /
@@ -352,6 +343,24 @@ function hl_product_summary_closing_div() {
 }
 add_action( 'woocommerce_single_product_summary', 'hl_product_summary_opening_div', 1 );
 add_action( 'woocommerce_after_single_product_summary', 'hl_product_summary_closing_div', 1 );
+
+/**
+ * Remove SKU / Categories
+ */
+function hl_product_remove_sku_cat() {
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+	remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar',10);
+}
+add_action( 'init', 'hl_product_remove_sku_cat');
+
+/**
+ * Move product images inside product summary
+ */
+function hl_move_product_images( ) {
+	remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+	add_action( 'woocommerce_single_product_summary', 'woocommerce_show_product_images', 1 );
+}
+add_filter( 'woocommerce_before_single_product_summary', 'hl_move_product_images' );
 
 /* --------------------------------------------------
  * ## Variations

@@ -1,34 +1,11 @@
 .single-product {
-    .woocommerce-tabs.wc-tabs-wrapper {
-        .tabs {
-            display: flex;
-        }
+    main {
+        max-width: em(1400);
+    }
 
-        li {
-            margin-right: emRhythm();
-
-            &.active a {
-                color: $color__mossgreen;
-                border-color: $color__mossgreen;
-            }
-        }
-
-        a {
-            padding-bottom: 0;
-            border-bottom: emCalc(1) solid $color__bodyfont;
-            @include serif-heading;
-
-            #{$link-hover-selector} {
-                color: $color__mossgreen;
-                border-color: $color__mossgreen;
-            }
-        }
-
-        .woocommerce-Tabs-panel--description.panel,
-        .woocommerce-Tabs-panel--additional_information {
-            h2 {
-                display: none;
-            }
+    .woocommerce-product-gallery.woocommerce-product-gallery--with-images {
+        .woocommerce-product-gallery__trigger {
+            display: none;
         }
     }
 
@@ -69,5 +46,51 @@
 
     .quantity {
         margin-bottom: emRhythm();
+    }
+
+    .single_add_to_cart_button {
+        @include serif-heading;
+        padding: emRhythm(3) emRhythm(4);
+        width: 100%;
+        background-color: $color__mossgreen;
+        text-align: center;
+        font-size: 1em;
+        color: #fff;
+        border: none;
+        border-radius: 0;
+        cursor: pointer;
+    }
+
+    .woocommerce-tabs.wc-tabs-wrapper {
+        .tabs {
+            display: flex;
+        }
+
+        li {
+            margin-right: emRhythm();
+
+            &.active a {
+                color: $color__mossgreen;
+                border-color: $color__mossgreen;
+            }
+        }
+
+        a {
+            padding-bottom: 0;
+            border-bottom: emCalc(1) solid $color__bodyfont;
+            @include serif-heading;
+
+            #{$link-hover-selector} {
+                color: $color__mossgreen;
+                border-color: $color__mossgreen;
+            }
+        }
+
+        .woocommerce-Tabs-panel--description.panel,
+        .woocommerce-Tabs-panel--additional_information {
+            h2 {
+                display: none;
+            }
+        }
     }
 }

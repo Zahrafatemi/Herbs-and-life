@@ -59,6 +59,11 @@ if ( post_password_required() ) {
 		 */
 		do_action( 'woocommerce_single_product_summary' );
 		?>
+		<?php if((has_term('events', 'product_cat', $post->ID))): ?>
+			<div class="event-description">
+				<?php the_content(); ?>
+			</div>
+		<?php endif; ?>
 		<?php if(get_field('place')):?>
 			<div class="event-place">
 				<?php the_field('place') ?>

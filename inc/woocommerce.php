@@ -449,7 +449,7 @@ function hl_get_promotional_banners() {
 					'size' 					=> get_sub_field( 'size' ),
 					'style'					=> get_sub_field( 'style' ),
 					'heading_text' 			=> get_sub_field( 'heading_text' ),
-					'heading_text_color'	=> get_sub_field( 'heading_text_colour' )
+					'heading_text_color'	=> get_sub_field( 'heading_text_colour' ),
 					'subheading_text' 		=> get_sub_field( 'subheading_text' ),
 					'subheading_colour'		=> get_sub_field( 'subheading_text_colour' ),
 					'background_image' 		=> get_sub_field( 'background_image' ),

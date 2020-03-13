@@ -279,9 +279,6 @@ function hl_product_new_tab_content() {
 }
 add_filter( 'woocommerce_product_tabs', 'hl_product_new_tab');
 
-/* --------------------------------------------------
- * ## Single Product Summary
- * -------------------------------------------------- /
 /**
  * Enclose single product summary items in a div
  */
@@ -295,13 +292,16 @@ add_action( 'woocommerce_single_product_summary', 'hl_product_summary_opening_di
 add_action( 'woocommerce_after_single_product_summary', 'hl_product_summary_closing_div', 1 );
 
 /**
- * Move product images inside product summary
+ * Enclose after single_product_summary and after_single_product items in a div
  */
-function hl_move_product_images( ) {
-	remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
-	add_action( 'woocommerce_single_product_summary', 'woocommerce_show_product_images', 1 );
+function hl_after_product_summary_opening_div() {
+	echo '<div class="after-product-summary">';
 }
-add_filter( 'woocommerce_before_single_product_summary', 'hl_move_product_images' );
+function hl_after_product_summary_closing_div() {
+	echo '</div><!--.after-product-summary-->';
+}
+add_action( 'woocommerce_after_single_product_summary', 'hl_after_product_summary_opening_div', 1 );
+add_action( 'woocommerce_after_single_product', 'hl_after_product_summary_closing_div' );
 
 /**
  * Remove SKU / Categories
@@ -312,10 +312,8 @@ function hl_product_remove_sku_cat() {
 }
 add_action( 'init', 'hl_product_remove_sku_cat');
 
-
-
 /**
- * Enclose single product summary items in a div
+ * Add quantity label to the cart
  */
 function hl_add_quantity_label_to_cart() {
 	echo '<span class="quantity-label">Quantity: </span>';

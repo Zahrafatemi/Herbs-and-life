@@ -1,0 +1,13 @@
+@include mq($mq670){
+.offer-box{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+
+
+}
+
+.tm-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+}

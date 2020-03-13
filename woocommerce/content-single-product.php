@@ -131,7 +131,7 @@ if ( post_password_required() ) {
 				</div>
 			<?php endif;?>
 		</div><!--end of event-details-->
-		<?php endif; ?>
+		<!-- <?php //endif; ?> -->
 		<?php if((has_term('events', 'product_cat', $post->ID))): ?>
 			<div class="event-description">
 				<?php the_content(); ?>
@@ -155,6 +155,7 @@ if ( post_password_required() ) {
 				</div>
 			</div><!--end of acf-map-->
 		</div>
+		<?php endif; ?>
 		<?php
 		endif;
 

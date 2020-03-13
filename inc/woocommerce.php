@@ -254,10 +254,10 @@ if ( ! function_exists( 'herblife_woocommerce_header_cart' ) ) {
  * Move product images inside product summary on single event pages
  */
 function hl_move_product_images( ) {
-	if( (has_term('events', 'product_cat', $post->ID)) ){
+	// if( (has_term('events', 'product_cat', $post->ID)) ){
 		remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
 		add_action( 'woocommerce_single_product_summary', 'woocommerce_show_product_images', 1 );		
-	}
+	// }
 }
 add_filter( 'woocommerce_before_single_product_summary', 'hl_move_product_images' );
 

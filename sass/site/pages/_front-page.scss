@@ -186,7 +186,7 @@
     background-color: $color__coolgray;
     margin-top: 30px;
     .why-us-wrapper {
-        padding: 30px 0px;
+        padding: 40px 0px;
         max-width: 1250px;
         margin: 0 auto;
 
@@ -201,10 +201,18 @@
         .why-us-list-wrapper {
                 text-align: center;
                 padding-bottom: 30px;
+
+                @include mq($mq670){
+                    padding-bottom: 0px;
+                }
+
+                img {
+                    width: 200px;
+                }
             
                 h3 {
                     @include serif-heading();
-                    padding-bottom: 30px;
+                    padding-bottom: 15px;
                 }
 
                 ul {
@@ -215,7 +223,7 @@
                     padding: 30px 50px 0px;
 
                     @include mq($mq670){
-                        padding: 30px 0px;
+                        padding: 20px 0px 0px;
                     }
 
                     li{
@@ -227,7 +235,11 @@
                         grid-template-columns: 40px 1fr;
                         align-items: center;
                         grid-gap: 10px;
-                        padding-bottom: 13px;
+                        padding-bottom: 10px;
+
+                        &:last-child {
+                            padding-bottom: 0px;
+                        }
 
                     }
 

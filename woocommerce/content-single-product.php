@@ -59,49 +59,64 @@ if ( post_password_required() ) {
 		 */
 		do_action( 'woocommerce_single_product_summary' );
 		?>
-		<?php if((has_term('events', 'product_cat', $post->ID))): ?>
-			<div class="event-description">
-				<?php the_content(); ?>
-			</div>
-		<?php endif; ?>
 
 		<div class="event-details">
-			<div class="details location"></div>
-				<div class="location-icon">
-					<?php if(get_field('location-icon')):?>
-						<div class="location-icon">
+			<div class="details location">
+
+				<!-- Adding the location Icon -->
+				<div class="icon location">
+					<?php if(get_field('location_icon')):?>
+						<!-- <div class="location-icon"> -->
 							<?php echo wp_get_attachment_image( get_field('location_icon') , 'medium' ); ?>
-						</div>
+						<!-- </div> -->
+					<?php else:?>
+							<?php echo wp_get_attachment_image(578, 'medium'); ?>
 					<?php endif;?>
 				</div>
 
+				<!-- Adding the place name and address -->
 				<div class="location-details">
 					<?php if(get_field('place')):?>
-						<div class="event-place">
+						<!-- <div class="event-place"> -->
 							<p><?php the_field('place') ?></p>
-						</div>
+						<!-- </div> -->
 					<?php endif;?>
 
 					<?php if(get_field('address')):?>
-						<div class="event-address">
+						<!-- <div class="event-address"> -->
 							<p><?php the_field('address') ?></p>
-						</div>
+						<!-- </div> -->
 					<?php endif;?>
 				</div>
 			</div>
 
-			<div class="time-details">
-				<?php if(get_field('date')):?>
-					<div class="event-date">
-						<p><?php the_field('date') ?></p>
-					</div>
-				<?php endif;?>
+			<div class="details time">
+				<!-- Adding the time Icon -->
+				<div class="icon time">
+					<?php if(get_field('time_icon')):?>
+						<!-- <div class="time-icon"> -->
+							<?php echo wp_get_attachment_image( get_field('time_icon') , 'full' ); ?>
+						<!-- </div> -->
+					<?php else:?>
+							<?php echo wp_get_attachment_image(579, 'full'); ?>
+					<?php endif;?>
+				</div>
 
-				<?php if(get_field('start_time') && get_field('end_time')):?>
-					<div class="event-time">
-						<p><?php echo the_field('start_time')?> to <?php the_field('end_time') ?></p>
+				<div class="date-details">
+					<div class="time-details">
+						<?php if(get_field('date')):?>
+							<!-- <div class="event-date"> -->
+								<p><?php the_field('date') ?></p>
+							<!-- </div> -->
+						<?php endif;?>
+
+						<?php if(get_field('start_time') && get_field('end_time')):?>
+							<!-- <div class="event-time"> -->
+								<p><?php echo the_field('start_time')?> to <?php the_field('end_time') ?></p>
+							<!-- </div> -->
+						<?php endif;?>
 					</div>
-				<?php endif;?>
+				</div>
 			</div>
 
 			<!-- <?php //if(get_field('end_time')):?>
@@ -117,24 +132,29 @@ if ( post_password_required() ) {
 			<?php endif;?>
 		</div><!--end of event-details-->
 
-		<?php
-		if(get_field('location')):
-		?>
-		<?php if((is_product() && has_term('events', 'product_cat', $post->ID))):?>
-		<div class="acf-map" data-zoom="16" style="overflow: hidden; position: relative;">
-		<?php endif;?>
-		
-		<?php 
-			$address = get_field('location');
-			$icon = get_template_directory_uri().'/images/markers/map-marker.png';
-			?>
-			<div class="marker" data-lat="<?php echo $address['lat']; ?>" data-lng="<?php echo $address['lng']; ?>" data-img="<?php echo $icon; ?>">
-				<div class="inside-marker">
-					<h5><?php echo esc_html( $address['address'] ); ?></h5>
-				</div>
+		<?php if((has_term('events', 'product_cat', $post->ID))): ?>
+			<div class="event-description">
+				<?php the_content(); ?>
 			</div>
-		</div><!--end of acf-map-->
+		<?php endif; ?>
+
+		<div class="event-map">
+			<?php if(get_field('location')):?>
+			<?php if((is_product() && has_term('events', 'product_cat', $post->ID))):?>
+				<div class="acf-map" data-zoom="16" style="overflow: hidden; position: relative;">
+			<?php endif;?>
 		
+			<?php 
+				$address = get_field('location');
+				$icon = get_template_directory_uri().'/images/markers/map-marker.png';
+				?>
+				<div class="marker" data-lat="<?php echo $address['lat']; ?>" data-lng="<?php echo $address['lng']; ?>" data-img="<?php echo $icon; ?>">
+					<div class="inside-marker">
+						<h5><?php echo esc_html( $address['address'] ); ?></h5>
+					</div>
+				</div>
+			</div><!--end of acf-map-->
+		</div>
 		<?php
 		endif;
 

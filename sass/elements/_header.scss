@@ -211,17 +211,14 @@
         }
     }
     }
-    
-    
 }
-
 
 
 #category-navigation {
     display: none;
 
     .category-nav-wrapper {
-        background-color: #CDD6DB;
+        // background-color: #CDD6DB;
         height: 40px;
         margin-top: 37px;
     }
@@ -271,34 +268,50 @@
 }
 
 .page-id-14 {
-    #menu-product-category-menu {
+    .category-nav-wrapper {
         background-color:#CDD6DB;
+
+        #menu-product-category-menu {
+            background-color:#CDD6DB;
+        }
     }
 }
 
 // Sub nav colors
 .term-herbs-spices {
-    #menu-product-category-menu {
+    .category-nav-wrapper {
         background-color: $color__cat_herb;
-         
-        a {
-            color: white;
+
+        #menu-product-category-menu {
+            background-color: $color__cat_herb;
+            
+            a {
+                color: white;
+            }
         }
     }
 }
 
 .term-oils-vinegars {
-    #menu-product-category-menu {
+    .category-nav-wrapper {
         background-color: $color__cat_vinegar;
-         
-        a {
-            color: white;
+
+        #menu-product-category-menu {
+            background-color: $color__cat_vinegar;
+            
+            a {
+                color: white;
+            }
         }
     }
 }
 
 .term-health-beauty {
-    #menu-product-category-menu {
+    .category-nav-wrapper {
         background-color: $color__cat_beauty;
+        
+        #menu-product-category-menu {
+            background-color: $color__cat_beauty;
+        }
     }
 }

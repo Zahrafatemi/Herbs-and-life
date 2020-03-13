@@ -97,7 +97,7 @@ function herblife_scripts() {
 	}
 
 	/**
-	 * Variety Pack Addons
+	 * Custom Giftwrapping
 	 */	
 	if ( is_single( 'product' ) && ( !has_term( 'Events', 'product_cat' ) ) ) {
 		wp_enqueue_script( 

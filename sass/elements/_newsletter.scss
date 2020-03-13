@@ -113,4 +113,20 @@
 
 
     }
+
+    // Newsletter bar button style
+    .mc4wp-form-fields {
+        input[type="submit"] {
+            font-family: $font__heading;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: $font__letter-spacing-heading;
+            width: 140px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 0px;
+            border: 1px solid #5E6850
+            font-size: 1rem;
+        }
+    }
 } 

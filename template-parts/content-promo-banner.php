@@ -39,7 +39,7 @@ if( $banner[ 'link' ][ 'link_url' ] ){
 
 ?>
 
-<li class="<?php echo $class; ?>">
+<li class="<?php echo $class; ?>" style="background-color: <?php echo $banner[ 'background_colour' ]; ?>">
     <?php if( $bannerURL && $banner[ 'link' ][ 'link_placement' ] == 'banner' ): ?>
         <a class="banner-link banner" href="<?php echo esc_url( $banner[ 'link' ][ 'link_url' ] ); ?>">
     <?php endif; ?>
@@ -51,16 +51,16 @@ if( $banner[ 'link' ][ 'link_url' ] ){
             <div class="content">
                 <div class="text">
                     <?php if( $banner[ 'heading_text' ] ): ?>
-                        <h2 class="heading"><?php echo $banner[ 'heading_text' ]; ?></h2><!--.heading.text-->
+                        <h2 class="heading" style="color: <?php echo $banner[ 'heading_text_colour' ]; ?>"><?php echo $banner[ 'heading_text' ]; ?></h2><!--.heading.text-->
                     <?php endif; ?>
 
                     <?php if( $banner[ 'subheading_text' ] ): ?>
-                        <p class="subheading"><?php echo $banner[ 'subheading_text' ]; ?></p><!--.subheading.text-->
+                        <p class="subheading" style="color: <?php echo $banner[ 'subheading_text_colour' ]; ?>"><?php echo $banner[ 'subheading_text' ]; ?></p><!--.subheading.text-->
                     <?php endif; ?>
                 </div><!--.text-->
 
                 <?php if( $banner[ 'link' ][ 'link_placement' ] == 'button' ): ?>
-                    <a class="banner-link button" href="<?php echo $bannerURL; ?>" >
+                    <a class="banner-link button" href="<?php echo $bannerURL; ?>">
                         <?php echo $banner[ 'link' ][ 'button_text' ]; ?>
                     </a><!--.banner-link.button-->
                 <?php endif; ?>

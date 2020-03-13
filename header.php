@@ -115,6 +115,7 @@
 		 if((is_product_category() && !is_tax('product_cat', 'events'))|| is_page(14)||(is_product()&&!has_term('events', 'product_cat', $post->ID))):?>
 		
 		<nav id="category-navigation" class="category-navigation">
+			<div class="category-nav-wrapper">
 					<?php 
 						wp_nav_menu(
 							array(
@@ -123,6 +124,8 @@
 							)
 						);
 					?>
+
+			</div>
 		</nav>
 		<?php endif;?>
 		</nav><!-- #category-navigation -->

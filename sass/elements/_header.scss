@@ -201,7 +201,7 @@
 
         #primary-menu {
             display: grid;
-            grid-template-columns: 13% 13% 13% 1fr 13% 13%;;
+            grid-template-columns: 13% 13% 13% 1fr 13% 13%;
             justify-items: center;
 
             #menu-item-229 {
@@ -219,20 +219,53 @@
 
 #category-navigation {
     display: none;
+
+    .category-nav-wrapper {
+        background-color: #CDD6DB;
+        height: 40px;
+        margin-top: 37px;
+    }
     @include mq($mq670){
 
       display: block;
       #menu-product-category-menu {
         display: grid;
-        grid-template-columns: 20% 20% 1fr;
+        grid-template-columns: 14% 14% 16% 1fr 16% 10%;
         height: 40px;
         margin-top: 30px;
         align-items: center;
-        justify-items: center;
+        justify-items: start;
         // background-color:#CDD6DB;
         position: static;
         width: 100%;
         z-index: 2;
+        font-size: 0.8em;
+        max-width: 1240px;
+        margin:0 auto;
+
+        li#menu-item-359{
+            padding-left: 23px;
+        }
+
+        li#menu-item-360{
+            padding-left: 17px;
+        }
+
+        li#menu-item-607 {
+            justify-self: end;
+            padding-right: 92px;
+        }
+        
+        @include mq($mq1000){
+            font-size: 1em;
+            li#menu-item-359{
+                padding-left: 0px;
+            }
+    
+            li#menu-item-360{
+                padding-left: 0px;
+            }
+        }
       }
     }
 }

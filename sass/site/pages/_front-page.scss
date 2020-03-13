@@ -4,6 +4,11 @@
 .featured-products{
   
     .featured-wrapper{
+        &:nth-of-type(2){
+            div.featured-text-box{
+             background-color: $color__coolgray;
+            }
+            }
 
         .featured-image{
             img{
@@ -17,7 +22,11 @@
         
         .featured-text-box {
             background-color:$color__beige;
-
+            display: block;
+            width: 100%;
+            // box-sizing: border-box; 
+            // background-image: url(images/assets/sketch-border/sketch-border-square.svg);    
+            // background-repeat: no-repeat; 
             
             @include mq($mq670){
                width:50%;

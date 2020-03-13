@@ -79,6 +79,11 @@ get_header();
 										<?php endif;?>
 										</a>
 									</div><!--.featured-text-box-->
+									
+									<div class="featured-p-top"></div><!-- .featured-p-top-->
+									
+									<div class="featured-p-bottom"></div><!-- .featured-p-top-->
+									
 								</div><!--.featured-wrapper-->
 								<?php endwhile;
 							endif;

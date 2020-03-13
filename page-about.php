@@ -68,26 +68,28 @@ get_header();
 			</section><!--.about-history-->
 
 			<section class="awards">
-				<h2>Awards & Certificates</h2>
-				<?php 
-					$args = array(
-						'post_type' => 'hl-award',
-						'posts_per_page' => -1,   // If you want to all posts, set up -1  default minimum 10
-					);
+						<h2>Awards & Certificates</h2>
+						<div class="award-slider">
+						<?php 
+							$args = array(
+								'post_type' => 'hl-award',
+								'posts_per_page' => -1,   // If you want to all posts, set up -1  default minimum 10
+							);
 
-					$query = new WP_Query( $args );
+							$query = new WP_Query( $args );
 
-					if ( $query->have_posts() ) {
-						while ( $query->have_posts() ) {
-							$query->the_post();
-
-							the_content();
-
-						}
-						wp_reset_postdata();
-					} 
-				?>
-			</section><!--.awards-->
+							if ( $query->have_posts() ) {
+								while ( $query->have_posts() ) { ?>
+									<?php $query->the_post();?>
+									
+									<div class="ac-image"><?php the_content();?></div><!--.ac-image-->
+									
+							<?php	}
+								wp_reset_postdata();
+							} 
+						?>
+						</div><!--.award-slides-->
+					</section><!--.awards-->
 
 			<section class="supporters">
 				<h2>Our Supporters</h2>

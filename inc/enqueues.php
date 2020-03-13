@@ -98,14 +98,22 @@ function herblife_scripts() {
 
 	/**
 	 * Custom Giftwrapping
-	 */	
-	if ( is_single( 'product' ) && ( !has_term( 'Events', 'product_cat' ) ) ) {
-		wp_enqueue_script( 
-			'hl-variety-pack-addons', 
-			get_template_directory_uri().'/js/variety-pack-addons.js', 
+	 */
+
+	if ( is_singular( 'product' ) ) {
+		wp_register_script( 
+			'hl-custom-giftwrapping', 
+			get_template_directory_uri().'/js/custom-giftwrapping.js', 
 			array('jquery'), 
 			'20200129', 
 			true );
+
+		// Pass the post ID onto the jQuery file
+		wp_localize_script( 'hl-custom-giftwrapping', 'post', array(
+			'id' => $post->ID
+		) );
+
+		wp_enqueue_script( 'hl-custom-giftwrapping' );
 	}
 
 	/**

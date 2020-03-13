@@ -1,13 +1,24 @@
-@include mq($mq670){
-.offer-box{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
+.page-id-14{
+
+    .category-wrapper,
+    .we-offer,
+    .store-locator{
+        h2{
+            padding-top: 30px;
+        }
+    }
+
+        @include mq($mq670){
+        .offer-box{
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
 
 
-}
+        }
 
-.tm-wrapper {
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
+        .tm-wrapper {
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+        }
 }

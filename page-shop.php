@@ -82,7 +82,8 @@ get_header();
 			</section><!--..category-wrapper-->
 
 			<section class="we-offer"> 
-				<h2>We Also Offer</h2>
+                <h2>We Also Offer</h2>
+                <div class="offer-box"> 
                 <?php if( function_exists( 'get_field' ) ):
                     if( get_field( 'we_offer' ) ):
                         while( has_sub_field( 'we_offer' ) ): 
@@ -90,19 +91,22 @@ get_header();
                             $images = get_sub_field( 'we_offer_image' );
                             $size   = 'medium'; // (thumbnail, medium, large, full or custom size)
                             $link   = get_sub_field( 'we_offer_link' ); ?>
-
+                    
                             <div class = "we-offer-wrapper">
                                 <h3><?php if( $title ) { echo $title; } ?></h3>
+                                
                                 <?php if( $images && $size ) { echo wp_get_attachment_image( $images, $size ); } ?>
                             </div><!--.we-offer-wrapper-->
-
+                    
                         <?php endwhile;
                     endif;
                 endif; ?>
+                </div>
 			</section><!--.we-offer-->
 		
             <section class="testimonials">
                 <h2>Testimonials</h2>
+                <div class="tm-wrapper"> 
                 <?php 
                     $args = array(
                         'post_type' => 'hl-testimonial',
@@ -115,11 +119,11 @@ get_header();
                     if ( $query->have_posts() ) {
                         while ( $query->have_posts() ) {
                             $query->the_post();
-
+                            
                             // output customer images
                             if( function_exists( 'get_field' ) ):
                                 if( get_field( 'customer_image' ) ): ?>
-
+                     <div class="single-test"> 
                                     <figure class="customer-image">
                                         <?php echo wp_get_attachment_image( get_field('customer_image'), 'medium' ); ?>
                                     </figure>
@@ -127,12 +131,14 @@ get_header();
                             endif; 
 
                             // output testimonials
-                            the_content();
-
-                        }
+                            the_content();?>
+                            </div>  <!--.single-test-->
+                   <?php     }
                         wp_reset_postdata(); 
                     } 
                 ?>
+    
+                </div><!--.tm-wrapper-->
             </section><!--.testimonials-->
 
             <section class = "store-locator">

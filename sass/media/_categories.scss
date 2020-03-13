@@ -13,8 +13,8 @@
         width: 300px;
         display: block;
 
-        @include mq($mq1600) {
-            width: 400px;
+        @include mq($mq1920) {
+            width: 350px;
         }
 
         // Sketch border
@@ -28,9 +28,9 @@
             height: 300px;
             background-size: cover;
 
-            @include mq($mq1600) {
-                width: 400px;
-                height: 400px;
+            @include mq($mq1920) {
+                width: 350px;
+                height: 350px;
             }
 
             // Category image
@@ -43,9 +43,9 @@
                 width: 300px;
                 object-fit: cover;
 
-                @include mq($mq1600) {
-                    width: 400px;
-                    height: 400px;
+                @include mq($mq1920) {
+                    width: 350px;
+                    height: 350px;
                 }
             }
         }
@@ -64,9 +64,9 @@
             padding: 0;
             width: 300px;
 
-            @include mq($mq1600) {
+            @include mq($mq1920) {
                 font-size: 2em;
-                width: 400px;
+                width: 350px;
             }
 
             &:after {
@@ -82,7 +82,7 @@
                 background-size: cover;
                 background-position: center center;
 
-                @include mq($mq1600) {
+                @include mq($mq1920) {
                     width: 230px;
                     height: 23px;
                 }

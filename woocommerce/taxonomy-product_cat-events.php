@@ -90,27 +90,34 @@ get_header();
 				?>
 
 				<div class="future-events">
-
-				<?php 
-				$query = new WP_Query( $args_future_events );
-				if( $query->have_posts()) :
-					while( $query->have_posts() ) : 
-							$query->the_post();
-					?>
-						<div class="future-single-event">
-							<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-							<?php the_excerpt(); ?>
-							<?php the_post_thumbnail('event-thumbnail'); ?>
-						</div><!--.future-single-event-->
 					<?php 
-					endwhile;
-						wp_reset_postdata();
-				else: ?>
-					<p><?php _e( 'No Products' ); ?></p>
-				<?php endif; ?>
-				</div>
+					$query = new WP_Query( $args_future_events );
+					if( $query->have_posts()) :
+						while( $query->have_posts() ) : 
+								$query->the_post();
+						?>
+							<div class="future-single-event single-event">
+								<?php the_post_thumbnail('event-thumbnail'); ?>
+								<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+								<div class="time-details">
+									<?php if(get_field('date')):?>
+											<p><?php the_field('date') ?></p>
+									<?php endif;?>
 
-				<button class="see-past-events" id="see-past-events" >Past Events</button>
+									<?php if(get_field('start_time') && get_field('end_time')):?>
+											<p><?php echo the_field('start_time')?> to <?php the_field('end_time') ?></p>
+									<?php endif;?>
+								</div>
+							</div><!--.future-single-event-->
+						<?php 
+						endwhile;
+							wp_reset_postdata();
+					else: ?>
+						<p><?php _e( 'No Events' ); ?></p>
+					<?php endif; ?>
+				</div><!--future-events-->
+
+				<button class="woo-btn see-past-events" id="see-past-events" >Past Events</button>
 
 				<div class="past-events" id="past-events">
 
@@ -120,16 +127,24 @@ get_header();
 					while( $query->have_posts() ) : 
 						$query->the_post();
 				?>
-						<div class="past-single-event">
+						<div class="past-single-event single-event">
+						<?php the_post_thumbnail('event-thumbnail'); ?>
 							<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-							<?php the_post_thumbnail('event-thumbnail'); ?>
-						</div><!--.past-single-event-->
+							<div class="time-details">
+									<?php if(get_field('date')):?>
+											<p><?php the_field('date') ?></p>
+									<?php endif;?>
+
+									<?php if(get_field('start_time') && get_field('end_time')):?>
+											<p><?php echo the_field('start_time')?> to <?php the_field('end_time') ?></p>
+									<?php endif;?>
+								</div>
+							</div><!--.past-single-event-->
 					<?php 
 					endwhile;
 					wp_reset_postdata();
 				else: ?>
-					<p><?php _e( 'No Products' ); ?></p>
-					
+					<p><?php _e( 'No Events' ); ?></p>
 				<?php endif; ?>
 				</div><!-- end of past events -->
 			</div><!-- end of events -->

@@ -250,34 +250,16 @@ if ( ! function_exists( 'herblife_woocommerce_header_cart' ) ) {
  * # Hooks - Single Product Page
  * -------------------------------------------------- /
 
-/* --------------------------------------------------
- * ## Product Data Tabs
- * -------------------------------------------------- /
-
 /**
- * Add a custom product data tab
+ * Move product images inside product summary on single event pages
  */
-function hl_product_new_tab( $tabs ) {
-	if( is_singular( 'product' ) ){
-		$tabs[ 'ingredients' ] = array(
-			'title' 	=> __( 'Ingredients', 'woocommerce' ),
-			'priority' 	=> 12,
-			'callback' 	=> 'hl_product_new_tab_content'
-		);
-
-		return $tabs;		
+function hl_move_product_images( ) {
+	if( has_term( 'Event', 'product_cat' ) ){
+		remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_show_product_images', 1 );		
 	}
 }
-
-function hl_product_new_tab_content() {
-	if( function_exists( 'get_field' ) ){
-		$tabContent = get_field( 'ingredients' );
-		if( $tabContent ){
-			echo $tabContent;
-		}
-	}
-}
-add_filter( 'woocommerce_product_tabs', 'hl_product_new_tab');
+add_filter( 'woocommerce_before_single_product_summary', 'hl_move_product_images' );
 
 /**
  * Enclose single product summary items in a div
@@ -319,6 +301,35 @@ function hl_add_quantity_label_to_cart() {
 	echo '<span class="quantity-label">Quantity: </span>';
 }
 add_action( 'woocommerce_before_add_to_cart_quantity', 'hl_add_quantity_label_to_cart' );
+
+/* --------------------------------------------------
+ * ## Product Data Tabs
+ * -------------------------------------------------- /
+
+/**
+ * Add a custom product data tab
+ */
+function hl_product_new_tab( $tabs ) {
+	if( is_singular( 'product' ) ){
+		$tabs[ 'ingredients' ] = array(
+			'title' 	=> __( 'Ingredients', 'woocommerce' ),
+			'priority' 	=> 12,
+			'callback' 	=> 'hl_product_new_tab_content'
+		);
+
+		return $tabs;		
+	}
+}
+
+function hl_product_new_tab_content() {
+	if( function_exists( 'get_field' ) ){
+		$tabContent = get_field( 'ingredients' );
+		if( $tabContent ){
+			echo $tabContent;
+		}
+	}
+}
+add_filter( 'woocommerce_product_tabs', 'hl_product_new_tab');
 
 /* --------------------------------------------------
  * ## Variations

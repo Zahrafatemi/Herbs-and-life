@@ -1,7 +1,5 @@
 
 jQuery(document).ready(function($){
-  console.log('isotope test');
-
   var $container = $('.blog-feed');
 
   $container.isotope({

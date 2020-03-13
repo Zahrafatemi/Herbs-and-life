@@ -200,7 +200,6 @@
 
 
 
-
 #category-navigation {
     display: none;
     @include mq($mq670){
@@ -213,12 +212,43 @@
         margin-top: 30px;
         align-items: center;
         justify-items: center;
-        background-color:#CDD6DB;
+        // background-color:#CDD6DB;
         position: static;
         width: 100%;
         z-index: 2;
       }
-    
     }
+}
 
+.page-id-14 {
+    #menu-product-category-menu {
+        background-color:#CDD6DB;
+    }
+}
+
+// Sub nav colors
+.term-herbs-spices {
+    #menu-product-category-menu {
+        background-color: $color__cat_herb;
+         
+        a {
+            color: white;
+        }
+    }
+}
+
+.term-oils-vinegars {
+    #menu-product-category-menu {
+        background-color: $color__cat_vinegar;
+         
+        a {
+            color: white;
+        }
+    }
+}
+
+.term-health-beauty {
+    #menu-product-category-menu {
+        background-color: $color__cat_beauty;
+    }
 }

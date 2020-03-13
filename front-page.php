@@ -187,7 +187,10 @@ get_header();
 											<?php endif; ?> 
 
 											<h3><?php the_title(); ?></h3>
-											<p> Farm visit | Mar 28, 2020 | 09:00 - 16:00<?php //the_content();?></p>  
+											<!-- <p> Farm visit | Mar 28, 2020 | 09:00 - 16:00<?php //the_content();?></p>  -->
+												<?php if(get_field('date') && get_field('start_time') && get_field('end_time')):?>
+														<p><?php the_field('date') ?> | <?php echo the_field('start_time')?> - <?php the_field('end_time') ?></p>
+												<?php endif;?>
 											
 										</a>
 										<?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>

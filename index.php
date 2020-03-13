@@ -89,7 +89,7 @@ get_header();
 
 					</div><!--.filters-->
 					
-					<div id="infinite-scroll" class="blog-feed">
+					<div class="blog-feed">
 						<?php
 						while ( have_posts() ) {
 							the_post();
@@ -97,7 +97,7 @@ get_header();
 							get_template_part( 'template-parts/content', 'blog' );
 						}
 						?>
-					</div><!--#infinite-scroll.blog-feed-->
+					</div><!--.blog-feed-->
 
 					<div id="infinite-handle">
 						<button class="load-more button">Load More</button>

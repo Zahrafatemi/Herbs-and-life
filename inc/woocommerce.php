@@ -279,21 +279,6 @@ function hl_product_new_tab_content() {
 }
 add_filter( 'woocommerce_product_tabs', 'hl_product_new_tab');
 
-
-/**
- * Remove tabs from Events pages
- */
-function hl_remove_products_tabs_from_events( $tabs ){
-	if( is_singular( 'product' ) && ( has_term( 'Events', 'product_cat' ) ) ){
-		foreach( $tabs as $tab ){
-			unset( $tab );
-		}
-		return $tabs;
-	}
-	
-}
-add_filter( 'woocommerce_product_tabs', 'hl_remove_products_tabs_from_events', 1);
-
 /* --------------------------------------------------
  * ## Single Product Summary
  * -------------------------------------------------- /

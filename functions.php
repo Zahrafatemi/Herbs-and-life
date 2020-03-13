@@ -230,4 +230,12 @@ function wpforo_search_form( $html ) {
 }
 add_filter( 'get_search_form', 'wpforo_search_form' );
 
+/**
+ * Lower Yoast SEO Metabox location
+ */
+function yoast_to_bottom(){
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
+
 

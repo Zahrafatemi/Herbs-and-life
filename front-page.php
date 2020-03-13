@@ -113,10 +113,11 @@ get_header();
 							</a><!--.category-->
 						<?php endforeach;?>
 					</section><!--.category-wrapper-->
-
-					<section class="why-us"> 
+				</div><!--.wrapper-->
+					<section class="why-us pattern01"> 
 						<h2>Why Choose Us?</h2>
-						<div class="why-us-wrapper">
+						<div class="why-us-background">
+						<div class="why-us-wrapper">	
 						<?php if( function_exists( 'get_field' ) ):
 							if( get_field( 'why_us' ) ):
 								while( has_sub_field( 'why_us' ) ): 
@@ -132,7 +133,7 @@ get_header();
 												<ul>
 													<?php foreach($lists as $list):
 														foreach($list as $list_item):?>
-															<li><?php echo $list_item ?></li>
+															<li><span><img class = "whyus-icon" id = "whyus-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/why-us/check-icon.svg" alt="whyus-icon"></span><?php echo $list_item ?></li>
 														<?php endforeach;
 													endforeach; ?>
 												</ul>
@@ -142,8 +143,10 @@ get_header();
 							endif;
 						endif; ?>
 						</div><!--.why-us-wrapper-->
+						</div><!--.why-us-background-->
 					</section><!--.why-us-->
-			<div class="blog-events-wrapper">
+				<div class = "wrapper pattern01">
+				<div class="blog-events-wrapper">
 					<section class="latest-blog">
 						<h2>Latest News</h2>
 						<div class="latest-blog-wrapper">
@@ -199,7 +202,7 @@ get_header();
 							<?php wp_reset_query(); ?>
 						</ul>
 					</section><!--.upcoming-events-->
-			</div><!-- .blog-events-wrapper -->
+				</div><!-- .blog-events-wrapper -->
 					<section class="awards">
 						<h2>Awards & Certificates</h2>
 						<div class="award-slider">
@@ -250,7 +253,7 @@ get_header();
 						?>
 						</div> <!--.tm-wrapper-->
 					</section><!--.testimonials-->
-			</div><!--.wrapper-->
+				</div><!--.wrapper-->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

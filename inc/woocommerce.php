@@ -509,12 +509,16 @@ function hl_new_product_loop() {
 			$i++;
 
 			if( $i % $j == 0 ) {
-				if( $promotionalBanners ) {
+				// Make sure there are promotional banners to display
+				// and that counter does not exceed the number of banners ...
+				if( $promotionalBanners && ( $k < count( $promotionalBanners ) ) ) {
 					echo $promotionalBanners[ $k ];
 					$k++;
-					if( $k == count( $promotionalBanners ) ){
-						$k = 0;
-					}
+					// Loop through the banners
+					// after they have all been displayed
+					// if( $k == count( $promotionalBanners ) ){
+					// 	$k = 0;
+					// }
 				}
 			}
 			

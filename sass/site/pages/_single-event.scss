@@ -1,60 +1,177 @@
-$s : 700px;
-$n : 900px;
-.event-wrapper{
+.site-content{
+	position: relative;
+}
 
+.wrapper.event-wrapper{
+	@import url(../../typography/_headings.scss);
+	
+	margin: 0;
+	padding:0;
+	
+	.woocommerce-breadcrumb{
+		font-size: 1rem;
+		padding: 0 0.9rem;
+	}
 	.content-area {
 		.site-main{
+
+			margin-top: 3rem;
 			padding: 0;
+
 			.product-summary{
-
-				padding: 0 0.8rem;
-				h1{
-					font-size: 1.65rem;
+				padding: 0;
+				
+				.event-description {
+					padding: 0.8rem;
 				}
-				.event-description{
-					font-size: 0.85rem;
 
-					@include mq($n){
-						// padding: 2.25em;
-						// font-size: 1.25em;
-					}
+				a .wp-post-image{
+					position: relative;
+				}
+
+				h1{
+					text-align: center;
+					position: absolute;
+					top: 16%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					color: white;
+					z-index: 20000;
 				}
 
 				.event-details{
-					font-size: 0.85rem;
+
+					margin:0 auto;
+					.details{
+
+						display: flex;
+						justify-content: flex-start;
+						//align-items: center;
+
+						.icon{
+							width: 20px;
+							margin: 10px;
+						}
+						.location-details, .date-details{
+							p{
+								margin: 0.8rem 0;
+								line-height: 1rem;
+							}
+						}
+
+
+					}
 				}
+				// position: relative;
 			}
 		}
 	}
 
-	margin: 0;
-	padding:0;
-
-	.acf-map {
-		width: 100%;
-		height: 700px;
-		border: #ccc solid 1px;
-		margin: 20px 0;
-	}
-
-	.site-footer{
-		position: relative;
-	}
+	
 
 	form{
 		position: absolute;
 		bottom: 0;
 		background-color: $color__coolgray;
-		width: 100vw;
-		z-index: 1000;
+		width: 100%;
+		z-index: 3;
+		padding: 1rem;
+
+		text-align: center;
+
+		label, .label{
+			font-size: 1rem;
+		}
 
 		fieldset{
 			border: none;
 		}
 	}
 
+	.event-map {
+		position: relative;
+		// padding-top: 90%;
+		max-width: 400px;
+		max-height: 400px;
+		overflow: hidden;
+		//border:2px solid red;
+		margin: 0 auto 300px auto;
+		.acf-map {
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding-top: 100%;
+			width: 100%;
+			//height: 700px;
+			//border: #ccc solid 1px;
+			//margin: 20px 0;
+		 }
+	}
+
+	
+	 
+
+	
+
 	button, input {
 		@include woo-btn-style();
+	}
+
+	@include mq(600px){
+		
+		.content-area .site-main .product-summary{
+
+			padding: 2rem;
+		.woocommerce-product-gallery.woocommerce-product-gallery--with-images.woocommerce-product-gallery--columns-4.images {
+			grid-area: event-img;
+			align-self: stretch;
+			padding: 0.8rem;
+		  }
+		  .event-details {
+			grid-area: event-details;
+			align-self: center;
+			padding: 0.8rem;
+		  }
+		  .event-description {
+			grid-area: event-description;
+			align-self: center;
+			padding: 1.8rem;
+		  }
+		  .event-map {
+			grid-area: event-map;
+			margin: 0;
+			padding: 1.5rem;
+
+		  }
+		  h1{
+			grid-area: event-description;
+		  }
+		  
+		  
+
+			display: grid;
+			grid-template-columns: 50% 50%;
+			grid-template-rows: auto auto;
+			grid-template-areas: 
+			  "event-img event-details"
+			  "event-description event-map";
+
+			  h1{
+				color:black;
+				position: static;
+				top: initial;
+				left: initial;
+				transform: none;
+			  }
+
+			  .event-map{
+				  max-width: 400px;
+			  }
+
+			  margin-bottom: 200px;
+		  }
+
+
 	}
 }
 
@@ -76,6 +193,8 @@ $form-text: black;
 .wc-bookings-booking-form{
 	background-color: $form-bgc;
 	@include form();
+	padding: 0;
+	border: none;
 
 	.wc-bookings-booking-cost{
 		background-color: $form-bgc;
@@ -104,28 +223,45 @@ $form-text: black;
 // .wc-bookings-booking-form input{
 //     background-color: #000000;
 // }
-
+.wc-bookings-date-picker .ui-widget-header{
+background: none;
+border: none;
+color: black;
+font-family: vollcorn;
+}
 
 .wc-bookings-date-picker .ui-widget-content{
 	background: none;
 	background-color: transparent;
+	font-size: 1rem;
+	box-shadow: none;
 }
 /* Month header background color */
 #wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker-header {
+	.ui-datepicker-title{
+		line-height: 1rem;
+	}
 	background-color: $color__coolgray;
+	background-image: none;
 }
 
 /* Previous/Next month arrow background color */
-#wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker .ui-datepicker-next, 
-#wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker .ui-datepicker-prev {
-	background-color: #000000;
+// #wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker .ui-datepicker-next, 
+// #wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker .ui-datepicker-prev {
+// 	background-color: #000000;
+// }
+.wc-bookings-date-picker .ui-datepicker .ui-datepicker-prev, .wc-bookings-date-picker .ui-datepicker .ui-datepicker-next{
+	background: none;
+	color: black;
+	width: 7em;
 }
-
 /* Previous/Next month arrows if not allowed, and calendar dates that are not available */
 .ui-state-disabled, 
 .ui-widget-content .ui-state-disabled, 
 .ui-widget-header .ui-state-disabled {
 	opacity: 0.35;
+	background: none;
+	background-color: transparent;
 }
 
 /* Days of the week header background color */
@@ -142,10 +278,10 @@ $form-text: black;
 
 /* Past calendar days background color (not available) */
 .ui-datepicker-calendar tbody {
-	background-color: none !important;
+	background-color: transparent !important;
 }
 .wc-bookings-date-picker .ui-datepicker td.not_bookable{
-	background-color: none !important;
+	background-color: transparent !important;
 }
 
 /* Available calendar days background color */
@@ -161,10 +297,10 @@ $form-text: black;
 }
 
 /* Fully booked calendar days */
-.wc-bookings-date-picker .ui-datepicker td.fully_booked a, 
-.wc-bookings-date-picker .ui-datepicker td.fully_booked span {
-	background-color: #000000 !important;
-}
+// .wc-bookings-date-picker .ui-datepicker td.fully_booked a, 
+// .wc-bookings-date-picker .ui-datepicker td.fully_booked span {
+// 	background-color: #000000 !important;
+// }
 
 /* Days not bookable based on the availability rules */
 // .wc-bookings-date-picker .ui-datepicker td.not_bookable {
@@ -176,28 +312,79 @@ $form-text: black;
 }
 
 /* Today's date on calendar background color */ 
-#wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker td.ui-datepicker-today a { 
-	background-color: #000000 !important; 
-}
+// #wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker td.ui-datepicker-today a { 
+// 	background-color: #000000 !important; 
+// }
 
-/* Time Blocks */
-#wc-bookings-booking-form .block-picker li a {
-	background-color: #FFFFFF !important;
-}
+// /* Time Blocks */
+// #wc-bookings-booking-form .block-picker li a {
+// 	background-color: #FFFFFF !important;
+// }
 
 /* Time Blocks Hover */
-#wc-bookings-booking-form .block-picker li a:hover {
-	background-color: #000000 !important;
-}
+// #wc-bookings-booking-form .block-picker li a:hover {
+// 	background-color: #000000 !important;
+// }
 
-/* Selected Date*/ 
-#wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker td.ui-datepicker-current-day a {
-	background-color: $color__mossgreen !important; 
-	color: black !important;
-} 
+// /* Selected Date*/ 
+// #wc-bookings-booking-form .wc-bookings-date-picker .ui-datepicker td.ui-datepicker-current-day a {
+// 	background-color: $color__mossgreen !important; 
+// 	color: black !important;
+// } 
 
-/* Selected Time Block */ 
-#wc-bookings-booking-form .block-picker li a.selected { 
-background: #ffffff !important; 
+// /* Selected Time Block */ 
+// #wc-bookings-booking-form .block-picker li a.selected { 
+// background: #ffffff !important; 
+// }
+
+@include mq(500px){
+
+	.wc-bookings-booking-form{
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		width: 100%;
+
+
+		.form-field.form-field-wide.wc_bookings_field_persons{
+			
+			width: 40%;
+			input{
+				width: 100px;
+			}
+			
+		}
+
+		.wc-bookings-date-picker.wc-bookings-date-picker-booking.wc_bookings_field_start_date{
+			
+			width: 50%;
+			input{
+				width: 100px;
+			}
+		}
+	}
+
+
+	@include mq(900px){
+		form{
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			margin: 0 auto;
+			.wc-bookings-booking-form{
+
+				margin: 0;
+				width: 60%;
+				input{
+					width: 150px;
+				}
+			}
+
+			button{
+				width: 30%;
+			}
+
+		}
+	}
 }
- 
+	

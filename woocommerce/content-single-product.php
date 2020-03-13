@@ -58,7 +58,7 @@ if ( post_password_required() ) {
 		 * @hooked WC_Structured_Data::generate_product_data() - 60
 		 */
 		do_action( 'woocommerce_single_product_summary' );
-		if((!has_term('events', 'product_cat', $post->ID))):
+		if((has_term('events', 'product_cat', $post->ID))):
 		?>
 		<div class="event-details">
 			<div class="details location">

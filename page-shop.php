@@ -60,7 +60,7 @@ get_header();
 						'taxonomy'=>'product_cat',
 						'orderby'=>'name',
                         'empty' => 0,
-                        'exclude' => array(47, 56), //exclude events, subscription category
+                        'exclude' => array(47, 56, 69), //exclude events, subscription, gift card category
 						'parent'=>0  //exclude subcategory
 				);
                 $terms = get_categories($prod_cat_args);

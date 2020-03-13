@@ -35,11 +35,12 @@
             }
         
             .icon-wrapper {
-                // display: none;
+              
             
                     @include mq($mq670){
                     display: grid;
-                    grid-template-columns: 58% 1fr 6% 6%;
+                    grid-template-columns: 58% 1fr 50px 26px;
+                    align-items: center;
                     }
                     .social-navigation{
                     ul#menu-social-menu {
@@ -47,8 +48,9 @@
                                 @include mq($mq670){
                                 display: flex;
                                         li{
-                                                padding: 0 5px;
-                                                width: 25px;
+                                            padding: 0px 3px;
+                                            margin-right: 7px;
+                                            width: 30px;
                                         
                                         }
                                 }
@@ -112,13 +114,19 @@
                     justify-self: end;
                 }
             }
-            .site-header-cart{
-                font-size: 0.5em;
+            
+                
                 
                 .cart-contents{
-                 
+                    display: none;
+
+                    @include mq($mq670){ 
+                        display: block;
+                    }
                     .count {
-                        
+                        position: relative;
+                        display:block;
+                        margin-left: 14px;
                         img{
                         width: 23px;
                         height: 23px;
@@ -127,19 +135,20 @@
                         }
                         .count-text{
                             position: absolute;
-                            top: 40%;
-                            left:40%;
+                            top: 57%;
+                            left: 30%;
+                            transform: translate(-50%, -30%);
                         }
-                        @include mq($mq670){    
+                        @include mq($mq670){   
                             font-size: 0.3em;
                             justify-self: end;
                           
                         }
                     }
                 }
-            }
+            
             .account {
-                padding-top: 3px;
+                padding-top: 5px;
             >a img{
                 width: 20px;
                 height: 20px;
@@ -155,12 +164,9 @@
 
          img {
                 position: absolute;
-                z-index: 2;
+                z-index: 10;
                 top: -26px;
-                @include mq($mq670){
-                    z-index: 3;
-    
-                }
+                
             }
         }
 
@@ -174,7 +180,18 @@
 }
 
 #site-navigation {
+    position: relative;
     text-align: right;
+ 
+    button.menu-toggle {
+        position: absolute;
+        right: 0;
+        top: -45px;
+        @include mq($mq670){
+            display: none;
+        }
+       
+    }
     .menu-main-menu-container {
         position: relative;
       
@@ -200,7 +217,6 @@
 
 
 
-
 #category-navigation {
     display: none;
     @include mq($mq670){
@@ -213,12 +229,43 @@
         margin-top: 30px;
         align-items: center;
         justify-items: center;
-        background-color:#CDD6DB;
+        // background-color:#CDD6DB;
         position: static;
         width: 100%;
         z-index: 2;
       }
-    
     }
+}
 
+.page-id-14 {
+    #menu-product-category-menu {
+        background-color:#CDD6DB;
+    }
+}
+
+// Sub nav colors
+.term-herbs-spices {
+    #menu-product-category-menu {
+        background-color: $color__cat_herb;
+         
+        a {
+            color: white;
+        }
+    }
+}
+
+.term-oils-vinegars {
+    #menu-product-category-menu {
+        background-color: $color__cat_vinegar;
+         
+        a {
+            color: white;
+        }
+    }
+}
+
+.term-health-beauty {
+    #menu-product-category-menu {
+        background-color: $color__cat_beauty;
+    }
 }

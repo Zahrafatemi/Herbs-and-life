@@ -32,13 +32,14 @@ get_header();
                 <?php endif;  ?>
             </div><!--.banner-wrapper-->
 
-        <div class="wrapper">
+        <div class="wrapper pattern01">
             <section class="career-intro">
                 <?php if(function_exists( 'get_field' )){
                     $careers_intro = get_field( 'careers_intro' );
                 } ?>
 
                 <p class="career-intro-text"><?php if( $careers_intro ){ echo $careers_intro; }?></p>
+                <h1></h1>
             </section><!--.career-intro-->
 
             <section class= "career-list">

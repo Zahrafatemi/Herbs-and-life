@@ -5,18 +5,53 @@
   
     .featured-wrapper{
         &:nth-of-type(2){
+
+            .featured-image{
+
+                @include mq($mq670){
+                transform: translate(-34px, 180px);
+                }
+             }
+
             div.featured-text-box{
              background-color: $color__coolgray;
+             
+             .border-box{
+                border: 2px solid white;
+                
+             }
+             @include mq($mq670){
+                transform: translate(35px, 107px);
+             }
+             
+
+             .featured-p-top{
+                 display:none;
+             }
+             .featured-p-bottom{
+                width:108px;
+                height: 80px;
+                background-image:url(images/assets/botanic-doodle/doodle-featured02.svg);  
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center center; 
+                position: absolute;
+                bottom: 0;
+                right: 0; 
+            }
             }
             }
 
         .featured-image{
+           
             img{
                 width:100%;
             }
             @include mq($mq670){
                 width:50%;
+                transform: translate(40px, 10px);
              }
+            
 
         }
         
@@ -24,12 +59,47 @@
             background-color:$color__beige;
             display: block;
             width: 100%;
+            text-align: center;
+            position: relative;
+            padding: 10px;
             // box-sizing: border-box; 
             // background-image: url(images/assets/sketch-border/sketch-border-square.svg);    
             // background-repeat: no-repeat; 
+            .border-box{
+                border: 2px solid $color__darkgray;
+                padding: 20px;
+                height: 100%;
+               
+                
+
+                h3{
+                    padding-bottom: 20px;
+                }
+
+                @include mq($mq1000){
+                    padding-bottom: 6vh;
+                    padding-top: 48px;
+                }
+             }
+
+            .featured-p-top{
+                width:108px;
+                height: 80px;
+                background-image:url(images/assets/botanic-doodle/doodle-featured01.svg);  
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center center;  
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+
             
             @include mq($mq670){
                width:50%;
+               transform: translate(-40px, 70px);
+              
+               
             }
         
             h3 {
@@ -47,6 +117,10 @@
                 flex-direction: row-reverse;
             }
         }
+    }
+    @include mq($mq670){
+        padding-top: 10vh;
+        padding-bottom: 25vh;
     }
 }
 

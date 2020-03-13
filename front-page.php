@@ -71,6 +71,8 @@ get_header();
 									</div><!--.featured-image-->
 
 									<div class="featured-text-box">
+										<div class="border-box">
+										<div class="items-box">
 										<h3><?php if( $title ) { echo $title; } ?></h3>
 										<p><?php if( $text ) { echo $text; } ?><p>
 										<a class="cta-btn" href = "<?php if( $link ) { echo esc_url( $link ); } ?>">
@@ -78,11 +80,14 @@ get_header();
 										<?php { echo $buttonText; } ?>
 										<?php endif;?>
 										</a>
+										<div class="featured-p-top"></div><!-- .featured-p-top-->
+									
+										<div class="featured-p-bottom"></div><!-- .featured-p-top-->
+										</div><!--.items-box-->	
+										</div><!--.border-box-->
 									</div><!--.featured-text-box-->
 									
-									<div class="featured-p-top"></div><!-- .featured-p-top-->
-									
-									<div class="featured-p-bottom"></div><!-- .featured-p-top-->
+						
 									
 								</div><!--.featured-wrapper-->
 								<?php endwhile;

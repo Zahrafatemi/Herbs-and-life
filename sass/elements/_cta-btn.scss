@@ -2,7 +2,7 @@
  * CTA button styles
  */
 
-// Basic style
+// Basic style .. set this class name in <a> tag
 .cta-btn {
     @include btn-style();
 }
@@ -15,11 +15,7 @@
     max-width: 230px;
 }
 
-
-
-// WooCommerce button with <button> tag
+// WooCommerce button.. set this class name in <button> tag
 .woo-btn {
     @include woo-btn-style();
 }
-
-

@@ -3,7 +3,7 @@ jQuery(document).ready(function($){
     // Hero banner slider
     $('.slider').slick({
         arrow: false,
-        dots: false,
+        dots: true,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,

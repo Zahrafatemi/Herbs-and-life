@@ -1,4 +1,5 @@
-.blog {
+.blog,
+.archive.category {
     $blog-post-width-mobile: map-get($columns, 1);
     $blog-post-width-tablet: map-get($columns, 2);
     $blog-post-width-desktop: map-get($columns, 3);

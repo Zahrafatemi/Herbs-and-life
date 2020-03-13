@@ -7,6 +7,20 @@
 	
 	margin: 0;
 	padding:0;
+
+	main {
+        max-width: em(1400);
+    }
+
+    .product {
+        @include mq($mq850) {
+            display: block;
+        }
+    }
+
+    .entry-summary {
+        margin: 0;
+    }
 	
 	.woocommerce-breadcrumb{
 		font-size: 1rem;
@@ -126,6 +140,7 @@
 			grid-area: event-img;
 			align-self: stretch;
 			padding: 0.8rem;
+			display: block;
 		  }
 		  .event-details {
 			grid-area: event-details;

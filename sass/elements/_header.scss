@@ -230,11 +230,11 @@
       display: block;
       #menu-product-category-menu {
         display: grid;
-        grid-template-columns: 14% 14% 16% 1fr 13% 13%;
+        grid-template-columns: 14% 14% 16% 1fr 16% 10%;
         height: 40px;
         margin-top: 30px;
         align-items: center;
-        justify-items: center;
+        justify-items: start;
         // background-color:#CDD6DB;
         position: static;
         width: 100%;
@@ -253,7 +253,7 @@
 
         li#menu-item-607 {
             justify-self: end;
-            padding-right: 20px;
+            padding-right: 92px;
         }
         
         @include mq($mq1000){

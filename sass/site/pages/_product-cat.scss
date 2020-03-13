@@ -15,13 +15,13 @@
     }
 
     .page-title {
-        padding-top: 20px;
+        padding: 20px 0px;
     }
 
     // Product titles
     .woocommerce-loop-product__title {
-        font-size: 1rem;
-        padding-top: 10px;
+        font-size: 1.3rem;
+        padding: 15px;
         text-align: center;
     }
 
@@ -31,16 +31,20 @@
         font-weight: 500;
         display: flex;
         justify-content: center;
-        padding: 10px 0px;
+        padding: 0px 0px 16px;
     }
 
     // Buttons
     .product-list {
+
+        margin: 0;
+
         li {
             position: relative;
             text-align: center;
             display: flex;
             justify-content: center;
+            padding: 2rem;
 
             // "Add to cart"
             .product_type_simple {

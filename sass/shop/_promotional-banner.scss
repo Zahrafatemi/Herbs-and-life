@@ -82,18 +82,20 @@
             transform: translate( -50%, -50% );
             text-align: center;
             overflow: hidden;
+            padding: 20px;
         }
 
         .button {
             display: block;
             position: absolute;
             bottom: 0;
+            width: 140px;
             left: 50%;
             transform: translateX( -50% );
             margin-bottom: emRhythm();
             padding: emRhythm(1) 0;
             text-align: center;
-            font-size: 1em;
+            font-size: 0.9em;
             @include serif-heading;
             color: $color__background-body;
             background-color: $color__darkgray;

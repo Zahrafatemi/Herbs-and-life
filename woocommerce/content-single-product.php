@@ -159,8 +159,9 @@ if ( post_password_required() ) {
 		<?php
 		endif;
 
-				
-
+	?>			
+</div>
+<?php
 	if((!has_term('events', 'product_cat', $post->ID))):
 		/**
 		 * Hook: woocommerce_after_single_product_summary.

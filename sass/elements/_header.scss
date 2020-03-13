@@ -218,7 +218,7 @@
     display: none;
 
     .category-nav-wrapper {
-        // background-color: #CDD6DB;
+        background-color: #CDD6DB;
         height: 40px;
         margin-top: 37px;
     }
@@ -232,7 +232,7 @@
         margin-top: 30px;
         align-items: center;
         justify-items: start;
-        // background-color:#CDD6DB;
+        background-color:#CDD6DB;
         position: static;
         width: 100%;
         z-index: 2;
@@ -278,40 +278,40 @@
 }
 
 // Sub nav colors
-.term-herbs-spices {
-    .category-nav-wrapper {
-        background-color: $color__cat_herb;
+// .term-herbs-spices {
+//     .category-nav-wrapper {
+//         background-color: $color__cat_herb;
 
-        #menu-product-category-menu {
-            background-color: $color__cat_herb;
+//         #menu-product-category-menu {
+//             background-color: $color__cat_herb;
             
-            a {
-                color: white;
-            }
-        }
-    }
-}
+//             a {
+//                 color: white;
+//             }
+//         }
+//     }
+// }
 
-.term-oils-vinegars {
-    .category-nav-wrapper {
-        background-color: $color__cat_vinegar;
+// .term-oils-vinegars {
+//     .category-nav-wrapper {
+//         background-color: $color__cat_vinegar;
 
-        #menu-product-category-menu {
-            background-color: $color__cat_vinegar;
+//         #menu-product-category-menu {
+//             background-color: $color__cat_vinegar;
             
-            a {
-                color: white;
-            }
-        }
-    }
-}
+//             a {
+//                 color: white;
+//             }
+//         }
+//     }
+// }
 
-.term-health-beauty {
-    .category-nav-wrapper {
-        background-color: $color__cat_beauty;
+// .term-health-beauty {
+//     .category-nav-wrapper {
+//         background-color: $color__cat_beauty;
         
-        #menu-product-category-menu {
-            background-color: $color__cat_beauty;
-        }
-    }
-}
+//         #menu-product-category-menu {
+//             background-color: $color__cat_beauty;
+//         }
+//     }
+// }

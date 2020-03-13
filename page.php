@@ -15,7 +15,7 @@
 get_header();
 ?>
 	<main id="main" class="site-main">
-		<div class="wrapper">
+		<div class="wrapper pattern02">
 			<?php
 			while ( have_posts() ) :
 				the_post();

@@ -255,16 +255,6 @@ if ( ! function_exists( 'herblife_woocommerce_header_cart' ) ) {
  * -------------------------------------------------- /
 
 /**
- * Rename 'Additional Information' tab to 'Shipping'
- */
-function hl_product_rename_adtl_info_tab( $tabs ) {
-	$tabs[ 'additional_information' ][ 'title' ] = __( 'Shipping' );
-
-	return $tabs;
-}
-add_filter( 'woocommerce_product_tabs', 'hl_product_rename_adtl_info_tab');
-
-/**
  * Add a custom product data tab
  */
 function hl_product_new_tab( $tabs ) {

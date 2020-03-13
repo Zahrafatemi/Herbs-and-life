@@ -17,8 +17,9 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
+			
+		<div class="wrapper pattern01">
 			<h1><?php the_title(); ?></h1>
-		<div class="wrapper">
 			<section class="contact-intro">
 				<?php if( function_exists( 'get_field' ) ){
 					$contract_intro = get_field( 'contract_intro' );

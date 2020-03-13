@@ -5,13 +5,22 @@
 .wrapper{
     max-width: 1250px;
     margin: 0 auto;
-    padding: 70px;
+    padding: 0.8rem 0.8rem 3rem;
+
+    @include mq($mq1000) {
+            padding: 70px;
+    }
+
 }
 
 
 .blog,
 .tax-product_cat  {
     .wrapper {
-        padding: 0px 70px 70px 70px;
+        padding: 0 0.8rem 3rem;
+
+        @include mq($mq1000) {
+            padding: 0px 70px 70px;
+        }
     }
 }

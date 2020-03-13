@@ -9,7 +9,7 @@
 		margin: 0;
 		padding-left: 0;
 		position: absolute;
-		z-index: 1;
+		z-index: 3;
 		background-color: rgba(255, 255, 255, 0.909);
 		width: 100%;
 		display: none;
@@ -17,6 +17,7 @@
 		text-align: center;
 		padding-top: 50px;
 		padding-bottom:30px;
+		height: 55vh;
 
 		@include mq($mq670){
 			padding: 0;
@@ -24,6 +25,7 @@
 			max-width:1240px;
 			margin: 0 auto;
 			position: inherit;
+			height: 100%;
 		}
 
 		ul {
@@ -96,13 +98,11 @@
 }
 
 @media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
+
 	.main-navigation ul {
-		display: grid;
+		display: none;
 		width: 100%;
-		height: 100%;
+	
 	}
 	
 }

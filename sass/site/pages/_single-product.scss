@@ -3,17 +3,23 @@
         max-width: em(1400);
     }
 
-    .product {
-        @include mq($mq850) {
+    // .product {
+        // @include mq($mq850) {
+        //     display: grid;
+        //     grid-template-columns: 50% 1fr;
+        //     column-gap: emRhythm();
+        //     row-gap: emRhythm();
+        // }
+    // }
+
+    .entry-summary {
+        margin: 0;
+         @include mq($mq850) {
             display: grid;
             grid-template-columns: 50% 1fr;
             column-gap: emRhythm();
             row-gap: emRhythm();
-        }
-    }
-
-    .entry-summary {
-        margin: 0;
+         }
     }
 
     .after-product-summary {

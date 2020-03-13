@@ -99,7 +99,7 @@ function herblife_scripts() {
 	/**
 	 * Variety Pack Addons
 	 */	
-	if ( is_single( '185' ) ) {
+	if ( is_single( 'product' ) ) {
 		wp_enqueue_script( 
 			'hl-variety-pack-addons', 
 			get_template_directory_uri().'/js/variety-pack-addons.js', 

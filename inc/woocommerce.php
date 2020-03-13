@@ -459,8 +459,10 @@ function hl_get_promotional_banners() {
 				);
 
 				if( !$promotionalBanner[ 'display'][ 'display_all'] ){
-					if( is_product_category( $promotionalBanner[ 'display' ][ 'display_page' ][0] ) ){
-						$promotionalBannersData[] = $promotionalBanner;
+					if( $promotionalBanner[ 'display' ][ 'display_page' ] ){
+						if( is_product_category( $promotionalBanner[ 'display' ][ 'display_page' ][0] ) ){
+							$promotionalBannersData[] = $promotionalBanner;
+						}						
 					}
 				}else{
 					$promotionalBannersData[] = $promotionalBanner;

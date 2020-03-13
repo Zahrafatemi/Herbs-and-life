@@ -46,10 +46,19 @@ get_header();
 				
 				<div class="history-image">
 					<?php if( function_exists( 'get_field' ) ){
-						$about_image_id = get_field( 'history_image' );
+						$history_title_past = get_field('history_title_past');
+						$history_content_past = get_field( 'history_past' );
+						$history_image_past_id = get_field( 'history_image_past' );
 
-						if( $about_image_id ){
-							echo wp_get_attachment_image( $about_image_id, 'large', '', array( 'class'=>'alignleft' ) );
+						$history_title_future = get_field('history_title_future');
+						$history_content_future = get_field( 'history_future' );
+						$history_image_future_id = get_field( 'history_image_future' );
+
+						if( $history_image_past_id ){
+							echo wp_get_attachment_image( $history_image_past_id, 'large', '', array( 'class'=>'alignleft' ) );
+						}
+						if( $history_image_future_id ){
+							echo wp_get_attachment_image( $history_image_future_id, 'large', '', array( 'class'=>'alignright' ) );
 						}
 
 						echo $image;

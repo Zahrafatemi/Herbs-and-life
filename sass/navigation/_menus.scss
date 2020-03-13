@@ -89,11 +89,26 @@
 }
 
 /* Small menu. */
-.menu-toggle{
+.menu-toggle-open{
 	// display: block;
 }
+
+
 .main-navigation.toggled ul {
-	display: grid;
+	display: grid;	
+}
+
+.main-navigation.toggled .menu-toggle-open img {
+	display: none;
+	
+}
+
+.menu-toggle-close{
+	display: none;
+}
+
+.main-navigation.toggled .menu-toggle-close img {
+	display: block;
 	
 }
 

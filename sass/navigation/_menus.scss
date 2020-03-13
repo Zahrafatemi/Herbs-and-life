@@ -17,6 +17,7 @@
 		text-align: center;
 		padding-top: 50px;
 		padding-bottom:30px;
+		height: 55vh;
 
 		@include mq($mq670){
 			padding: 0;
@@ -24,6 +25,7 @@
 			max-width:1240px;
 			margin: 0 auto;
 			position: inherit;
+			height: 100%;
 		}
 
 		ul {

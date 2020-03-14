@@ -101,9 +101,7 @@
 			<button class="menu-toggle-open" aria-controls="" aria-expanded="false">
 			<img id = "hm-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/hamburger.svg" alt="hm-icon">	
 			
-			</button>
-			<button class="menu-toggle-close" aria-controls="" aria-expanded="false">
-			<img id = "hm-icon-close" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/hamburger.svg" alt="hm-icon">	
+			<img id = "hm-icon-close" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/hamburger-close.svg" alt="hm-icon">
 			</button>
 			<?php
 			wp_nav_menu( array(

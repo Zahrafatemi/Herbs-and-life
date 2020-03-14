@@ -89,26 +89,37 @@
 }
 
 /* Small menu. */
-.menu-toggle-open{
+#hm-icon,
+#hm-icon-close {
+    width: 30px;
+    height: 30px;
+}
+
+.menu-toggle{
 	// display: block;
 }
-
-
-.main-navigation.toggled ul {
-	display: grid;	
-}
-
-.main-navigation.toggled .menu-toggle-open img {
-	display: none;
+button.menu-toggle-open {
+    position: absolute;
+    right: 0;
+	top: -47px;
 	
 }
-
-.menu-toggle-close{
+#hm-icon-close{
 	display: none;
+
+}
+.main-navigation.toggled ul {
+	display: grid;
+	
+}
+.main-navigation.toggled .menu-toggle-open img#hm-icon{
+	display:none;
 }
 
-.main-navigation.toggled .menu-toggle-close img {
-	display: block;
+
+.main-navigation.toggled .menu-toggle-open img#hm-icon-close{
+	display: grid;
+	z-index: 9;
 	
 }
 

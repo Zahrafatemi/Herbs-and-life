@@ -1,6 +1,4 @@
 jQuery(document).ready(function($){
-    console.log(`test: ${post.id}`);
-
     // Hide 'None' option on radio buttons
     function removeNoneOption( radioAddon ){
         $(`${radioAddon} p:first-of-type`).hide();

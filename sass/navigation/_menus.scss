@@ -89,20 +89,24 @@
 }
 
 /* Small menu. */
-#hm-icon,
-#hm-icon-close {
-    width: 30px;
-    height: 30px;
-}
+
 
 .menu-toggle{
 	// display: block;
 }
 button.menu-toggle-open {
+	#hm-icon,
+	#hm-icon-close {
+		width: 30px;
+		height: 30px;
+	}
+	
     position: absolute;
     right: 0;
 	top: -47px;
-	
+	 @include mq($mq670){
+		 display:none;
+	 }
 }
 #hm-icon-close{
 	display: none;

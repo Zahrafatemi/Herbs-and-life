@@ -1,171 +1,195 @@
-.site-footer{
-    
-    padding: 30px 30px;
+footer{
     background-color: $color__darkgray;
     color:$color__coolgray;
 
-    .bottom-logo {
-        width: 150px;
-        @include margin-center;
-        padding-bottom: 15px;
+    .footer-wrapper{
+        max-width: 1250px;
+        margin: 0 auto;
     }
-
-    .company-info{
-        padding-bottom: 20px;
-        ul{
-            list-style: none;
-            padding:0;
-            margin: 0;
-            max-width: 200px;
-
-            li{
-              font-size: 0.8em;  
-              padding-bottom: 5px;
-            }
-
-            li:first-child{
-                @include serif-heading();
-                font-size: 1.17em;
-                color:#ffffff;
-            }
-            
-            
-        }
-    }
-
-    .footer-menus {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-
-        .footer-navigation{
-            padding-bottom: 20px;
-            font-size: 0.8em;
-            h3{
-                margin:0;
-                @include serif-heading();
-                color:#ffffff;
-            }
-            a{
-                color:$color__coolgray;
-
-            }
-            ul#menu-footer-order_support,
-            ul#menu-footer-menu-about{
-                font-family: $font__main;
-                font-weight: 300;
-                text-transform: capitalize;
-               
-            }
-            
-        }
-
-        #footer-navigation1{
-            @include mq($mq1095){
-                display: grid;
-            }
-        }
-        #footer-navigation2 {
-            display: grid;
-            grid-template-rows: 52px 1fr;
-
-            @include mq($mq615){
-                display: block;
-            }
-
-            @include mq($mq1024){
-                display: grid;
-            }
-            @include mq($mq1350){
-            grid-template-rows: 25% 1fr;
-            }  
-            
-        }
+    .site-footer{
         
-    }
+        padding: 30px 30px;
     
 
-    .footer-nav-wrapper-left {
-        display: grid;
-        align-items: center;
-        grid-template-columns: 1fr 1fr;
+        .bottom-logo {
+            width: 150px;
+            @include margin-center;
+            padding-bottom: 15px;
+        }
 
-    ul{
-            display:flex;
-            margin: 0;
-            padding: 0;
+        .company-info{
+            padding-bottom: 20px;
+            ul{
+                list-style: none;
+                padding:0;
+                margin: 0;
+                max-width: 200px;
 
-            li{
-                padding-right: 15px;
-                
-                a {
-                    font-size: 0.8em;
-                    
+                li{
+                font-size: 0.8em;  
+                padding-bottom: 5px;
                 }
+
+                li:first-child{
+                    @include serif-heading();
+                    font-size: 1.17em;
+                    color:#ffffff;
+                }
+                
+                
             }
         }
-        p{
-            margin: 0;
-        }
-    }
 
-    @include mq($mq670){
-       
-            padding: 40px 95px;
-                .footer-mqm-wrapper {
+        .footer-menus {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-gap: 2.5em;
+
+            .footer-navigation{
+                padding-bottom: 20px;
+                font-size: 0.8em;
+                h3{
+                    margin:0;
+                    @include serif-heading();
+                    color:#ffffff;
+                    font-size: 1.37em;
+                }
+                a{
+                    color:$color__coolgray;
+
+                }
+                ul#menu-footer-order_support,
+                ul#menu-footer-menu-about{
+                    font-family: $font__main;
+                    font-weight: 300;
+                    text-transform: capitalize;
+                
+                }
+                @include mq($mq950){
                     display: grid;
-                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 52px 1fr;
+                }
+                
+            }
 
-                    .bottom-logo {
-                        margin-right: 0px;
-                        margin-left: 0px;
-                        justify-self: start;
-                        width:180px;
+            #footer-navigation2 {       
+
+                @include mq($mq615){
+                    display: block;
+                }
+
+                @include mq($mq950){
+                    display: grid;
+                }
+                
+            }
+            
+        }
+        
+
+        .footer-nav-wrapper-left {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 50% 50%;
+            grid-gap: 2.5em;
+        
+
+        ul{
+                display:flex;
+                margin: 0;
+                padding: 0;
+
+                li{
+                    padding-right: 15px;
+                    
+                    a {
+                        font-size: 0.8em;
+                        
                     }
                 }
-                
-        
-    }
-    @include mq($mq1024){
-        display: grid;
-        grid-template-columns: 40% 60%;
-     
-        .footer-mqm-wrapper {
-            grid-gap: 32px;
-            padding-right: 50px;
-
-            .bottom-logo {
-                width: 150px;
+            }
+            p{
+                margin: 0;
             }
         }
 
-        .company-info {
-            padding-bottom: 0px;
-        }
-        .site-info {
-            display: grid;
-            grid-template-columns: 1fr 30%;
-
-         .footer-navigation{
-             padding-bottom: 0px;
-         }
+        @include mq($mq670){
         
+                padding: 40px 110px;
+                    .footer-mqm-wrapper {
+                        display: grid;
+                        grid-template-columns: 50% 50%;
+                        grid-gap: 2.5em;
+
+                        .bottom-logo {
+                            margin-right: 0px;
+                            margin-left: 0px;
+                            justify-self: start;
+                            width:180px;
+                        }
+                    }
+                    
             
-            h3 {
-            align-self: normal;
-            }
-            .footer-nav-wrapper-left {
-                display: block;
+        }
+        @include mq($mq950){
+            display: grid;
+            grid-template-columns: 45% 55%;
+            grid-gap: 1em;
+        
+            .footer-mqm-wrapper {
+                grid-gap: 32px;
+                padding-right: 50px;
 
-            #social-navigation {
-                padding-bottom: 20px;
+                .bottom-logo {
+                    width: 150px;
+                }
             }
+            .site-info{
+                .footer-menus {
+                    grid-gap: 1em;
+                }
+            }
+
+            .company-info {
+                padding-bottom: 0px;
+                ul{
+                    li:first-child{
+                    height: 52px;
+                    }
+                }
+            }
+            .site-info {
+                display: grid;
+                grid-template-columns: 1fr 30%;
+
+            .footer-navigation{
+                padding-bottom: 0px;
+            }
+            
+                
+                h3 {
+                align-self: normal;
+                }
+                .footer-nav-wrapper-left {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 52px 1fr;
+                    grid-gap: 0;
+                    align-items: start;
+
+                #social-navigation {
+                    padding-bottom: 20px;
+                }
+                }
             }
         }
+        @include mq($mq1200){
+            padding: 40px 0px;
+        }
+    
     }
-   
-}
-.site-footer:before{
-    content: none;
-    display: none;
-    table-layout:unset;
+    .site-footer:before{
+        content: none;
+        display: none;
+        table-layout:unset;
+    }
 }

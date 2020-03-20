@@ -102,6 +102,7 @@
         @include mq($mq850){
             bottom: -4vh;
             right: -3em;
+            transform: rotate(-25deg);
         }
 
         @include mq($mq1024){

@@ -189,7 +189,7 @@ get_header();
 							while ( $loop->have_posts() ) :
 								$loop->the_post();
 								global $product; ?>
-									<li class="events">    
+									<li class="events-wrapper">    
 										<a href="<?php echo get_permalink( $loop->post->ID ) ?>" title="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
 											<?php woocommerce_show_product_sale_flash( $post, $product );?>
 											

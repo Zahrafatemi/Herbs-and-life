@@ -287,6 +287,7 @@
             border-bottom:1px solid $color__mossgreen;
             margin-bottom: 30px;
         }
+        
     }
 }
 
@@ -314,15 +315,27 @@
         figure.wp-block-image.size-medium img {
             height: 80px;
         }
+        @include mq($mq850){
+            .slick-list {
+                transform: translate3d(1.5em, 0, 0);
+            }
+        }
+        @include mq($mq1024){
+            .slick-list {
+                transform: translate3d(4em, 0, 0);
+            }
+        }
     }
 }
 
 .testimonials{
     padding: 30px;
-    .tm-text{
-        padding-bottom: 30px;
+    .tm-wrapper{
+       padding-top:2em;
+        .tm-text{
+            padding-bottom: 30px;
+        }
     }
-
     @include mq($mq670){
         .tm-wrapper{
             display: grid;

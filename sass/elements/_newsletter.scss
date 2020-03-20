@@ -4,8 +4,6 @@
     padding: 25px 20px;
 
     @include mq($mq670){
-        padding-top: 10px;
-        padding-bottom: 10px; 
         p:nth-child(2){
             padding-left:10px;
         }
@@ -79,7 +77,6 @@
          @include mq($mq1920){
             width: 275px;
             height: 205px;
-            // top: -5vh;
          }
 
     }
@@ -92,16 +89,23 @@
         background-size: cover;
         background-position: center center;
         position: absolute;
-        right: 0;
+        right: -1em;
         bottom: -75px;
 
 
         @include mq($mq670){
-            bottom: -3vh;  
+            bottom: -7vh;
+            transform: rotate(-38deg);
+            right: -4em; 
+        }
+
+        @include mq($mq850){
+            bottom: -4vh;
+            right: -3em;
         }
 
         @include mq($mq1024){
-            bottom: -6vh;
+            bottom: -2vh;
             width: 207px;
             height: 142px;
         }
@@ -128,6 +132,7 @@
             border: 1px solid #5E6850;
             font-size: 0.9rem;
             line-height: 1;
+            z-index: 2;
         }
     }
 } 

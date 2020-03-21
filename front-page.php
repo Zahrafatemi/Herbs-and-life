@@ -101,7 +101,7 @@ get_header();
 						<?php
 						$prod_cat_args = array(
 								'taxonomy'=>'product_cat',
-								'orderby'=>'name',
+								'orderby'=>'ID',
 								'empty' => 0,
 								'exclude' => array(47, 56, 69), //exclude events, subscription, gift card category
 								'parent'=>0  //exclude subcategory

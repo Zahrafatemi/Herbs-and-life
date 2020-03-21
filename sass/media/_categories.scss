@@ -81,6 +81,7 @@
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center center;
+                filter: contrast(1.2);
 
                 @include mq($mq1920) {
                     width: 230px;
@@ -89,4 +90,21 @@
             }
         }
     }
+
+    .category:nth-of-type(2){
+       p{
+            &:after{
+                filter:invert(95%) sepia(18%) saturate(81%) hue-rotate(503deg) brightness(243%) contrast(92%);
+            }
+        }
+        
+    }
+    .category:nth-of-type(3){
+        p{
+             &:after{
+                 filter:invert(95%) sepia(18%) saturate(122%) hue-rotate(307deg) brightness(247%) contrast(62%);
+             }
+         }
+         
+     }
 }

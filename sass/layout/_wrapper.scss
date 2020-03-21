@@ -13,6 +13,14 @@
     }
     
 }
+.wrapper-fp{
+    @include mq($mq670) {
+        max-width: 1250px;
+        margin: 0 auto;
+        padding: 0.8rem 0.8rem 3rem;    
+    }
+
+}
 
 
 .blog,

@@ -43,7 +43,7 @@ get_header();
 						endif; ?>
 				<?php endif; ?>
 			</section><!--.hero-image.slider-->
- 			<div class = "wrapper pattern01">
+ 			<div class = "wrapper-fp pattern01">
 					<section class="home-intro">
 						<?php if(function_exists('get_field')){
 							$home_intro_title 	= get_field('home_intro_title');

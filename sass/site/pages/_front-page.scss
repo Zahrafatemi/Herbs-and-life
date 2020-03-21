@@ -4,6 +4,10 @@
 .featured-products{
   
     .featured-wrapper{
+        &:nth-of-type(1){
+            padding-top: 2em;
+        }
+
         &:nth-of-type(2){
 
             .featured-image{
@@ -16,10 +20,10 @@
             div.featured-text-box{
              background-color: $color__coolgray;
              
-             .border-box{
-                border: 2px solid white;
-                
-             }
+                .border-box{
+                    border: 2px solid white;
+                    
+                }
              @include mq($mq670){
                 transform: translate(35px, 107px);
              }
@@ -29,15 +33,22 @@
                  display:none;
              }
              .featured-p-bottom{
-                width:108px;
-                height: 80px;
+                width: 111px;
+                height: 125px;
                 background-image:url(images/assets/botanic-doodle/doodle-featured02.svg);  
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: center center; 
                 position: absolute;
                 bottom: 0;
-                right: 0; 
+                right: -1em; 
+
+                @include mq($mq670){
+                    height: 150px;
+                    bottom: -2em;
+                    right: 0em;
+                }
+
             }
             }
             }
@@ -58,10 +69,10 @@
         .featured-text-box {
             background-color:$color__beige;
             display: block;
-            width: 100%;
-            text-align: center;
+            width: 90vw;
             position: relative;
             padding: 10px;
+            transform: translate3d(11%, -20%, 0);
             // box-sizing: border-box; 
             // background-image: url(images/assets/sketch-border/sketch-border-square.svg);    
             // background-repeat: no-repeat; 
@@ -73,14 +84,15 @@
                 
 
                 h3{
+                    @include sanserif-heading();
                     padding-bottom: 20px;
-                }
+                        }
 
-                @include mq($mq1000){
-                    padding-bottom: 6vh;
-                    padding-top: 48px;
+                        @include mq($mq1000){
+                            padding-bottom: 6vh;
+                            padding-top: 48px;
+                        }
                 }
-             }
 
             .featured-p-top{
                 width:108px;
@@ -92,23 +104,26 @@
                 position: absolute;
                 bottom: 0;
                 right: 0;
+
+                @include mq($mq670){
+                    width: 131px;
+                    height: 100px;
+                }
             }
 
             
-            @include mq($mq670){
-               width:50%;
-               transform: translate(-40px, 70px);
-              
-               
-            }
-        
-            h3 {
-                @include sanserif-heading();
-            }
+        @include mq($mq670){
+            width:50%;
+            transform: translate(-40px, 70px);
+            max-height: 16em;
+            
+        }
 
-            // p {
-            //     font-size: 0.8em;
-            // }
+        @include mq($mq850){
+            max-height: 20em;
+            
+        }
+        
 
         }
         @include mq($mq670){
@@ -118,9 +133,17 @@
             }
         }
     }
+    //.featured-products
     @include mq($mq670){
-        padding-top: 10vh;
-        padding-bottom: 25vh;
+        padding: 5vh 0vh 18vh;
+        max-width: 900px;
+        margin: 0 auto;
+        height: 50rem;
+        margin-bottom: 4em;
+    }
+    @include mq($mq800){
+    height: 57rem;
+    margin-bottom: 5em;
     }
 }
 
@@ -287,7 +310,7 @@
             border-bottom:1px solid $color__mossgreen;
             margin-bottom: 30px;
         }
-        
+
     }
 }
 

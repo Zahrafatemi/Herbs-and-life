@@ -42,7 +42,7 @@ get_header();
 			<?php endif;  ?>
 	 	<div class="wrapper pattern01">
 			<section class="about-history">
-				<h2>History</h2>
+				<h2>Our History</h2>
 				
 				<div class="history-box history-past">
 					<?php if( function_exists( 'get_field' ) ){

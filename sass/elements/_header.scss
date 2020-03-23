@@ -20,6 +20,7 @@
     padding: 0 10px;
     max-width: 1240px;
     margin: 0 auto;
+    position: relative;
 
     @include mq($mq670){
         padding: 0;
@@ -39,72 +40,62 @@
             
                     @include mq($mq670){
                     display: grid;
-                    grid-template-columns: 58% 1fr 50px 26px;
+                    grid-template-areas: "social search cart account";
+                    grid-template-columns: 62% 1fr 50px 26px;
                     align-items: center;
                     }
                     .social-navigation{
-                    ul#menu-social-menu {
+                            grid-area: social;
+                        ul#menu-social-menu {
+                            display:none;
+                                    @include mq($mq670){
+                                    display: flex;
+                                            li{
+                                                padding: 0px 3px;
+                                                margin-right: 7px;
+                                                width: 30px;
+                                            
+                                            }
+                                    }
+                        }
+                    }
+                    .search-bar.sb-dt{
                         display:none;
-                                @include mq($mq670){
-                                display: flex;
-                                        li{
-                                            padding: 0px 3px;
-                                            margin-right: 7px;
-                                            width: 30px;
-                                        
-                                        }
-                                }
-                    }
-                }
-                
-                .search-icon {
-                    width: 25px;
-                    position: absolute;
-                    z-index: 3;
-                    top: -12px;
-                    left: 0;
-                
-                    @include mq($mq670){
-                        top: 7px;
-                        right: 0;
-                        left: auto;
-                        width: 20px;
-                    
-                    }
-                }
 
-                .search-bar {
-                    position: relative;
-                    width:100%;
-
-                    
-                    .search-form {
-                        position: absolute;
-                        z-index: 2;
-                        top: -11px;
-                        left: 29px;
-                        width: 35vw;
-                        background-color: white;
                         @include mq($mq670){
-                            position: static;
-                            width: 100%; 
-                            padding:0;
-                        }
-
-                        input.search-field {
+                            display: grid;
                             width: 100%;
-                            border: none;
-                            border-bottom: 1px solid rgb(202, 202, 202);
-                            border-radius: 0px;
-
-                            background-color: transparent;
+                            z-index: 12;
+                            padding-left: 0.5rem;
+                            .search-form{
+                                position: relative;
+                                display: grid;
+                                grid-template-columns: 1fr 25px;
+                                grid-gap: .5rem;
+                                align-items: center;
+                                border-bottom: 1px solid rgb(202, 202, 202);
+                                    label{
+                                            input.search-field {
+                                                width: 100%;
+                                                border: none;
+                                                background-color: transparent;
+                                            }
+                                    } 
+                                    .search-submit {
+                                        padding-right: 0;
+                                        padding-left: .2em;
+                                        .search-icon {
+                                            width: 25px;
+                                            
+                                            }
+                                    }
+                            }
+                            
                         }
-                    
-                        input.search-submit {
-                            display: none;
-                           }
                     }
-                }
+                
+                
+
             }
             .site-header-cart,
             .account{
@@ -122,6 +113,7 @@
 
                     @include mq($mq670){ 
                         display: block;
+                        grid-area: cart;
                     }
                     .count {
                         position: relative;
@@ -150,6 +142,7 @@
             
             .account {
                 padding-top: 5px;
+                grid-area: account;
             >a img{
                 width: 20px;
                 height: 20px;
@@ -183,6 +176,65 @@
 #site-navigation {
     position: relative;
     text-align: right;
+
+    .search-bar.sb-mb {
+        position: absolute;
+        top: 3rem;
+        width: 100%;
+        grid-area: search;
+        z-index: 12;
+
+        
+        .search-form {
+            position: absolute;
+            z-index: 2;
+            top: 5px;
+            left: 0;
+            width: 100%;
+            border-bottom: 1px solid rgb(202, 202, 202);
+            display:grid;
+            grid-template-areas: "text-input search-btn ";
+            grid-template-columns: 85% 15%;
+            align-items: center;
+            padding: 0 1rem;
+            
+            label{
+                grid-area: text-input;
+                input[type="search"] {
+                            width: 100%;
+                            border: none; 
+                            border-radius: 0px;
+                            background-color: transparent;
+
+                           &::-webkit-search-cancel-button {
+
+                                /* Remove default */
+                                -webkit-appearance: none;
+                        }
+                        
+                    }
+                }
+            
+        
+            button.search-submit {
+                grid-area: search-btn;
+                padding-right: 0px;
+
+                .search-icon {
+                    width: 25px;              
+                }
+            }
+
+              
+        }
+       
+        @include mq($mq670){
+          display: none;
+        }
+    }
+
+    
+
  
     button.menu-toggle {
         position: absolute;
@@ -293,41 +345,3 @@
     }
 }
 
-// Sub nav colors
-// .term-herbs-spices {
-//     .category-nav-wrapper {
-//         background-color: $color__cat_herb;
-
-//         #menu-product-category-menu {
-//             background-color: $color__cat_herb;
-            
-//             a {
-//                 color: white;
-//             }
-//         }
-//     }
-// }
-
-// .term-oils-vinegars {
-//     .category-nav-wrapper {
-//         background-color: $color__cat_vinegar;
-
-//         #menu-product-category-menu {
-//             background-color: $color__cat_vinegar;
-            
-//             a {
-//                 color: white;
-//             }
-//         }
-//     }
-// }
-
-// .term-health-beauty {
-//     .category-nav-wrapper {
-//         background-color: $color__cat_beauty;
-        
-//         #menu-product-category-menu {
-//             background-color: $color__cat_beauty;
-//         }
-//     }
-// }

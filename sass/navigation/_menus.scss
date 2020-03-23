@@ -15,9 +15,9 @@
 		display: none;
 		justify-content: center;
 		text-align: center;
-		padding-top: 50px;
-		padding-bottom:30px;
-		height: 70vh;
+		padding-top: 7rem;
+		padding-bottom: 30px;
+		height: 30rem;
 
 		@include mq($mq670){
 			padding: 0;
@@ -112,9 +112,23 @@ button.menu-toggle-open {
 	display: none;
 
 }
+.main-navigation{
+	.search-bar{
+		display: none;
+
+		@include mq ($mq670){
+			display: block;
+		}
+	}
+}
+.main-navigation.toggled{
+	.search-bar{
+		display: block;
+	}
+}
 .main-navigation.toggled ul {
 	display: grid;
-	
+	align-items: center;
 }
 .main-navigation.toggled .menu-toggle-open img#hm-icon{
 	display:none;

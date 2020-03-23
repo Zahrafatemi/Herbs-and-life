@@ -57,12 +57,11 @@
 						);
 					?>
 			</nav>
-			<div class= "search-bar">	
-					
+			<div class= "search-bar sb-dt">		
 					<?php get_search_form();?>
 			<!-- For search bar -->
-				<img class = "search-icon" id = "search-icon" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/search.svg" alt="search-icon">	
-			</div><!-- .search-bar -->
+				
+			</div><!-- .search-bar -->	
 				
 		
 			<!-- Cart from Woocommerce See woocommerce.php -->	
@@ -103,6 +102,11 @@
 			
 			<img id = "hm-icon-close" src="<?php echo get_template_directory_uri(); ?>/images/assets/header/hamburger-close.svg" alt="hm-icon">
 			</button>
+
+			<div class= "search-bar sb-mb">		
+					<?php get_search_form();?>
+			</div><!-- .search-bar -->
+			
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',

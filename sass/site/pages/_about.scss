@@ -130,10 +130,27 @@
             }
         }
         @include mq ($mq1200){
+            padding-bottom: 15rem;
             .history-box{
-               
+                .history-image {
+                    height: 28rem;
+                }
                 .history-text {
                     max-width: 35rem;
+                    bottom: -3rem;
+                }
+            }
+            .history-past{
+                .history-bt-top{
+                    bottom: -12em;
+                }
+            }
+            .history-future{
+                .history-image{
+                    transform: translate3d(0vw, 10em, 0em);
+                }
+                .history-bt-bottom{
+                    bottom: -5rem;
                 }
             }
         }
@@ -146,9 +163,7 @@
                 }  
             }
             .history-past{
-                .history-text{
-                    bottom: -5rem;
-                }
+              
                 .history-bt-top{
                     bottom: -14rem;
                 }

@@ -65,8 +65,8 @@
                         @include mq($mq670){
                             display: grid;
                             width: 100%;
-                            z-index: 12;
                             padding-left: 0.5rem;
+                            padding-top: 0.2rem;
                             .search-form{
                                 position: relative;
                                 display: grid;
@@ -82,8 +82,7 @@
                                             }
                                     } 
                                     .search-submit {
-                                        padding-right: 0;
-                                        padding-left: .2em;
+                                        padding: 0;
                                         .search-icon {
                                             width: 25px;
                                             

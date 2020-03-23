@@ -1,0 +1,189 @@
+.page-id-103{
+    .about-history{
+        padding: 4em 0em 5em;
+        .history-box{
+            padding-bottom: 6.5rem;
+            position: relative;
+            .history-image {
+                height: 193px;
+                img{
+                    height: 100%;
+                }
+            }
+            .history-text{
+                background-color: $color__coolgray;
+                padding: 1em;
+                h3{
+                    font-family: $font__heading;
+                    padding-left: 0.7em;
+                    span{
+                        color:white;
+                        padding: 0 .2em;
+                    }
+                }
+                p{
+                    margin: 0;
+                    padding: 1.5em 0;
+                }
+            }
+            .history-bt-top{
+                width: 12em;
+                height: 15em;
+                background: url(images/assets/botanic-doodle/doodle-about-top.svg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                position: absolute;
+                bottom: -4.5em;
+                right: .5em;
+                z-index: -1;
+            }
+            .history-bt-bottom{
+                width: 14em;
+                height: 11em;
+                background: url(images/assets/botanic-doodle/doodle-about-bottom.svg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                position: absolute;
+                bottom: -3em;
+                left: 0;
+                z-index: -1;
+            }
+        }
+        .history-past{
+            padding-top: 2em;
+        }
+
+        @include mq ($mq670){
+            padding-bottom: 0;
+            .history-box{
+                max-height: 30em;
+                .history-image {
+                    height: 350px;
+                    img{
+                        width: 70%;
+                    }
+                }
+                .history-text {
+                    max-width: 30rem;
+                    padding: 1.5rem;
+                }
+            }
+            .history-past{
+                position: relative;
+                .history-text{
+                    position: absolute;
+                    right: 0;
+                    bottom: 3.5em;
+                }
+                .history-bt-top{
+                    left: 33%;
+                    bottom: -5em;
+                }
+            }
+            .history-future{
+                .history-text{
+                    transform: translate3d(0vw, -21em, 0em);
+                }
+                .history-image{
+                    transform: translate3d(0vw, 3em, 0em);
+                }
+                .history-bt-bottom{
+                    bottom: 0rem;
+                    left: 5%;
+                }
+            }
+        }
+        @include mq ($mq900){
+            .history-future{
+                .history-bt-bottom{
+                    left: 11%;
+                }
+            }
+        }
+        @include mq ($mq1024){
+            padding-bottom: 7rem;
+            .history-box{
+                
+                .history-image {
+                    height: 25rem;
+                }
+               
+            }
+            .history-past{
+                .history-text{
+                    bottom: 0;
+                }
+                .history-bt-top{
+                    bottom: -9em;
+                    left:40%;
+                }
+            }
+            .history-future{
+                .history-image{
+                    transform: translate3d(0vw, 6em, 0em);
+                }
+                .history-bt-bottom{
+                    bottom: -3rem;
+                }
+            }
+        }
+        @include mq ($mq1200){
+            .history-box{
+               
+                .history-text {
+                    max-width: 35rem;
+                }
+            }
+        }
+        @include mq ($mq1350){
+            padding-bottom: 20rem;
+            .history-box{
+                
+                .history-image {
+                    height: 30rem;
+                }  
+            }
+            .history-past{
+                .history-text{
+                    bottom: -5rem;
+                }
+                .history-bt-top{
+                    bottom: -14rem;
+                }
+            }
+            .history-future{
+                .history-image{
+                    transform: translate3d(0vw, 10em, 0em);
+                }
+                .history-bt-bottom{
+                    bottom: -11rem;
+                }
+            }
+        }
+    }
+
+    .awards{
+        padding-bottom: 2rem;
+
+        @include mq ($mq1024){
+            padding-bottom: 5rem; 
+        }
+    }
+    
+    .supporters{
+        .sb_instagram_header.sbi_no_avatar {
+            display: none;
+        }
+        @include mq ($mq670){
+            div#sbi_images {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            #sb_instagram.sbi_col_6 #sbi_images .sbi_item {
+                width: inherit;
+            }
+        }
+    }
+}

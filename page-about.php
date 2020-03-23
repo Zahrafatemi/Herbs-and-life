@@ -44,36 +44,66 @@ get_header();
 			<section class="about-history">
 				<h2>History</h2>
 				
-				<div class="history-image">
+				<div class="history-box history-past">
 					<?php if( function_exists( 'get_field' ) ){
-						$history_title_past = get_field('history_title_past');
+						$history_title_past_year = get_field('history_title_past_year');
+						$history_title_past_text = get_field('history_title_past_text');
 						$history_content_past = get_field( 'history_past' );
 						$history_image_past_id = get_field( 'history_image_past' );
+					}?>
+					<div class="history-image">
+					<?php if( $history_image_past_id ){
+								echo wp_get_attachment_image( $history_image_past_id, 'large', '', array( 'class'=>'alignleft' ) );
+							}
+					?>
+					</div><!--.history-image-->
+					<div class="history-text">
+						<h3 class="history-title">
+							<?php if( $history_title_past_year || $history_title_past_text): ?>
+							<?php echo $history_title_past_year;?>
+							<span>|</span>
+							<?php echo $history_title_past_text;?>
+							<?php endif;?>
+						</h3>
+						<p class="history-content-text">
+							<?php if( $history_content_past ):?>
+							<?php echo $history_content_past;?>
+							<?php endif;?>
+						</p>
+					</div><!--.history-text-->
+					<div class="history-bt-top"></div><!--.history-bt-top-->
+				</div><!--.history-past-->
 
-						$history_title_future = get_field('history_title_future');
+				<div class=" history-box history-future">
+					<?php if( function_exists( 'get_field' ) ){
+						$history_title_future_year = get_field('history_title_future_year');
+						$history_title_future_text = get_field('history_title_future_text');
 						$history_content_future = get_field( 'history_future' );
 						$history_image_future_id = get_field( 'history_image_future' );
-
-						if( $history_image_past_id ){
-							echo wp_get_attachment_image( $history_image_past_id, 'large', '', array( 'class'=>'alignleft' ) );
-						}
-						if( $history_image_future_id ){
-							echo wp_get_attachment_image( $history_image_future_id, 'large', '', array( 'class'=>'alignright' ) );
-						}
-
-						echo $image;
 					}?>
-				</div><!--.history-image-->
-				
-				<div class ="history-text">
-					<?php if( function_exists( 'get_field' ) ){
-						$history_title 	= get_field( 'history_title' );
-						$history	 	= get_field( 'history' );
-					}?>
+					<div class="history-image">
+					<?php if( $history_image_future_id ){
+								echo wp_get_attachment_image( $history_image_future_id, 'large', '', array( 'class'=>'alignright' ) );
+							}
+					?>
+					</div><!--.history-image-->
+					<div class="history-text">
+						<h3 class="history-title">
+							<?php if( $history_title_future_year||$history_title_future_text): ?>
+							<?php echo $history_title_future_year;?>
+							<span>|</span>
+							<?php echo $history_title_future_text;?>
+							<?php endif;?>
+						</h3>
+						<p class="history-content-text">
+							<?php if( $history_content_future ):?>
+							<?php echo $history_content_future;?>
+							<?php endif;?>
+						</p>
+					</div><!--.history-text-->
+					<div class="history-bt-bottom"></div><!--.history-bt-bottom-->
+				</div><!--.history-future-->
 
-					<h2 class="history-title"><?php if( $history_title ){ echo $history_title; }?></h2>
-					<p class="history"><?php if( $history ){ echo $history; }?></p>
-				</div><!--.history-text-->
 			</section><!--.about-history-->
 
 			<section class="awards">

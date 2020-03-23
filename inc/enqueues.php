@@ -46,7 +46,7 @@ function herblife_scripts() {
 
 	/** Slick Slider Setting in front page top */
 	// enqueue slick slider if it is the front page
-	if ( is_front_page() || is_page('14') ) {
+	if ( is_front_page() || is_page('14') || is_page('103')) {
 
 		// call in the js files
 		wp_enqueue_script( 

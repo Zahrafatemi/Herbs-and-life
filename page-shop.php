@@ -89,7 +89,7 @@ get_header();
                         while( has_sub_field( 'we_offer' ) ): 
                             $title  = get_sub_field( 'we_offer_title' );
                             $images = get_sub_field( 'we_offer_image' );
-                            $size   = 'medium'; // (thumbnail, medium, large, full or custom size)
+                            $size   = 'large'; // (thumbnail, medium, large, full or custom size)
                             $link   = get_sub_field( 'we_offer_link' ); ?>
                     
                             <div class = "we-offer-wrapper">

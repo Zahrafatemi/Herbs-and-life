@@ -1,0 +1,175 @@
+.wpsl-search{
+    #wpsl-search-wrap{
+        font-size: 0.9em;
+        form{
+            .wpsl-select-wrap{
+                #wpsl-radius,
+                #wpsl-results{
+                    select{
+                        height: 33px;
+                    }
+                }
+            }
+            div.wpsl-search-btn-wrap {
+                input#wpsl-search-btn{
+                    width: 5rem;
+                    background: none;
+                    background-color:$color__mossgreen;
+                    border-radius: 0px;
+                    color: white;
+            }
+
+            }
+        }
+        @include mq($mq670){
+            font-size: 0.7em;
+
+            form{
+                display:grid;
+                grid-template-columns: 36% 52% 12%;
+                height: 100%;
+                .wpsl-input {
+                    div {
+                   margin-right: -0.7rem;
+                    } 
+                    #wpsl-search-input {
+                        width: 8.5rem;
+                    }
+                }
+                .wpsl-select-wrap{
+                    select{
+                        width: 90px;
+                    }
+                   #wpsl-radius{
+                    label{
+                       margin-right: 0;
+                       width:80px;
+                    }
+                   } 
+                }
+            }
+        }
+
+        @include mq($mq800){
+            form{
+                .wpsl-input {
+               
+                    #wpsl-search-input {
+                        width: 10.5rem;
+                    }
+                } 
+                .wpsl-select-wrap{
+                    select{
+                        width: 105px;
+                    }               
+                 } 
+            }
+        
+        }
+        @include mq($mq850){
+            font-size: 0.8em;
+
+            form{
+                grid-template-columns: 38% 50% 12%;;
+                .wpsl-input {
+                    div {
+                    margin-right: 0.2rem;
+                    } 
+                    #wpsl-search-input {
+                        width: 12rem;
+                    }
+                } 
+                .wpsl-select-wrap{
+                    #wpsl-radius{
+                     label{
+                        margin-right: 1rem;
+                        width:95px;
+                     }
+                    } 
+                    #wpsl-results{
+                        label{
+                            margin-right: 1.2rem;
+                        }
+                    }
+                 } 
+                 div.wpsl-search-btn-wrap {
+                    input#wpsl-search-btn{
+                        width: 6rem;
+                    }
+                 }
+            }
+        }
+       
+    }
+    @include mq($mq950){
+        padding: 12px 0.8rem 0 0.8rem;
+        #wpsl-search-wrap{
+            font-size: 0.85em;
+
+            form{
+                grid-template-columns: 38% 50% 12%;
+                .wpsl-input {
+                    input{
+                        width: 12rem;
+                    }
+                } 
+                .wpsl-select-wrap{
+                    .wpsl-dropdown{
+                        width: 7rem;
+                    }
+                } 
+                div.wpsl-search-btn-wrap {
+                    input#wpsl-search-btn{
+                        width: 7rem;
+                    }
+                }
+            }
+        }
+    }
+    @include mq($mq1095){
+        
+        #wpsl-search-wrap{
+            font-size: 0.9em;
+            form{
+                grid-template-columns: 39% 49% 12%;
+                .wpsl-input {
+                    #wpsl-search-input{
+                        width: 15rem;
+                    }
+                    div {
+                        margin-right: 1rem;
+                        } 
+                } 
+                .wpsl-select-wrap{
+                    .wpsl-dropdown{
+                       width: 8rem;
+                    }
+                } 
+                div.wpsl-search-btn-wrap {
+                    input#wpsl-search-btn{
+                        width: 7.5rem;
+                    }
+                }
+            }
+        }
+    }
+    @include mq($mq1200){
+        #wpsl-search-wrap{
+            form{
+                grid-template-columns: 42% 44% 14%;
+                .wpsl-input {
+                    #wpsl-search-input{
+                        width: 19rem;
+                    }
+                } 
+   
+                div.wpsl-search-btn-wrap {
+                    input#wpsl-search-btn{
+                        width: 9rem;
+                    }
+                }
+            }
+        }
+    }
+    
+}

@@ -123,7 +123,7 @@ get_header();
                             // output customer images
                             if( function_exists( 'get_field' ) ):
                                 if( get_field( 'customer_image' ) ): ?>
-                     <div class="single-test"> 
+                                <div class="tm-single"> 
                                     <figure class="customer-image">
                                         <?php echo wp_get_attachment_image( get_field('customer_image'), 'medium' ); ?>
                                     </figure>
@@ -132,7 +132,7 @@ get_header();
 
                             // output testimonials
                             the_content();?>
-                            </div>  <!--.single-test-->
+                            </div>  <!--.tm-single-->
                    <?php     }
                         wp_reset_postdata(); 
                     } 

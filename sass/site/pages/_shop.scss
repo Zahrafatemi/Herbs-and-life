@@ -1,15 +1,10 @@
 .page-id-14{
 
-    h1 {
-        padding-top: 50px;
-    }
-
     .category-wrapper,
     .we-offer,
     .store-locator {
-        h2{
-            padding-top: 120px;
-        }
+        padding-top: 100px;
+        padding-bottom: 30px;
     }
 
 
@@ -82,6 +77,7 @@
             grid-row-gap: 15px;
             width: 900px;
             margin: 0 auto;
+            padding: 10px;
 
             .we-offer-wrapper {
 
@@ -111,11 +107,43 @@
                 }
             }
         }
+
+        @include mq($mq1920) { 
+            width: 1050px;
+        }
+
+
     }
 
     // Testimonials 
     .tm-wrapper {
-        display: grid;
-        grid-template-columns: 50% 50%;
+        padding-top: 0px;
+
+        .tm-single {
+            padding-top: 30px;
+            margin: 0 auto;
+            text-align: center;
+
+            img {
+                padding: 0px 20px;
+                margin: 0 auto;
+            }
+
+            blockquote {
+                text-align: left;
+
+                p {
+                    font-size: 0.95rem;
+                }
+            }
+        }
+
+        @include mq($mq670){ 
+
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+        }
+
     }
 }

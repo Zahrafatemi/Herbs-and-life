@@ -26,8 +26,7 @@
 
             form{
                 display:grid;
-                grid-template-columns: 36% 52% 12%;
-                height: 100%;
+                grid-template-columns: 36% 53% 11%;
                 .wpsl-input {
                     div {
                    margin-right: -0.7rem;
@@ -48,6 +47,18 @@
                    } 
                 }
             }
+            
+        }
+        @include mq($mq720){
+            form{
+              
+                .wpsl-select-wrap{
+                    select{
+                        width: 90px;
+                    }
+                   
+                }
+            } 
         }
 
         @include mq($mq800){
@@ -70,13 +81,13 @@
             font-size: 0.8em;
 
             form{
-                grid-template-columns: 38% 50% 12%;;
+                grid-template-columns: 37% 1fr 13%;
                 .wpsl-input {
                     div {
                     margin-right: 0.2rem;
                     } 
                     #wpsl-search-input {
-                        width: 12rem;
+                        width: 11.5rem;
                     }
                 } 
                 .wpsl-select-wrap{
@@ -107,7 +118,7 @@
             font-size: 0.85em;
 
             form{
-                grid-template-columns: 38% 50% 12%;
+                grid-template-columns: 36% 51% 12%;
                 .wpsl-input {
                     input{
                         width: 12rem;

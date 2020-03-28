@@ -22,13 +22,15 @@ get_header();
 			<h1><?php the_title(); ?></h1>
 			<section class="contact-intro">
 				<?php if( function_exists( 'get_field' ) ){
-					$contract_intro = get_field( 'contract_intro' );
+					$contact_intro = get_field( 'contact_intro' );
 				}?>
-				<p><?php if( $contract_intro ){ echo $contract_intro; }?></p>
+				<p><?php if($contact_intro){ echo $contact_intro; }?></p>
 			</section><!--.contact-intro-->
 
 			<section class="contact-form">
-				<?php echo do_shortcode ('[contact-form-7 id="10" title="Contact form 1"]]'); ?>  
+			<div class="contact-bg-img"></div>  <!--.contact-bg-img-->
+				<?php echo do_shortcode ('[contact-form-7 id="10" title="Contact form 1"]'); ?>
+				
 			</section><!--.contact-form-->
 
 			<section class = "store-locator">

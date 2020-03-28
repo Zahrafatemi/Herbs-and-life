@@ -1,12 +1,24 @@
 .wpsl-search{
     #wpsl-search-wrap{
         font-size: 0.9em;
+        label{
+            line-height: 36px;
+        }
+        input{
+            border-radius: 0px;
+            height: 36px;
+        }
         form{
             .wpsl-select-wrap{
+                
                 #wpsl-radius,
                 #wpsl-results{
-                    select{
-                        height: 33px;
+                    label{
+                        line-height: 36px;
+                    }
+                    select.wpsl-dropdown{
+                        height: 36px;   
+                        border-radius: 0px;
                     }
                 }
             }

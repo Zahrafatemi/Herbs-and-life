@@ -10,15 +10,20 @@
         }
         form{
             .wpsl-select-wrap{
-                
+            
                 #wpsl-radius,
                 #wpsl-results{
                     label{
                         line-height: 36px;
                     }
-                    select.wpsl-dropdown{
+                    .wpsl-dropdown{
                         height: 36px;   
                         border-radius: 0px;
+                        -moz-border-radius:0px;
+                        -webkit-border-radius:0px;
+                        .wpsl-selected-item {
+                            line-height: inherit;
+                        }
                     }
                 }
             }
@@ -35,7 +40,8 @@
         }
         @include mq($mq670){
             font-size: 0.7em;
-
+            #wpsl-search-wrap{
+                max-height: 3rem;
             form{
                 display:grid;
                 grid-template-columns: 36% 53% 11%;
@@ -59,6 +65,7 @@
                    } 
                 }
             }
+        }
             
         }
         @include mq($mq720){

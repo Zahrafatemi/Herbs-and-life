@@ -98,15 +98,15 @@
                     form.wpcf7-form{
                         display: grid;
                         grid-template-areas: 
-                        "name email"
-                        "phone order"
-                        "message message"
+                        "sender-name email"
+                        "phone order-num"
+                        "message ."
                         "newsletter submit";
                         grid-column-gap: 2em;
                         padding: 0 5px;
                         p{
                             &:first-of-type{
-                            grid-area: name;
+                            grid-area: sender-name;
                             }
                             &:nth-of-type(2){
                             grid-area: email;
@@ -115,7 +115,7 @@
                             grid-area: phone;
                             }
                             &:nth-of-type(4){
-                            grid-area: order;
+                                grid-area: order-num;
                             }
                             &:nth-of-type(5){
                                 grid-area: message;

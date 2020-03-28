@@ -137,7 +137,7 @@
             font-size: 0.85em;
 
             form{
-                grid-template-columns: 36% 51% 12%;
+                grid-template-columns: 36% 1fr 12%;
                 .wpsl-input {
                     input{
                         width: 12rem;
@@ -161,7 +161,7 @@
         #wpsl-search-wrap{
             font-size: 0.9em;
             form{
-                grid-template-columns: 39% 49% 12%;
+                grid-template-columns: 39% 1fr 12%;
                 .wpsl-input {
                     #wpsl-search-input{
                         width: 15rem;
@@ -186,7 +186,7 @@
     @include mq($mq1200){
         #wpsl-search-wrap{
             form{
-                grid-template-columns: 42% 44% 14%;
+                grid-template-columns: 42% 1fr 14%;
                 .wpsl-input {
                     #wpsl-search-input{
                         width: 19rem;

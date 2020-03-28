@@ -1,42 +1,123 @@
-.page-id-188{
+.page-id-112{
+    
     .site-content{
         padding-top: 3rem;
-        .contact-intro{
-            padding-bottom: 2em;
+        background-color:$color__coolgray;
+        .wholesale-intro{
+            padding-bottom: 3em;
             p{
                 max-width: 25rem;
                 margin: 0 auto;
                 text-align: center;
             }
         }
-        .contact-form{
+        .wholesale-form{
             padding-bottom: 3rem;
             position: relative;
             .contact-bg-img{
 
                 width: 30rem;
-                height: 20rem;
+                height: 19rem;
                 background: url(images/assets/botanic-doodle/doodle-form-bg-rm.svg);
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: center center;
                 position: absolute;
-                top: 58%;
-                left: 70%;
-                transform: translate(-50%, -50%) rotate(-45deg);
+                bottom: -4%;
+                left: 69%;
+                transform: translate(-50%, -50%) rotate(-41deg);
+            
             }
             form.wpcf7-form{
                 p{
+                  
+                    &:nth-of-type(2),
+                    &:nth-of-type(7),
                     label{
                         font-family: $font__heading;
                         font-size: 0.95rem;
-                    }
+                }
+                select.wpcf7-form-control.wpcf7-select.wpcf7-validates-as-required {
+                    width: 100%;
+                    -webkit-appearance: none;
+                    border-radius: 0 !important;
+                    -moz-border-radius:0;
+                    -webkit-border-radius:0;
+                    background-color: white;
+                    height: 36px;
+                    padding-left: 0.5rem;
+                }
                 
                 input[type="text"],
                 input[type="email"],
-                input[type="tel"] {
+                input[type="tel"],
+                input[type="url"] {
                     width:100%;
+                    height: 36px;
                 }
+
+
+
+                span.wpcf7-form-control-wrap.payment{
+                    span.wpcf7-form-control.wpcf7-radio { 
+                        input[type="radio"]{
+                        position: relative;
+                        visibility: hidden;
+                        }
+
+                        input[type="radio"]+ span {
+                            &::before{
+                            display: block;
+                            position: absolute;
+                            content: '';
+                            border-radius: 100%;
+                            height: 18px;
+                            width: 18px;
+                            top: 0px;
+                            border: 1px solid #666666;
+                            }
+                            &::after {
+                                display: block;
+                                position: absolute;
+                                content: '';
+                                border-radius: 100%;
+                                height: 10px;
+                                width: 10px;
+                                top: 4px;
+                                left: 4px;
+                                visibility: hidden;
+                            }
+                        }
+                        input[type="radio"]:checked + span {
+                            &::before{
+                            background: transparent;
+                            }
+                            &::after {
+                                background: $color__darkgray;
+                                visibility: visible;
+                            }
+                        }  
+                    }
+                
+                    
+                    span.wpcf7-list-item {
+                        font-family: $font__main;
+                        position: relative;
+                        margin: 0;
+                        cursor: pointer;
+
+                        .wpcf7-list-item-label {
+                            padding: 0 0.8rem;
+                        }
+                        
+                    }    
+                }
+
+                
+            
+
+            
+
                 input.wpcf7-form-control.wpcf7-submit {
                     background-color: $color__darkgray;
                     color: white;
@@ -92,45 +173,54 @@
         }
             @include mq($mq670){
 
-                .contact-form{
+                .wholesale-form{
                     .contact-bg-img{
-                        width: 35rem;
+                        width: 33rem;
                         height: 41rem;
-                        top: 42%;
-                        left: 65%;
+                        top: 55%;
+                        left: 61%;
                         transform: translate(-50%, -50%);
-                
-                
                     }
                     form.wpcf7-form{
                         display: grid;
                         grid-template-areas: 
-                        "sender-name email"
-                        "phone order-num"
-                        "message message"
+                        "business-name business-type"
+                        "email phone"
+                        "address website"
+                        "payment ."
+                        "information information"
                         "newsletter submit-btn";
                         grid-column-gap: 2em;
                         padding: 0 5px;
                         p{
                             &:first-of-type{
-                            grid-area: sender-name;
+                            grid-area: business-name;
                             }
                             &:nth-of-type(2){
-                            grid-area: email;
+                            grid-area: business-type;
                             }
                             &:nth-of-type(3){
-                            grid-area: phone;
+                            grid-area: email;
                             }
                             &:nth-of-type(4){
-                                grid-area: order-num;
+                                grid-area: phone;
                             }
                             &:nth-of-type(5){
-                                grid-area: message;
+                                grid-area: address;
                             }
                             &:nth-of-type(6){
-                                grid-area: newsletter;
+                                grid-area: website;
                             }
                             &:nth-of-type(7){
+                                grid-area: payment;
+                            }
+                            &:nth-of-type(8){
+                                grid-area: information;
+                            }
+                            &:nth-of-type(9){
+                                grid-area: newsletter;
+                            }
+                            &:last-of-type{
                                 grid-area: submit-btn;
                                 justify-self: end;
                             }
@@ -140,11 +230,11 @@
             }
 
             @include mq($mq850){
-                .contact-form{
+                .wholesale-form{
 
                     .contact-bg-img{
-                        width: 41rem;
-                        
+                        width: 39rem;
+                        top: 57%;  
                     }
                     form.wpcf7-form{
                         grid-row-gap:2em;
@@ -162,16 +252,15 @@
             }
 
             @include mq($mq1024){
-                .contact-intro{
+                .wholesale-intro{
                     p{
                         max-width: 40rem;
                     }
                 }
-                .contact-form{
+                .wholesale-form{
                     .contact-bg-img{
                         width: 48rem;
                         height: 41rem;
-                        top: 42%;
                         left: 66%;
                     }
                 }
@@ -179,11 +268,10 @@
 
             @include mq($mq1600){
                 
-                .contact-form{
+                .wholesale-form{
                     .contact-bg-img{
                         width: 48rem;
                         height: 41rem;
-                        top: 42%;
                         left: 66%;
                     }
                 }

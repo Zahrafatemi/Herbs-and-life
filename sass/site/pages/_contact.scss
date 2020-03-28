@@ -100,8 +100,8 @@
                         grid-template-areas: 
                         "sender-name email"
                         "phone order-num"
-                        "message ."
-                        "newsletter submit";
+                        "message message"
+                        "newsletter submit-btn";
                         grid-column-gap: 2em;
                         padding: 0 5px;
                         p{
@@ -124,7 +124,7 @@
                                 grid-area: newsletter;
                             }
                             &:nth-of-type(7){
-                                grid-area: submit;
+                                grid-area: submit-btn;
                                 justify-self: end;
                             }
                         }

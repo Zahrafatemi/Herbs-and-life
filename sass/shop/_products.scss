@@ -6,39 +6,147 @@ ul.products {
 	display: none;
 }
 
-.product-list {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-column-gap: emRhythm(1);
-	grid-row-gap: emRhythm();
 
-	@include mq($mq670){
-		grid-template-columns: repeat(2, 1fr);
-	}
+.tax-product_cat {
 
-	@include mq($mq850) {
-		grid-template-columns: repeat(3, 1fr);
-	}
+    .woocommerce-breadcrumb {
+        text-align: center;
+        margin-top: 50px;
+        color: $color__text-input;
 
-	@include mq($mq1024) {
-		grid-template-columns: repeat(4, 1fr);
-	}
+        a {
+            color: $color__text-input;
+        }
+    }
 
-	li {
-		display: block;
+    .page-title {
+        padding: 20px 0px;
+
+    }
+
+    // Product titles
+    .woocommerce-loop-product__title {
+        font-size: 1.3rem;
+        padding: 15px;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .price {
+        text-align: center;
+        margin: 0 auto;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        padding: 0px 0px 16px;
+
+        del {
+            padding-right: 3px;
+        }
+
+    }
+
+    .product-list {
 		margin: 0;
-		list-style: none;
+		
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-column-gap: emRhythm(1);
+		grid-row-gap: emRhythm();
 
-		&.product {
-			padding: emRhythm();
+		@include mq($mq670){
+			grid-template-columns: repeat(2, 1fr);
 		}
 
-		img {
-			display: block;
+		@include mq($mq850) {
+			grid-template-columns: repeat(3, 1fr);
 		}
 
-		.button {
-			display: block;
+		@include mq($mq1024) {
+			grid-template-columns: repeat(4, 1fr);
 		}
-	}
+
+		li {
+			// display: block;
+			margin: 0;
+			list-style: none;
+			position: relative;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+
+			&.product {
+				padding: emRhythm();
+			}
+
+			img {
+				display: block;
+			}
+
+			.button {
+				display: block;
+			}
+
+			
+			// "Sale" badge
+            a {
+                .onsale {
+                    color: white;
+                    font-weight: 400;
+                    background-color: $color__mossgreen;
+                    width: 50px;
+                    line-height: 50px;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 25%;
+                    -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                    z-index: 2;
+                }
+
+                img {
+                    align-items: start;
+                    position: relative;
+                    top: 0px;
+                }
+			}
+			
+			// "Add to cart"
+            .product_type_simple {
+                @include btn-style();
+                display: block;
+                width: 140px;
+                height: 32px;
+                position: absolute; 
+                bottom: 0; //align button always on the bottom
+            }
+
+            // "Select options"
+            .product_type_variable {
+                @include btn-style();
+                display: block;
+                width: 140px;
+                height: 32px;
+                font-size: 0.8em;
+                position: absolute; 
+                bottom: 0; //align button always on the bottom
+            }
+
+            // View Cart
+            .added_to_cart {
+                text-align: center;
+            }
+
+            .promotional-banner {
+                padding: 2.25em;
+
+                .content {
+                    .heading {
+                        padding: 10px;
+                    }
+                }
+            }
+		}
+    }
 }

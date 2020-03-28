@@ -40,6 +40,10 @@ mark, ins {
 	text-decoration: none;
 }
 
+del {
+	color: $color__text-del;
+}
+
 big {
 	font-size: 125%;
 }

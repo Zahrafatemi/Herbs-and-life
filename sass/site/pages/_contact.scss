@@ -1,7 +1,14 @@
 .page-id-188{
     .site-content{
         padding-top: 3rem;
-
+        .contact-intro{
+            padding-bottom: 2em;
+            p{
+                max-width: 25rem;
+                margin: 0 auto;
+                text-align: center;
+            }
+        }
         .contact-form{
             padding-bottom: 3rem;
             position: relative;
@@ -18,73 +25,66 @@
                 left: 70%;
                 transform: translate(-50%, -50%) rotate(-45deg);
             }
-
-            input[type="text"],
-            input[type="email"],
-            input[type="tel"] {
-                width:100%;
-            }
-            input.wpcf7-form-control.wpcf7-submit {
-                background-color: $color__darkgray;
-                color: white;
-                border-radius: 0;
-                padding:0.8rem 1rem;
-                width: 11rem;
-                margin-right: -20px;
-            }
-
-            span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 {
-                position: relative;
-                padding-left: 0.7rem;
-            }
-            span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 input[type="checkbox"] {
-                visibility: hidden;
-            }
-            span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 input[type="checkbox"] + span{
-               
-                &::before{
-                display: block;
-                position: absolute;
-                content: '';
-                height: 18px;
-                width: 18px;
-                top: 1px;
-                border: 1px solid $color__bodyfont;
+            form.wpcf7-form{
+                input[type="text"],
+                input[type="email"],
+                input[type="tel"] {
+                    width:100%;
+                }
+                input.wpcf7-form-control.wpcf7-submit {
+                    background-color: $color__darkgray;
+                    color: white;
+                    border-radius: 0;
+                    padding:0.8rem 1rem;
+                    width: 11rem;
+                    margin-right: -20px;
                 }
 
-                &::after{
+                span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 {
+                    position: relative;
+                    padding-left: 0.7rem;
+                }
+                span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 input[type="checkbox"] {
+                    visibility: hidden;
+                }
+                span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 input[type="checkbox"] + span{
+                
+                    &::before{
                     display: block;
                     position: absolute;
-                    content: '\2713';
-                    height: 10px;
-                    width: 10px;
-                    top: -2px;
-                    left: 4px;
-                    visibility: hidden;
-                    font-size: 1rem;
+                    content: '';
+                    height: 18px;
+                    width: 18px;
+                    top: 1px;
+                    border: 1px solid $color__bodyfont;
+                    }
+
+                    &::after{
+                        display: block;
+                        position: absolute;
+                        content: '\2713';
+                        height: 10px;
+                        width: 10px;
+                        top: -2px;
+                        left: 4px;
+                        visibility: hidden;
+                        font-size: 1rem;
+                    }
+                
                 }
-            
+                span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 input[type=checkbox]:checked + span{
+                    &::before{
+                    background: transparent;
+                    }
+                    &::after{
+                        visibility: visible;
+                    }
+                }
             }
-            span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 input[type=checkbox]:checked + span{
-                &::before{
-                background: transparent;
-                }
-                &::after{
-                    visibility: visible;
-                }
-            }
-            
         
         }
             @include mq($mq670){
-                .contact-intro{
-                    padding-bottom: 2em;
-                    p{
-                        max-width: 25rem;
-                        margin: 0 auto;
-                        text-align: center;
-                    }
-                }
+
                 .contact-form{
                     .contact-bg-img{
                         width: 35rem;
@@ -149,17 +149,6 @@
             }
 
             @include mq($mq1024){
-                .contact-form{
-                    .contact-bg-img{
-                        width: 48rem;
-                        height: 41rem;
-                        top: 42%;
-                        left: 66%;
-                    }
-                }
-            }
-
-            @include mq($mq1600){
                 .contact-intro{
                     p{
                         max-width: 40rem;
@@ -174,6 +163,18 @@
                     }
                 }
             }
-        }
+
+            @include mq($mq1600){
+                
+                .contact-form{
+                    .contact-bg-img{
+                        width: 48rem;
+                        height: 41rem;
+                        top: 42%;
+                        left: 66%;
+                    }
+                }
+            }
+    }
         
 }

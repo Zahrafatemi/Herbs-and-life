@@ -34,6 +34,17 @@
         display: flex;
         justify-content: center;
         padding: 0px 0px 16px;
+
+        // Regular price
+        del {
+            padding-right: 3px;
+        }
+
+        // Sale price
+        ins {
+            // background-color: #fff;
+        }
+
     }
 
     // Buttons
@@ -47,6 +58,30 @@
             display: flex;
             justify-content: center;
             padding: 2rem;
+
+            // "Sale" badge
+            a {
+                .onsale {
+                    color: white;
+                    font-weight: 400;
+                    background-color: $color__mossgreen;
+                    width: 50px;
+                    line-height: 50px;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 25%;
+                    -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                    z-index: 2;
+                }
+
+                img {
+                    align-items: start;
+                    position: relative;
+                    top: 0px;
+                }
+            }
+
 
             // "Add to cart"
             .product_type_simple {
@@ -86,3 +121,10 @@
         }
     }
 }
+
+// .woocommerce span.onsale {
+//     position: absolute;
+//     left: 50%;
+//     -webkit-transform: translateX(-50%);
+//     transform: translateX(-50%);
+// }

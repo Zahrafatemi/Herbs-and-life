@@ -36,8 +36,6 @@
             }
         
             .icon-wrapper {
-              
-            
                     @include mq($mq670){
                     display: grid;
                     grid-template-areas: "social search cart account";
@@ -48,15 +46,15 @@
                             grid-area: social;
                         ul#menu-social-menu {
                             display:none;
-                                    @include mq($mq670){
-                                    display: flex;
-                                            li{
-                                                padding: 0px 3px;
-                                                margin-right: 7px;
-                                                width: 30px;
-                                            
-                                            }
-                                    }
+                                @include mq($mq670){
+                                display: flex;
+                                        li{
+                                            padding: 0px 3px;
+                                            margin-right: 7px;
+                                            width: 30px;
+                                        
+                                        }
+                                }
                         }
                     }
                     .search-bar.sb-dt{
@@ -92,9 +90,6 @@
                             
                         }
                     }
-                
-                
-
             }
             .site-header-cart,
             .account{
@@ -103,42 +98,39 @@
                     display: block;
                     justify-self: end;
                 }
-            }
-            
-                
-                
-                .cart-contents{
-                    display: none;
+            }  
+            .cart-contents{
+                display: none;
 
-                    @include mq($mq670){ 
-                        display: block;
-                        grid-area: cart;
+                @include mq($mq670){ 
+                    display: block;
+                    grid-area: cart;
+                }
+                .count {
+                    position: relative;
+                    display:block;
+                    margin-left: 14px;
+                    img{
+                        width: 28px;
+                        height: 28px;
+                    position: relative;
+                    margin-top: 3px;
                     }
-                    .count {
-                        position: relative;
-                        display:block;
-                        margin-left: 14px;
-                        img{
-                            width: 28px;
-                            height: 28px;
-                        position: relative;
-                        margin-top: 3px;
-                        }
-                        .count-text{
-                            position: absolute;
-                            top: 57%;
-                            left: 38%;
-                            transform: translate(-50%, -38%);
-                            font-weight: bold;
-                        }
-                        @include mq($mq670){   
-                            font-size: 0.8em;
-                            justify-self: end;
-                          
-                        }
+                    .count-text{
+                        position: absolute;
+                        top: 57%;
+                        left: 38%;
+                        transform: translate(-50%, -38%);
+                        font-weight: bold;
+                    }
+                    @include mq($mq670){   
+                        font-size: 0.8em;
+                        justify-self: end;
+                        
                     }
                 }
-            
+            }
+        
             .account {
                 padding-top: 5px;
                 grid-area: account;
@@ -200,17 +192,15 @@
             label{
                 grid-area: text-input;
                 input[type="search"] {
-                            width: 100%;
-                            border: none; 
-                            border-radius: 0px;
-                            background-color: transparent;
+                    width: 100%;
+                    border: none; 
+                    border-radius: 0px;
+                    background-color: transparent;
 
-                           &::-webkit-search-cancel-button {
-
-                                /* Remove default */
-                                -webkit-appearance: none;
+                        &::-webkit-search-cancel-button {
+                        /* Remove default */
+                        -webkit-appearance: none;
                         }
-                        
                     }
                 }
             
@@ -222,18 +212,13 @@
                 .search-icon {
                     width: 25px;              
                 }
-            }
-
-              
+            } 
         }
        
         @include mq($mq670){
           display: none;
         }
     }
-
-    
-
  
     button.menu-toggle {
         position: absolute;
@@ -251,17 +236,17 @@
         width: 100%;
         height: 37px;
 
-        #primary-menu {
-            display: grid;
-            grid-template-columns: 13% 13% 13% 1fr 13% 13%;
-            justify-items: center;
+            #primary-menu {
+                display: grid;
+                grid-template-columns: 13% 13% 13% 1fr 13% 13%;
+                justify-items: center;
 
-            #menu-item-229 {
-                justify-self: end;
-                padding-right: 3vw;
+                #menu-item-229 {
+                    justify-self: end;
+                    padding-right: 3vw;
+                }
             }
         }
-    }
     }
 }
 
@@ -344,3 +329,63 @@
     }
 }
 
+
+// Second navigation color
+// Herb and Spices
+.term-herbs-spices,
+.product_cat_herbs-spices {
+    #category-navigation {
+        .category-nav-wrapper {
+            background-color: $color__cat_herb;
+
+            @include mq($mq670){
+                #menu-product-category-menu  {
+                    background-color: $color__cat_herb;
+
+                    a {
+                        color: white;
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+// Oil and Vinegars
+.term-oils-vinegars,
+.product_cat_oils-vinegars,
+.product_cat_oils {
+    #category-navigation {
+        .category-nav-wrapper {
+            background-color: $color__cat_vinegar;
+
+            @include mq($mq670){
+                #menu-product-category-menu  {
+                    background-color: $color__cat_vinegar;
+
+                    a {
+                        color: white;
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+// Health and Beauty
+.term-health-beauty,
+.product_cat_health-beauty {
+    #category-navigation {
+        .category-nav-wrapper {
+            background-color: $color__cat_beauty;
+
+            @include mq($mq670){
+                #menu-product-category-menu  {
+                    background-color: $color__cat_beauty;                    
+                }
+            }
+        }
+    }
+}

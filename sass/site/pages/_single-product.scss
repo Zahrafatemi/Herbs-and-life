@@ -2,6 +2,12 @@
 .single-product {
     main {
         max-width: em(1400);
+        padding-top: 60px;
+
+        @include mq($mq850) {
+            padding-top: 30px;
+        }
+
     }
 
     .product {

@@ -5,7 +5,7 @@
             padding-bottom: 6.5rem;
             position: relative;
             .history-image {
-                height: 193px;
+                height: 12rem;
                 img{
                     height: 100%;
                 }
@@ -23,7 +23,7 @@
                 }
                 p{
                     margin: 0;
-                    padding: 1.5em 0;
+                    padding: 1em 0;
                 }
             }
             .history-bt-top{
@@ -55,19 +55,61 @@
             padding-top: 2em;
         }
 
+        @include mq($mq370){
+            .history-box{
+                .history-image {
+                    height: 15rem;
+                }
+            }
+        }
+        @include mq($mq420){
+            .history-box{
+                .history-image {
+                    min-height: 17rem;
+                }
+            }
+        }
+        @include mq($mq500){
+            .history-box{
+                .history-image {
+                    min-height: 20rem;
+                }
+            }
+        }
+
+        @include mq($mq550){
+            .history-box{
+                .history-image {
+                    min-height: 23rem;
+                }
+            }
+        }
+
+        @include mq($mq615){
+            .history-box{
+                .history-image {
+                    min-height: 25rem;
+                }
+            }
+        }
+
         @include mq ($mq670){
-            padding-bottom: 0;
+            padding-bottom: 3rem;
             .history-box{
                 max-height: 30em;
                 .history-image {
-                    height: 350px;
+                    min-height: 24rem;
                     img{
-                        width: 70%;
+                        width: 35rem;
                     }
                 }
                 .history-text {
-                    max-width: 30rem;
+                    max-width: 20rem;
                     padding: 1.5rem;
+                    p{
+                    font-size: 0.75rem;
+                    line-height: 1.5;
+                    }
                 }
             }
             .history-past{
@@ -75,11 +117,11 @@
                 .history-text{
                     position: absolute;
                     right: 0;
-                    bottom: 3.5em;
+                    bottom: 2.5em;
                 }
                 .history-bt-top{
                     left: 33%;
-                    bottom: -5em;
+                    bottom: -7em;
                 }
             }
             .history-future{
@@ -87,33 +129,43 @@
                     transform: translate3d(0vw, -21em, 0em);
                 }
                 .history-image{
-                    transform: translate3d(0vw, 3em, 0em);
+                    transform: translate3d(0vw, 5em, 0em);
                 }
                 .history-bt-bottom{
-                    bottom: 0rem;
-                    left: 5%;
+                    bottom: -4rem;
                 }
             }
         }
-        @include mq ($mq900){
-            .history-future{
-                .history-bt-bottom{
-                    left: 11%;
+
+        @include mq($mq800){
+            .history-box{
+                .history-image {
+                    img{
+                        width: 40rem;
+                    }
                 }
             }
         }
-        @include mq ($mq1024){
+
+        @include mq($mq850){
             padding-bottom: 7rem;
             .history-box{
-                
                 .history-image {
-                    height: 25rem;
+                    min-height: 25rem;
                 }
-               
+
+                .history-text {
+                    min-width: 25rem;
+                
+                    p{
+                    font-size: 0.85rem;
+                    
+                    }
+                }   
             }
             .history-past{
                 .history-text{
-                    bottom: 0;
+                    bottom: 2rem;
                 }
                 .history-bt-top{
                     bottom: -9em;
@@ -124,8 +176,64 @@
                 .history-image{
                     transform: translate3d(0vw, 6em, 0em);
                 }
+            }
+            
+        }
+
+        @include mq ($mq900){
+            padding-bottom: 12rem;
+            .history-box{
+                .history-image {
+                    min-height: 27rem;
+                    img{
+                        width: 45rem;
+                    }
+                }
+
+                .history-text {
+                    min-width: 30rem;
+                
+                    p{
+                    font-size: 0.85rem;
+                    }
+                }
+            }
+            .history-past{
+                .history-text{
+                    bottom: 0;
+                }
+            }
+            .history-future{
+                .history-image{
+                    transform: translate3d(0vw, 8em, 0em);
+                }
+
+            }
+        }
+        @include mq ($mq1024){
+            .history-box{
+                
+                .history-image {
+                    height: 28rem;
+                }
+               
+            }
+            .history-past{
+                .history-text{
+                    bottom: -2rem;
+                }
+                .history-bt-top{
+                    bottom: -12em;
+                    left:40%;
+                }
+            }
+            .history-future{
+                .history-image{
+                    transform: translate3d(0vw, 9em, 0em);
+                }
                 .history-bt-bottom{
-                    bottom: -3rem;
+                    bottom: -6rem;
+                    left: 5%;
                 }
             }
         }
@@ -134,6 +242,9 @@
             .history-box{
                 .history-image {
                     height: 28rem;
+                    img{
+                        width: 48rem;
+                    }
                 }
                 .history-text {
                     max-width: 35rem;
@@ -150,30 +261,16 @@
                     transform: translate3d(0vw, 10em, 0em);
                 }
                 .history-bt-bottom{
-                    bottom: -5rem;
+                    bottom: -4rem;
+                    left: 11%;
                 }
             }
         }
         @include mq ($mq1350){
             padding-bottom: 20rem;
-            .history-box{
-                
-                .history-image {
-                    height: 30rem;
-                }  
-            }
-            .history-past{
-              
-                .history-bt-top{
-                    bottom: -14rem;
-                }
-            }
             .history-future{
                 .history-image{
                     transform: translate3d(0vw, 10em, 0em);
-                }
-                .history-bt-bottom{
-                    bottom: -11rem;
                 }
             }
         }

@@ -58,8 +58,10 @@ $mq800:em(800); //pb for featured products
 $mq720:em(720); //bp overwrite for storelocator default setting
 $mq670:em(670);//phoneLandscape
 $mq615:em(615);//phoneLandscapeSmall
+$mq550:em(550);//bp for about image
 $mq500:em(500);//phonePortraitLarge
 $mq420:em(420);//phonePortrait
+$mq370:em(370); //iphone6 +
 
 @import "lists";
 @import "tables";

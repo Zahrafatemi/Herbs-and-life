@@ -338,3 +338,15 @@ function rename_woocommerce( $needle, $haystack )
     return false;
 }	
 
+/**
+ * Remove product name from WooCommerce breadcrumb
+ */
+function herblife_change_breadcrumb( $breadcrumb ) {
+	
+  if( is_singular() ){
+		array_pop( $breadcrumb );
+	}
+  
+  return $breadcrumb;
+}
+add_filter( 'woocommerce_get_breadcrumb', 'herblife_change_breadcrumb' );

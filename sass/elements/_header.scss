@@ -113,8 +113,8 @@
                     img{
                         width: 28px;
                         height: 28px;
-                    position: relative;
-                    margin-top: 3px;
+                        position: relative;
+                        margin-top: 3px;
                     }
                     .count-text{
                         position: absolute;
@@ -126,7 +126,6 @@
                     @include mq($mq670){   
                         font-size: 0.8em;
                         justify-self: end;
-                        
                     }
                 }
             }
@@ -147,11 +146,10 @@
             width: 160px;
             margin: 0 auto;
 
-         img {
+            img {
                 position: absolute;
                 z-index: 99999;
                 top: -26px;
-                
             }
         }
 

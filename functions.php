@@ -227,3 +227,114 @@ function herblife_wc_product_cats_css_body_class( $classes ){
 	return $classes;
 }
 add_filter( 'body_class', 'herblife_wc_product_cats_css_body_class' );
+
+
+/**
+ * All widgets on dashboard to be removed
+ */
+function wporg_remove_all_dashboard_metaboxes() {
+    // Remove Welcome panel
+    remove_action( 'welcome_panel', 'wp_welcome_panel' );
+    // Remove the rest of the dashboard widgets
+    remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+    remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+    remove_meta_box( 'health_check_status', 'dashboard', 'normal' );
+    remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
+    remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');
+}
+add_action( 'wp_dashboard_setup', 'wporg_remove_all_dashboard_metaboxes' );
+
+
+add_filter( 'woocommerce_helper_suppress_admin_notices', '__return_true' );
+
+/**
+ * Add a widget to the dashboard.
+ *
+ * This function is hooked into the 'wp_dashboard_setup' action below.
+ */
+function wporg_add_dashboard_widgets() {
+    wp_add_dashboard_widget(
+        'wporg_dashboard_widget',                          // Widget slug.
+        esc_html__( 'Welcome', 'wporg' ), // Title.
+        'wporg_dashboard_widget_render'                    // Display function.
+    ); 
+}
+add_action( 'wp_dashboard_setup', 'wporg_add_dashboard_widgets' );
+ 
+/**
+ * Create the function to output the content of our Dashboard Widget.
+ */
+function wporg_dashboard_widget_render() {
+    // Display whatever you want to show.
+    esc_html_e( "Hello, Welcome to herb and life.", "wporg" );
+}
+
+// function remove_menus() {
+// 	    remove_menu_page( 'edit.php' );
+// 	}
+// add_action ( 'admin_menu', 'remove_menus' );
+function wd_admin_menu_rename(){
+	global $menu;
+	$menu[20][0] = 'Pages';
+}
+add_action( 'admin_menu', 'wd_admin_menu_rename');
+
+function wpse_custom_menu_order( $menu_ord ) {
+    if ( !$menu_ord ) return true;
+    return array(
+        'edit.php?post_type=page', // Pages
+        'index.php', // Dashboard
+        'separator1', // First separator
+        'edit.php', // Posts
+        'upload.php', // Media
+        'link-manager.php', // Links
+        'edit-comments.php', // Comments
+        'separator2', // Second separator
+        'themes.php', // Appearance
+        'plugins.php', // Plugins
+        'users.php', // Users
+        'tools.php', // Tools
+        'options-general.php', // Settings
+        'separator-last', // Last separator
+    );
+}
+add_filter( 'custom_menu_order', 'wpse_custom_menu_order', 10, 1 );
+add_filter( 'menu_order', 'wpse_custom_menu_order', 10, 1 );
+
+// Rename WooCommerce to Shop
+ 
+add_action( 'admin_menu', 'rename_woocoomerce', 999 );
+ 
+function rename_woocoomerce()
+{
+    global $menu;
+ 
+    // Pinpoint menu item
+    $woo = rename_woocommerce( 'WooCommerce', $menu );
+ 
+    // Validate
+    if( !$woo )
+        return;
+ 
+    $menu[$woo][0] = 'eCommerce';
+}
+ 
+function rename_woocommerce( $needle, $haystack )
+{
+    foreach( $haystack as $key => $value )
+    {
+        $current_key = $key;
+        if(
+            $needle === $value
+            OR (
+                is_array( $value )
+                && rename_woocommerce( $needle, $value ) !== false
+            )
+        )
+        {
+            return $current_key;
+        }
+    }
+    return false;
+}	
+

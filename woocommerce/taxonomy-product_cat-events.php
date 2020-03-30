@@ -22,39 +22,46 @@ get_header();
 		<main id="main" class="site-main">
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 
-			<!-- <div class = "events-banner"> -->
 				<?php if( function_exists( 'get_field' ) ):?>	
 					<div class = "events-banner">
-						<?php if( function_exists( 'get_field' ) ){
-							if( get_field( 'events_image', 'option' ) ){
+						<?php 
+						if( function_exists( 'get_field' ) ):
+							if( get_field( 'events_image', 'option' ) ):
 								$image = get_field('events_image', 'option');
 								$header = get_field('events_header', 'option');
 								$description = get_field('events_description', 'option');
 								$buttonText = get_field('events_button_label', 'option');
-								$buttonLink = get_field('events_link', 'option'); ?>
+								$buttonLink = get_field('events_link', 'option'); 
+								$second_header = get_field('events_second_header', 'option');
+								$second_description = get_field('events_second_description', 'option');
+								$third_header = get_field('events_third_header', 'option');
+								?>
 
 								<div class="banner-wrapper">
 									<?php echo wp_get_attachment_image( $image, 'full' ); ?>
 									<h1 class="title-on-banner">Events & Workshops</h1>
 								</div><!--.banner-wrapper-->
+
 								<div class="events-banner-text-box">
 									<h3><?php echo $header ?></h3>
 									<p class="description"><?php echo $description ?></p>
 									<a class="cta-banner-btn btn-text btn" href="<?php if( $buttonLink ){ echo esc_url( $buttonLink ); } ?>"><?php if( $buttonText ){ echo $buttonText; }?></a>
-								</div><!--.events-banner-text-box-->	
-						<?php }
-						} ?>
+								</div><!--.events-banner-text-box-->
+								
+								<div class="events-second-text-box">
+									<h2><?php echo $second_header ?></h2>
+									<p class="description"><?php echo $second_description ?></p>
+								</div><!--.events-second-text-box-->
+
+								<div class="events-third-text-box">
+									<h2><?php echo $third_header ?></h2>
+								</div><!--.events-third-text-box-->
+								<?php 
+							endif;
+						endif; ?>
 					</div><!--.events-image-->
 				<?php endif;  ?>
-			<!-- </div> -->
-			<!--.events-banner-->
 
-			<div class="join-us-banner">
-				<h2>Come and join us</h2>
-				<p>Join us for live music, face painting, a kids craft tent, fire pit, roasting s'mores, candy apples & pie! More details to come!</p>
-
-				<h2>Upcoming Events</h2>
-			</div>
 
 			<div class="events">
 				<?php

@@ -162,18 +162,39 @@ get_header();
 						$query->the_post();
 				?>
 						<div class="past-single-event single-event">
-						<?php the_post_thumbnail('event-thumbnail'); ?>
-							<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-							<div class="time-details">
-									<?php if(get_field('date')):?>
-											<p><?php the_field('date') ?></p>
-									<?php endif;?>
+							<?php the_post_thumbnail('event-thumbnail'); ?>
 
-									<?php if(get_field('start_time') && get_field('end_time')):?>
-											<p><?php echo the_field('start_time')?> to <?php the_field('end_time') ?></p>
-									<?php endif;?>
+							<div class="event-summary">
+								<!-- The product tags list -->
+								<?php $terms = get_the_terms( $post->ID, 'product_tag' ); ?>
+								<div class="product-tags">
+									<?php 
+									$i = 1;
+									foreach ( $terms as $term ) :
+										echo $term->name;
+										echo ($i < count($terms))? ", " : "";
+										// Increment counter
+										$i++;
+									endforeach ?>
 								</div>
-							</div><!--.past-single-event-->
+								
+								<!-- The product Title -->
+								<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+								
+								<!-- The product Price -->
+								<p class="event-price"><?php if($product->get_price()>0) : echo "$".$product->get_price(); else: echo 'Free Event'; endif;?></p>
+							</div><!-- End of event-summary -->
+
+							<div class="time-details">
+								<?php if(get_field('date')):?>
+										<p><?php the_field('date') ?></p>
+								<?php endif;?>
+
+								<?php if(get_field('start_time') && get_field('end_time')):?>
+										<p><?php echo the_field('start_time')?> to <?php the_field('end_time') ?></p>
+								<?php endif;?>
+							</div>
+						</div><!--.past-single-event-->
 					<?php 
 					endwhile;
 					wp_reset_postdata();

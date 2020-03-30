@@ -49,6 +49,13 @@ get_header();
 			<!-- </div> -->
 			<!--.events-banner-->
 
+			<div class="join-us-banner">
+				<h2>Come and join us</h2>
+				<p>Join us for live music, face painting, a kids craft tent, fire pit, roasting s'mores, candy apples & pie! More details to come!</p>
+
+				<h2>Upcoming Events</h2>
+			</div>
+
 			<div class="events">
 				<?php
 				
@@ -58,6 +65,7 @@ get_header();
 
 				$today = date('Ymd');
 
+				// Determining Future Events
 				$args_future_events = array(
 					'posts_per_page' => '-1',
 					'product_cat' => 'events',
@@ -73,6 +81,7 @@ get_header();
 					),
 				);
 
+				// Determining Past Events
 				$args_past_events = array(
 					'posts_per_page' => '-1',
 					'product_cat' => 'events',
@@ -88,7 +97,8 @@ get_header();
 					),
 				);
 				?>
-
+				
+				<!-- Displaying Future Events -->
 				<div class="future-events">
 					<?php 
 					$query = new WP_Query( $args_future_events );
@@ -98,7 +108,23 @@ get_header();
 						?>
 							<div class="future-single-event single-event">
 								<?php the_post_thumbnail('event-thumbnail'); ?>
-								<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+
+								<div class="event-summary">
+									<!-- The product tags list -->
+									<?php $terms = get_the_terms( $post->ID, 'product_tag' ); ?>
+									<div class="product-tags">
+										<?php foreach ( $terms as $term ) : ?>
+											<?php echo $term->name; ?>
+										<?php endforeach ?>
+									</div>
+									
+									<!-- The product Title -->
+									<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+									
+									<!-- The product Price -->
+									<p class="event-price"><?php if($product->get_price()>0) : echo "$".$product->get_price(); else: echo 'Free Event'; endif;?></p>
+								</div><!-- End of event-summary -->
+
 								<div class="time-details">
 									<?php if(get_field('date')):?>
 											<p><?php the_field('date') ?></p>
@@ -119,6 +145,7 @@ get_header();
 
 				<button class="woo-btn see-past-events" id="see-past-events" >Past Events</button>
 
+				<!-- Displaying Past Events -->
 				<div class="past-events" id="past-events">
 
 				<?php

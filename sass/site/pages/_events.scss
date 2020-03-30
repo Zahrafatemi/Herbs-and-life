@@ -12,31 +12,31 @@
     }
 
 
-    .single-event{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-        margin: 20px auto;
+    // .single-event{
+    //     display: flex;
+    //     justify-content: space-between;
+    //     align-items: center;
+    //     text-align: left;
+    //     margin: 20px auto;
 
-        img{
-            flex: 1;
-            width: 200px;
-            height: 200px;
-            overflow: hidden;
-            padding: 1rem;
-        }
-        a{
-            flex: 1;
-            padding: 1rem;
-        }
+        // img{
+        //     flex: 1;
+        //     width: 200px;
+        //     height: 200px;
+        //     overflow: hidden;
+        //     padding: 1rem;
+        // }
+        // a{
+        //     flex: 1;
+        //     padding: 1rem;
+        // }
 
-        .time-details{
-            flex: 1;
-            padding: 1rem;
-        }
+        // .time-details{
+        //     flex: 1;
+        //     padding: 1rem;
+        // }
 
-    }
+    //}
 
     button.see-past-events{
         margin: 0 auto;

@@ -53,12 +53,13 @@ get_header();
                 <h1 class="shop-intro-title"><?php if( $shop_intro_title ) { echo $shop_intro_title; }?></h1>
                 <p class="shop-intro-text"><?php if( $shop_intro ){ echo $shop_intro; } ?></p>
             </section><!--.shop-intro-->
-			<section class="category-wrapper">
-				<h2>Product Categories</h2>
+            <section class="product-category">
+                <h2>Product Categories</h2>
+                <div class="category-wrapper">
                 <?php
 				$prod_cat_args = array(
 						'taxonomy'=>'product_cat',
-						'orderby'=>'name',
+						'orderby'=>'ID',
                         'empty' => 0,
                         'exclude' => array(47, 56, 69), //exclude events, subscription, gift card category
 						'parent'=>0  //exclude subcategory
@@ -78,8 +79,9 @@ get_header();
                     <p class="category-name"><?php echo $term->name; ?></p><!--.category-name-->
 					</a>
 
-				<?php endforeach;?>
-			</section><!--..category-wrapper-->
+                <?php endforeach;?>
+                </div> <!--category-wrapper-->
+			</section><!--.product-category-->
 
 			<section class="we-offer"> 
                 <h2>We Also Offer</h2>

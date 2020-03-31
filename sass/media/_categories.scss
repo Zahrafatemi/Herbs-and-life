@@ -13,6 +13,10 @@
         width: 300px;
         display: block;
 
+        @include mq($mq600){
+            width: 100%; 
+        }
+
         @include mq($mq1920) {
             width: 350px;
         }
@@ -28,6 +32,16 @@
             height: 300px;
             background-size: cover;
 
+            @include mq($mq600){
+                width: 98%;
+                height: 100%;
+            }
+
+            @include mq($mq800){
+                width: 100%;
+               
+            }
+
             @include mq($mq1920) {
                 width: 350px;
                 height: 350px;
@@ -42,6 +56,11 @@
                 height: 300px;
                 width: 300px;
                 object-fit: cover;
+
+                @include mq($mq600){
+                    width: 100%; 
+                    height: 100%;
+                }
 
                 @include mq($mq1920) {
                     width: 350px;
@@ -63,6 +82,15 @@
             margin: 0;
             padding: 0;
             width: 300px;
+
+            @include mq($mq600){
+                font-size: 1.2em;
+            }
+
+            @include mq($mq800){
+                font-size: 1.5em;
+            }
+
 
             @include mq($mq1920) {
                 font-size: 2em;
@@ -106,5 +134,14 @@
              }
          }
          
+     }
+
+     @include mq($mq600){
+         max-width: 900px;
+         margin: 30px auto;
+         display:grid;
+         grid-template-columns: 1fr 1fr 1fr;
+         justify-items: center;
+
      }
 }

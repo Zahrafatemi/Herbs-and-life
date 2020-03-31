@@ -1,46 +1,105 @@
-.events{
 
-    max-width: 900px;
+.events-archive{
 
-    @include mq(100px){
-        margin:30px;
+    .events-second-text-box{
+        margin: 80px 25px;
+        text-align: center;
+
+        .title{
+            padding: 0 40px;
+        }
+
+        p{
+            &:before{
+                content: "";
+                margin: 0 auto;
+                position: relative;
+                display: block;
+                width: 230px;
+                height: 80px;
+                background: url(images/assets/botanic-border/botanic-border-shop.svg);
+                background-repeat: repeat-x;
+                background-position: center;
+            }
+        }
     }
 
+    .events-third-text-box{
+        margin: 35px;
+        text-align: center;
 
-    #past-events{
-        display: none;
+        .title{
+            font-size: 1.3rem;
+            &:after{
+                content: "";
+                margin: 0 auto;
+                position: relative;
+                display: block;
+                width: 230px;
+                height: 80px;
+                background: url(images/assets/botanic-border/botanic-border-shop.svg);
+                background-repeat: repeat-x;
+                background-position: center;
+            }
+        }
     }
+    
+    .events-list{
+        .future-single-event.single-event, .past-single-event.single-event{
 
+            margin: 70px 0;
+            .event-image{
+                
+                img{
+                    width: 100vw;
+                    height: 250px;
+                    object-fit: cover;
+                    object-position: 50% 50%;
+                }
+            }
 
-    // .single-event{
-    //     display: flex;
-    //     justify-content: space-between;
-    //     align-items: center;
-    //     text-align: left;
-    //     margin: 20px auto;
+            .event-summary{
+                margin: 25px;
 
-        // img{
-        //     flex: 1;
-        //     width: 200px;
-        //     height: 200px;
-        //     overflow: hidden;
-        //     padding: 1rem;
-        // }
-        // a{
-        //     flex: 1;
-        //     padding: 1rem;
-        // }
+                .event-tags{
+                    color: $color__cat_herb;
+                    margin-bottom: 15px;
+                }
+                
+                .event-title-price {
+                    margin-bottom: 15px;
+                    p{
+                        font-family: $font__main;
+                        font-size: 1.17em;
+                        margin: 0;
+                    }
+                }
 
-        // .time-details{
-        //     flex: 1;
-        //     padding: 1rem;
-        // }
+                .event-date-time{
+                    p{
+                        margin: 0;
+                    }
+                }
+            }
 
-    //}
+        }
 
-    button.see-past-events{
-        margin: 0 auto;
-        background-color: $color__cat_herb;
-        color: white;
+        button.see-past-events{
+            display: block;
+            margin: 0 auto 80px auto;
+            width: 65%;
+            max-width: 500px;
+            background-color: $color__cat_herb;
+            background-image: url(images/assets/events/past-events-icon.svg);
+            background-repeat: no-repeat;
+            background-size: 20px;
+            padding: 10px 0 10px 25px;
+            background-position: 15% 50%;
+            color: white;
+        }
+
+        #past-events{
+            display: none;
+        }
     }
 }

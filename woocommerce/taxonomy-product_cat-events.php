@@ -19,57 +19,56 @@ get_header();
 ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+		<main id="main" class="site-main events-archive">
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 
-				<?php if( function_exists( 'get_field' ) ):?>	
-					<div class = "events-banner">
-						<?php 
-						if( function_exists( 'get_field' ) ):
-							if( get_field( 'events_image', 'option' ) ):
-								$image = get_field('events_image', 'option');
-								$header = get_field('events_header', 'option');
-								$description = get_field('events_description', 'option');
-								$buttonText = get_field('events_button_label', 'option');
-								$buttonLink = get_field('events_link', 'option'); 
-								$second_header = get_field('events_second_header', 'option');
-								$second_description = get_field('events_second_description', 'option');
-								$third_header = get_field('events_third_header', 'option');
-								?>
+				<?php 
+				if( function_exists( 'get_field' ) ):
+					if( function_exists( 'get_field' ) ):
+						if( get_field( 'events_image', 'option' ) ):
+							$image = get_field('events_image', 'option');
+							$header = get_field('events_header', 'option');
+							$description = get_field('events_description', 'option');
+							$buttonText = get_field('events_button_label', 'option');
+							$buttonLink = get_field('events_link', 'option'); 
+							$second_header = get_field('events_second_header', 'option');
+							$second_description = get_field('events_second_description', 'option');
+							$third_header = get_field('events_third_header', 'option');
+							?>
 
+							<div class = "events-banner">
+								
 								<div class="banner-wrapper">
 									<?php echo wp_get_attachment_image( $image, 'full' ); ?>
 									<h1 class="title-on-banner">Events & Workshops</h1>
 								</div><!--.banner-wrapper-->
 
 								<div class="events-banner-text-box">
-									<h3><?php echo $header ?></h3>
+									<h3 class="title"><?php echo $header ?></h3>
 									<p class="description"><?php echo $description ?></p>
 									<a class="cta-banner-btn btn-text btn" href="<?php if( $buttonLink ){ echo esc_url( $buttonLink ); } ?>"><?php if( $buttonText ){ echo $buttonText; }?></a>
 								</div><!--.events-banner-text-box-->
-								
-								<div class="events-second-text-box">
-									<h2><?php echo $second_header ?></h2>
-									<p class="description"><?php echo $second_description ?></p>
-								</div><!--.events-second-text-box-->
 
-								<div class="events-third-text-box">
-									<h2><?php echo $third_header ?></h2>
-								</div><!--.events-third-text-box-->
-								<?php 
-							endif;
-						endif; ?>
-					</div><!--.events-image-->
-				<?php endif;  ?>
+							</div><!--.events-banner-->
+							
+							<div class="events-second-text-box">
+								<h2 class="title"><?php echo $second_header ?></h2>
+								<p class="description"><?php echo $second_description ?></p>
+							</div><!--.events-second-text-box-->
+
+							<div class="events-third-text-box">
+								<h2 class="title"><?php echo $third_header ?></h2>
+							</div><!--.events-third-text-box-->
+								 
+						<?php endif;
+					endif;  
+				endif;  ?>
 
 
-			<div class="events">
+			<div class="events-list">
 				<?php
-				
 				global $post;
-
 				$short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
-
 				$today = date('Ymd');
 
 				// Determining Future Events
@@ -112,41 +111,50 @@ get_header();
 					if( $query->have_posts()) :
 						while( $query->have_posts() ) : 
 								$query->the_post();
-						?>
+							?>
 							<div class="future-single-event single-event">
-								<?php the_post_thumbnail('event-thumbnail'); ?>
+								<a href="<?php the_permalink() ?>">
+									<div class="event-image">
+										<?php the_post_thumbnail('event-thumbnail'); ?>
+									</div><!-- end of .event-image -->
 
-								<div class="event-summary">
-									<!-- The product tags list -->
-									<?php $terms = get_the_terms( $post->ID, 'product_tag' ); ?>
-									<div class="product-tags">
-										<?php foreach ( $terms as $term ) : ?>
-											<?php echo $term->name; ?>
-										<?php endforeach ?>
-									</div>
-									
-									<!-- The product Title -->
-									<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-									
-									<!-- The product Price -->
-									<p class="event-price"><?php if($product->get_price()>0) : echo "$".$product->get_price(); else: echo 'Free Event'; endif;?></p>
-								</div><!-- End of event-summary -->
+									<div class="event-summary">
+										<!-- The product tags list -->
+										<?php $terms = get_the_terms( $post->ID, 'product_tag' ); ?>
+										<div class="event-tags">
+											<?php 
+											$i = 1;
+											foreach ( $terms as $term ) :
+												echo $term->name;
+												echo ($i < count($terms))? ", " : "";
+												// Increment counter
+												$i++;
+											endforeach ?>
+										</div>
 
-								<div class="time-details">
-									<?php if(get_field('date')):?>
-											<p><?php the_field('date') ?></p>
-									<?php endif;?>
+										<div class="event-title-price">
+											<!-- The product Title -->
+											<h3 class="title"><?php the_title(); ?></h3>
+											
+											<!-- The product Price -->
+											<p class="event-price"><?php echo($product->get_price()>0) ? "$".$product->get_price() : 'Free Event'; ?></p>
+										</div><!-- End of event-title-price -->
 
-									<?php if(get_field('start_time') && get_field('end_time')):?>
-											<p><?php echo the_field('start_time')?> to <?php the_field('end_time') ?></p>
-									<?php endif;?>
-								</div>
+										<div class="event-date-time">
+											<?php if(get_field('date')):?>
+													<p><?php the_field('date');?></p>
+													<?php if(get_field('start_time') && get_field('end_time')): ?>
+														<p><?php the_field('start_time');?> to <?php the_field('end_time'); ?></p>
+													<?php endif;?>
+											<?php endif;?>
+										</div><!-- end of .event-date-time -->
+									</div><!--.event-summary-->
+								</a>
 							</div><!--.future-single-event-->
-						<?php 
-						endwhile;
+						<?php endwhile;
 							wp_reset_postdata();
-					else: ?>
-						<p><?php _e( 'No Events' ); ?></p>
+						else: ?>
+							<p><?php _e( 'No Events' ); ?></p>
 					<?php endif; ?>
 				</div><!--future-events-->
 
@@ -155,33 +163,58 @@ get_header();
 				<!-- Displaying Past Events -->
 				<div class="past-events" id="past-events">
 
-				<?php
-				$query = new WP_Query( $args_past_events );
-				if( $query->have_posts()) : 
-					while( $query->have_posts() ) : 
-						$query->the_post();
-				?>
-						<div class="past-single-event single-event">
-						<?php the_post_thumbnail('event-thumbnail'); ?>
-							<a class="title" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-							<div class="time-details">
-									<?php if(get_field('date')):?>
-											<p><?php the_field('date') ?></p>
-									<?php endif;?>
+					<?php
+					$query = new WP_Query( $args_past_events );
+					if( $query->have_posts()) : 
+						while( $query->have_posts() ) : 
+							$query->the_post();
+							?>
+							<div class="past-single-event single-event">
+								<a href="<?php the_permalink() ?>">
+									<div class="event-image">
+										<?php the_post_thumbnail('event-thumbnail'); ?>
+									</div><!-- end of .event-image -->
 
-									<?php if(get_field('start_time') && get_field('end_time')):?>
-											<p><?php echo the_field('start_time')?> to <?php the_field('end_time') ?></p>
-									<?php endif;?>
-								</div>
+									<div class="event-summary">
+										<!-- The product tags list -->
+										<?php $terms = get_the_terms( $post->ID, 'product_tag' ); ?>
+										<div class="event-tags">
+											<?php 
+											$i = 1;
+											foreach ( $terms as $term ) :
+												echo $term->name;
+												echo ($i < count($terms))? ", " : "";
+												// Increment counter
+												$i++;
+											endforeach ?>
+										</div>
+
+										<div class="event-title-price">
+											<!-- The product Title -->
+											<h3 class="title"><?php the_title(); ?></h3>
+											
+											<!-- The product Price -->
+											<p class="event-price"><?php echo($product->get_price()>0) ? "$".$product->get_price() : 'Free Event'; ?></p>
+										</div><!-- End of event-title-price -->
+
+										<div class="event-date-time">
+											<?php if(get_field('date')):?>
+													<p><?php the_field('date');?></p>
+													<?php if(get_field('start_time') && get_field('end_time')): ?>
+														<p><?php the_field('start_time');?> to <?php the_field('end_time'); ?></p>
+													<?php endif;?>
+											<?php endif;?>
+										</div><!-- end of .event-date-time -->
+									</div><!--.event-summary-->
+								</a>
 							</div><!--.past-single-event-->
-					<?php 
-					endwhile;
-					wp_reset_postdata();
-				else: ?>
-					<p><?php _e( 'No Events' ); ?></p>
-				<?php endif; ?>
+						<?php endwhile;
+						wp_reset_postdata();
+						else: ?>
+							<p><?php _e( 'No Events' ); ?></p>
+					<?php endif; ?>
 				</div><!-- end of past events -->
-			</div><!-- end of events -->
+			</div><!-- end of events-list -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	

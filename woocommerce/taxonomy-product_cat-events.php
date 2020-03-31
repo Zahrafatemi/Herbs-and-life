@@ -147,6 +147,11 @@ get_header();
 														<p><?php the_field('start_time');?> to <?php the_field('end_time'); ?></p>
 													<?php endif;?>
 											<?php endif;?>
+
+											<?php if(get_field('note')): ?>
+												<p><?php the_field('note'); ?></p>
+											<?php endif;?>
+											
 										</div><!-- end of .event-date-time -->
 									</div><!--.event-summary-->
 								</a>
@@ -204,6 +209,11 @@ get_header();
 														<p><?php the_field('start_time');?> to <?php the_field('end_time'); ?></p>
 													<?php endif;?>
 											<?php endif;?>
+
+											<?php if(get_field('note')): ?>
+												<p><?php the_field('note'); ?></p>
+											<?php endif;?>
+											
 										</div><!-- end of .event-date-time -->
 									</div><!--.event-summary-->
 								</a>

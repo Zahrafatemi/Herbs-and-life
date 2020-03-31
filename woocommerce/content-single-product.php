@@ -119,15 +119,9 @@ if ( post_password_required() ) {
 				</div>
 			</div>
 
-			<!-- <?php //if(get_field('end_time')):?>
-				<div class="event-end-time">
-					<?php //the_field('end_time') ?>
-				</div>
-			<?php //endif;?> -->
-
 			<?php if(get_field('note')):?>
 				<div class="event-note">
-					<p><?php the_field('note') ?></p>
+					<p><?php the_field('note'); ?></p>
 				</div>
 			<?php endif;?>
 		</div><!--end of event-details-->

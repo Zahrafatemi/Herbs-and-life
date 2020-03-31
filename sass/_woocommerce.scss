@@ -48,6 +48,11 @@ $woocommerce__color-info: #3D9CD2;
 @import "shop/widgets";
 
 /**
+ * Cart page
+ */
+ @import "shop/cart";
+
+/**
  * Variety Pack product page
  */
  @import "site/pages/product-variety-pack";

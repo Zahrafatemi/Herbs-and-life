@@ -44,20 +44,6 @@ function herblife_scripts() {
 
 	}
 
-	/**
-	 * radiobutton JS
-	 */
-	if ( is_page('112')) {
-
-		// call in the js files
-		wp_enqueue_script( 
-			'hl-form-radiobutton', 
-			get_template_directory_uri().'/js/radiobutton.js', 
-			array('jquery'), 
-			'20200329', 
-			true );
-	}
-
 	/** Slick Slider Setting in front page top */
 	// enqueue slick slider if it is the front page
 	if ( is_front_page() || is_page('14') || is_page('103')) {

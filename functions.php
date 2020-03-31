@@ -350,3 +350,28 @@ function herblife_change_breadcrumb( $breadcrumb ) {
   return $breadcrumb;
 }
 add_filter( 'woocommerce_get_breadcrumb', 'herblife_change_breadcrumb' );
+
+
+/**
+ * Change the default "{qty} x {product-name} has(ve) been added to your cart" message to:
+ * {qty} item(s) has/have been added to your cart.
+ */
+function custom_add_to_cart_message_html( $message, $products ) {
+    $count = 0;
+    foreach ( $products as $product_id => $qty ) {
+        $count += $qty;
+    }
+    // The custom message is just below
+    $added_text = sprintf( _n("%s item has %s", "%s items have %s", $count, "woocommerce" ),
+        $count, __("been added to your cart.", "woocommerce") );
+
+    // Output success messages
+    if ( 'yes' === get_option( 'woocommerce_cart_redirect_after_add' ) ) {
+        $return_to = apply_filters( 'woocommerce_continue_shopping_redirect', wc_get_raw_referer() ? wp_validate_redirect( wc_get_raw_referer(), false ) : wc_get_page_permalink( 'shop' ) );
+        $message   = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( $return_to ), esc_html__( 'Continue shopping', 'woocommerce' ), esc_html( $added_text ) );
+    } else {
+        $message   = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( wc_get_page_permalink( 'cart' ) ), esc_html__( 'View cart', 'woocommerce' ), esc_html( $added_text ) );
+    }
+    return $message;
+}
+add_filter( 'wc_add_to_cart_message_html', 'custom_add_to_cart_message_html', 10, 2 );

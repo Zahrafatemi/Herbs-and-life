@@ -1,8 +1,5 @@
 jQuery(document).ready(function($){
   
-    // ------------------------------------------
-    // Recipes Filters toggle
-    // ------------------------------------------
     let radio_first= $('.wpcf7-list-item.first');
     let radio_last= $('.wpcf7-list-item.last');
    

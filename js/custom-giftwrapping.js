@@ -9,7 +9,7 @@ jQuery(document).ready(function($){
 
     // Toggle additional options for Custom Packaging
     $( 'body' ).on( 'change', '[data-label="Custom Giftwrapping"]', function() {
-        $( '.wc-pao-addon-select-a-colour, .wc-pao-addon-custom-image, .wc-pao-addon-additional-instructions, .wc-pao-addon-custom-text' ).toggle();
+        $( '.wc-pao-addon-select-a-design, .wc-pao-addon-custom-image, .wc-pao-addon-additional-instructions, .wc-pao-addon-custom-text' ).toggle();
         $( '.wc-pao-addon-custom-text-location' ).hide();
     });
 

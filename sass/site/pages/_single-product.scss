@@ -5,7 +5,7 @@
 
 .product_cat_oils-vinegars,
 .product_cat_herbs-spices,
-.product_cat_heatlh-beauty {
+.product_cat_health-beauty {
 
     main {
         max-width: em(1400);
@@ -79,6 +79,24 @@
                 }
             }
 
+            
+            .wc-pao-addon-wrap {
+                // Checkbox
+                &:first-child {
+                    margin-top: 1.5rem;
+                }
+
+                // Other rows
+                &:not(first-child) {
+                    margin-top: 0.5rem;
+                }
+            }
+
+            // Size variation table
+            .variations {
+                margin-top: 1.5rem;
+            }
+          
             // General styling for add-on container
             form {
                 .wc-pao-addon-container {
@@ -87,15 +105,23 @@
                         font-size: 102%;
                     }
 
-                    // small {
-                    //     // font-size: 102%;
-                    // }
-
                     .wc-pao-addon-name {
                         text-transform: uppercase;
                         font-weight: 500;
                         color: $color__cat_border;
                         letter-spacing: 0.03em;
+
+                        .wc-pao-addon-image-swatch-price {
+                            &:before {
+                                content: "* ";
+                                color: $color__mossgreen;
+                            }
+
+                            &:after {
+                                content: "*";
+                                color: $color__mossgreen;
+                            }
+                        }
                     }
                 }
 
@@ -117,10 +143,9 @@
 
                     // "Choose file" button
                     input[type="file"]::-webkit-file-upload-button {
-                        background-color: $color__mossgreen;
-                        color: white;
-                        padding: 10px;
-
+                        background-color: $color__coolgray;
+                        padding: 5px 10px;
+                        cursor: cell;
                     }
                 }
             }
@@ -141,13 +166,18 @@
         }
 
         .after-product-summary {
+
+            .related {
+                margin-top: 2rem;
+            }
+
             @include mq($mq850) {
                 grid-column-start: span 2;
             }
         }
     }
 
-
+    
     .woocommerce-product-gallery {
         .woocommerce-product-gallery__trigger {
             display: none;
@@ -265,13 +295,6 @@
             }
         }
     }
-
-
-
-
-
-
     }
-
 
 }

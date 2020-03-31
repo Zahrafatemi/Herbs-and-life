@@ -75,6 +75,7 @@
 
     p {
         font-size: 0.9em;
+        padding-bottom: 1em;
 
         @include mq($mq1600) {
             font-size: 1em;

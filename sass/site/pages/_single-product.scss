@@ -13,15 +13,21 @@
 
         @include mq($mq850) {
             padding-top: 30px;
-
         }
 
         .woocommerce-breadcrumb {
-
             @include mq($mq850){
                 position: relative;
                 left: calc(50% + 50px);
                 font-size: 0.9rem;
+            }
+        }
+
+        .woocommerce-notices-wrapper {
+            .woocommerce-message {
+                a {
+                    font-weight: 500;
+                }
             }
         }
         
@@ -60,8 +66,9 @@
                 }
             }
 
-            .price {
-                font-size: 1.3rem;
+            // Product Price (regular and sale)
+            .price, del, ins {
+                font-size: 1.3rem; 
 
                 @include mq($mq850) {
                     font-size: 1.5rem;
@@ -70,7 +77,66 @@
                 .woocommerce-Price-currencySymbol {
                     padding-right: 2px;
                 }
-                
+            }
+
+            // General styling for add-on container
+            form {
+                .wc-pao-addon-container {
+
+                    .form-row {
+                        font-size: 102%;
+                    }
+
+                    // small {
+                    //     // font-size: 102%;
+                    // }
+
+                    .wc-pao-addon-name {
+                        text-transform: uppercase;
+                        font-weight: 500;
+                        color: $color__cat_border;
+                        letter-spacing: 0.03em;
+                    }
+                }
+
+                // Color selection
+                .wc-pao-addon-image-swatch {
+                    outline: none;
+                    clip-path: circle(40%);
+                }
+
+                // Custom Text
+                .wc-pao-addon-custom-text {
+                    input[type="text"] { 
+                        width: 100%;
+                    }
+                }
+
+                // Custom Image
+                .wc-pao-addon-custom-image {
+
+                    // "Choose file" button
+                    input[type="file"]::-webkit-file-upload-button {
+                        background-color: $color__mossgreen;
+                        color: white;
+                        padding: 10px;
+
+                    }
+                }
+            }
+
+            // Add-on subtotals
+            .product-addon-totals {
+                border-top: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
+
+                .wc-pao-subtotal-line {
+                    border-top: 1px solid #ddd;
+                }
+
+                .price {
+                    font-size: 1.3rem;
+                }
             }
         }
 
@@ -79,7 +145,6 @@
                 grid-column-start: span 2;
             }
         }
-
     }
 
 

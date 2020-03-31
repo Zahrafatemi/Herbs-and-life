@@ -2,7 +2,11 @@
 
 .home-intro,
 .shop_intro{
-    padding: 0 60px;
+    padding: 0 30px;
+
+    @include mq($mq370) {
+        padding: 0 60px;
+    }
 
     @include mq($mq615) {
         max-width: 700px;

@@ -110,7 +110,19 @@
                             padding: 0 0.8rem;
                         }
                         
-                    }    
+                    } 
+                    span.wpcf7-list-item.selected{
+                        input[type="radio"] + span {
+                            &::before{
+                            background: transparent;
+                            }
+                            &::after {
+                                background: $color__darkgray;
+                                visibility: visible;
+                            }
+                        }  
+                        
+                    }      
                 }
 
                 

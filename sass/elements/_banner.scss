@@ -168,6 +168,17 @@
  */
 .promo-banner-text-box {
     background-color: $color__coolgray;
+    height: 21rem;
+
+    @include mq($mq370){
+        height: 18rem;
+    }
+
+    @include mq($mq500){
+        height: 16rem;
+    }
+
+    
 
     @include mq($mq850) {
         .promo-btn{
@@ -191,14 +202,14 @@
     }
 
     @include mq($mq400){
-        height: 20rem;
+        height: 19.5rem;
     }
 
     @include mq($mq500){
         height: 18rem;
     }
 
-    @include mq($mq670){
+    @include mq($mq615){
         height: auto;
     }
 

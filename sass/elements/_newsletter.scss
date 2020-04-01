@@ -30,11 +30,15 @@
 
 
     h2 {
-        padding: 15px 0px;
+        padding: 1.5rem 0px;
     }
      p{
          font-size: 0.8em;
-         padding: 0 1rem;
+         padding: 0 1rem 1.5rem;
+
+         @include mq($mq670){
+             font-size: 1rem;
+         }
         
      }
 
@@ -42,13 +46,17 @@
         padding:1rem;
         text-align: left;
         p{
-            padding: 0 0 1rem 0;
+            padding: 0 0 2rem 0;
+
+            @include mq($mq670){
+                padding: 0 0 0 1rem;
+            }
         }
 
         input[type="email"] {
             width: 100%;
             @include mq($mq670){
-                width: 430px; 
+                width: 28rem; 
             }
         }
 

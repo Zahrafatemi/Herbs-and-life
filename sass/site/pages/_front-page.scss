@@ -6,7 +6,7 @@
     
     // Featured products
     .featured-products{
-        padding-top: 4rem;
+        padding-top: 5rem;
         .featured-wrapper{
             &:nth-of-type(1){
                 padding-top: 2em;
@@ -143,7 +143,7 @@
         }
         //.featured-products
         @include mq($mq670){
-            padding: 5vh 0vh 18vh;
+            padding: 5rem 0vh 18rem;
             max-width: 900px;
             margin: 0 auto;
             height: 50rem;
@@ -157,7 +157,12 @@
 
     //category
     .product-category{
-         padding: 2rem 0;
+         padding: 2.5rem 0;
+
+         @include mq($mq670){
+            padding-top: 5rem;
+         }
+
         .p-category{
         
             .category-wrapper {
@@ -208,7 +213,7 @@
                             }
                         }
                     }
-            }
+                }
             
             }
 
@@ -216,7 +221,7 @@
     }
     // Why choose us
     .why-us{
-        padding: 2rem 0;
+        padding: 2.5rem 0;
         .why-us-background{
             background-color: $color__coolgray;
             margin-top: 30px;
@@ -287,7 +292,7 @@
 
     // Latest Blog
     .blog-events-wrapper{
-        padding: 2rem 0;
+        padding-top: 1.7rem;
         .latest-blog{
             h3 {
                 @include sanserif-heading();
@@ -313,20 +318,30 @@
         }
         // Upcomign Event
         .upcoming-events{
-            padding-top: 4rem;
+            padding-top: 5rem;
             h3 {
                 @include sanserif-heading();
+                padding-bottom: 1rem;
+            }
+            p{
+                padding-bottom: 1.5rem;
             }
             ul{
                 list-style: none;
                 margin: 0;
                 text-align: center;
-                padding: 30px;
+                padding: 2rem 30px;
                 li {
                     border-bottom:1px solid $color__mossgreen;
                     margin-bottom: 30px;
                 }
 
+            }
+            @include mq($mq670){
+                padding-top:0rem;
+                ul{
+                    padding: 1.5rem 30px; 
+                }
             }
         }
         @include mq($mq670){
@@ -339,9 +354,14 @@
 
     //award & certificate
     .awards{
-        padding: 2rem 0;
+        padding-top:3rem;
+
+        @include mq($mq670){
+            padding-top: 5rem;
+         }
+
         .award-slider{
-            padding: 20px 30px;
+            padding: 1.5rem 30px;
             .slick-prev {
                 left: 5px;
             }
@@ -369,7 +389,7 @@
     }
 
     .testimonials{
-        padding: 30px;
+        padding: 3.5rem 30px 2rem;
         .tm-wrapper{
         padding-top:2em;
             .tm-text{
@@ -377,6 +397,7 @@
             }
         }
         @include mq($mq670){
+            padding-top: 5rem;
             .tm-wrapper{
                 display: grid;
                 grid-template-columns: 1fr 1fr;

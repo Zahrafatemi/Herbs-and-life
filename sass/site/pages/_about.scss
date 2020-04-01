@@ -1,6 +1,6 @@
 .page-id-103{
     .about-history{
-        padding: 4em 0em 5em;
+        padding: 3em 0em 5em;
         .history-box{
             padding-bottom: 6.5rem;
             position: relative;
@@ -267,7 +267,7 @@
             }
         }
         @include mq ($mq1350){
-            padding-bottom: 20rem;
+            
             .history-future{
                 .history-image{
                     transform: translate3d(0vw, 10em, 0em);

@@ -53,6 +53,11 @@ footer{
                     @include serif-heading();
                     color:#ffffff;
                     font-size: 1.37em;
+                    height: 3.5rem;
+
+                    @include mq($mq420){
+                        height: 2rem; 
+                    }
                 }
                 a{
                     color:$color__coolgray;
@@ -63,6 +68,14 @@ footer{
                     font-family: $font__main;
                     font-weight: 300;
                     text-transform: capitalize;
+
+                    li.menu-item{
+                        font-size:0.67rem;
+
+                            @include mq($mq670){
+                                font-size: 0.8rem; 
+                            }
+                    }
                 
                 }
                 @include mq($mq950){
@@ -110,6 +123,7 @@ footer{
             }
             p{
                 margin: 0;
+                font-size: 0.8rem;
             }
         }
 
@@ -154,7 +168,8 @@ footer{
                 padding-bottom: 0px;
                 ul{
                     li:first-child{
-                    height: 52px;
+                    height: 3.3rem;
+                    line-height: 1.3;
                     }
                 }
             }

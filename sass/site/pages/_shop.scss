@@ -1,15 +1,16 @@
 .page-id-14{
 
     .product-category,
-    .we-offer,
     .store-locator {
-        padding-top: 100px;
+        padding-top: 5rem;
         padding-bottom: 30px;
     }
 
 
     // We also offer
     .we-offer {
+        padding-top: 2.5rem;
+        padding-bottom: 30px;
             &:after {
                 content: '';
                 display: block;

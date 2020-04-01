@@ -21,10 +21,7 @@
         padding-left: 1.8rem;
         background-size:  1.5em 1.45em;
         font-size: 0.8em;
-    }
-
-    @include mq($mq670){
-        li#menu-item-726 {
+        @include mq($mq670){
             display: none;
         }
     }

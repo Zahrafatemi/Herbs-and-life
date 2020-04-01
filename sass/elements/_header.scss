@@ -100,7 +100,7 @@
                 }
             }  
             .cart-contents{
-                display: none;
+                
 
                 @include mq($mq670){ 
                     display: block;
@@ -111,17 +111,27 @@
                     display:block;
                     margin-left: 14px;
                     img{
-                        width: 28px;
-                        height: 28px;
+                        width: 35px;
+                        height: 35px;
                         position: relative;
                         margin-top: 3px;
+                        @include mq($mq670){ 
+                            width: 28px;
+                            height: 28px;
+                        }
+
                     }
                     .count-text{
                         position: absolute;
-                        top: 57%;
-                        left: 38%;
-                        transform: translate(-50%, -38%);
+                        top: 50%;
+                        left: 0.8em;
+                        transform: translate(0, -30%);
                         font-weight: bold;
+                        @include mq($mq670){
+                            top: 57%;
+                            left: 38%;
+                            transform: translate(-50%, -38%);
+                        }
                     }
                     @include mq($mq670){   
                         font-size: 0.8em;

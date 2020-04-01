@@ -14,6 +14,20 @@
             font-size: 1em;
         }
     }
+    .acicon {
+        background-image: url('images/assets/header/account.svg');
+        background-repeat: no-repeat;
+        background-position: left;
+        padding-left: 1.8rem;
+        background-size:  1.5em 1.45em;
+        font-size: 0.8em;
+    }
+
+    @include mq($mq670){
+        li#menu-item-726 {
+            display: none;
+        }
+    }
    
 }
 

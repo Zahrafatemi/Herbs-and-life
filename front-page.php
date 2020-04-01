@@ -172,7 +172,7 @@ get_header();
 										<div class="latest-blog-text-wrapper">
 										<h3><a href = "<?php the_permalink(); ?>"><?php the_title();?></a></h3>
 										<div class="blog-border-img"></div>
-										<?php the_excerpt();?>
+										<p><?php the_excerpt();?></p>
 									<?php endwhile;
 									wp_reset_postdata();
 								endif; ?>

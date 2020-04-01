@@ -34,14 +34,19 @@
     }
      p{
          font-size: 0.8em;
+         padding: 0 1rem;
+        
      }
 
     .mc4wp-form-fields{
-        padding: 0 15px;
+        padding:1rem;
         text-align: left;
+        p{
+            padding: 0 0 1rem 0;
+        }
 
         input[type="email"] {
-            width: 250px;
+            width: 100%;
             @include mq($mq670){
                 width: 430px; 
             }

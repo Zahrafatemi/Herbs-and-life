@@ -178,3 +178,32 @@
     }
 }
 
+/*
+ * Front Page Banner
+ */
+
+ 
+.hero-banner-text-box{
+    height: 24rem;
+
+    @include mq($mq370){
+        height: 22rem;
+    }
+
+    @include mq($mq400){
+        height: 20rem;
+    }
+
+    @include mq($mq500){
+        height: 18rem;
+    }
+
+    @include mq($mq670){
+        height: auto;
+    }
+
+}
+                
+
+ 
+

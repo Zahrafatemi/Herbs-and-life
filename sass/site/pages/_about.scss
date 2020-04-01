@@ -1,6 +1,6 @@
 .page-id-103{
     .about-history{
-        padding: 3em 0em 5em;
+        padding: 3em 0em 0em;
         .history-box{
             padding-bottom: 6.5rem;
             position: relative;
@@ -148,7 +148,7 @@
         }
 
         @include mq($mq850){
-            padding-bottom: 7rem;
+            
             .history-box{
                 .history-image {
                     min-height: 25rem;
@@ -181,7 +181,7 @@
         }
 
         @include mq ($mq900){
-            padding-bottom: 12rem;
+            padding-bottom: 7rem;
             .history-box{
                 .history-image {
                     min-height: 27rem;
@@ -238,7 +238,7 @@
             }
         }
         @include mq ($mq1200){
-            padding-bottom: 15rem;
+            padding-bottom: 10rem;
             .history-box{
                 .history-image {
                     height: 28rem;
@@ -276,19 +276,14 @@
         }
     }
 
-    .awards{
-        padding-bottom: 2rem;
-
-        @include mq ($mq1024){
-            padding-bottom: 5rem; 
-        }
-    }
     
     .supporters{
+        padding-top: 3em;
         .sb_instagram_header.sbi_no_avatar {
             display: none;
         }
         @include mq ($mq670){
+            padding-top: 4em;
             div#sbi_images {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;

@@ -1,0 +1,35 @@
+//award & certificate
+.awards{
+    padding-top:3rem;
+
+    @include mq($mq670){
+        padding-top: 5rem;
+     }
+
+    .award-slider{
+        padding: 1.5rem 30px;
+        .slick-prev {
+            left: 5px;
+        }
+        .slick-next {
+            right: 5px;
+        }
+        .slick-prev:before, .slick-next:before {
+            color:$color__bodyfont;
+        
+        }
+        figure.wp-block-image.size-medium img {
+            height: 80px;
+        }
+        @include mq($mq850){
+            .slick-list {
+                transform: translate3d(1.5em, 0, 0);
+            }
+        }
+        @include mq($mq1024){
+            .slick-list {
+                transform: translate3d(4em, 0, 0);
+            }
+        }
+    }
+}

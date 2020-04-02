@@ -272,16 +272,24 @@
     }
 
     .woocommerce-tabs.wc-tabs-wrapper {
-        .tabs {
+        ul.tabs {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            @include mq($mq850) {
+                justify-content: start;
+            }
         }
 
         li {
-            margin-right: emRhythm();
-
             &.active a {
                 color: $color__mossgreen;
                 border-color: $color__mossgreen;
+            }
+
+            @include mq($mq850) {
+                margin-right: emRhythm();
             }
         }
 

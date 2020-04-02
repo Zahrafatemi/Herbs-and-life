@@ -28,9 +28,24 @@
 
         .woocommerce-notices-wrapper {
             .woocommerce-message {
+
+                padding: 1em 1.618em;
+
+                // change order of message and button
+                &:before {
+                    content: '';
+                    display: table;  
+                }
+
+                // View cart button
                 a {
                     font-weight: 500;
+                    float: right;
                     
+                }
+
+                &:after {
+                    content: '&rarr';
                 }
             }
         }

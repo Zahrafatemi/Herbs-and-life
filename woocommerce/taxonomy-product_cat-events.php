@@ -52,7 +52,7 @@ get_header();
 							</div><!--.events-banner-->
 							
 							<div class="events-second-text-box">
-								<h2 class="title"><?php echo $second_header ?></h2>
+								<h1 class="title"><?php echo $second_header ?></h1>
 								<p class="description"><?php echo $second_description ?></p>
 							</div><!--.events-second-text-box-->
 

@@ -355,6 +355,7 @@ add_filter( 'woocommerce_get_breadcrumb', 'herblife_change_breadcrumb' );
 /**
  * Change the default "{qty} x {product-name} has(ve) been added to your cart" message to:
  * {qty} item(s) has/have been added to your cart.
+ * from https://stackoverflow.com/a/53840271
  */
 function custom_add_to_cart_message_html( $message, $products ) {
     $count = 0;

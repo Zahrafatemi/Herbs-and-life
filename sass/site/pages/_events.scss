@@ -21,6 +21,14 @@
                 background-repeat: repeat-x;
                 background-position: center;
             }
+
+            max-width: 550px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        @include mq(900px){
+            margin-bottom: 115px;
         }
     }
 
@@ -46,11 +54,46 @@
     }
     
     .events-list{
-        .future-single-event.single-event, .past-single-event.single-event{
+
+        .events-headers{
+            display: none;
+
+            @include mq(900px){
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-column-gap: 50px;
+                //grid-row-gap: 20px;
+                grid-template-areas: 
+                "c1 c2 c3";
+                .col2{ grid-area: c2; }
+                .col3{ grid-area: c3; }
+
+                h2{
+                    margin: 0;
+                    font-size: 1.1rem;
+                    color: $color__cat_herb;
+                }
+
+                h2:after{
+                    content: "";
+                    margin: 5px 0 0 0;
+                    position: relative;
+                    display: block;
+                    width: 100%;
+                    height: 17px;
+                    background: url(images/assets/botanic-border/botanic-border-shop.svg);
+                    background-repeat: repeat-x;
+                    background-position: center;
+                }
+            }
+        }
+        
+        .future-single-event.single-event, 
+        .past-single-event.single-event{
 
             margin: 70px 0;
+
             .event-image{
-                
                 img{
                     width: 100vw;
                     height: 250px;
@@ -59,7 +102,7 @@
                 }
             }
 
-            .event-summary{
+            .second-column{
                 margin: 25px;
 
                 .event-tags{
@@ -72,13 +115,73 @@
                     p{
                         font-family: $font__main;
                         font-size: 1.17em;
-                        margin: 0;
+                        margin: 10px 0 0 0;
                     }
                 }
 
+            }
+
+            .event-date-time{
+                margin: 25px;
+                p{
+                    margin: 5px 0 0 0;
+                }
+            }
+
+            @include mq(500px){
+
+                a.each-event{
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-column-gap: 30px;
+                    grid-template-areas: 
+                    "image title"
+                    "image details";
+
+                    .event-image{ grid-area: image; 
+                        align-self: center;}
+                    .second-column{ grid-area: title; 
+                        align-self: center;}
+                    .event-date-time{ grid-area: details; 
+                        align-self: center;}
+
+                    @include mq(900px){
+
+                        max-width: 850px;
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        grid-column-gap: 50px;
+                        grid-template-areas: 
+                        "image title details";
+                        .event-image{ grid-area: image; 
+                            align-self: center;}
+                        .second-column{ grid-area: title; 
+                            align-self: center;}
+                        .event-date-time{ grid-area: details; 
+                            align-self: center;}
+
+                    }
+                }
+                margin: 0 0 70px 0;
+
+                .event-image{
+                    img{
+                        width: 100%;
+                        height: 180px;
+                        object-fit: cover;
+                        object-position: 50% 50%;                        
+                    }
+                }
+
+                .second-column{
+                    margin: 0;
+                }
+
                 .event-date-time{
+                    margin: 0;
                     p{
-                        margin: 0;
+                        font-size: 1rem;
+                        margin: 10px 0 0 0;
                     }
                 }
             }
@@ -102,5 +205,18 @@
         #past-events{
             display: none;
         }
+
+        
+
+        @include mq(500px){
+            
+            margin: 0 auto;
+            max-width: 500px;
+
+            @include mq(900px){
+                max-width: 850px;
+            }
+        }
+        
     }
 }

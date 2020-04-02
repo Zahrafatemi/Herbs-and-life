@@ -110,6 +110,7 @@
                     position: relative;
                     display:block;
                     margin-left: 14px;
+                    width: 35px;
                     img{
                         width: 35px;
                         height: 35px;
@@ -124,8 +125,8 @@
                     .count-text{
                         position: absolute;
                         top: 50%;
-                        left: 0.8em;
-                        transform: translate(0, -30%);
+                        left: 50%;
+                        transform: translate(-50%, -30%);
                         font-weight: bold;
                         @include mq($mq670){
                             top: 57%;

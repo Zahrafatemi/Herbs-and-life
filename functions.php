@@ -375,10 +375,3 @@ function custom_add_to_cart_message_html( $message, $products ) {
     return $message;
 }
 add_filter( 'wc_add_to_cart_message_html', 'custom_add_to_cart_message_html', 10, 2 );
-
-
-
-/**
- *  Remove WooCommerce Default pageination
- */
-remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );

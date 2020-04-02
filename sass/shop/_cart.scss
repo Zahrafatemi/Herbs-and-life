@@ -18,7 +18,7 @@
                         padding-bottom:1em;
                     }
                     td.product-remove {
-                        height: 2rem;
+
                         grid-area: p-remove;
                         a.remove {
                             @include cart-btn();
@@ -58,13 +58,11 @@
                             width: 93%;
                         }
                         .button{
-                            height: 2rem;
                             background-color:$color__coolgray;
                             color:$color__bodyfont;
                         }
                     }
                     button.button{
-                        height: 1.8rem;
                         border-radius: 0px;
                         @include cart-btn();
                         background-color: $color__cat_border;
@@ -111,7 +109,6 @@
                             a.remove {
                                 @include cart-btn();
                                 height: 2.8rem;
-                                padding: 0.3rem 0.8rem;
                             }
                         }
                         td.product-quantity{

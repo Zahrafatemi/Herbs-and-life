@@ -66,6 +66,11 @@ get_header();
 
 
 			<div class="events-list">
+
+				<div class="events-headers">
+					<h2 class="col2">Event</h2>
+					<h2 class="col3">Date and Time</h2>
+				</div>
 				<?php
 				global $post;
 				$short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
@@ -113,32 +118,35 @@ get_header();
 								$query->the_post();
 							?>
 							<div class="future-single-event single-event">
-								<a href="<?php the_permalink() ?>">
+								<a class="each-event" href="<?php the_permalink() ?>">
 									<div class="event-image">
 										<?php the_post_thumbnail('event-thumbnail'); ?>
 									</div><!-- end of .event-image -->
 
-									<div class="event-summary">
-										<!-- The product tags list -->
-										<?php $terms = get_the_terms( $post->ID, 'product_tag' ); ?>
-										<div class="event-tags">
-											<?php 
-											$i = 1;
-											foreach ( $terms as $term ) :
-												echo $term->name;
-												echo ($i < count($terms))? ", " : "";
-												// Increment counter
-												$i++;
-											endforeach ?>
-										</div>
+									<!-- <div class="event-summary"> -->
 
-										<div class="event-title-price">
-											<!-- The product Title -->
-											<h3 class="title"><?php the_title(); ?></h3>
-											
-											<!-- The product Price -->
-											<p class="event-price"><?php echo($product->get_price()>0) ? "$".$product->get_price() : 'Free Event'; ?></p>
-										</div><!-- End of event-title-price -->
+										<div class="second-column">
+											<!-- The product tags list -->
+											<?php $terms = get_the_terms( $post->ID, 'product_tag' ); ?>
+											<div class="event-tags">
+												<?php 
+												$i = 1;
+												foreach ( $terms as $term ) :
+													echo $term->name;
+													echo ($i < count($terms))? ", " : "";
+													// Increment counter
+													$i++;
+												endforeach ?>
+											</div>
+
+											<div class="event-title-price">
+												<!-- The product Title -->
+												<h3 class="title"><?php the_title(); ?></h3>
+												
+												<!-- The product Price -->
+												<p class="event-price"><?php echo($product->get_price()>0) ? "$".$product->get_price() : 'Free Event'; ?></p>
+											</div><!-- End of event-title-price -->
+										</div>
 
 										<div class="event-date-time">
 											<?php if(get_field('date')):?>
@@ -153,7 +161,7 @@ get_header();
 											<?php endif;?>
 											
 										</div><!-- end of .event-date-time -->
-									</div><!--.event-summary-->
+									<!-- </div>.event-summary -->
 								</a>
 							</div><!--.future-single-event-->
 						<?php endwhile;
@@ -175,32 +183,35 @@ get_header();
 							$query->the_post();
 							?>
 							<div class="past-single-event single-event">
-								<a href="<?php the_permalink() ?>">
+							<a class="each-event" href="<?php the_permalink() ?>">
 									<div class="event-image">
 										<?php the_post_thumbnail('event-thumbnail'); ?>
 									</div><!-- end of .event-image -->
 
-									<div class="event-summary">
-										<!-- The product tags list -->
-										<?php $terms = get_the_terms( $post->ID, 'product_tag' ); ?>
-										<div class="event-tags">
-											<?php 
-											$i = 1;
-											foreach ( $terms as $term ) :
-												echo $term->name;
-												echo ($i < count($terms))? ", " : "";
-												// Increment counter
-												$i++;
-											endforeach ?>
-										</div>
+									<!-- <div class="event-summary"> -->
 
-										<div class="event-title-price">
-											<!-- The product Title -->
-											<h3 class="title"><?php the_title(); ?></h3>
-											
-											<!-- The product Price -->
-											<p class="event-price"><?php echo($product->get_price()>0) ? "$".$product->get_price() : 'Free Event'; ?></p>
-										</div><!-- End of event-title-price -->
+										<div class="second-column">
+											<!-- The product tags list -->
+											<?php $terms = get_the_terms( $post->ID, 'product_tag' ); ?>
+											<div class="event-tags">
+												<?php 
+												$i = 1;
+												foreach ( $terms as $term ) :
+													echo $term->name;
+													echo ($i < count($terms))? ", " : "";
+													// Increment counter
+													$i++;
+												endforeach ?>
+											</div>
+
+											<div class="event-title-price">
+												<!-- The product Title -->
+												<h3 class="title"><?php the_title(); ?></h3>
+												
+												<!-- The product Price -->
+												<p class="event-price"><?php echo($product->get_price()>0) ? "$".$product->get_price() : 'Free Event'; ?></p>
+											</div><!-- End of event-title-price -->
+										</div>
 
 										<div class="event-date-time">
 											<?php if(get_field('date')):?>
@@ -215,7 +226,7 @@ get_header();
 											<?php endif;?>
 											
 										</div><!-- end of .event-date-time -->
-									</div><!--.event-summary-->
+									<!-- </div>.event-summary -->
 								</a>
 							</div><!--.past-single-event-->
 						<?php endwhile;

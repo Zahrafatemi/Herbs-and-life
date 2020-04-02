@@ -37,7 +37,6 @@
         text-align: center;
 
         .title{
-            font-size: 1.3rem;
             &:after{
                 content: "";
                 margin: 10px auto;
@@ -47,7 +46,6 @@
                 height: 20px;
                 background: url(images/assets/botanic-icon/botanic-icon-main.svg);
                 background-repeat: no-repeat;
-                background-size: cover;
                 background-position: center center;
             }
         }
@@ -59,10 +57,11 @@
             display: none;
 
             @include mq(900px){
+                margin: 0 auto;
+                max-width: 850px;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 grid-column-gap: 50px;
-                //grid-row-gap: 20px;
                 grid-template-areas: 
                 "c1 c2 c3";
                 .col2{ grid-area: c2; }
@@ -80,10 +79,12 @@
                     position: relative;
                     display: block;
                     width: 100%;
-                    height: 17px;
+                    height: 20px;
                     background: url(images/assets/botanic-border/botanic-border-shop.svg);
                     background-repeat: repeat-x;
                     background-position: center;
+                    background-size: contain;
+
                 }
             }
         }
@@ -131,6 +132,8 @@
             @include mq(500px){
 
                 a.each-event{
+                    margin: 0 auto;
+                    max-width: 550px;
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
                     grid-column-gap: 30px;
@@ -146,7 +149,7 @@
                         align-self: center;}
 
                     @include mq(900px){
-
+                        margin: 0 auto;
                         max-width: 850px;
                         display: grid;
                         grid-template-columns: repeat(3, 1fr);
@@ -204,18 +207,6 @@
 
         #past-events{
             display: none;
-        }
-
-        
-
-        @include mq(500px){
-            
-            margin: 0 auto;
-            max-width: 550px;
-
-            @include mq(900px){
-                max-width: 850px;
-            }
         }
         
     }

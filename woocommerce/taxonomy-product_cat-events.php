@@ -120,7 +120,7 @@ get_header();
 							<div class="future-single-event single-event">
 								<a class="each-event" href="<?php the_permalink() ?>">
 									<div class="event-image">
-										<?php the_post_thumbnail('event-thumbnail'); ?>
+										<?php the_post_thumbnail('medium'); ?>
 									</div><!-- end of .event-image -->
 
 									<!-- <div class="event-summary"> -->
@@ -185,7 +185,7 @@ get_header();
 							<div class="past-single-event single-event">
 							<a class="each-event" href="<?php the_permalink() ?>">
 									<div class="event-image">
-										<?php the_post_thumbnail('event-thumbnail'); ?>
+										<?php the_post_thumbnail('medium'); ?>
 									</div><!-- end of .event-image -->
 
 									<!-- <div class="event-summary"> -->

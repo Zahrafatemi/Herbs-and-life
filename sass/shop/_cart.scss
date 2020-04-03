@@ -81,7 +81,7 @@
                             display:grid;
                             grid-template-areas: ". th-p-name th-p-price th-p-quantity th-p-subtotal .";
                             justify-items: start;
-                            grid-template-columns: 18% 30% 9% 9% 9% 20%;
+                            grid-template-columns: 19% 30% 9% 9% 9% 20%;
                             grid-column-gap: 0.5em;
 
                             th.product-remove,
@@ -105,7 +105,7 @@
                     tr.cart_item{
                         grid-template-areas: 
                         "p-thumb p-name p-price p-quantity p-subtotal p-remove";
-                        grid-template-columns: 18% 30% 9% 9% 9% 20%;
+                        grid-template-columns: 19% 30% 9% 9% 9% 20%;
                         align-items: center;
                         
                         &:not(:last-of-type){

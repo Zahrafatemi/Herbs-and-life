@@ -39,14 +39,23 @@
                 input[type="tel"] {
                     width:100%;
                 }
-                input.wpcf7-form-control.wpcf7-submit {
+
+
+                button#submit{
                     background-color: $color__darkgray;
                     color: white;
                     border-radius: 0;
                     padding:0.8rem 1rem;
                     width: 11rem;
                     margin-right: -20px;
+                   
+                  
+                    #{$link-hover-selector}{
+                        background-color:lighten($color__darkgray, 10%) !important;
+                        cursor: pointer!important;
+                    }
                 }
+                
 
                 span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 {
                     position: relative;

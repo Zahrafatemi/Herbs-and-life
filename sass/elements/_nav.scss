@@ -10,6 +10,11 @@
     .menu-item a{
         font-size: 1.2em;
 
+        #{$link-hover-selector}{
+            color:lighten($color__bodyfont, 20%);
+            cursor: pointer;
+        }
+
         @include mq($mq670){
             font-size: 1em;
         }

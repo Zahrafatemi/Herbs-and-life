@@ -99,6 +99,10 @@ button.menu-toggle-open {
 	#hm-icon-close {
 		width: 30px;
 		height: 30px;
+
+		#{$link-hover-selector}{
+			cursor: pointer;
+		}
 	}
 	
     position: absolute;

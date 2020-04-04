@@ -74,6 +74,10 @@
                                 grid-area: p-remove;
                                 a.remove {
                                     @include cart-btn();
+                                    #{$link-hover-selector}{
+                                        background-color:lighten($color__mossgreen, 10%);
+                                        cursor: pointer;
+                                    }
                                 }
                             }
 
@@ -121,6 +125,11 @@
                                 border-radius: 0px;
                                 @include cart-btn();
                                 background-color: $color__cat_border;
+
+                                #{$link-hover-selector}{
+                                    background-color:lighten($color__cat_border, 10%);
+                                    cursor: pointer;
+                                }
                             }
                         }
                         @include mq($mq768){
@@ -224,7 +233,10 @@
                                     border-radius: 0px;
                                     @include cart-btn();
                                     background-color:$color__darkgray;
-                                
+                                    #{$link-hover-selector}{
+                                        background-color:lighten($color__darkgray, 10%);
+                                        cursor: pointer;
+                                    }
                                     
                                 }
                             }
@@ -263,6 +275,11 @@
                                             a.shipping-calculator-button {
                                                 text-decoration: underline;
                                                 color: #5E6850;
+                                                #{$link-hover-selector}{
+                                                    color:lighten(#5E6850, 15%);
+                                                    font-weight: 500;
+                                                    cursor: pointer;
+                                                }
                                             }
                                             section.shipping-calculator-form{
                                                 padding: 1rem 0;
@@ -271,10 +288,13 @@
                                                     padding-bottom: 1rem;
                     
                                                     button.button{
-                                                        height: 1.8rem;
                                                         border-radius: 0px;
                                                         @include cart-btn();
                                                         background-color: $color__cat_border;
+                                                        #{$link-hover-selector}{
+                                                            background-color:lighten($color__cat_border, 10%);
+                                                            cursor: pointer;
+                                                        }
                                                     }
                                                 }
                                                 .select2-container--default .select2-selection--single {
@@ -307,6 +327,11 @@
                                             @include cart-btn();
                                             font-size: 1rem;
                                             background-color: $color__cat_border;
+
+                                            #{$link-hover-selector}{
+                                                background-color:lighten($color__cat_border, 10%);
+                                                cursor: pointer;
+                                            }
                                     }
                                 }
 

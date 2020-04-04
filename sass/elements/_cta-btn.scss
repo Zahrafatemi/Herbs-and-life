@@ -13,6 +13,13 @@
     @include btn-style();
     padding: 6.5px;
     max-width: 230px;
+
+        #{$link-hover-selector}{
+            background-color:$color__bodyfont;
+            color:#fff;
+            cursor: pointer;
+        }
+    
 }
 
 // WooCommerce button.. set this class name in <button> tag

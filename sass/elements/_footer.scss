@@ -62,6 +62,8 @@ footer{
                 a{
                     color:$color__coolgray;
 
+                    
+
                 }
                 ul#menu-footer-order_support,
                 ul#menu-footer-menu-about{
@@ -71,6 +73,13 @@ footer{
 
                     li.menu-item{
                         font-size:0.67rem;
+
+                        a{
+                            #{$link-hover-selector}{
+                                color:lighten($color__coolgray, 30%);
+                                cursor: pointer;
+                            }
+                        }
 
                             @include mq($mq670){
                                 font-size: 0.8rem; 

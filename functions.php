@@ -376,11 +376,3 @@ function custom_add_to_cart_message_html( $message, $products ) {
     return $message;
 }
 add_filter( 'wc_add_to_cart_message_html', 'custom_add_to_cart_message_html', 10, 2 );
-
-/**
- * Change redirect url for Back to Shop link
- */
-function wc_empty_cart_redirect_url() {
-	return 'https://herblife.bcitwebdeveloper.ca/shop/';
-}
-add_filter( 'woocommerce_return_to_shop_redirect', 'wc_empty_cart_redirect_url' );

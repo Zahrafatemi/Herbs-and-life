@@ -215,16 +215,22 @@ p.no-comments {
 	@include clearfix;
 	background-color: $woocommerce__color-success;
 	clear: both;
+	width:100%;
+	padding: 0.5em 0.75em;
 }
 
 .woocommerce-info,
 .woocommerce-noreviews,
 p.no-comments {
 	background-color: $woocommerce__color-info;
+	width:100%;
+	padding: 0.5em 0.75em;
 }
 
 .woocommerce-error {
 	background-color: $woocommerce__color-error;
+	width:100%;
+	padding: 0.5em 0.75em;
 }
 
 .demo_store {

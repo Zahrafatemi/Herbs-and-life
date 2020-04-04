@@ -371,7 +371,8 @@ function custom_add_to_cart_message_html( $message, $products ) {
         $return_to = apply_filters( 'woocommerce_continue_shopping_redirect', wc_get_raw_referer() ? wp_validate_redirect( wc_get_raw_referer(), false ) : wc_get_page_permalink( 'shop' ) );
         $message   = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( $return_to ), esc_html__( 'Continue shopping', 'woocommerce' ), esc_html( $added_text ) );
     } else {
-        $message   = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( wc_get_page_permalink( 'cart' ) ), esc_html__( 'View cart', 'woocommerce' ), esc_html( $added_text ) );
+		$message   = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( wc_get_page_permalink( 'cart' ) ), esc_html__( 'View cart', 'woocommerce' ), esc_html( $added_text ) );
+		
     }
     return $message;
 }
@@ -384,3 +385,28 @@ function wc_empty_cart_redirect_url() {
 	return 'https://herblife.bcitwebdeveloper.ca/shop/';
 }
 add_filter( 'woocommerce_return_to_shop_redirect', 'wc_empty_cart_redirect_url' );
+
+/**
+ * Change removed comment in Cart page
+ */
+
+
+function removed_from_cart_title( $message, $cart_item ) {
+    $product = wc_get_product( $cart_item['product_id'] );
+
+    if( $product )
+        $message = sprintf( __('"%s" has been'), $product->get_name());
+
+    return $message;
+}
+add_filter( 'woocommerce_cart_item_removed_title','removed_from_cart_title', 12, 2);
+
+
+function cart_undo_translation( $translation, $text, $domain ) {
+
+    if( $text === 'Undo?' ) {
+        $translation =  __('Do you want to <span>Undo</span>?', $domain );
+    }
+    return $translation;
+}
+add_filter('gettext', 'cart_undo_translation', 35, 3);

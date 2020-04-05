@@ -10,6 +10,7 @@
             }
         }
         .contact-form{
+            padding-top:2rem;
             padding-bottom: 3rem;
             position: relative;
             .contact-bg-img{
@@ -27,78 +28,89 @@
             }
             form.wpcf7-form{
                 p{
+                    &:not(:nth-of-type(odd)),
+                    &:nth-of-type(11){
                     padding-bottom: 1.5em;
-                    
+                    }
+
                     label{
                         font-family: $font__heading;
                         font-size: 0.95rem;
                     }
                 
-                input[type="text"],
-                input[type="email"],
-                input[type="tel"] {
-                    width:100%;
-                }
-
-
-                button#submit{
-                    background-color: $color__darkgray;
-                    color: white;
-                    border-radius: 0;
-                    padding:0.8rem 1rem;
-                    width: 11rem;
-                    margin-right: -20px;
-                   
-                  
-                    #{$link-hover-selector}{
-                        background-color:lighten($color__darkgray, 10%) !important;
-                        cursor: pointer!important;
+                    input[type="text"],
+                    input[type="email"],
+                    input[type="tel"] {
+                        width:100%;
                     }
-                }
+             
                 
-
-                span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 {
-                    position: relative;
-                    padding-left: 0.7rem;
-                }
-                span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 input[type="checkbox"] {
-                    visibility: hidden;
-                }
-                span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 input[type="checkbox"] + span{
-                
-                    &::before{
-                    display: block;
-                    position: absolute;
-                    content: '';
-                    height: 18px;
-                    width: 18px;
-                    top: 1px;
-                    border: 1px solid $color__bodyfont;
+                    span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 {
+                        position: relative;
+                        padding-left: 0.7rem;
                     }
-
-                    &::after{
+                    span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 input[type="checkbox"] {
+                        visibility: hidden;
+                    }
+                    span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 input[type="checkbox"] + span{
+                    
+                        &::before{
                         display: block;
                         position: absolute;
-                        content: '\2713';
-                        height: 10px;
-                        width: 10px;
-                        top: -2px;
-                        left: 4px;
-                        visibility: hidden;
-                        font-size: 1rem;
+                        content: '';
+                        height: 18px;
+                        width: 18px;
+                        top: 1px;
+                        border: 1px solid $color__bodyfont;
+                        }
+
+                        &::after{
+                            display: block;
+                            position: absolute;
+                            content: '\2713';
+                            height: 10px;
+                            width: 10px;
+                            top: -2px;
+                            left: 4px;
+                            visibility: hidden;
+                            font-size: 1rem;
+                        }
+                    
                     }
-                
+                    span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 input[type=checkbox]:checked + span{
+                        &::before{
+                        background: transparent;
+                        }
+                        &::after{
+                            visibility: visible;
+                        }
+                    }
+                    button#submit{
+                        background-color: $color__darkgray;
+                        color: white;
+                        border-radius: 0;
+                        padding:0.8rem 1rem;
+                        width: 11rem;
+                        margin-right: -20px;
+                        z-index: 99!important;           
+                        #{$link-hover-selector}{
+                            background-color:lighten($color__darkgray, 10%) !important;
+                            cursor: pointer!important;
+                        }
+                    }
                 }
-                span.mc4wp-checkbox.mc4wp-checkbox-contact-form-7 input[type=checkbox]:checked + span{
-                    &::before{
-                    background: transparent;
-                    }
-                    &::after{
-                        visibility: visible;
-                    }
+                div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+                    background-color: $woocommerce__color-error;
+                    border:none;
+                    color:#fff;
+                    position: absolute;
+                    top: -1.5rem;
+                    font-size: 0.8rem;
+                    width: 100%;
+                    margin: 0;
                 }
             }
-            }
+            
         
         }
             @include mq($mq670){
@@ -114,40 +126,64 @@
                 
                     }
                     form.wpcf7-form{
-                        display: grid;
-                        grid-template-areas: 
-                        "sender-name email"
-                        "phone order-num"
-                        "message message"
-                        "newsletter submit-btn";
-                        grid-column-gap: 2em;
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+
                         padding: 0 5px;
                         p{
-                            &:first-of-type{
-                            grid-area: sender-name;
+                            width:48%;
+                            
+                            &:nth-of-type(9),
+                            &:nth-of-type(10){
+                                width:100%;
                             }
-                            &:nth-of-type(2){
-                            grid-area: email;
-                            }
+
                             &:nth-of-type(3){
-                            grid-area: phone;
+                                position: absolute;
+                                top:0;
+                                right:0;
+                                margin-right: 0.3rem;
                             }
                             &:nth-of-type(4){
-                                grid-area: order-num;
-                            }
-                            &:nth-of-type(5){
-                                grid-area: message;
-                            }
-                            &:nth-of-type(6){
-                                grid-area: newsletter;
+                                position: absolute;
+                                top: 1.19rem;
+                                right:0;
+                                margin-right: 0.3rem;
                             }
                             &:nth-of-type(7){
-                                grid-area: submit-btn;
-                                justify-self: end;
+                                position: absolute;
+                                top: 4.149rem;
+                                right:0;
+                                margin-right: 0.3rem;
+                            }
+                            &:nth-of-type(8){
+                                position: absolute;
+                                top: 5.5rem;
+                                right:0;
+                                margin-right: 0.3rem;
+                            }
+                            &:last-of-type{
+                                position: absolute;
+                                bottom:0;
+                                right:0;
+                                margin-right: 0.3rem;
+                                text-align: right;
+                                padding-bottom: 0rem;
                             }
                         }
-                    }
-                }
+                        div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+                            top: -2.5rem;
+                        }
+                    } 
+                    .wpcf7-form.invalid{
+                        p{
+                            &:nth-of-type(2){
+                                padding-bottom: 0px;
+                            }
+                        }
+                    }  
+                }  
             }
 
             @include mq($mq850){
@@ -158,7 +194,6 @@
                         
                     }
                     form.wpcf7-form{
-                        grid-row-gap:2em;
                         p{
                             label{
                                 font-size: 1.1rem;
@@ -185,8 +220,51 @@
                         top: 42%;
                         left: 66%;
                     }
+                    form.wpcf7-form{
+                        div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+                            font-size: 1rem;
+
+                        } 
+                    }
                 }
             }
+
+            @include mq($mq1350){
+                .contact-form{
+                    form.wpcf7-form{
+                        p{
+                            &:nth-of-type(3){
+                                position: absolute;
+                                top:0;
+                                right:0;
+                                margin-right: 0.3rem;
+                            }
+                            &:nth-of-type(4){
+                                position: absolute;
+                                top: 1.35rem;
+                                right:0;
+                                margin-right: 0.3rem;
+                            }
+                            &:nth-of-type(7){
+                                position: absolute;
+                                top: 4.78rem;
+                                right:0;
+                                margin-right: 0.3rem;
+                            }
+                            &:nth-of-type(8){
+                                position: absolute;
+                                top: 6.1rem;;
+                                right:0;
+                                margin-right: 0.3rem;
+                            }
+                            &:last-of-type{
+                                padding-bottom: 0.5rem;
+                            }
+                        } 
+ 
+                    }
+                }
+             }   
 
             @include mq($mq1600){
                 

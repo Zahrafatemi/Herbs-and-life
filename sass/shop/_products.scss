@@ -135,9 +135,20 @@ ul.products {
 
             // View Cart
             .added_to_cart {
-                text-align: center;
+                @include btn-style();
+                display: block;
+                width: 140px;
+                height: 32px;
+                position: absolute; 
+                bottom: 0;
+            }
+            
+            // Hide "add to cart" button when it's clicked
+            .ajax_add_to_cart.added {
+                display: none !important;
             }
 
+            // Promotional Banner
             .promotional-banner {
                 padding: 2.25em;
 

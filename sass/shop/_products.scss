@@ -120,6 +120,11 @@ ul.products {
                 height: 32px;
                 position: absolute; 
                 bottom: 0; //align button always on the bottom
+                
+                &:hover {
+                    background-color: $color__mossgreen;
+                    color: white;
+                }
             }
 
             // "Select options"
@@ -136,11 +141,17 @@ ul.products {
             // View Cart
             .added_to_cart {
                 @include btn-style();
+                background-color: $color__mossgreen;
+                color: white;
                 display: block;
                 width: 140px;
                 height: 32px;
                 position: absolute; 
-                bottom: 0;
+                bottom: 0; //align button always on the bottom
+                
+                &:hover {
+                    background-color: lighten($color__mossgreen, 10%) !important;
+                }
             }
             
             // Hide "add to cart" button when it's clicked

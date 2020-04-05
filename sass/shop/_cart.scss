@@ -247,7 +247,7 @@
                             h2{
                                 font-family:$font__main;
                                 line-height: $font__line-height-heading;
-                                text-transform: none;
+                                text-transform: capitalize;
                                 text-align: left;
                                 padding-bottom:1.5rem;
                                 &:after{

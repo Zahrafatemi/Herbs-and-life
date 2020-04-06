@@ -307,6 +307,13 @@
         border: none;
         border-radius: 0;
         cursor: pointer;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &:target {
+            background-color: lighten($color__mossgreen, 10%) !important;
+        }
     }
 
     .woocommerce-tabs.wc-tabs-wrapper {

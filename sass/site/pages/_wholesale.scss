@@ -64,13 +64,10 @@
                             display:flex; 
                             input[type="radio"]{
                             position: relative;
-                            visibility: hidden;
                             width:21px;
                             height: 21px;
-                            }
 
-                            input[type="radio"]+ span {
-                                &::before{
+                            &::before{
                                 display: block;
                                 position: absolute;
                                 content: '';
@@ -79,8 +76,14 @@
                                 width: 20px;
                                 top: 0;
                                 left: 0;
+                                background-color: #fff;
                                 border: 1px solid #666666;
-                                }
+                            } 
+
+                            }
+
+                            input[type="radio"]+ span {
+
                                 &::after {
                                     display: block;
                                     position: absolute;
@@ -95,7 +98,7 @@
                             }
                             input[type="radio"]:checked + span {
                                 &::before{
-                                background: transparent;
+                                    visibility: none;
                                 }
                                 &::after {
                                     background: $color__darkgray;

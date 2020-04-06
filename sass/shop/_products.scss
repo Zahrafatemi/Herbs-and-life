@@ -21,7 +21,32 @@ ul.products {
 
     .page-title {
         padding: 20px 0px;
+    }
 
+    .woocommerce-result-count {
+        padding-bottom: 0.5rem;
+        font-size: 0.9rem;
+        text-align: center;
+
+        @include mq($mq670){
+            padding-left: 2.4rem;
+            text-align: justify;
+		}
+    }
+
+    // Sorting drop down menu
+    .woocommerce-ordering {
+        text-align: center;
+
+        @include mq($mq670){
+            padding-left: 2.25rem;
+            text-align: justify;
+		}
+
+        .orderby {
+            font-size: 1rem;
+            background-color: white;
+        }
     }
 
     // Product titles

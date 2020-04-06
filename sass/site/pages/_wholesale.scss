@@ -14,6 +14,7 @@
         .wholesale-form{
             padding-bottom: 3rem;
             position: relative;
+            
             .contact-bg-img{
 
                 width: 30rem;
@@ -235,9 +236,9 @@
                     form.wpcf7-form{
                         display: table;
                         position: relative;
-                        padding: 0 5px;
+                        padding: 0 5px 0 6px;
                         p{
-                            width:48%;
+                            width:47.69%;
                             display: inline-table;
 
                             &:first-of-type,
@@ -248,12 +249,12 @@
                        
                             &:nth-of-type(7),
                             &:nth-of-type(8){
-                                width:100%;
+                                width:99.7%;
                             }
 
                             &:nth-of-type(9),
                             &:last-of-type{
-                                width:50%;
+                                width:49.5%;
                                 vertical-align: middle;
                             }
 

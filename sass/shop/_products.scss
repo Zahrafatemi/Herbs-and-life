@@ -113,7 +113,8 @@ ul.products {
 			}
 			
 			// "Add to cart"
-            .product_type_simple {
+            .product_type_simple,
+            .product_type_variable {
                 @include btn-style();
                 display: block;
                 width: 140px;
@@ -121,12 +122,15 @@ ul.products {
                 position: absolute; 
                 bottom: 0; //align button always on the bottom
                 
-                &:hover {
+                &:hover,
+                &:focus,
+                &:active,
+                &:target {
                     background-color: $color__mossgreen;
                     color: white;
                 }
             }
-
+            
             // "Select options"
             .product_type_variable {
                 @include btn-style();
@@ -149,7 +153,10 @@ ul.products {
                 position: absolute; 
                 bottom: 0; //align button always on the bottom
                 
-                &:hover {
+                &:hover,
+                &:focus,
+                &:active,
+                &:target {
                     background-color: lighten($color__mossgreen, 10%) !important;
                 }
             }

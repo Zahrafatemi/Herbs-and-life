@@ -10,9 +10,14 @@ ul.products {
 .tax-product_cat {
 
     .woocommerce-breadcrumb {
+        font-size: 0.9rem;
         text-align: center;
-        margin-top: 50px;
+        margin-top: 80px;
         color: $color__text-input;
+
+        @include mq($mq670){
+            font-size: 1rem;
+		}
 
         a {
             color: $color__text-input;

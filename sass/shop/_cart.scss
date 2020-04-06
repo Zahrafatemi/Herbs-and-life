@@ -92,7 +92,7 @@
                                 grid-area:p-name;
 
                                 dl.variation{
-                                    font-size: 0.7em;
+                                    font-size: 0.73em;
                                     display: grid;
                                     grid-template-columns: 60% 1fr;
                                     justify-items: start;
@@ -181,12 +181,12 @@
                                 }
                                 td.product-name{
                                     dl.variation{
-                                        font-size: 0.6em;
-
+                                        font-size: 0.8em;
+                                        grid-template-columns: 1fr;
                                         dd{
-
+                                            justify-self: start;
                                             p {
-                                                font-size: 0.6rem;
+                                                font-size: 0.8rem;
                                                 text-align: right;
                                             }
                                         }

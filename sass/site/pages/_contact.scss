@@ -28,10 +28,9 @@
             }
             form.wpcf7-form{
                 p{
-                    &:not(:nth-of-type(odd)),
-                    &:nth-of-type(11){
+  
                     padding-bottom: 1.5em;
-                    }
+                    
 
                     label{
                         font-family: $font__heading;
@@ -109,6 +108,15 @@
                     width: 100%;
                     margin: 0;
                 }
+                .wpcf7-response-output.wpcf7-display-none.wpcf7-mail-sent-ok{
+                    background-color: $woocommerce__color-success;
+                    border:none;
+                    position: absolute;
+                    top: -1.5rem;
+                    font-size: 0.8rem;
+                    width: 100%;
+                    margin: 0;
+                }
             }
             
         
@@ -126,53 +134,35 @@
                 
                     }
                     form.wpcf7-form{
-                        display: flex;
-                        flex-direction: column;
+                        display: table;
                         position: relative;
 
                         padding: 0 5px;
                         p{
                             width:48%;
+                            display: inline-table;
                             
-                            &:nth-of-type(9),
-                            &:nth-of-type(10){
+                            &:first-of-type,
+                            &:nth-of-type(3){
+                                margin-right: 4%;
+                            }
+                            
+                            &:nth-of-type(5){
                                 width:100%;
                             }
 
-                            &:nth-of-type(3){
-                                position: absolute;
-                                top:0;
-                                right:0;
-                                margin-right: 0.3rem;
-                            }
-                            &:nth-of-type(4){
-                                position: absolute;
-                                top: 1.19rem;
-                                right:0;
-                                margin-right: 0.3rem;
-                            }
-                            &:nth-of-type(7){
-                                position: absolute;
-                                top: 4.149rem;
-                                right:0;
-                                margin-right: 0.3rem;
-                            }
-                            &:nth-of-type(8){
-                                position: absolute;
-                                top: 5.5rem;
-                                right:0;
-                                margin-right: 0.3rem;
-                            }
+                            &:nth-of-type(6),
                             &:last-of-type{
-                                position: absolute;
-                                bottom:0;
-                                right:0;
-                                margin-right: 0.3rem;
+                                width:50%;
+                            }
+                            
+
+                            &:last-of-type{
                                 text-align: right;
-                                padding-bottom: 0rem;
                             }
                         }
-                        div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+                        div.wpcf7-validation-errors, div.wpcf7-acceptance-missing,
+                        .wpcf7-response-output.wpcf7-display-none.wpcf7-mail-sent-ok {
                             top: -2.5rem;
                         }
                     } 
@@ -229,42 +219,7 @@
                 }
             }
 
-            @include mq($mq1350){
-                .contact-form{
-                    form.wpcf7-form{
-                        p{
-                            &:nth-of-type(3){
-                                position: absolute;
-                                top:0;
-                                right:0;
-                                margin-right: 0.3rem;
-                            }
-                            &:nth-of-type(4){
-                                position: absolute;
-                                top: 1.35rem;
-                                right:0;
-                                margin-right: 0.3rem;
-                            }
-                            &:nth-of-type(7){
-                                position: absolute;
-                                top: 4.78rem;
-                                right:0;
-                                margin-right: 0.3rem;
-                            }
-                            &:nth-of-type(8){
-                                position: absolute;
-                                top: 6.1rem;;
-                                right:0;
-                                margin-right: 0.3rem;
-                            }
-                            &:last-of-type{
-                                padding-bottom: 0.5rem;
-                            }
-                        } 
  
-                    }
-                }
-             }   
 
             @include mq($mq1600){
                 

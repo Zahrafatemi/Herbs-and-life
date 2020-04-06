@@ -24,19 +24,13 @@ ul.products {
     }
 
     .woocommerce-result-count {
-        padding-bottom: 0.5rem;
-        font-size: 0.9rem;
-        text-align: center;
-
-        @include mq($mq670){
-            padding-left: 2.4rem;
-            text-align: justify;
-		}
+        display: none;
     }
 
     // Sorting drop down menu
     .woocommerce-ordering {
         text-align: center;
+        padding-bottom: 1.5rem;
 
         @include mq($mq670){
             padding-left: 2.25rem;
@@ -46,6 +40,23 @@ ul.products {
         .orderby {
             font-size: 1rem;
             background-color: white;
+            border: none;
+            border-bottom: 1px solid $color__text-main;
+            border-radius: 0px;
+            -moz-border-radius: 0px;
+            -webkit-border-radius: 0px;
+            padding: 0rem 2rem 0.2rem 0.2rem;
+            -webkit-appearance: none;
+            margin-left: 25px;
+        }
+
+        &:after {
+            content: "\2304";
+            color: $color__text-main;
+            font-size: 2rem;
+            position: relative;
+            left: -25px;
+            top: 2px;
         }
     }
 
@@ -92,7 +103,6 @@ ul.products {
 		}
 
 		li {
-			// display: block;
 			margin: 0;
 			list-style: none;
 			position: relative;

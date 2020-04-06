@@ -386,11 +386,10 @@ function wc_empty_cart_redirect_url() {
 }
 add_filter( 'woocommerce_return_to_shop_redirect', 'wc_empty_cart_redirect_url' );
 
+
 /**
  * Change removed comment in Cart page
  */
-
-
 function removed_from_cart_title( $message, $cart_item ) {
     $product = wc_get_product( $cart_item['product_id'] );
 
@@ -401,7 +400,6 @@ function removed_from_cart_title( $message, $cart_item ) {
 }
 add_filter( 'woocommerce_cart_item_removed_title','removed_from_cart_title', 12, 2);
 
-
 function cart_undo_translation( $translation, $text, $domain ) {
 
     if( $text === 'Undo?' ) {
@@ -410,3 +408,21 @@ function cart_undo_translation( $translation, $text, $domain ) {
     return $translation;
 }
 add_filter('gettext', 'cart_undo_translation', 35, 3);
+
+
+/**
+ * Display minimum price from multiple variations
+ * Modified from : https://www.themelocation.com/how-to-display-minimum-price-from-multiple-variations-in-woocommerce/
+ */
+function custom_variation_price( $price, $product ) { 
+
+	if( is_product_category() ){
+		$price = 'From&nbsp;';
+		$price .= wc_price($product->get_price()); 
+		return $price;
+	}else {
+		return '';
+	}
+	
+}
+add_filter('woocommerce_variable_price_html', 'custom_variation_price', 10, 2);

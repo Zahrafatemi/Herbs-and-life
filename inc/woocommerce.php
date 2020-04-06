@@ -352,21 +352,6 @@ function hl_remove_reset_variations() {
 add_filter('woocommerce_reset_variations_link', 'hl_remove_reset_variations');
 
  /**
- * Hide variable product price range
- * SOURCE: https://learnwoo.com/hide-price-range-woocommerce-variable-products/
- */
-function hl_remove_variation_price_range( $v_price, $v_product ) {
-	$v_product_types = array( 'variable' );
-
-	if ( in_array ( $v_product->product_type, $v_product_types ) && !(is_shop()) ) {
-		return '';
-	}
-
-	return $v_price;
-}
-add_filter( 'woocommerce_get_price_html', 'hl_remove_variation_price_range', 10, 2 );
-
- /**
  * Move selected variation price to below product name
  */
 function hl_move_selected_variation_price() {

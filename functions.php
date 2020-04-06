@@ -423,6 +423,19 @@ function custom_variation_price( $price, $product ) {
 	}else {
 		return '';
 	}
-	
+
 }
 add_filter('woocommerce_variable_price_html', 'custom_variation_price', 10, 2);
+
+
+/**
+ * Change WooCommerce “Select Options” button text
+ * Source : https://wpexplorer-themes.com/total/snippets/woocommerce-select-options-text/
+ */
+add_filter( 'woocommerce_product_add_to_cart_text', function( $text ) {
+	global $product;
+	if ( $product->is_type( 'variable' ) ) {
+		$text = $product->is_purchasable() ? __( 'View Details', 'woocommerce' ) : __( 'Read more', 'woocommerce' );
+	}
+	return $text;
+}, 10 );

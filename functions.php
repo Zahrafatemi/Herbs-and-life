@@ -439,3 +439,18 @@ add_filter( 'woocommerce_product_add_to_cart_text', function( $text ) {
 	}
 	return $text;
 }, 10 );
+
+
+/**
+ * change number of default product per page
+ * Source : https://stackoverflow.com/questions/50703180/how-remove-pagination-from-woocommerce-storefront-theme/50716199
+ */
+
+function new_loop_shop_per_page( $cols ) {
+  // $cols contains the current number of products per page based on the
+  // value stored on Options -> Reading
+  // Return the number of products you wanna show per page.
+  $cols = 90;
+  return $cols;
+}
+add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );

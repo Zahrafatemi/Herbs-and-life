@@ -10,9 +10,14 @@ ul.products {
 .tax-product_cat {
 
     .woocommerce-breadcrumb {
+        font-size: 0.9rem;
         text-align: center;
-        margin-top: 50px;
+        margin-top: 80px;
         color: $color__text-input;
+
+        @include mq($mq670){
+            font-size: 1rem;
+		}
 
         a {
             color: $color__text-input;
@@ -21,7 +26,47 @@ ul.products {
 
     .page-title {
         padding: 20px 0px;
+    }
 
+    .woocommerce-result-count {
+        display: none;
+    }
+
+    // Sorting drop down menu
+    .woocommerce-ordering {
+        text-align: center;
+        padding-bottom: 1.5rem;
+
+        @include mq($mq850){
+            padding-left: 2.25rem;
+            text-align: justify;
+		}
+
+        .orderby {
+            font-size: 1rem;
+            background-color: white;
+            border: none;
+            border-bottom: 1px solid $color__mossgreen;
+            border-radius: 0px;
+            -moz-border-radius: 0px;
+            -webkit-border-radius: 0px;
+            padding: 0rem 2rem 0.2rem 0.2rem;
+            -webkit-appearance: none;
+            margin-left: 25px;
+
+            @include mq($mq850){
+                margin-left: 0px;
+            }
+        }
+
+        &:after {
+            content: "\2304";
+            color: $color__mossgreen;
+            font-size: 2rem;
+            position: relative;
+            left: -25px;
+            top: 2px;
+        }
     }
 
     // Product titles
@@ -67,7 +112,6 @@ ul.products {
 		}
 
 		li {
-			// display: block;
 			margin: 0;
 			list-style: none;
 			position: relative;

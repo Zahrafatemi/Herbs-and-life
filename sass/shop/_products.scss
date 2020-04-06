@@ -37,7 +37,7 @@ ul.products {
         text-align: center;
         padding-bottom: 1.5rem;
 
-        @include mq($mq670){
+        @include mq($mq850){
             padding-left: 2.25rem;
             text-align: justify;
 		}
@@ -46,18 +46,22 @@ ul.products {
             font-size: 1rem;
             background-color: white;
             border: none;
-            border-bottom: 1px solid $color__text-main;
+            border-bottom: 1px solid $color__mossgreen;
             border-radius: 0px;
             -moz-border-radius: 0px;
             -webkit-border-radius: 0px;
             padding: 0rem 2rem 0.2rem 0.2rem;
             -webkit-appearance: none;
             margin-left: 25px;
+
+            @include mq($mq850){
+                margin-left: 0px;
+            }
         }
 
         &:after {
             content: "\2304";
-            color: $color__text-main;
+            color: $color__mossgreen;
             font-size: 2rem;
             position: relative;
             left: -25px;

@@ -385,9 +385,12 @@ add_action( 'woocommerce_before_add_to_cart_form', 'hl_move_selected_variation_p
  * # Event Page
  * -------------------------------------------------- /
 
+
+
 /**
  * Changing the Price display of Events on the event page
  */
+
 function cw_change_product_html( $price_html, $product ) {
 	if( (has_term('events', 'product_cat', $post->ID)) ){
 		$p = ($product->get_price()>0) ? $product->get_price() : "Free Event";
@@ -409,6 +412,29 @@ add_filter( 'woocommerce_get_price_html', 'cw_change_product_html', 10, 2 );
 // 	return $price;
 // }
 // add_filter( 'woocommerce_cart_item_price', 'sv_change_product_price_cart', 10, 3 );
+
+
+/**
+ * 
+ */
+
+// function get_posted_data($posted = array()){
+//         if (empty($posted)) {
+//             $posted = $_POST;
+//         }
+// 		$data = array('_persons' => array());
+// 		if ($this->product->has_persons()) {
+//             if ($this->product->has_person_types()) {
+// 				
+ // 			<style>
+// 				h1 { color:red;}
+// 				body {background-color: red;}
+// 			</style> -->
+ 			
+
+// 			}
+// 		}
+// }
 
 /**
  * DISABLE the zoom in function when the product image is clicked

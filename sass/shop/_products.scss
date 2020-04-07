@@ -187,7 +187,7 @@ ul.products {
             }
 
             // View Cart
-            .added_to_cart {
+            a.added_to_cart {
                 @include btn-style();
                 background-color: $color__mossgreen;
                 color: white;
@@ -206,7 +206,7 @@ ul.products {
             }
             
             // Hide "add to cart" button when it's clicked
-            .ajax_add_to_cart.added {
+            button.ajax_add_to_cart.added {
                 display: none !important;
             }
 

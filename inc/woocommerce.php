@@ -273,6 +273,7 @@ function hl_move_product_images( ) {
 }
 add_filter( 'woocommerce_before_single_product_summary', 'hl_move_product_images' );
 
+
 /**
  * Enclose after single_product_summary and after_single_product items in a div
  */
@@ -352,6 +353,22 @@ function hl_remove_reset_variations() {
 add_filter('woocommerce_reset_variations_link', 'hl_remove_reset_variations');
 
  /**
+ * Hide variable product price range
+ * SOURCE: https://learnwoo.com/hide-price-range-woocommerce-variable-products/
+ */
+function hl_remove_variation_price_range( $v_price, $v_product ) {
+	$v_product_types = array( 'variable' );
+
+	if ( in_array ( $v_product->product_type, $v_product_types ) && !(is_shop()) ) {
+		return '';
+	}
+
+	return $v_price;
+}
+add_filter( 'woocommerce_get_price_html', 'hl_remove_variation_price_range', 10, 2 );
+
+
+/**
  * Move selected variation price to below product name
  */
 function hl_move_selected_variation_price() {
@@ -363,6 +380,81 @@ add_action( 'woocommerce_before_add_to_cart_form', 'hl_move_selected_variation_p
 /* --------------------------------------------------
  * # Hooks - Products Page
  * -------------------------------------------------- /
+
+ /* --------------------------------------------------
+ * # Event Page
+ * -------------------------------------------------- /
+
+
+
+/**
+ * Changing the Price display of Events on the event page
+ */
+
+function cw_change_product_html( $price_html, $product ) {
+	if( (has_term('events', 'product_cat', $post->ID)) ){
+		$p = ($product->get_price()>0) ? $product->get_price() : "Free Event";
+		$currencySymbol = ($product->get_price()>0) ? '$': '';
+		$price_html = '<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">'.$currencySymbol.'</span>'.$p.'</span></span>';
+	}
+	return $price_html;
+}
+add_filter( 'woocommerce_get_price_html', 'cw_change_product_html', 10, 2 );
+
+/**
+ * Changing the Price display of Events on the cart page
+ */
+
+// function sv_change_product_price_cart( $price, $cart_item, $cart_item_key ) {
+// 	if ( 22 === $cart_item['product_id'] ) {
+// 	$price = '$50.00 per Unit<br>(7-8 skewers per Unit)';
+// 	}
+// 	return $price;
+// }
+// add_filter( 'woocommerce_cart_item_price', 'sv_change_product_price_cart', 10, 3 );
+
+
+/**
+ * 
+ */
+
+// function get_posted_data($posted = array()){
+//         if (empty($posted)) {
+//             $posted = $_POST;
+//         }
+// 		$data = array('_persons' => array());
+// 		if ($this->product->has_persons()) {
+//             if ($this->product->has_person_types()) {
+// 				
+ // 			<style>
+// 				h1 { color:red;}
+// 				body {background-color: red;}
+// 			</style> -->
+ 			
+
+// 			}
+// 		}
+// }
+
+/**
+ * DISABLE the zoom in function when the product image is clicked
+ */
+
+function hl_remove_product_image_link( $html, $post_id ) {
+    return preg_replace( "!<(a|/a).*?>!", '', $html );
+}
+add_filter( 'woocommerce_single_product_image_thumbnail_html', 'hl_remove_product_image_link', 10, 2 );
+
+/**
+ * Removing the magnifying image on hover (zoomING) from single Events
+ */
+
+function remove_image_zoom_support() {
+	if( (has_term('events', 'product_cat', $post->ID)) ){
+		remove_theme_support( 'wc-product-gallery-zoom' );
+	}
+}
+add_action( 'wp', 'remove_image_zoom_support', 100 );
 
 /* --------------------------------------------------
  * ## Promotional Banners

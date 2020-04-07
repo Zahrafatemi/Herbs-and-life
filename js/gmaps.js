@@ -20,7 +20,7 @@
          
         // vars
         var args = {
-            zoom        : 16,
+            zoom        : 10,
             center      : new google.maps.LatLng(0, 0),
             mapTypeId   : google.maps.MapTypeId.ROADMAP,
             styles: [
@@ -294,7 +294,7 @@
         {
             // set center of map
             map.setCenter( bounds.getCenter() );
-            map.setZoom( 16 );
+            map.setZoom( 13 );
         }
         else
         {

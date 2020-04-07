@@ -65,12 +65,13 @@ if ( post_password_required() ) {
 
 				<!-- Adding the location Icon -->
 				<div class="icon location">
+				<!-- <?php //echo (get_field('location_icon'))? wp_get_attachment_image( get_field('location_icon') , 'full' ) : wp_get_attachment_image(578, 'full'); ?> -->
 					<?php if(get_field('location_icon')):?>
 						<!-- <div class="location-icon"> -->
-							<?php echo wp_get_attachment_image( get_field('location_icon') , 'medium' ); ?>
+							<?php echo wp_get_attachment_image( get_field('location_icon') , 'full' ); ?>
 						<!-- </div> -->
 					<?php else:?>
-							<?php echo wp_get_attachment_image(578, 'medium'); ?>
+							<?php echo wp_get_attachment_image(578, 'full'); ?>
 					<?php endif;?>
 				</div>
 
@@ -135,7 +136,7 @@ if ( post_password_required() ) {
 		<div class="event-map">
 			<?php if(get_field('location')):?>
 			<?php if((is_product() && has_term('events', 'product_cat', $post->ID))):?>
-				<div class="acf-map" data-zoom="16" style="overflow: hidden; position: relative;">
+				<div class="acf-map" data-zoom="10" style="overflow: hidden; position: relative;">
 			<?php endif;?>
 		
 			<?php 

@@ -287,6 +287,11 @@
             display: none;
         }
 
+        figure {
+            display: flex;
+            justify-content: center;
+        }
+
         ol {
             display: flex;
             list-style: none;   

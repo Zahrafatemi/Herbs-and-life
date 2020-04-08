@@ -17,7 +17,8 @@ get_header();
 		<main id="main" class="site-main">
 
 			<header class="pattern01">
-				<h1 class="page-title"><?php single_post_title(); ?></h1>
+				<!-- <h1 class="page-title"><?php //single_post_title(); ?></h1> -->
+				<h1 class="page-title">Herb and Blog</h1>
 			</header>
 
 			<div class="wrapper">

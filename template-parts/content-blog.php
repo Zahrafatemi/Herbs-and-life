@@ -28,6 +28,7 @@
 			<?php the_post_thumbnail( 'blog-thumbnail' ); ?>
 			
 			<header class="entry-header">
+				<h2 class="title"><?php the_title(); ?></h2><!--.title-->
 				<div class="meta-info">
 					<?php
 						$targetCategories 	= array( 'news', 'recipes' );
@@ -47,11 +48,10 @@
 							}
 						}
 					?>
-
-					<span class="author"><?php echo "Written by " . get_the_author(); ?></span><!--.author-->
+					<span class="author"><?php echo "By " . get_the_author(); ?></span><!--.author-->
+					<span class="blog-seperator">|</span><!--.blog-seperator-->
 					<span class="category"><?php echo ucwords($postCategory); ?></span><!--.category-->
 				</div><!--.meta-info-->
-				<h2 class="title"><?php the_title(); ?></h2><!--.title-->
 			</header>
 
 			<div class="entry-content">

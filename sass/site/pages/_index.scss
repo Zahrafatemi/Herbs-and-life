@@ -3,6 +3,7 @@
     $blog-post-width-mobile: map-get($columns, 1);
     $blog-post-width-tablet: map-get($columns, 2);
     $blog-post-width-desktop: map-get($columns, 3);
+    $blog-post-width-desktop-large: map-get($columns, 4);
     $blog-post-padding: emRhythm();
 
     $load-more-width-mobile: calc(#{$blog-post-width-mobile} - (2 * #{$blog-post-padding}));
@@ -13,26 +14,38 @@
     main {
         padding: emRhythm() 0;
     }
+
+    .wrapper {
+        // max-width: 1500px;
+    }
     
     .filters {
         padding: emRhythm();
+        
 
-        li {
-            list-style-type: none;
+        ul {
+            margin: 0;
+
+            li {
+                list-style-type: none;
+            }
         }
+
 
         .filter-group {
             display: flex;
-            justify-content: center;
+            // justify-content: center;
+            justify-content: space-evenly;
+            // width: 
         }
 
         .filter-option {
-            padding: emRhythm(1) emRhythm();
-            white-space: nowrap;
+            // padding: emRhythm(1) emRhythm();
+            // white-space: nowrap;
 
-            #{$link-hover-selector} {
-                background-color: $color__coolgray;
-            }
+            // #{$link-hover-selector} {
+            //     background-color: $color__coolgray;
+            // }
         }
 
         .recipes-filters {
@@ -64,7 +77,70 @@
     .blog-feed {
         .blog-post {
             width: $blog-post-width-mobile;
-            padding: $blog-post-padding;
+            padding: 10px;
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
+
+            article {
+                border: solid 1px $color__coolgray;
+
+                img {
+                    width: 100%;
+                    max-width: 500px;
+                    height: 300px;
+                    object-fit: cover;
+                }
+
+                .entry-header {
+                    padding: 0.5em;
+
+                    h2.title {
+                        font-family: $font__heading;
+                        font-weight: 400;
+                        letter-spacing: 0;
+                        text-align: center;
+                        color: $color__text-main;
+
+                            @include mq($mq1350) {
+                                font-size: 1.4rem;
+                            }
+                    }
+
+                    .meta-info {
+                        padding: emRhythm(1) 0;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        width: 100%;
+                        
+                        
+                        & * {
+                            display: block;
+                            color: $color__cat_border;
+                            font-weight: 400;
+                        }
+                    }
+                }
+
+
+                .entry-content {
+                    margin: 0;
+                    color: $color__text-main;
+                    padding: 0 1em 1em;
+
+                    .read-more {
+                        color: $color__mossgreen;
+                        text-decoration: underline;
+
+                        #{$link-hover-selector} {
+                            color: $color__text-input-focus;
+                        }
+                    }                
+                }
+
+
+
+            }
 
             @include mq($mq850) {
                 width: $blog-post-width-tablet;
@@ -74,36 +150,15 @@
                 width: $blog-post-width-desktop;
             }
 
+            @include mq($mq1600) {
+                width: $blog-post-width-desktop-large;
+            }
+
             #{$link-hover-selector} {
                 background-color: $color__coolgray;
             }
 
-            h2.title {
-                font-family: $font__main;
-                text-transform: none;
-            }
 
-            .meta-info {
-                padding: emRhythm(1) 0;
-
-                & * {
-                    display: block;
-                    color: $color__mossgreen;
-                }
-            }
-
-            .entry-content {
-                margin: 0;
-
-                .read-more {
-                    display: block;
-                    color: $color__mossgreen;
-
-                    #{$link-hover-selector} {
-                        color: $color__text-input-focus;
-                    }
-                }                
-            }
         }
     }
 

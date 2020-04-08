@@ -117,14 +117,13 @@ if ( post_password_required() ) {
 							<!-- </div> -->
 						<?php endif;?>
 					</div>
+					<?php if(get_field('note')):?>
+						<div class="event-note">
+							<p><?php the_field('note'); ?></p>
+						</div>
+					<?php endif;?>
 				</div>
 			</div>
-
-			<?php if(get_field('note')):?>
-				<div class="event-note">
-					<p><?php the_field('note'); ?></p>
-				</div>
-			<?php endif;?>
 		</div><!--end of event-details-->
 		<!-- <?php //endif; ?> -->
 		<?php if((has_term('events', 'product_cat', $post->ID))): ?>
@@ -134,21 +133,23 @@ if ( post_password_required() ) {
 		<?php endif; ?>
 
 		<div class="event-map">
-			<?php if(get_field('location')):?>
-			<?php if((is_product() && has_term('events', 'product_cat', $post->ID))):?>
-				<div class="acf-map" data-zoom="10" style="overflow: hidden; position: relative;">
-			<?php endif;?>
-		
-			<?php 
-				$address = get_field('location');
-				$icon = get_template_directory_uri().'/images/markers/map-marker.png';
-				?>
-				<div class="marker" data-lat="<?php echo $address['lat']; ?>" data-lng="<?php echo $address['lng']; ?>" data-img="<?php echo $icon; ?>">
-					<div class="inside-marker">
-						<h5><?php echo esc_html( $address['address'] ); ?></h5>
+			<div class="acf-map-border">
+				<?php if(get_field('location')):?>
+				<?php if((is_product() && has_term('events', 'product_cat', $post->ID))):?>
+					<div class="acf-map" data-zoom="10" style="overflow: hidden; position: relative;">
+				<?php endif;?>
+			
+				<?php 
+					$address = get_field('location');
+					$icon = get_template_directory_uri().'/images/markers/map-marker.png';
+					?>
+					<div class="marker" data-lat="<?php echo $address['lat']; ?>" data-lng="<?php echo $address['lng']; ?>" data-img="<?php echo $icon; ?>">
+						<div class="inside-marker">
+							<h5><?php echo esc_html( $address['address'] ); ?></h5>
+						</div>
 					</div>
-				</div>
-			</div><!--end of acf-map-->
+				</div><!--end of acf-map-->
+			</div>
 		</div>
 		<?php endif; ?>
 		<?php

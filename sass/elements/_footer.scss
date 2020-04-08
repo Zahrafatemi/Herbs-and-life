@@ -3,7 +3,7 @@ footer{
     color:$color__coolgray;
 
     .footer-wrapper{
-        max-width: 1250px;
+        max-width: 1240px;
         margin: 0 auto;
     }
     .site-footer{
@@ -206,7 +206,10 @@ footer{
                 }
             }
         }
-        @include mq($mq1200){
+        @include mq($mq950){
+            padding: 40px;
+        }
+        @include mq($mq1350){
             padding: 40px 0px;
         }
     

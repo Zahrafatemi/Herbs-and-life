@@ -454,3 +454,30 @@ function new_loop_shop_per_page( $cols ) {
   return $cols;
 }
 add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
+
+/**
+ * @snippet       Change "Proceed to PayPal" Button text @ WooCommerce Checkout
+ * @sourcecode    https://rudrastyh.com/?p=8327#payment_gateways_text
+ */
+
+ 
+function checkout_custom_paypal_button_text( $translated_text, $text, $domain ) {
+ 
+	if( $translated_text == 'Proceed to PayPal' ) {
+		$translated_text = 'Place Order'; // new button text is here
+	}
+ 
+	return $translated_text;
+}
+add_filter( 'gettext', 'checkout_custom_paypal_button_text', 20, 3 );
+
+/**
+ * @snippet       Change "Place Order" Button text @ WooCommerce Checkout
+ * @sourcecode    https://rudrastyh.com/?p=8327#woocommerce_order_button_text
+ */
+
+ 
+function checkout_custom_button_text( $button_text ) {
+   return 'Place Order'; // new text is here 
+}
+add_filter( 'woocommerce_order_button_text', 'checkout_custom_button_text' );

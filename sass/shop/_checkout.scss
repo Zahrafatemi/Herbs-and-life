@@ -11,6 +11,24 @@
 				h3{
 					padding-bottom:1.5rem;
 				}
+				.woocommerce-NoticeGroup.woocommerce-NoticeGroup-checkout{
+					.woocommerce-error {
+						background-color: transparent;
+						width: 100%;
+						padding: 0.5em 0.75em;
+						margin: 0;
+						color: red;
+						list-style: none;
+						font-size:0.85rem;
+						li {
+							
+							&:before{
+								content: "*" ;
+							}
+						 }
+						 
+					}
+				}
 				.col2-set{
 					.col-1{
 						.woocommerce-billing-fields{
@@ -40,8 +58,34 @@
 								padding-bottom:1.5rem;
 							}
 						}
+						.woocommerce-account-fields{
+							.create-account.woocommerce-validated {
+								.woocommerce-form__label-for-checkbox.checkbox{
+									font-size:0.85rem;
+									input#createaccount{
+										width:18px;
+										height:18px;
+										margin-right: 0.5rem;
+									}
+								}
+							}
+						}
 					}
 					.col-2{
+						.woocommerce-shipping-fields{
+							#ship-to-different-address {
+								font-size: 0.85rem;
+								label.woocommerce-form__label.woocommerce-form__label-for-checkbox.checkbox {
+									display: inline-flex;
+									align-items: center;
+									input#ship-to-different-address-checkbox {
+										width: 18px;
+										height: 18px;
+										margin-right: 0.5rem;
+									}
+								}
+							}
+						}
 						.woocommerce-additional-fields{
 							padding-bottom:1.5rem;
 						}
@@ -99,9 +143,6 @@
 								width: 100%;
    								position: relative;
 								td{
-									// position: absolute;
-									// right: 0;
-									// padding-right: 1rem;
 									ul#shipping_method {
 										width: 121px;
 
@@ -125,13 +166,15 @@
 								justify-content: space-between;
 								input#payment_method_paypal {
 									margin-top: -2.8em;
+									width: 18px;
+									height: 18px;
 								}
 								label{
 									display: flex;
 									flex-wrap: wrap;
 									align-items: center;
 									justify-content: space-between;
-									width:95%;
+									width: 93%;
 									position: relative;
 									img{
 										height: 70px;
@@ -155,6 +198,7 @@
 									p{
 										padding-bottom: 1rem;
 										font-size: 0.8rem;
+										display:none !important;
 										a{
 											text-decoration: underline;
 											cursor: pointer;
@@ -175,8 +219,9 @@
 								 }
 
 								input#payment_method_stripe {
-									margin-right: 3px;
-									width:5%;
+									margin-right: 1.5%;
+									width: 18px;
+									height: 18px;
 								}
 								label {
 									display: flex;
@@ -191,6 +236,12 @@
 								.form-row.woocommerce-SavedPaymentMethods-saveNew.woocommerce-validated{
 									padding-top:1rem;
 									font-size: 0.8rem;
+									input#wc-stripe-new-payment-method {
+										transform: translateY(1.5px);
+										@include mq($mq1024){
+											transform:none;
+										}
+									}
 									label{
 										width:100%;
 									}

@@ -144,10 +144,15 @@
    								position: relative;
 								td{
 									ul#shipping_method {
-										width: 121px;
+										label{
+											font-size: 0.8rem;
+											span.woocommerce-Price-amount.amount {
+												font-size: 1rem;
+											}
 
-										@include mq($mq500){
-											width:inherit;
+											@include mq($mq500){
+												font-size: initial;
+											}
 										}
 									}
 								}

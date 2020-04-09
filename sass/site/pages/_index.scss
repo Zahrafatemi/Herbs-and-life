@@ -19,8 +19,6 @@
         padding-bottom: emRhythm();
         
         ul {
-            
-        
             li.filter-option {
                 list-style-type: none;
                 line-height: 1;
@@ -76,6 +74,14 @@
                     font-size: 1.5rem;
                     position: relative;
                     left: -15px;
+                }
+
+                @include mq($mq600) {
+                    width: 50vw;
+                }
+
+                @include mq($mq850) {
+                    width: 20vw;
                 }
             }
 

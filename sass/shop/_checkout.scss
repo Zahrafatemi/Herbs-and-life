@@ -65,7 +65,7 @@
 									input#createaccount{
 										width:18px;
 										height:18px;
-										margin-right: 0.5rem;
+										margin-right: 0.2rem;
 									}
 								}
 							}
@@ -290,6 +290,7 @@
 								   border-radius: 0;
 								   color:#fff;
 								   padding: 1rem;
+								   font-size: 0.85rem;
 								   #{$link-hover-selector}{
                                     background-color:lighten($color__cat_border, 10%);
                                     cursor: pointer;

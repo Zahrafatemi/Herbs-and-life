@@ -287,9 +287,14 @@
             display: none;
         }
 
-        figure {
+        .woocommerce-product-gallery__image {
             display: flex;
             justify-content: center;
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
         }
 
         ol {

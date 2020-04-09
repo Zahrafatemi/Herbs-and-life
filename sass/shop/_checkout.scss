@@ -51,12 +51,14 @@
 					
 					table.shop_table{
 						thead{
-							
+							width:100%;
 							tr {
-								
-								th.product-name {
+								width:100%;
+								th.product-name,
+								th.product-price {
 									text-align: left;	
 								}
+
 								th.product-total{
 									text-align: right;
 								}
@@ -94,8 +96,19 @@
 								}
 							}
 							tr.woocommerce-shipping-totals.shipping{
-								th{
-									width: 50%;
+								width: 100%;
+   								position: relative;
+								td{
+									// position: absolute;
+									// right: 0;
+									// padding-right: 1rem;
+									ul#shipping_method {
+										width: 121px;
+
+										@include mq($mq500){
+											width:inherit;
+										}
+									}
 								}
 							}
 						}

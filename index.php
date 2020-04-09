@@ -70,7 +70,7 @@ get_header();
 						</ul><!--.main-->
 
 						<div class="recipes-filters">
-							<div class="cuisine filter-group" data-filter-cat="cuisine">
+							<div class="cuisine filter-group filter-dropdown" data-filter-cat="cuisine">
 								<label class="filter-category" for="cuisine">Cuisine: </label>
 								<select class="filter-option" id="cuisine">
 									<?php echo getFilters( "cuisine", "dropdown" );?>

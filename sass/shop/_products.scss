@@ -50,7 +50,7 @@ ul.products {
             border-radius: 0px;
             -moz-border-radius: 0px;
             -webkit-border-radius: 0px;
-            padding: 0rem 2rem 0.2rem 0.2rem;
+            padding: 0rem 1rem 0 0.2rem;
             -webkit-appearance: none;
             margin-left: 25px;
 
@@ -62,9 +62,9 @@ ul.products {
         &:after {
             content: "\2304";
             color: $color__mossgreen;
-            font-size: 2rem;
+            font-size: 1.5em;
             position: relative;
-            left: -25px;
+            left: -15px;
             top: 2px;
         }
     }

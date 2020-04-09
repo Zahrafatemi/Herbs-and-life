@@ -15,39 +15,36 @@
         padding: emRhythm() 0;
     }
 
-    // .wrapper {
-    //     // max-width: 1500px;
-    // }
-    
     .filters {
-        padding: emRhythm();
+        padding-bottom: emRhythm();
         
-
         ul {
-            margin: 0;
-
-            li {
+            
+        
+            li.filter-option {
                 list-style-type: none;
+                line-height: 1;
+                padding: 0.2rem;
+
+                label {
+                    font-family: $font__heading;
+                    color: $color__text-main;
+                }
             }
         }
 
-
         .filter-group {
             display: flex;
-            // justify-content: center;
             justify-content: space-evenly;
+            align-content: center;
             max-width: 500px;
             margin: 0 auto;
+            padding: emRhythm(1);
+
+            label {
+                line-height: 1.4;
+            }
         }
-
-        // .filter-option {
-        //     padding: emRhythm(1) emRhythm();
-        //     white-space: nowrap;
-
-        //     #{$link-hover-selector} {
-        //         background-color: $color__coolgray;
-        //     }
-        // }
 
         .recipes-filters {
             display: none;
@@ -60,27 +57,56 @@
                 }
             }
 
+            // General styling
             .filter-group {
-                margin: 0 emRhythm();
+                label, span {
+                    font-family: $font__heading;
+                    color: $color__text-main;
+                }
+            }
+
+            // Cuisine dropdown menu
+            .filter-dropdown {
+                line-height: 1;
+                width: 70vw;
+
+                &:after {
+                    content: "\2304";
+                    color: $color__mossgreen;
+                    font-size: 1.5rem;
+                    position: relative;
+                    left: -15px;
+                }
             }
 
             .filter-category {
-                padding: emRhythm(1);
+                padding: 0.2rem;
+                color: $color__mossgreen;
             }
 
-            .filter-option {
-                padding: emRhythm(1);
+            select.filter-option {
+                padding: 0.2rem;
+                font-family: $font__heading;
+                color: $color__mossgreen;
+                font-size: 1rem;
+                background-color: white;
+                border: none;
+                border-bottom: 1px solid $color__mossgreen;
+                border-radius: 0px;
+                -moz-border-radius: 0px;
+                -webkit-border-radius: 0px;
+                -webkit-appearance: none;
+                padding: 0rem 1rem 0 0.2rem;
+                width: 50vw;
             }
         }
     }
-
 
     .blog-feed {
         .blog-post {
             width: $blog-post-width-mobile;
             padding: 10px;
             margin-bottom: 20px;
-            // transition: all 0.5s ease;
 
             article {
                 border: solid 1px $color__coolgray;
@@ -114,7 +140,6 @@
                         justify-content: center;
                         width: 100%;
                         
-                        
                         & * {
                             display: block;
                             color: $color__cat_border;
@@ -122,7 +147,6 @@
                         }
                     }
                 }
-
 
                 .entry-content {
                     margin: 0;
@@ -139,9 +163,6 @@
                         }
                     }                
                 }
-
-
-
             }
 
             @include mq($mq850) {
@@ -159,7 +180,6 @@
             #{$link-hover-selector} {
                 background-color: $color__coolgray;
             }
-
 
         }
     }

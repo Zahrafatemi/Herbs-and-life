@@ -189,13 +189,13 @@ p.stars {
 .form-row {
 	&.woocommerce-validated {
 		input.input-text {
-			box-shadow: inset 2px 0 0 $woocommerce__color-success;
+			box-shadow: inset 2px 0 0 #ccc;
 		}
 	}
 
 	&.woocommerce-invalid {
 		input.input-text {
-			box-shadow: inset 2px 0 0 $woocommerce__color-error;
+			box-shadow: inset 2px 0 0 red;
 		}
 	}
 }
@@ -231,6 +231,7 @@ p.no-comments {
 	background-color: $woocommerce__color-error;
 	width:100%;
 	padding: 0.5em 0.75em;
+	color: white;
 }
 
 .demo_store {

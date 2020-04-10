@@ -481,3 +481,43 @@ function checkout_custom_button_text( $button_text ) {
    return 'Place Order'; // new text is here 
 }
 add_filter( 'woocommerce_order_button_text', 'checkout_custom_button_text' );
+
+
+/**
+ * @snippet       Change Error text field into one line text @ WooCommerce Checkout
+ * @sourcecode    https://rudrastyh.com/woocommerce/custom-checkout-validation.html
+ */
+ 
+function checkout_change_one_err( $fields, $errors ){
+ 
+	// if any validation errors
+	if( !empty( $errors->get_error_codes() ) ) {
+ 
+		// remove all of them
+		foreach( $errors->get_error_codes() as $code ) {
+			$errors->remove( $code );
+		}
+ 
+		// add our custom one
+		$errors->add( 'validation', 'Please fill all the required fields.' );
+ 
+	}
+ 
+}
+add_action( 'woocommerce_after_checkout_validation', 'checkout_change_one_err', 9999, 2);
+
+/**
+ * Change text format on coupon remove link @ WooCommerce Checkout
+ * 
+ */
+function woocommerce_rename_coupon_field_on_checkout( $translated_text, $text, $domain ) {
+	if( $translated_text == '[Remove]' ) {
+		$translated_text = 'Remove'; // new button text is here
+	}
+ 
+	return $translated_text;
+    
+}
+add_action('gettext', 'woocommerce_rename_coupon_field_on_checkout', 10, 3);
+
+

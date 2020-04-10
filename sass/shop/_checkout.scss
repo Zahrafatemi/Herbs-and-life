@@ -7,19 +7,47 @@
 			padding-top: 3rem;
 		}
 		.entry-content{
+			.woocommerce-form-coupon-toggle{
+				.woocommerce-info{
+					.showcoupon{
+						text-decoration: underline;
+						color: $color__mossgreen;
+					}
+				}
+			}
+			.woocommerce-message {
+				margin-top: 1rem;
+			}
+			form.checkout_coupon.woocommerce-form-coupon{
+				.form-row.form-row-first {
+					display: inline-table;
+				}
+				.form-row.form-row-last {
+					display: inline-table;
+					transform: translateY(-2px);
+					button.button{
+						border-radius: 0px;
+						@include cart-btn();
+						padding: 0.55rem 0.7rem;
+						background-color: $color__darkgray;
+					}
+				}
+			}
 			.checkout{
 				h3{
 					padding-bottom:1.5rem;
 				}
+				
 				.woocommerce-NoticeGroup.woocommerce-NoticeGroup-checkout{
 					.woocommerce-error {
 						background-color: transparent;
 						width: 100%;
-						padding: 0.5em 0.75em;
+						padding: 0.5em 0em;
 						margin: 0;
 						color: red;
 						list-style: none;
 						font-size:0.85rem;
+						font-weight: 700;
 						li {
 							
 							&:before{
@@ -139,6 +167,21 @@
 									}
 								}
 							}
+							tr.cart-discount{
+								td{
+									text-align: left;
+									a.woocommerce-remove-coupon {
+										background-color:$color__coolgray;
+										font-size: 0.7rem;
+										padding: 0.3rem 0.2rem;
+										margin-left: 5px;
+									}
+									@include mq($mq550){
+										display: inline-flex;
+										align-items: center;
+									}
+								}
+							}
 							tr.woocommerce-shipping-totals.shipping{
 								width: 100%;
    								position: relative;
@@ -255,6 +298,20 @@
 								}
 								.payment_box.payment_method_stripe {
 									width: 100%;
+									.stripe-source-errors{
+										.woocommerce-error.wc-stripe-error{
+											background-color: transparent;
+											color: red;
+											font-weight: 700;
+											font-size:0.8rem;
+											padding: 0;
+											li{
+												&:before{
+													content: "*" ;
+												}
+											}
+										}
+									}
 								}
 								.form-row.woocommerce-SavedPaymentMethods-saveNew.woocommerce-validated{
 									padding-top:1rem;

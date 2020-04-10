@@ -1,0 +1,83 @@
+.woocommerce-order-received{
+    .site-content{
+        .entry-content{
+            .woocommerce{
+                .woocommerce-order{
+                    .woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-received{
+                        font-size: 1rem;
+                        background-color: $color__mossgreen;
+                        padding: 0.5em 0.75em;
+                        color:#fff;
+                        margin-bottom: 2rem;
+                    }
+                    .woocommerce-thankyou-order-details{
+                        list-style: none;
+                        margin: 0 0 2rem 0;
+                    }
+                    .woocommerce-order-details{
+                        .woocommerce-table--order-details.shop_table.order_details{
+                           thead{
+                                .woocommerce-table__product-name.product-name {
+                                    text-align: left;
+                                }
+                                .woocommerce-table__product-table.product-total {
+                                    text-align: right;
+                                }
+                            } 
+                            tbody{
+                                    &:after{
+                                        content: '';
+                                        display: table-row;
+                                        height: 1rem;  
+                                    }
+                                    .woocommerce-table__line-item.order_item{
+                                        .woocommerce-table__product-name.product-name {
+                                            .wc-item-meta{
+                                                list-style: none;
+                                                margin: 0;
+                                                font-size: 0.8rem; 
+                                                padding-bottom: 0.3rem;                            
+                                            }
+                                            .woocommerce-table__product-total.product-total {
+                                                text-align: right;
+                                            }
+                                        
+                                        } 
+                                    }    
+                                }
+                            tfoot{
+                               tr{
+                                   th{
+                                       text-align: left;
+                                       width: 55%;
+                                   }
+                                   td{
+                                    display: block;
+                                    width: 100%;
+                                    text-align: right; 
+                                   }
+                               } 
+                            }
+                        }
+                    }
+                    .woocommerce-customer-details{
+                        .woocommerce-column{
+                            address{
+                                font-style: normal;
+                                .woocommerce-customer-details--phone,
+                                .woocommerce-customer-details--email {
+                                    font-size: 1rem;
+                                }
+                            }
+                        }
+                        .woocommerce-column--billing-address.col-1{
+
+                        }
+                        .woocommerce-column--shipping-address.col-2{
+
+                        }
+                    }
+                }
+        }   }
+    }
+}

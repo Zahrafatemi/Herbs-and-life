@@ -52,7 +52,13 @@ $woocommerce__color-info: $color__coolgray;
  */
  @import "shop/cart";
 
+ /**
+ * Order Received (Thank you) page
+ */
+ @import "shop/thankyou";
+
 /**
  * Variety Pack product page
  */
  @import "site/pages/product-variety-pack";
+

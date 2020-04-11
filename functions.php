@@ -520,4 +520,16 @@ function woocommerce_rename_coupon_field_on_checkout( $translated_text, $text, $
 }
 add_action('gettext', 'woocommerce_rename_coupon_field_on_checkout', 10, 3);
 
+/**
+ * Change text format on paypal payment success message @ WooCommerce Checkout
+ * 
+ */
 
+function woo_change_order_received_paypal_text($translated_text, $text, $domain) {
+    if( $translated_text == 'Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. Log into your PayPal account to view transaction details.' ) {
+		$translated_text = "Thank you for your payment.\nYour transaction has been completed, and a receipt for your purchase has been emailed to you.\nLog into your PayPal account to view transaction details."; // new text is here
+	}
+ 
+	return $translated_text;
+}
+add_filter('gettext', 'woo_change_order_received_paypal_text', 10, 3);

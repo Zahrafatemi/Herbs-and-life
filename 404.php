@@ -15,41 +15,27 @@ get_header();
 
 			<section class="error-404 not-found">
 				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'herblife' ); ?></h1>
+					<div class="404-image-wrapper">
+					<img class = "404-image" id = "404-image" src="<?php echo get_template_directory_uri(); ?>/images/assets/404-page/404-800px.jpg" alt="404 image">
+					</div>
 				</header><!-- .page-header -->
 
 				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'herblife' ); ?></p>
+					<h1 class="page-title"><?php esc_html_e( 'Oops!', 'herblife' ); ?></h1>
+					<p><?php esc_html_e( "We can't find the page\nyou are looking for.", 'herblife' ); ?></p>
 
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'herblife' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories( array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							) );
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$herblife_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'herblife' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$herblife_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
+					<div class="btn-wrapper">
+					<div class="link-btn go-home-btn">
+						<a class="go-home cta-btn" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" alt="<?php bloginfo( 'name' ); ?> go-to-home">
+						Take me home
+						</a>
+					</div>
+					<div class="link-btn go-shop-btn">
+						<a class="go-to-shop cta-btn" href="<?php echo esc_url( home_url( '/shop' ) ); ?>" rel="shop" alt="<?php bloginfo( 'name' ); ?>go-to-shop-page">
+						Take me to shop
+						</a>
+					</div>
+					</div>
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
 

@@ -1,0 +1,81 @@
+body.error404{
+    section.error-404.not-found {
+        padding-top: 4rem;
+        header{
+            div{
+                padding: 1rem;
+            }
+        }
+        .page-content{
+            margin: 0;
+            .page-title{
+                text-align: center;
+                padding-bottom: 0.5rem;
+            }
+            p{
+                text-align: center;
+                white-space: pre;
+                font-size:1rem;
+                text-transform: uppercase;
+                font-family: $font__heading;
+                line-height: 1.5;
+            }
+            .btn-wrapper{
+                text-align: center;
+                padding-top: 1rem;
+                padding-bottom: 4rem;
+
+                .cta-btn{
+                    max-width: 14rem;
+                    padding: 0.8rem 0rem;
+                    margin-bottom: 1rem;
+                }
+                .go-home{
+                    background-color: $color__darkgray;
+                    color:#fff;
+                    border:none;
+                    #{$link-hover-selector}{
+                        background-color:lighten($color__darkgray, 10%);
+                        cursor: pointer;
+                    }
+                }
+                .go-to-shop{
+                    background-color:$color__coolgray;
+                    #{$link-hover-selector}{
+                        background-color:darken($color__coolgray, 10%);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        @include mq ($mq500){
+            header{
+                div{
+                    max-width: 25rem;
+                    margin: 0 auto;
+                }
+            }
+        
+        }
+        @include mq($mq670){
+            .page-content{
+                .page-title{
+                    font-size:2.5rem;
+                }
+                p{
+                    font-size:1.5rem;
+                }
+            }
+            .btn-wrapper{
+                max-width: 400px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                padding-top:2rem !important;
+                .cta-btn{
+                    padding: 0.8rem 1rem !important;
+                }
+            }
+        }
+    }
+}

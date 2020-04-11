@@ -167,6 +167,23 @@
 									}
 								}
 							}
+							.woocommerce-shipping-totals.shipping{
+								position: relative;
+								&:after{
+									content: '';
+									position: absolute;
+									height: 1px;
+									width: 100%;
+									background-color: $color__text-main;
+									bottom: 0;
+									left: 0;
+								}
+							}
+							.order-total {
+								td{
+									padding-top: 0.5rem;
+								}
+							}
 							tr.cart-discount{
 								td{
 									text-align: left;
@@ -290,7 +307,7 @@
 									}
 								}
 								label {
-									display: flex;
+									display: inline-flex;
 									align-items: center;
 									flex: 1;
 									width: 90%;
@@ -309,6 +326,17 @@
 												&:before{
 													content: "*" ;
 												}
+											}
+										}
+									}
+								}
+								.payment_box.payment_method_stripe{
+									ul{
+										li{
+											#wc-stripe-payment-token-2,
+											#wc-stripe-payment-token-new {
+												width: 18px;
+												height: 18px;
 											}
 										}
 									}

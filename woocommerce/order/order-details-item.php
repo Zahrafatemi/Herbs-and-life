@@ -52,7 +52,7 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 	</td>
 
 	<td class="woocommerce-table__product-price product-price">
-		<?php echo $order->get_item_total( $item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<?php echo "$".$order->get_item_subtotal($item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</td>
 
 	<td class="woocommerce-table__product-total product-total">

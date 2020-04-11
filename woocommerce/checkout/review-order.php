@@ -104,10 +104,10 @@ defined( 'ABSPATH' ) || exit;
 		<?php endif; ?>
 
 		<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
-
+		
 		<tr class="order-total">
 			<th colspan="2"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
-			<td><?php wc_cart_totals_order_total_html(); ?></td>
+			<td colspan="2"><?php wc_cart_totals_order_total_html(); ?></td>
 		</tr>
 
 		<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>

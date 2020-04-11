@@ -8,12 +8,17 @@
 		}
 		.entry-content{
 			.woocommerce-form-coupon-toggle{
+				padding-bottom: 1rem;
 				.woocommerce-info{
 					.showcoupon{
 						text-decoration: underline;
 						color: $color__mossgreen;
 					}
 				}
+			}
+			.woocommerce-error {
+				margin: 0 0 1em 0;
+				list-style: none;
 			}
 			.woocommerce-message {
 				margin-top: 1rem;
@@ -122,6 +127,7 @@
 				#order_review{
 					
 					table.shop_table{
+						border-collapse: collapse;
 						thead{
 							width:100%;
 							tr {
@@ -167,19 +173,9 @@
 									}
 								}
 							}
-							.woocommerce-shipping-totals.shipping{
-								position: relative;
-								&:after{
-									content: '';
-									position: absolute;
-									height: 1px;
-									width: 100%;
-									background-color: $color__text-main;
-									bottom: 0;
-									left: 0;
-								}
-							}
-							.order-total {
+
+							tr.order-total {
+								border-top: 1px solid $color__text-main;
 								td{
 									padding-top: 0.5rem;
 								}
@@ -201,7 +197,6 @@
 							}
 							tr.woocommerce-shipping-totals.shipping{
 								width: 100%;
-   								position: relative;
 								td{
 									ul#shipping_method {
 										label{

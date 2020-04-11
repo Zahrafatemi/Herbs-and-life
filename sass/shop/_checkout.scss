@@ -310,6 +310,19 @@
 								}
 								.payment_box.payment_method_stripe {
 									width: 100%;
+									padding-top: 1rem;
+									ul{
+										li{
+											#wc-stripe-payment-token-2,
+											#wc-stripe-payment-token-new {
+												width: 18px !important;
+												height: 18px;
+											}
+										}
+									}
+									.woocommerce-SavedPaymentMethods.wc-saved-payment-methods {
+										width: 100% !important;
+									}
 									.stripe-source-errors{
 										.woocommerce-error.wc-stripe-error{
 											background-color: transparent;
@@ -325,17 +338,8 @@
 										}
 									}
 								}
-								.payment_box.payment_method_stripe{
-									ul{
-										li{
-											#wc-stripe-payment-token-2,
-											#wc-stripe-payment-token-new {
-												width: 18px;
-												height: 18px;
-											}
-										}
-									}
-								}
+
+								
 								.form-row.woocommerce-SavedPaymentMethods-saveNew.woocommerce-validated{
 									padding-top:1rem;
 									font-size: 0.8rem;

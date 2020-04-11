@@ -15,6 +15,14 @@
 	font-weight: 500;
 } 
 
+// Set light serif heading
+@mixin serif-light-heading(){
+	font-family: $font__heading;
+	letter-spacing: $font__letter-spacing-heading;
+	text-transform: uppercase;
+	font-weight: 400;
+} 
+
 /*
  * Button Styles Mixins
  */

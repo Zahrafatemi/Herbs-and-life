@@ -533,3 +533,18 @@ function woo_change_order_received_paypal_text($translated_text, $text, $domain)
 	return $translated_text;
 }
 add_filter('gettext', 'woo_change_order_received_paypal_text', 10, 3);
+
+/**
+ * @snippet       Change "Log in" Button text @ WooCommerce Account
+ * @sourcecode    https://rudrastyh.com/?p=8327#payment_gateways_text
+ */
+function account_login_button_text( $translated_text, $text, $domain ) {
+ 
+	if( $translated_text == 'Log in' ) {
+		$translated_text = 'Login'; // new button text is here
+	}
+ 
+	return $translated_text;
+}
+add_filter( 'gettext', 'account_login_button_text', 20, 3 );
+

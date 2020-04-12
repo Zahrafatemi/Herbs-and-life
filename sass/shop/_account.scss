@@ -19,7 +19,11 @@
                         li{
                             a{
                                 text-decoration: underline;
-                                color:$color__border-input;
+                                color:#fff;
+                                #{$link-hover-selector}{
+                                    color:$color__border-input;
+                                    cursor: pointer;
+                                }
                             }
                         }
                     }
@@ -71,6 +75,10 @@
                                         border-radius: 0;
                                         background-color:$color__darkgray;
                                         margin-bottom: 0.5rem;
+                                        #{$link-hover-selector}{
+                                            background-color:lighten($color__darkgray, 10%);
+                                            cursor: pointer;
+                                        }
                                     }
                                 }
                             }
@@ -83,7 +91,7 @@
                                 font-weight: 400;
 
                                 #{$link-hover-selector}{
-                                    background-color:lighten($color__darkgray, 10%);
+                                    color:lighten($color__cat_border, 10%);
                                     cursor: pointer;
                                 }
                                 }

@@ -62,6 +62,11 @@ $woocommerce__color-info: $color__coolgray;
  */
  @import "shop/account";
 
+ /**
+ * Lost Password page
+ */
+ @import "shop/lostpassword";
+
 /**
  * Variety Pack product page
  */

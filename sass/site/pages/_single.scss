@@ -222,6 +222,7 @@
                             font-weight: 400;
                             font-size: 2rem;
                             line-height: 1;
+                            color: $color__darkgray;
                         }
                     }
                 }
@@ -229,91 +230,3 @@
         }
     }
 }
-
-
-
-    // .entry-content {
-    //     @include mq($mq850) {
-    //         display: flex;
-    //     }
-        
-    //     .post-thumbnail {
-    //         @include mq($mq850) {
-    //             flex: 1;
-    //         }
-    //     }
-
-    //     .text {
-    //         padding-left: emRhythm(1, $ms-down1);
-
-    //         @include mq($mq850) {
-    //             flex: 2;
-    //         }
-    //     }
-    // }
-
-//     .recipe {
-//         .entry-content {
-//             display: block;
-//         }
-        
-//         .overview {
-//             padding: emRhythm(1, $ms-down1) emRhythm();
-//             background-color: $color__coolgray;
-
-//             @include mq($mq850){
-//                 display: flex;
-//                 width: 100%;
-//             }
-
-//             .thumbnail {
-//                 margin: 0;
-
-//                 @include mq($mq850){
-//                     flex: 1;
-//                 }
-
-//                 img {
-//                     width: 100%;
-//                     height: 100%;
-//                     object-fit: cover;
-//                 } 
-//             }
-            
-//             .text {
-//                 @include mq($mq850) {
-//                     flex: 1;
-//                     padding-left: emRhythm();
-//                 }
-
-//                 .summary {
-//                     span {
-//                         display: block;
-//                     }
-
-//                     h3 {
-//                         display: inline;
-//                         font-size: 1em;
-//                         font-weight: bold;
-//                     }            
-//                 }
-
-//                 .description {
-//                     padding-top: emRhythm();
-//                 }
-//             }
-//         }
-
-//         .ingredients {
-//             padding-top: emRhythm();
-            
-//             ul {
-//                 @include mq($mq850) {
-//                     columns: 2
-//                 }                
-//             }
-//         }    
-//     }
-
-
-// }

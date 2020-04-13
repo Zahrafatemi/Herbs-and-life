@@ -13,6 +13,9 @@
         }
         .entry-content{
             .woocommerce{
+                display:table;
+
+
                 .woocommerce-notices-wrapper{
                     .woocommerce-error{
                         margin: 0 0 2rem 0;
@@ -176,6 +179,104 @@
                             }
                             
                     
+                        }
+                    }
+                }
+
+                .woocommerce-MyAccount-navigation {
+                    display: table-footer-group;
+
+                    ul{
+                        list-style: none;
+                        margin:0;
+                        li{
+                            
+                            border-bottom: 1px solid $color__mossgreen;
+                         
+                            &:first-of-type{
+                                border-top: 2px solid $color__mossgreen;
+                            }
+                            &:last-of-type{
+                                border-bottom: 2px solid $color__mossgreen;
+                            }
+                            a{
+                                display: block;
+                                padding: 0.8rem 0.5rem;
+                                position: relative;
+                               
+                                #{$link-hover-selector}{
+                                    color:$color__mossgreen;
+                                    background-color:$color__beige;
+                                    cursor: pointer;
+                                    &:after{
+                                        content:'';
+                                        margin: 0.85rem;
+                                        position: absolute;
+                                        top:0;
+                                        right:0;
+                                        display: block;
+                                        width: 30px;
+                                        height: 20px;
+                                        background: url(images/assets/botanic-icon/botanic-icon-main.svg);
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                        background-position: center center;
+                                    }
+                                    
+                                }
+                            }
+                          
+                        }
+                    }
+                }
+                .woocommerce-MyAccount-content {
+                    display: table-header-group;
+                    p{
+                        &:first-of-type{
+                            font-size: 1.5rem;
+                            font-family: $font__heading;
+                            padding-bottom:1rem;
+                            span {
+                                font-size: medium;
+                                font-family: $font__main;
+                                a {
+                                    color: $color__cat_border;
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                        &:last-of-type{
+                            padding-bottom: 2.5rem;
+                            a {
+                                text-decoration: underline;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+
+                @include mq($mq670){
+                    .woocommerce-MyAccount-navigation {
+                        display: table-cell;
+                        width: 14rem;
+                        ul{
+                            li{
+                                &:first-of-type{
+                                    border-top: none;
+                                }
+                                &:last-of-type{
+                                    border-bottom: none;
+                                }
+                            }
+                        }
+                    }
+                    .woocommerce-MyAccount-content{
+                        display: table-cell;
+                        padding-left: 3rem;
+                        p{
+                            &:first-of-type{
+                                font-size: 2rem;
+                            }
                         }
                     }
                 }

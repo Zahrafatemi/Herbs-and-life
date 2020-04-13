@@ -231,20 +231,21 @@
                 }
                 .woocommerce-MyAccount-content {
                     display: table-header-group;
-                    p{
-                        &:first-of-type{
-                            font-size: 1.5rem;
-                            font-family: $font__heading;
-                            padding-bottom:1rem;
-                            span {
-                                font-size: medium;
-                                font-family: $font__main;
-                                a {
-                                    color: $color__cat_border;
-                                    text-decoration: underline;
-                                }
+                    .dashbord-intro-text{
+                        font-size: 1.5rem;
+                        font-family: $font__heading;
+                        padding-bottom:1rem;
+                        span {
+                            font-size: medium;
+                            font-family: $font__main;
+                            a {
+                                color: $color__cat_border;
+                                text-decoration: underline;
                             }
                         }
+                    }
+                    p{
+                        
                         &:last-of-type{
                             padding-bottom: 2.5rem;
                             a {
@@ -273,10 +274,8 @@
                     .woocommerce-MyAccount-content{
                         display: table-cell;
                         padding-left: 3rem;
-                        p{
-                            &:first-of-type{
-                                font-size: 2rem;
-                            }
+                        .dashbord-intro-text{
+                            font-size: 2rem;
                         }
                     }
                 }

@@ -5,37 +5,69 @@
 .single-post {
 
     #content {
-        border: 2px blue solid;
 
-        
         // Recipe styling
         article.recipe {
             margin-top: 0;
 
             .entry-content {
                 background-color: $color__coolgray-lighten;
-                margin-top: 0;
-                margin-bottom: 0;
+                max-width: 1200px;
+                margin: 0 auto;
+
+                &:before {
+                    display: none;
+                }
+
+                @include mq($mq850) {
+                    display: grid;
+                    grid-column-gap: 1rem;
+                    grid-template-columns: 1fr 1fr;
+                    margin-top: 100px;
+                }
+
+                @include mq($mq1200) {
+                    grid-template-columns: 1fr 2fr;
+                    padding: 0 10rem;
+                }
         
-                header.entry-header {
+                .entry-header {
+
                     // Featured image
                     figure.thumbnail {
                         margin-top: 0;
                         margin-bottom: 0;
-                        
+                        height: 100%;
+
                         img {
                             display: block;
                             height: 55vh;
                             object-fit: cover;
                             width: 100%;
+                            max-height: 70vh;
+
+                            @include mq($mq670) {
+                                height: 70vh;
+                            }
+
+                            @include mq($mq850) {
+                                height: 100%;
+                            }
                         }
+                    }
+                }
+
+                section.recipe-overview {
+                    padding: 1rem;
+
+                    @include mq($mq850) {
+                        padding: 2rem 2rem 2rem 1rem;
                     }
 
                     // Post title
                     h1 {
                         @include serif-light-heading;
                         text-align: left;
-                        padding: 1rem 1rem 0.5rem;
 
                         // botanic pattern
                         &:after {
@@ -45,7 +77,7 @@
                             margin: 0 auto;
                             width: 100%;
                             height: 20px;
-                            margin: 0.5rem 0;
+                            margin: 1rem 0;
                             background: url(images/assets/botanic-border/botanic-border-shop-sinlge.svg);
                             background-repeat: repeat-x;
                             background-position: center;
@@ -58,14 +90,8 @@
                             }
                         }
                     } 
-                }
-
-                section.recipe-overview {
-                    padding: 0rem 1rem 1rem;
 
                     .summary {
-
-
                         span {
                             display: flex;
                             flex-wrap: wrap;
@@ -128,6 +154,7 @@
 
                     p.description {
                         font-size: 1rem;
+                        padding-top: 1rem;
                     }
 
                     // Credit link
@@ -135,13 +162,22 @@
                         font-size: 1rem;
                         text-decoration: underline;
                     }
-
                 }
             }
         }
 
         .main-content {
             padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+
+            @include mq($mq850) {
+                padding: 1rem 3rem;
+            }
+
+            @include mq($mq1200) {
+                padding: 3rem 10rem;
+            }
 
             h2 {
                 @include serif-light-heading;
@@ -149,11 +185,16 @@
             }
 
             .recipe-ingredients {
-
                 ul {
                     list-style-type: none;
                     padding: 0;
                     margin: 0;
+
+                    @include mq($mq850) {
+                        display: grid;
+                        grid-column-gap: 1rem;
+                        grid-template-columns: 1fr 1fr;
+                    }
 
                     li {
                         background: url(images/assets/blog/ingredient-bullet.png);
@@ -163,15 +204,11 @@
                         margin-bottom: 1.5rem;
                     }
                 }
-
             }
 
             .recipe-directions {
-
                 ul {
-                    // list-style-type: decimal;
                     list-style: none;
-                    // padding: 0;
                     margin: 0;
                     counter-reset: decimal-counter;
                     

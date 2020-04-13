@@ -18,7 +18,7 @@
 				<img src=<?php the_post_thumbnail_url(); ?> alt="<?php the_title(); ?>">
 			</figure><!--.thumbnail-->
 
-			<h1><?php the_title(); ?></h1>
+			<!-- <h1><?php //the_title(); ?></h1> -->
 			
 		</header><!-- .entry-header -->
 
@@ -41,6 +41,8 @@
 			}
 		?>	
 		<section class="recipe-overview overview">
+
+			<h1 class="entry-title"><?php the_title(); ?></h1>
 
 			<div class="text">
 				<div class="summary">

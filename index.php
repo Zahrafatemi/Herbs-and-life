@@ -100,9 +100,7 @@ get_header();
 						?>
 					</div><!--.blog-feed-->
 
-					<div id="infinite-handle">
-						<button class="load-more button">Load More</button>
-					</div><!--#infinite-handle-->
+
 				<?php
 				else:
 					get_template_part( 'template-parts/content', 'none' );

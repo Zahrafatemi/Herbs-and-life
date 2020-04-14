@@ -4,7 +4,8 @@ jQuery(document).ready(function($){
 
   $container.isotope({
       itemSelector: '.blog-post',
-      layoutMode: 'masonry'
+      layoutMode: 'masonry',
+      percentPosition: true
   });
 
   var filters = {};

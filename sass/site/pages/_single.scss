@@ -242,7 +242,6 @@
             }
             
             .posts-container {
-
                 @include mq($mq768) {
                     display: grid;
                     grid-column-gap: 1rem;
@@ -316,5 +315,89 @@
                 }
             }
         }
+
+        article.category-news {
+            margin-top: 50px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+
+            .entry-header {
+                padding: 1rem;
+                text-align: center;
+                margin-bottom: 2rem;
+
+                h1 {
+                    @include serif-light-heading;
+                    margin-bottom: 0.5rem;
+                }
+
+                .entry-meta {
+                    font-size: 0.9rem;
+
+                    time {
+                        color: $color__cat_border;
+                    }
+
+                    .author {
+                        a {
+                            color: $color__cat_border;
+                        }
+                    }
+                }
+            }
+
+            .entry-content {
+                margin: 0;
+
+                &:before {
+                    display: none;
+                }
+
+                @include mq($mq850) {
+                    display: grid;
+                    grid-column-gap: 1rem;
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                @include mq($mq950) {
+                    padding: 0rem 5rem 3rem;
+                }
+
+                div.post-thumbnail {
+
+                    img {
+                        display: block;
+                        height: 100%;
+                        object-fit: cover;
+                        max-height: 50vh;
+
+                        @include mq($mq850) { 
+                            max-height: 100%;
+                        }
+                    }
+                }
+
+                div.text {
+                    padding: 1.5rem;
+
+                    @include mq($mq850) { 
+                        padding: 1rem;
+                    }
+
+                    h2 {
+                        @include serif-light-heading;
+                        text-transform: none;
+                        margin-bottom: 1rem;
+                        letter-spacing: 0.03em;
+                    }
+
+                    p {
+                        line-height: 1.6;
+                        margin-bottom: 1.5rem;
+                    }
+                }
+            }
+        }
+
     }
 }

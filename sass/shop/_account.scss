@@ -280,7 +280,6 @@
                             justify-self: center;
                             margin: 0.5rem 0;
                             font-weight: 400;
-                            font-size: 0.8rem;
                         }
                     } 
                     //Address
@@ -390,11 +389,28 @@
                             width: 100%;
                             padding-bottom: 0.5rem;
                         }
-                        .woocommerce-form-row--wide.form-row.form-row-wide{
-                            span {
+                        p.form-row-display{
+                            span{
                                 padding-top: 0.5rem;
+                                font-size: 0.8rem;
+                                em{
+                                    font-style: inherit;
+                                }
+                                &:before{
+                                    content:'**';
+                                    display:inline;
+                                }
+                            }
+                            label{
+                                span.required{
+                                    &:before{
+                                        content:none;
+                                       
+                                    }
+                                }
                             }
                         }
+
                         fieldset{
                            .woocommerce-Input.input-text{
                                width:100%;
@@ -568,7 +584,7 @@
                 @include mq($mq670){
                     .woocommerce-MyAccount-navigation {
                         display: table-cell;
-                        width: 25%;
+                        width: 28%;
                         &:before{
                             content:none;
                         }
@@ -579,6 +595,13 @@
                                 }
                                 &:last-of-type{
                                     border-bottom: none;
+                                }
+                                a{
+                                    #{$link-hover-selector}{
+                                        &:after{
+                                            margin-right: 0;
+                                        } 
+                                    }
                                 }
                             }
                         }
@@ -639,6 +662,52 @@
                                     }
                                 }
                             }
+                        }
+                        //Account Details
+                        form.woocommerce-EditAccountForm.edit-account{
+                            display:table;
+
+                            p.woocommerce-form-row--first.form-row.form-row-first{
+                                width: 49%;
+                                margin-right: 2%;
+                            }
+                            p.woocommerce-form-row--last.form-row.form-row-last{
+                                width:49%;
+                            }
+                            p.form-row-display{   
+                                grid-template-columns: 49% 1fr;
+                                grid-column-gap: 2%;
+                                grid-template-areas:
+                                 "display-name-title ."
+                                 "display-name-input display-name-text";
+                                 label{
+                                     grid-area:display-name-title;
+                                     span.required{
+                                         font-size:0.8rem;
+                                         padding-left:0;
+                                     }
+                                 }
+                                 input#account_display_name{
+                                    grid-area:display-name-input;
+                                 }
+                                 span{   
+                                    grid-area:display-name-text;
+                                    align-self: center;
+                                    font-size: 0.64rem;
+                                    padding-top: 0;
+                                    line-height: 1.2;
+
+                                }
+                               
+                            }
+                            fieldset{
+                                p{
+                                    &:nth-of-type(3){
+                                        display:block;
+                                    }
+                                }
+                            }
+
                         }
   
                         //Order
@@ -706,7 +775,7 @@
 
                 @include mq($mq768){
                     .woocommerce-MyAccount-content{
-                        
+                        //Order
                         .my_account_orders.account-orders-table{
                             thead{
                                 tr{
@@ -718,6 +787,14 @@
                             tr.woocommerce-orders-table__row{
                                 td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-total {
                                     padding-left:1.2rem;
+                                }
+                            }
+                        }
+                        //Account Details
+                        form.woocommerce-EditAccountForm.edit-account{
+                            p.form-row-display{
+                                span{
+                                    font-size: 0.75rem;
                                 }
                             }
                         }
@@ -748,21 +825,29 @@
                         width: 20%;
                     }
                     .woocommerce-MyAccount-content{
-                            //Add payment
-                            form#add_payment_method{
-                                .woocommerce-Payment{
-                                    ul.woocommerce-PaymentMethods.payment_methods.methods{
-                                        li.woocommerce-PaymentMethod--stripe.payment_method_stripe{
-                                            .payment_box.payment_method_stripe{
-                                                .wc-credit-card-form{
-                                                    width: 55%;
-                                                }
+                        //Add payment
+                        form#add_payment_method{
+                            .woocommerce-Payment{
+                                ul.woocommerce-PaymentMethods.payment_methods.methods{
+                                    li.woocommerce-PaymentMethod--stripe.payment_method_stripe{
+                                        .payment_box.payment_method_stripe{
+                                            .wc-credit-card-form{
+                                                width: 55%;
                                             }
                                         }
                                     }
                                 }
                             }
-                        
+                        }
+                        //Account Details
+                        form.woocommerce-EditAccountForm.edit-account{
+                            p.form-row-display{
+                                span{
+                                    font-size: 0.8rem;
+                                }
+                            }
+                        }
+                        //Order
                         .my_account_orders.account-orders-table{
                             tr.woocommerce-orders-table__row{
                                 td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-number {

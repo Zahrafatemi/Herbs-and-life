@@ -400,7 +400,8 @@
                                width:100%;
                            } 
                         }
-                        button.woocommerce-Button.button{
+                        &:last-of-type{
+                            button.woocommerce-Button.button{
                             @include btn-style();
                                     background-color: $color__mossgreen;
                                     color: white;
@@ -416,6 +417,7 @@
                                         background-color:lighten($color__mossgreen, 10%);
                                         cursor: pointer;
                                     }
+                            }
                         }
                     }
                    //Order

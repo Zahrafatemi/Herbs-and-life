@@ -7,17 +7,25 @@
             .entry-content{
                 .woocommerce{
                    padding-bottom: 4rem;
-                        .woocommerce-message {
-                            padding: 0.5em 0.75em;
-                            background-color: $color__cat_beauty !important;
-                            width:100%;
-                            .restore-item{
-                                span{
-                                    text-decoration: underline;
-                                    cursor: pointer;
+                        
+                        .woocommerce-notices-wrapper{
+                            .woocommerce-message {
+                                padding: 0.5em 0.75em;
+                                background-color: $color__cat_beauty !important;
+                                width:100%;
+                                .restore-item{
+                                    span{
+                                        text-decoration: underline;
+                                        cursor: pointer;
+                                    }
                                 }
+                            } 
+                            
+                            .woocommerce-error{
+                                list-style: none;
+                                margin: 0;
                             }
-                        }        
+                        }       
                         
                     
                         .cart-empty.woocommerce-info{

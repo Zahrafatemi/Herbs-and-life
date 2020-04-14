@@ -184,6 +184,12 @@
                 }
 
                 .woocommerce-MyAccount-navigation {
+                    &:before{
+                        content:'';
+                        display: block;
+                        height: 3rem;
+                    }
+
                     display: table-footer-group;
 
                     ul{
@@ -247,7 +253,7 @@
                     p{
                         
                         &:last-of-type{
-                            padding-bottom: 2.5rem;
+                           
                             a {
                                 text-decoration: underline;
                                 font-weight: 400;
@@ -339,11 +345,11 @@
                                 &:first-of-type,
                                 &:nth-of-type(3){
                                     text-align: left;
-                                    width:40%;
+                                    width:47%;
                                 }
                                 &:nth-of-type(2),
                                 &:nth-of-type(4){
-                                    width:60%;
+                                    width:53%;
                                 }
                             }
                             .woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-actions {
@@ -370,6 +376,7 @@
                                 text-align: center;
                             }
                         }
+                        tr.woocommerce-orders-table__row--status-completed.order,
                         tr.woocommerce-orders-table__row--status-processing.order{
                             td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-status{
                                 background-color:$color__mossgreen; 
@@ -380,16 +387,7 @@
                                  
                             }
                         }
-                        tr.woocommerce-orders-table__row--status-completed.order{
-                            td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-status{
-                                background-color:$color__darkgray;
-                                #{$link-hover-selector}{
-                                    background-color:lighten($color__darkgray, 10%);
-                                    cursor: pointer;
-                                }
-                            }
-                        }
-                       
+                        tr.woocommerce-orders-table__row--status-failed.order,
                         tr.woocommerce-orders-table__row--status-on-hold.order{
                             td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-status{
                                 background-color:$color__cat_border;
@@ -419,53 +417,29 @@
                                 display: inline-flex;
                                 justify-content: flex-end;
                                 a.woocommerce-button.button.pay{
-                                    margin-right: 3px; 
-                                    background-color:$color__cat_border;
-                                    #{$link-hover-selector}{
-                                        background-color:lighten($color__cat_border, 10%);
-                                        cursor: pointer;
-                                    }
+                                    display:none;
                                 }
                                 a.woocommerce-button.button.view {
                                     margin-right: 3px;
                                 }
                                 a.woocommerce-button.button.cancel{
-                                    background-color:#8d8d8d; 
-                                    #{$link-hover-selector}{
-                                        background-color:darken(#8d8d8d, 10%);
-                                        cursor: pointer;
-                                    }
+                                    display:none;
                                 }
                             }
                         }
                         tr.woocommerce-orders-table__row--status-failed.order{
-                            td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-status{
-                            background-color:$color__cat_vinegar;
-                            #{$link-hover-selector}{
-                                background-color:lighten($color__cat_vinegar, 10%);
-                                cursor: pointer;
-                            }
-                            }
+  
                             td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-actions{
                                 display: inline-flex;
                                 justify-content: flex-end;
                                 a.woocommerce-button.button.pay{
-                                    margin-right: 3px; 
-                                    background-color:$color__cat_border;
-                                    #{$link-hover-selector}{
-                                        background-color:lighten($color__cat_border, 10%);
-                                        cursor: pointer;
-                                    }
+                                  display:none;
                                 }
                                 a.woocommerce-button.button.view {
                                     margin-right: 3px;
                                 }
                                 a.woocommerce-button.button.cancel{
-                                    background-color:#8d8d8d; 
-                                    #{$link-hover-selector}{
-                                        background-color:darken(#8d8d8d, 10%);
-                                        cursor: pointer;
-                                    }
+                                    display:none;
                                 }
                             }
                         }
@@ -503,6 +477,9 @@
                     .woocommerce-MyAccount-navigation {
                         display: table-cell;
                         width: 25%;
+                        &:before{
+                            content:none;
+                        }
                         ul{
                             li{
                                 &:first-of-type{
@@ -568,17 +545,7 @@
                                 td.woocommerce-orders-table__cell {
                                      margin-bottom: 0;
                                 }
-                                td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-actions{
-                                    a{
-                                        width:42px;
-                                    }
-                                    a.woocommerce-button.button.cancel{
-                                        text-align: justify;
-                                        font-size: 0.75rem;
-                                        word-wrap: break-word;
-                                        line-height: 1;
-                                    }
-                                }  
+ 
                             }
                             
                         }
@@ -633,19 +600,7 @@
                                 }
                                 
                             }
-                            tr.woocommerce-orders-table__row--status-pending.order,
-                            tr.woocommerce-orders-table__row--status-failed.order{
-                                td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-actions{
-                                    a{
-                                        width:65px;
-                                    }
-                                    a.woocommerce-button.button.cancel{
-                                        text-align: inherit;
-                                        word-wrap: inherit;
-                                        line-height: 2;
-                                    }
-                                }
-                            }
+
                         }
                     }
                 }
@@ -669,14 +624,7 @@
                                     padding-left: 2rem;
                                 }
                             }
-                            tr.woocommerce-orders-table__row--status-pending.order,
-                            tr.woocommerce-orders-table__row--status-failed.order{
-                                td.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-actions{
-                                    a{
-                                        width:69px;
-                                    }
-                                }
-                            }
+
                         }
                     }
                 }

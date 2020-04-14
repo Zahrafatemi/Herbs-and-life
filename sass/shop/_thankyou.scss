@@ -71,14 +71,16 @@
                     }
                     .woocommerce-customer-details{
                         .woocommerce-columns--addresses.col2-set.addresses{
-                            
-                            address{
-                                font-style: normal;
-                                .woocommerce-customer-details--phone,
-                                .woocommerce-customer-details--email {
-                                    font-size: 1rem;
+                            .woocommerce-column{
+                                address{
+                                    font-style: normal;
+                                    .woocommerce-customer-details--phone,
+                                    .woocommerce-customer-details--email {
+                                        font-size: 1rem;
+                                    }
                                 }
                             }
+
 
                             @include mq($mq670){
                                 display:flex;

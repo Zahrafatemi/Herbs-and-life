@@ -78,6 +78,7 @@
                                         border-radius: 0;
                                         background-color:$color__darkgray;
                                         margin-bottom: 0.5rem;
+                                        letter-spacing: 0.1em;
                                         #{$link-hover-selector}{
                                             background-color:lighten($color__darkgray, 10%);
                                             cursor: pointer;
@@ -117,6 +118,7 @@
                                     background-color:$color__coolgray;
                                     margin-bottom: 0.5rem;
                                     margin-top: 1rem;
+                                    letter-spacing: 0.1em;
 
                                     #{$link-hover-selector}{
                                         background-color:darken($color__coolgray, 10%);
@@ -268,6 +270,7 @@
                             a.woocommerce-Button.button{
                                 text-decoration: none;
                                 margin: 0.5rem 0;
+                                font-size: 0.85rem;
                             }
                         }
                     }
@@ -280,6 +283,7 @@
                             justify-self: center;
                             margin: 0.5rem 0;
                             font-weight: 400;
+                            font-size: 0.85rem;
                         }
                     } 
                     //Address

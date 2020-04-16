@@ -325,6 +325,13 @@
                                             }
                                         }
                                     }
+                                    //No display recurring summary on total 
+                                    tr.recurring-totals,
+                                    tr.cart-subtotal.recurring-total,
+                                    tr.shipping.recurring-total,
+                                    tr.order-total.recurring-total {
+                                        display: none;
+                                    }
                                 }
                             }
                                 .wc-proceed-to-checkout {

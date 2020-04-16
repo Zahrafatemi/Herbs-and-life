@@ -11,10 +11,12 @@
                         margin-bottom: 2rem;
                         white-space: pre;
                     }
+                    //First Order information Summary
                     .woocommerce-thankyou-order-details{
                         list-style: none;
                         margin: 0 0 2rem 0;
                     }
+                    //Order details 
                     .woocommerce-order-details{
                         .woocommerce-table--order-details.shop_table.order_details{
                             border-collapse: collapse;
@@ -68,7 +70,39 @@
                                } 
                             }
                         }
+                        .shop_table.my_account_orders.woocommerce-MyAccount-subscriptions{
+                            tbody{
+                                tr{
+                                    td.woocommerce-orders-table__cell-subscription-actions{
+                                        &:before{
+                                            display:none;
+                                        }
+                                        .woocommerce-button.button.view{
+                                            @include btn-style();
+                                            background-color: $color__mossgreen;
+                                            color: white;
+                                            font-family: inherit;
+                                            padding: 5px 5px 2px 5px;
+
+                                            #{$link-hover-selector}{
+                                                background-color:lighten($color__mossgreen, 10%);
+                                                cursor: pointer;
+                                            } 
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
+                    //Remove subscription-view text
+                    p{
+                        &:last-of-type:not(.woocommerce-customer-details--email){
+                            display: none;
+                        }
+                    }
+                    
+
+                    //Billing Address & Shipping Address
                     .woocommerce-customer-details{
                         .woocommerce-columns--addresses.col2-set.addresses{
                             .woocommerce-column{

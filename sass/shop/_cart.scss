@@ -100,21 +100,87 @@
                                 grid-area:p-name;
 
                                 dl.variation{
-                                    font-size: 0.73rem;
-                                    display: grid;
-                                    grid-template-columns: 60% 1fr;
-                                    justify-items: start;
-                                    align-items: 200;
+                                    font-size: 0.83rem;
+                                    display: inline-flex;
+                                    width: 100%;
+                                    margin: 0.3rem 0;
+                                    flex-wrap: wrap;
+                                    justify-content: space-between;
                                     dt{
                                         font-weight: normal;
                                     }
+                                    
                                     dd{
                                         margin:0;
                                         justify-self: end;
                                         p {
-                                            font-size: 0.73rem;
+                                            font-size: 0.83rem;
                                         }
                                     }
+                                    //custom-giftwrapping 
+                                    dt.variation-CustomGiftwrappingspanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span1000span,
+                                    dt.variation-SelectaDesign,
+                                    dt.variation-CustomText,
+                                    dt.variation-CustomTextLocation{
+                                        text-align: left;
+                                        width:60%;
+                                        @include mq($mq768){
+                                            width:100%;
+                                        }
+                                    }
+                                    dd.variation-CustomGiftwrappingspanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span1000span,
+                                    dd.variation-SelectaDesign,
+                                    dd.variation-CustomText,
+                                    dd.variation-CustomTextLocation{
+                                        width:40%;
+                                        @include mq($mq768){
+                                            width:100%;
+                                            p{
+                                                text-align:left;
+                                            }
+                                        }
+                                    }
+                                    //Event products  
+                                    dt.variation-BookingDate,
+                                    dt.variation-Adults,
+                                    dt.variation-Children
+                                    dt.variation-Persons{
+                                        text-align: left;
+                                        width:40%;
+                                      
+                                    }
+                                    dd.variation-BookingDate,
+                                    dd.variation-Adults,
+                                    dd.variation-Children
+                                    dd.variation-Persons{
+                                        width:60%;
+                                        text-align: right;
+                                       
+                                    }
+                                    .variation-BookingDate,
+                                    .variation-Persons{
+                                        font-size:0.85rem;
+                                        p{
+                                        font-size:0.85rem; 
+                                        }
+                                    }
+                                    .variation-Adults,
+                                    .variation-Children
+                                     {
+                                         font-size: 0.85rem;
+                                         p{
+                                            font-size: 0.85rem; 
+                                        }
+                                    }
+                                    @include mq($mq768){
+                                     dt.variation-BookingDate{
+                                         width:45%;
+                                     }
+                                     dd.variation-BookingDate{
+                                        width:55%;
+                                     }    
+                                    }
+                                   
                                 }
                             }
                             td.product-price{
@@ -198,6 +264,17 @@
                                                 text-align: right;
                                             }
                                         }
+                                        dt.variation-Persons,
+                                        dt.variation-Adults,
+                                        dt.variation-Children{
+                                            grid-column-start: 1;
+                                            
+                                        }
+                                        dd.variation-Persons,
+                                        dd.variation-Adults,
+                                        dd.variation-Children{
+                                            grid-column-start: 2;
+                                        }
                                     }
                                 }
                                 td.product-quantity{
@@ -207,7 +284,6 @@
                                         }
                                     }
                                 }
-
                             }
                             .actions{
                                 text-align: right;
@@ -332,6 +408,7 @@
                                     tr.order-total.recurring-total {
                                         display: none;
                                     }
+
                                 }
                             }
                                 .wc-proceed-to-checkout {

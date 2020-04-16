@@ -132,6 +132,9 @@
 							width:100%;
 							tr {
 								width:100%;
+								display: inline-grid;
+								grid-template-columns: 48% 26% 25%;
+								grid-column-gap: 1.5%;
 								th.product-name,
 								th.product-price {
 									text-align: left;	
@@ -143,7 +146,14 @@
 								
 							}
 						}
-						tbody{					
+						tbody{
+							.cart_item {
+								display: inline-grid;
+								grid-template-columns: 53% 22% 22%;
+								align-items: center;
+								grid-column-gap: 1.5%;
+								width: 100%;
+							}				
 							tr{			
 								td.product-name{	
 									dl.variation{
@@ -153,6 +163,38 @@
 										dd{
 											margin:0;
 										}
+										//Event products  
+										.variation-BookingDate,
+										.variation-Persons{
+											font-size:0.9rem;
+											p{
+											font-size:0.9rem; 
+											}
+										}
+										dt.variation-Adults,
+										dt.variation-Children{
+											width: 60%;
+											float: left;
+											font-size:0.9rem;
+										}
+										dd.variation-Adults,
+										dd.variation-Children{
+											p{
+											font-size:0.9rem;
+											}
+										}
+										@include mq($mq615){
+											.variation-BookingDate,
+											.variation-Persons,
+											.variation-Adults,
+											.variation-Children {
+
+												width: 50%;
+												float: left;
+											
+											}
+										}
+										
 									}
 								}
 								td.product-total {
@@ -173,8 +215,16 @@
 									}
 								}
 							}
+							tr.cart-subtotal {
+								display: inline-flex;
+								justify-content: space-between;
+								width: 100%;
+							}
 
 							tr.order-total {
+								display: inline-flex;
+								justify-content: space-between;
+								width: 100%;
 								border-top: 1px solid $color__text-main;
 								td{
 									padding-top: 0.5rem;
@@ -197,6 +247,8 @@
 							}
 							tr.woocommerce-shipping-totals.shipping{
 								width: 100%;
+								display: inline-flex;
+								justify-content: space-between;
 								td{
 									ul#shipping_method {
 										label{

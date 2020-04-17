@@ -184,7 +184,7 @@
                         }
                     }
                 }
-
+                //My Account Navigation Bar
                 .woocommerce-MyAccount-navigation {
                     &:before{
                         content:'';
@@ -235,10 +235,17 @@
                             }
                           
                         }
+                        //Hide download menu
+                        li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads {
+                            display: none;
+                        }
                     }
                 }
+
+                //My Account Content area
                 .woocommerce-MyAccount-content {
                     display: table-header-group;
+                    //Dashboard
                     .dashbord-intro-text{
                         font-size: 1.5rem;
                         font-family: $font__heading;
@@ -308,6 +315,51 @@
                                 }
                             }
                         }
+                    }
+                    //Edit Billing Address form
+                    .woocommerce-address-fields {
+                        padding: 1rem 0;
+                        .woocommerce-address-fields__field-wrapper {
+                            p {
+                                padding-bottom: 0.8rem;  
+                                display: inline-flex;
+                                flex-direction: column;
+                                width: 100%;  
+                                .woocommerce-input-wrapper{
+                                    .input-text{
+                                        width:100%;
+                                    }
+                                }                    
+                            }
+                            #billing_country_field{
+                                .woocommerce-input-wrapper{
+                                    .select2-selection.select2-selection--single,
+                                    .select2-container--default.select2-selection--single{
+                                            border-radius: 0 !important;
+                                        }   
+                                       
+                                }
+                            }
+                        }
+                        p{
+                            .button{
+                                @include btn-style();
+                                background-color: $color__mossgreen;
+                                color: white;
+                                font-family: inherit;
+                                max-width: 150px;
+                                border:none;
+                                padding: 5px;
+                                float:right;
+                                margin-top: 0.8rem;
+                                border-radius: 0;
+                                #{$link-hover-selector}{
+                                    background-color:lighten($color__mossgreen, 10%);
+                                    cursor: pointer;
+                                } 
+                            }
+                        }
+
                     }
                     //Payment
                     table.woocommerce-MyAccount-paymentMethods.account-payment-methods-table{
@@ -440,6 +492,75 @@
                             }
                         }
                     }
+                    //Booking
+                    .shop_table.my_account_bookings{
+                    //Hide booking id number tr/td both
+                    .booking-id {
+                        display: none;
+                    }
+                    .booking-end-date {
+                        display: none;
+                    }
+                    tr{
+                        width: 100%;
+                        display: inline-flex;
+                        align-items: center;
+   
+                        .order-number{
+                            order: 1;
+                        }
+                        .booked-product {
+                            order: 2;
+                        }
+                        .booking-start-date {
+                            order: 3;
+                        }
+                        .booking-status {
+                            order: 4;
+                        }
+                        .booking-cancel {
+                            order: 5;
+                        }
+                        
+                        
+                        }
+                    thead{
+                        font-size: 0.9rem;
+                        text-align: left;
+                        tr{
+                            th.order-number {
+                                margin-left: -8px;
+                                width: 15%; 
+                            }
+                            th.booked-product {
+                                width: 28%;
+                            }
+                            th.booking-start-date {
+                                width: 22%;
+                            }
+                        }
+                    }
+                    
+                    tbody{
+
+                            tr{
+                                td.order-number {
+                                    width: 15%;
+                                }
+                                td.booked-product {
+                                    width: 34%;
+                                }
+                                td.booking-start-date {
+                                    width: 25%;
+                                }
+                                td.booking-status {
+                                    width: 17%;
+                                }
+                            }
+
+                        }
+                    }
+
                    //Order
                     .my_account_orders.account-orders-table{
                         tr.woocommerce-orders-table__row{

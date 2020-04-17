@@ -35,13 +35,43 @@
                                         display: table-row;
                                         height: 1rem;  
                                     }
-                                    .woocommerce-table__line-item.order_item{
+                                    tr.woocommerce-table__line-item.order_item{
+                                        td{
+                                            padding-bottom: 1rem;
+                                        }
                                         .woocommerce-table__product-name.product-name {
                                             .wc-item-meta{
                                                 list-style: none;
                                                 margin: 0;
                                                 font-size: 0.8rem; 
                                                 padding-bottom: 0.3rem;                            
+                                            }
+
+                                            //event-product summary
+                                            .wc-booking-summary {
+                                                margin: 0.3em 0.5em 0 0;
+                                                padding: 0.3rem 0.2rem;
+                                                border-radius: 0;
+                                                font-size: 0.8rem;
+                                                max-width: 15rem;
+                                                .wc-booking-summary-number{
+                                                    .status-paid{
+                                                        border-radius: 0;
+                                                        background-color: $color__mossgreen;
+                                                    } 
+                                                }
+                                                ul.wc-booking-summary-list {
+                                                    margin: 0.3em 0 0 0; 
+                                                    li{
+                                                        margin:0;
+                                                    }     
+                                                }
+                                                .wc-booking-summary-actions {
+                                                    display:none;
+                                                }
+                                                @include mq($mq615){
+                                                    font-size: 0.85rem;
+                                                } 
                                             }
                                         }
                                         .woocommerce-table__product-total.product-total {
@@ -97,7 +127,7 @@
                     //Remove subscription-view text
                     p{
                         &:last-of-type:not(.woocommerce-customer-details--email){
-                            display: none;
+                            // display: none;
                         }
                     }
                     

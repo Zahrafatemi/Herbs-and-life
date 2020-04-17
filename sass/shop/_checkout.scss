@@ -133,7 +133,7 @@
 							tr {
 								width:100%;
 								display: inline-grid;
-								grid-template-columns: 48% 26% 25%;
+								grid-template-columns: 48% 25% 24%;;
 								grid-column-gap: 1.5%;
 								th.product-name,
 								th.product-price {
@@ -153,47 +153,77 @@
 								align-items: center;
 								grid-column-gap: 1.5%;
 								width: 100%;
+								padding-bottom: 1rem;
 							}				
 							tr{			
 								td.product-name{	
 									dl.variation{
+										margin:0.2rem 0 0 0;
+										display: inline-flex;
+										flex-wrap: wrap;
+										align-items: center;
 										dt, dd{
 											font-size:0.8rem;
 										}
 										dd{
 											margin:0;
 										}
+										//custom-giftwrapping 
+										dt.variation-CustomGiftwrappingspanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span1000span,
+										dt.variation-SelectaDesign,
+										dt.variation-CustomText,
+										dt.variation-CustomTextLocation{
+												width:100%;
+											
+										}
+										dd.variation-CustomGiftwrappingspanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span1000span,
+										dd.variation-SelectaDesign,
+										dd.variation-CustomText,
+										dd.variation-CustomTextLocation{
+												width:100%;		
+										}
 										//Event products  
 										.variation-BookingDate,
 										.variation-Persons{
-											font-size:0.9rem;
+											font-size:0.8rem;
 											p{
-											font-size:0.9rem; 
+											font-size:0.8rem; 
 											}
 										}
+										dt.variation-BookingDate,
+										dd.variation-BookingDate{
+											width:50%
+										}
 										dt.variation-Adults,
-										dt.variation-Children{
+										dt.variation-Children,
+										dt.variation-Persons{
 											width: 60%;
-											float: left;
-											font-size:0.9rem;
+											font-size:0.8rem;
+											@include mq($mq615){
+												width: 30%;	
+											}
 										}
 										dd.variation-Adults,
-										dd.variation-Children{
+										dd.variation-Children,
+										dd.variation-Persons{
+											width:40%;
 											p{
-											font-size:0.9rem;
+											font-size:0.8rem;
+											}
+											@include mq($mq615){
+												width: 70%;	
 											}
 										}
 										@include mq($mq615){
-											.variation-BookingDate,
-											.variation-Persons,
-											.variation-Adults,
-											.variation-Children {
-
-												width: 50%;
-												float: left;
-											
+											dt.variation-BookingDate{
+												width: 45%;
+											}
+											dd.variation-BookingDate{
+												width:55%;
+												text-align: left;
 											}
 										}
+
 										
 									}
 								}
@@ -252,7 +282,6 @@
 								td{
 									ul#shipping_method {
 										label{
-											font-size: 0.8rem;
 											span.woocommerce-Price-amount.amount {
 												font-size: 1rem;
 											}
@@ -284,7 +313,7 @@
 								align-items: center;
 								justify-content: space-between;
 								input#payment_method_paypal {
-									margin-top: -2.8em;
+									margin-top: -3.5em;
 									width: 18px;
 									height: 18px;
 									-moz-appearance: radio;
@@ -295,7 +324,7 @@
 									flex-wrap: wrap;
 									align-items: center;
 									justify-content: space-between;
-									width: 93%;
+									width: 92%;
 									position: relative;
 
 									@include mq($mq550){
@@ -308,7 +337,7 @@
 									img{
 										height: 70px;
 										position: absolute;
-										top: -1rem;
+										top: -1.5rem;
 										right: 0;
 									}
 									a.about_paypal {
@@ -353,6 +382,7 @@
 									height: 18px;
 									-moz-appearance: radio;
 									-webkit-appearance: radio;
+									margin-top: -0.3rem;
 									@include mq($mq420){
 										margin-right: 2.5%;
 									}
@@ -361,10 +391,11 @@
 									}
 								}
 								label {
-									display: inline-flex;
-									align-items: center;
-									flex: 1;
-									width: 90%;
+								display: inline-grid;
+								align-items: center;
+								width: 92%;
+								grid-template-columns: 1fr 37px 37px 37px;
+								grid-column-gap: 2px;
 								
 								}
 								.payment_box.payment_method_stripe {

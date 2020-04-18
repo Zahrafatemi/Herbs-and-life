@@ -98,10 +98,9 @@
 				position: absolute;
 				bottom: 0;
 				background-color: $color__coolgray;
+				color: $color__coolgray;
 				width: 100%;
-				//height: 430px;
 				z-index: 3;
-				//padding: 1rem;
 				margin-block-end: 0 ;
 				text-align: center;
 
@@ -118,6 +117,22 @@
 					height: 50px;
 					margin-bottom: 40px;
 					border-radius: 0;
+				}
+				
+				@include mq(700px){
+					text-align: initial;
+    				display: flex;
+					justify-content: space-between;
+
+					.label{
+						display: none;
+					}
+
+					button{
+						align-self: flex-start;
+						margin: 30px auto 0 20px;
+
+					}
 				}
 			
 				.wc-bookings-booking-form{
@@ -142,6 +157,7 @@
 							content: "How Many People?";
 							position: relative;
 							display: inline-block;
+							color: black;
 							width: 100%;
 							background: url(images/assets/events/numbers_1.svg);
 							background-repeat: no-repeat;
@@ -194,6 +210,7 @@
 							color: white;
 							span{
 								color: black;
+								text-align: center;
 							}
 						}
 						
@@ -203,6 +220,7 @@
 						border: 1px solid #5d6850;
 						text-align: center;
 						border-radius: 0;
+						height: 36px;
 					}
 
 					.wc-bookings-date-picker.wc-bookings-date-picker-booking.wc_bookings_field_start_date{
@@ -335,6 +353,68 @@
 						background: none !important;
 						border-top: none !important;
 						color: #36474F !important;
+					}
+
+					@include mq(700px){
+						max-width: 500px;
+						width: 70%;
+						margin: initial;
+						margin-left: auto;
+
+						.wc-bookings-booking-cost{
+							margin: -70px -186px 30px 0;
+							padding: 0;
+							text-align: right;
+						}
+
+						p.form-field.form-field-wide{
+							flex-wrap: nowrap;
+							flex-direction: row;
+							align-items: center;
+						}
+
+						p:first-child:before{
+							flex-basis: initial;
+							flex-grow: initial;
+							flex-shrink: initial;
+							width: 210px;
+							text-align: right;
+							margin-right: 20px;
+							margin-bottom: 0;
+							align-self: center;
+						}
+
+						p:first-child input[name='wc_bookings_field_persons']{
+							margin: 0;
+						}
+
+						label[for='wc_bookings_field_persons'] {
+							display: none;
+						}
+
+						fieldset.wc-bookings-date-picker.wc-bookings-date-picker-booking.wc_bookings_field_start_date{
+							
+							.wc-bookings-date-picker-date-fields{
+								&:before{
+									content: "Select the Date:";
+									position: relative;
+									display: inline-block;
+									width: 184px;
+									text-align: right;
+									background: url(images/assets/events/numbers_2.svg);
+									background-repeat: no-repeat;
+									background-position: left;
+									background-size: contain;
+									height: 28px;
+									// This line-hight is for vertically align the content 
+									line-height: 28px;
+									font-size: 17px;
+									margin: 5px 40px 0 0;
+									color: black;
+								}
+							}
+						} 
+
 					}
 						
 				}

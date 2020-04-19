@@ -395,7 +395,7 @@
                                 max-width: 215px;
                                 border:none;
                                 padding: 5px;
-                                float:right;
+
                                 #{$link-hover-selector}{
                                     background-color:lighten($color__mossgreen, 10%);
                                     cursor: pointer;
@@ -531,6 +531,13 @@
                             th.order-number {
                                 margin-left: -8px;
                                 width: 15%; 
+                                @include mq($mq400){
+                                margin-left: 0;
+                                width: 14%;
+                                }
+                                @include mq($mq1200){
+                                width: 15%;   
+                                }
                             }
                             th.booked-product {
                                 width: 28%;
@@ -546,6 +553,9 @@
                             }
                             th.booking-start-date {
                                 width: 22%;
+                                @include mq($mq600){
+                                    width:24%;
+                                }
                             }
 
                         }
@@ -690,9 +700,16 @@
                     }
 
                     //View Order Page
-                    //hide top comment on view-order page
                     .view_order-comment {
-                        display: none;               
+                        margin-bottom: 2rem;
+                        font-size: 1rem;
+                        background-color:$color__mossgreen;
+                        padding: 0.2rem;
+                        color: white; 
+                        mark{
+                            background-color:$color__mossgreen; 
+                            color: white;
+                        }              
                     }
                     .woocommerce-order-details.myaccount-vieworder{
                         .woocommerce-table--order-details.shop_table.order_details{

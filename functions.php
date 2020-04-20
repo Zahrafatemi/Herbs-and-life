@@ -548,3 +548,17 @@ function account_login_button_text( $translated_text, $text, $domain ) {
 }
 add_filter( 'gettext', 'account_login_button_text', 20, 3 );
 
+
+/**
+ * @snippet      WooCommerce: My Account Orders Pagination - per page setting
+ * @source       https://kybernaut.cz/?p=2896
+ * @testedwith   WordPress 5.2 & WooCommmerce 3.6.2
+ */
+// -------------------
+
+function recover_pagination_my_account_orders( $args ) {
+    $args['posts_per_page'] = 6; // add number or -1 (display all orderes per page)
+    return $args;
+}
+add_filter( 'woocommerce_my_account_my_orders_query', 'recover_pagination_my_account_orders', 10, 1 );
+

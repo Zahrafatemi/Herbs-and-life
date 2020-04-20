@@ -804,9 +804,11 @@
                             text-align: center;
                             display: block;
                             padding: 0.5em 0;
+                            color:$color__text-main;
+                            max-width: 140px;
                             background-color: $color__coolgray;
                             #{$link-hover-selector}{
-                                background-color:lighten($color__coolgray, 10%);
+                                background-color:darken($color__coolgray, 10%);
                                 cursor: pointer;
                             }
                         }
@@ -957,7 +959,8 @@
                         //Order
                         .my_account_orders.account-orders-table{
                             font-size: 0.8rem;
-                            border-spacing:0.5rem;
+                            border-spacing: 0.5rem 1rem;
+                            border-collapse: separate;
                             thead{
                                 display: table-header-group;
                                 text-align: left;

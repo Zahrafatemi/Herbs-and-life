@@ -1,6 +1,7 @@
 .wrapper.event-wrapper{
 
 	padding: 0;
+	max-width: 100%;
 
 	main.site-main{
 		padding-top: 60px;
@@ -15,6 +16,16 @@
 				display: none;
 			}
 
+			img.wp-post-image {
+				object-fit: cover;
+				width: 100%;
+			}
+
+			.event-type{
+				margin:calc(0.8rem + 10px);
+				color:$color__cat_herb;
+				font-size: 1rem;
+			}
 			.product_title.entry-title{
 				font-size: 1.6rem;
 				margin:calc(0.8rem + 10px);
@@ -60,14 +71,19 @@
 				}
 			}
 
+			.description-title{
+				display: none;
+			}
+
 			.event-description{
 				margin: 40px calc(0.8rem + 10px);
 			}
 
 			.event-map{
-				padding-bottom: 484px;
 				position: relative;
-				margin: 0 calc(0.8rem + 10px);
+				margin: 40px auto;
+				padding: 0 calc(0.8rem + 10px);
+				max-width: 480px;
 
 				.acf-map-border{
 
@@ -94,19 +110,46 @@
 
 			}
 
+			.button-events-list{ 
+				padding-bottom: 471px;
+				margin: 60px calc(0.8rem + 10px) 0 calc(0.8rem + 10px);
+				text-align: center;
+				button{
+					border-radius: 0;
+					width: 250px;
+					max-width: inherit;
+					height: 3rem;
+					background-color: $color__cat_herb;
+					padding: 0;
+
+					a{
+						display: block;
+						width: 100%;
+						color: white;
+						height: 100%;
+						line-height: 3rem;
+					}
+				}
+			}
+
 			form.cart{
 				position: absolute;
 				bottom: 0;
 				background-color: $color__coolgray;
+				color: $color__coolgray;
 				width: 100%;
-				//height: 430px;
 				z-index: 3;
-				//padding: 1rem;
 				margin-block-end: 0 ;
 				text-align: center;
-
-				label, .label{
+				height: 411px;
+				
+				label{
 					font-size: 1rem;
+					color: black;
+				}
+
+				.label{
+					display: none;
 				}
 
 				fieldset{
@@ -116,20 +159,36 @@
 				button {
 					@include woo-btn-style();
 					height: 50px;
-					margin-bottom: 40px;
+					margin: auto;
 					border-radius: 0;
+				}
+				
+				// form.cart
+				@include mq(750px){
+					text-align: initial;
+    				display: flex;
+					justify-content: space-between;
+					height: auto;
+
+					button{
+						align-self: flex-start;
+						//margin: 35px auto 0 20px;
+						margin: auto;
+						height: 80px;
+
+					}
 				}
 			
 				.wc-bookings-booking-form{
 					border:none;
 					padding: 15px 0;
 					max-width: 271px;
-    				margin: 0 auto;
+    				margin: auto;
 					
 					p.form-field.form-field-wide{
 						margin-block-start: 0;
 						margin-block-end: 0;
-						margin: 20px auto;
+						margin: 20px auto 0 auto;
 						display: flex;
 						flex-wrap: wrap;
 					}
@@ -142,6 +201,7 @@
 							content: "How Many People?";
 							position: relative;
 							display: inline-block;
+							color: black;
 							width: 100%;
 							background: url(images/assets/events/numbers_1.svg);
 							background-repeat: no-repeat;
@@ -150,14 +210,18 @@
 							height: 28px;
 							line-height: 28px;
 							font-size: 17px;
-							margin-bottom: 13px;
+							margin-bottom: 20px;
 						}
 
-						label[for="wc_bookings_field_persons"], input[name="wc_bookings_field_persons"]{
-							margin-bottom: 20px;
-							margin-top: 20px;
+						input[name="wc_bookings_field_persons"]{
+							margin: 0px auto;
+						}
+
+						label[for='wc_bookings_field_persons'] {
+							display: none;
 						}
 					}
+					
 
 					input{
 						margin-left: auto;
@@ -168,32 +232,36 @@
 					fieldset.wc-bookings-date-picker.wc-bookings-date-picker-booking.wc_bookings_field_start_date{
 
 						line-height: 1em;
-
-						.label:before{
-							content: "Select the Date";
-							position: relative;
-							display: inline-block;
-							width: 100%;
-							background: url(images/assets/events/numbers_2.svg);
-							background-repeat: no-repeat;
-							background-position: left;
-							background-size: contain;
-							height: 28px;
-							// This line-hight is for vertically align the content 
-							line-height: 28px;
-							font-size: 17px;
-							margin: 20px 0 13px 0;
-						}
-
+						margin: 0;
 						label{
 							width: 79px;
 						}
 
 						.wc-bookings-date-picker-date-fields {
+
+							&:before{
+								content: "Select the Date:";
+								position: relative;
+								display: inline-block;
+								width: 184px;
+								text-align: right;
+								background: url(images/assets/events/numbers_2.svg);
+								background-repeat: no-repeat;
+								background-position: left;
+								background-size: contain;
+								height: 28px;
+								// This line-hight is for vertically align the content 
+								line-height: 28px;
+								font-size: 17px;
+								margin: 5px 40px 20px 0;
+								color: black;
+							}
+
 							margin-top: 10px;
 							color: white;
 							span{
 								color: black;
+								text-align: center;
 							}
 						}
 						
@@ -203,6 +271,7 @@
 						border: 1px solid #5d6850;
 						text-align: center;
 						border-radius: 0;
+						height: 36px;
 					}
 
 					.wc-bookings-date-picker.wc-bookings-date-picker-booking.wc_bookings_field_start_date{
@@ -336,10 +405,155 @@
 						border-top: none !important;
 						color: #36474F !important;
 					}
+
+					@include mq(750px){
+						max-width: 500px;
+						width: 70%;
+						margin: initial;
+						margin-left: auto;
+
+						.wc-bookings-booking-cost{
+
+							padding: 0;
+							margin: 0;
+
+								&:before{
+									content: "";
+									position: relative;
+									display: inline-block;
+									width: 28px;
+									background: url(images/assets/events/numbers_3.svg);
+									background-repeat: no-repeat;
+									background-position: left;
+									background-size: contain;
+									height: 32px;
+									vertical-align: middle;
+									// This line-hight is for vertically align the content 
+									line-height: 28px;
+									font-size: 17px;
+									margin: -5px 21px 0 0;
+									color: black;
+								}
+						}
+
+						p.form-field.form-field-wide{
+							flex-wrap: nowrap;
+							flex-direction: row;
+							align-items: center;
+						}
+
+						p:first-child:before{
+							flex-basis: initial;
+							flex-grow: initial;
+							flex-shrink: initial;
+							width: 210px;
+							text-align: right;
+							margin-right: 20px;
+							margin-bottom: 0;
+							align-self: center;
+						}
+
+						p.form-field.form-field-wide:not(:first-child){
+							flex-basis: initial;
+							flex-grow: initial;
+							flex-shrink: initial;
+							margin-left: 230px;
+						}
+
+						p:first-child input[name='wc_bookings_field_persons']{
+							margin: 0;
+						}
+
+					}
 						
+				} // end of wc-bookings-booking-form
+			} // end of form.cart
+
+			.summary.entry-summary{
+				.product-summary{
+				
+					@include mq(750px){
+					
+						figure.woocommerce-product-gallery__wrapper{
+							margin:0;
+						}
+						.event-type{
+							grid-area: type;
+							margin: 0;
+						}
+						.product_title.entry-title{ 
+							grid-area: heading;
+							margin: 0;
+							&:after{
+								margin: 1rem 0;
+								width: 50%;
+							}
+						}
+						.woocommerce-product-gallery.woocommerce-product-gallery--with-images.woocommerce-product-gallery--columns-4.images { 
+							grid-area: img;
+						}
+						p.price{ 
+							grid-area: detail;
+							margin: 0;
+							align-self: start; 
+						}
+						.event-details{ 
+							grid-area: detail;
+							margin: 0; 
+							align-self: center;
+						}
+						.description-title{
+							grid-area: description-title;
+							display: block;
+							text-decoration:underline ;
+							color: $color__mossgreen;
+							font-size: 1rem;
+							margin: 25px 0 10px 0;
+						}
+						.event-description{ 
+							grid-area: description;
+							margin: 0;
+						}
+						.event-map{ 
+							grid-area: map; 
+							padding: 0;
+							margin: 0;
+						}
+						.button-events-list{
+							grid-area: button;
+							margin: 40px 0 0 0;
+							padding-bottom: 271px;
+						}
+
+						display: grid;
+						grid-template-columns: 0px 2fr 2fr 0px;
+						column-gap: 40px;
+						row-gap: 20px;
+						grid-template-areas:
+						". type .  ." 
+						". heading .  ."
+						". img detail ."
+						". description-title .  ."
+						". description map ."
+						". button button .";
+
+
+						@include mq(900px){
+							grid-template-columns: 1fr 4fr 3.5fr 1fr;
+
+							@include mq(1100px){
+								grid-template-columns: 1fr 3fr 2.7fr 1fr;
+
+								@include mq(1250px){
+									grid-template-columns: 1fr 2fr 1.8fr 1fr;
+								}
+							}
+						}
+
+					}
 				}
 			}
 
-		}
+		} // end of .product.product_cat-events
 	}
 }

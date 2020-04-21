@@ -59,7 +59,7 @@ if ( post_password_required() ) {
 		 */
 		do_action( 'woocommerce_single_product_summary' );
 		if((has_term('events', 'product_cat', $post->ID))):
-		?>
+			?>
 		<div class="event-details">
 			<div class="details location">
 
@@ -135,27 +135,40 @@ if ( post_password_required() ) {
 		<div class="event-map">
 			<div class="acf-map-border">
 				<?php if(get_field('location')):?>
-				<?php if((is_product() && has_term('events', 'product_cat', $post->ID))):?>
-					<div class="acf-map" data-zoom="10" style="overflow: hidden; position: relative;">
-				<?php endif;?>
+					<?php if((is_product() && has_term('events', 'product_cat', $post->ID))):?>
+						<div class="acf-map" data-zoom="10" style="overflow: hidden; position: relative;">
+					<?php endif;?>
 			
-				<?php 
+					<?php 
 					$address = get_field('location');
 					$icon = get_template_directory_uri().'/images/markers/map-marker.png';
 					?>
-					<div class="marker" data-lat="<?php echo $address['lat']; ?>" data-lng="<?php echo $address['lng']; ?>" data-img="<?php echo $icon; ?>">
-						<div class="inside-marker">
-							<h5><?php echo esc_html( $address['address'] ); ?></h5>
+						<div class="marker" data-lat="<?php echo $address['lat']; ?>" data-lng="<?php echo $address['lng']; ?>" data-img="<?php echo $icon; ?>">
+							<div class="inside-marker">
+								<h5><?php echo esc_html( $address['address'] ); ?></h5>
+							</div>
 						</div>
-					</div>
-				</div><!--end of acf-map-->
+						</div><!--end of acf-map-->
 			</div>
 		</div>
 		<?php endif; ?>
-		<?php
-		endif;
+		<?php endif;?>	
 
-	?>			
+		<?php
+			// Get the ID of a given category
+			//$category_id = get_cat_ID( 'Events' );
+		
+			// Get the URL of this category
+			$category_link = get_category_link( 47 );
+		?>
+		
+		<?php if((has_term('events', 'product_cat', $post->ID))): ?>
+			<div class="button-events-list">
+				<button class="woo-btn">
+					<a href="<?php echo esc_url( $category_link ); ?>" title="all events">Back to All Events</a>
+				</button>	
+			</div>
+		<?php endif; ?>
 </div>
 <?php
 	if((!has_term('events', 'product_cat', $post->ID))):

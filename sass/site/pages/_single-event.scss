@@ -21,6 +21,11 @@
 				width: 100%;
 			}
 
+			.event-type{
+				margin:calc(0.8rem + 10px);
+				color:$color__cat_herb;
+				font-size: 1rem;
+			}
 			.product_title.entry-title{
 				font-size: 1.6rem;
 				margin:calc(0.8rem + 10px);
@@ -71,9 +76,8 @@
 			}
 
 			.event-map{
-				padding-bottom: 484px;
 				position: relative;
-				margin: 0 calc(0.8rem + 10px);
+				margin: 40px calc(0.8rem + 10px);
 
 				.acf-map-border{
 
@@ -100,6 +104,28 @@
 
 			}
 
+			.button-events-list{ 
+				padding-bottom: 500px;
+				margin: 40px calc(0.8rem + 10px) 0 calc(0.8rem + 10px);
+				text-align: center;
+				button{
+					border-radius: 0;
+					width: 300px;
+					max-width: inherit;
+					height: 3rem;
+					background-color: $color__cat_herb;
+					padding: 0;
+
+					a{
+						display: block;
+						width: 100%;
+						color: white;
+						height: 100%;
+						line-height: 3rem;
+					}
+				}
+			}
+
 			form.cart{
 				position: absolute;
 				bottom: 0;
@@ -109,7 +135,8 @@
 				z-index: 3;
 				margin-block-end: 0 ;
 				text-align: center;
-
+				height: 460px;
+				
 				label{
 					font-size: 1rem;
 					color: black;
@@ -135,6 +162,7 @@
 					text-align: initial;
     				display: flex;
 					justify-content: space-between;
+					height: auto;
 
 					button{
 						align-self: flex-start;
@@ -372,7 +400,7 @@
 					}
 
 					@include mq(750px){
-						max-width: 750px;
+						max-width: 500px;
 						width: 70%;
 						margin: initial;
 						margin-left: auto;
@@ -418,6 +446,13 @@
 							align-self: center;
 						}
 
+						p.form-field.form-field-wide:not(:first-child){
+							flex-basis: initial;
+							flex-grow: initial;
+							flex-shrink: initial;
+							margin-left: 230px;
+						}
+
 						p:first-child input[name='wc_bookings_field_persons']{
 							margin: 0;
 						}
@@ -432,46 +467,70 @@
 				
 					@include mq(750px){
 					
+						figure.woocommerce-product-gallery__wrapper{
+							margin:0;
+						}
 						.woocommerce-product-gallery.woocommerce-product-gallery--with-images.woocommerce-product-gallery--columns-4.images { 
 							grid-area: img;
-							//margin-left: auto;
 						}
 						p.price{ 
 							grid-area: detail;
-							//margin-right: 0; 
+							margin: 0;
+							align-self: start; 
 						}
 						.event-details{ 
 							grid-area: detail;
-							//margin-right: 0; 
+							margin: 0; 
+							align-self: center;
 						}
 						.product_title.entry-title{ 
 							grid-area: heading;
-							//margin-left: auto;
+							margin: 20px 0 0 0;
 						}
 						.event-description{ 
 							grid-area: description;
-							//margin-left: auto; 
+							margin: 0;
 						}
 						.event-map{ 
 							grid-area: map; 
-							//margin-right: 0;
+						}
+						.button-events-list{
+							grid-area: button;
 						}
 
 						display: grid;
-						grid-template-columns: 1fr 2fr 2fr 1fr;
-						//grid-template-rows: 1fr 1fr;
+						grid-template-columns: 0px 2fr 2fr 0px;
 						column-gap: 40px;
 						row-gap: 20px;
 						grid-template-areas: 
 						". img detail ."
 						". heading .  ."
-						". description map .";
+						". description map ."
+						". button button .";
 
 						//max-width: 1000px;
 
-						.event-map{ 
-							padding-bottom: 240px;
-						 }
+						.event-map{
+							padding: 0;
+							margin: 0;
+						}
+
+						.button-events-list{
+							margin: 20px 0 0 0;
+							padding-bottom: 307px;
+						}
+
+						@include mq(900px){
+							grid-template-columns: 1fr 4fr 4fr 1fr;
+
+							@include mq(1100px){
+								grid-template-columns: 1fr 3fr 3fr 1fr;
+
+								@include mq(1250px){
+									grid-template-columns: 1fr 2fr 2fr 1fr;
+								}
+							}
+						}
 
 					}
 				}

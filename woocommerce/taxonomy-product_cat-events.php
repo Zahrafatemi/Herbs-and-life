@@ -131,12 +131,15 @@ get_header();
 											<div class="event-tags">
 												<?php 
 												$i = 1;
+												$type_html= '<p class="event-type">';
 												foreach ( $terms as $term ) :
-													echo $term->name;
-													echo ($i < count($terms))? ", " : "";
+													$type_html.= $term->name;
+													$type_html.= ($i < count($terms))? ", " : "";
 													// Increment counter
 													$i++;
-												endforeach ?>
+												endforeach;
+												$type_html.= '</p>'; 
+												echo $type_html;?>
 											</div>
 
 											<div class="event-title-price">
@@ -196,12 +199,15 @@ get_header();
 											<div class="event-tags">
 												<?php 
 												$i = 1;
+												$type_html= '<p class="event-type">';
 												foreach ( $terms as $term ) :
-													echo $term->name;
-													echo ($i < count($terms))? ", " : "";
+													$type_html.= $term->name;
+													$type_html.= ($i < count($terms))? ", " : "";
 													// Increment counter
 													$i++;
-												endforeach ?>
+												endforeach;
+												$type_html.= '</p>'; 
+												echo $type_html;?>
 											</div>
 
 											<div class="event-title-price">

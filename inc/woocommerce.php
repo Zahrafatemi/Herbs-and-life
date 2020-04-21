@@ -262,17 +262,6 @@ function hl_product_summary_closing_div() {
 add_action( 'woocommerce_single_product_summary', 'hl_product_summary_opening_div', 1 );
 add_action( 'woocommerce_after_single_product_summary', 'hl_product_summary_closing_div', 1 );
 
-/**
- * Move product images inside product summary on single event pages
- */
-function hl_move_product_images( ) {
-	 if( (has_term('events', 'product_cat', $post->ID)) ){
-		remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
-		add_action( 'woocommerce_single_product_summary', 'woocommerce_show_product_images', 1 );		
-	  }
-}
-add_filter( 'woocommerce_before_single_product_summary', 'hl_move_product_images' );
-
 
 /**
  * Enclose after single_product_summary and after_single_product items in a div
@@ -385,13 +374,43 @@ add_action( 'woocommerce_before_add_to_cart_form', 'hl_move_selected_variation_p
  * # Event Page
  * -------------------------------------------------- /
 
+ /**
+ * Move product images inside product summary on single event page
+ */
+function hl_move_product_images( ) {
+	if( (has_term('events', 'product_cat', $post->ID)) ){
+	   remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+	   add_action( 'woocommerce_single_product_summary', 'woocommerce_show_product_images', 6 );		
+	 }
+}
+add_action( 'woocommerce_before_single_product_summary', 'hl_move_product_images' );
 
+/**
+ * Add event type on top of title on single event page
+ */
+
+function hl_add_evet_type($post){
+	if(has_term('events', 'product_cat', $post->ID)){
+		$terms = get_the_terms( $post->ID, 'product_tag' );
+		$i = 1;
+		$type_html= '<p class="event-type">';
+		foreach ( $terms as $term ) :
+			$type_html.= $term->name;
+			$type_html.= ($i < count($terms))? ", " : "";
+			// Increment counter
+			$i++;
+		endforeach;
+		$type_html.= '</p>';
+	}
+	echo $type_html;
+}
+add_filter( 'woocommerce_single_product_summary', 'hl_add_evet_type', 4);
 
 /**
  * Changing the Price display of Events on the event page
  */
 
-function cw_change_product_html( $price_html, $product ) {
+function hl_change_product_html( $price_html, $product ) {
 	if( (has_term('events', 'product_cat', $post->ID)) ){
 		$p = ($product->get_price()>0) ? $product->get_price() : "Free Event";
 		$currencySymbol = ($product->get_price()>0) ? '$': '';
@@ -399,7 +418,7 @@ function cw_change_product_html( $price_html, $product ) {
 	}
 	return $price_html;
 }
-add_filter( 'woocommerce_get_price_html', 'cw_change_product_html', 10, 2 );
+add_filter( 'woocommerce_get_price_html', 'hl_change_product_html', 10, 2 );
 
 /**
  * Changing the Price display of Events on the cart page
@@ -413,28 +432,6 @@ add_filter( 'woocommerce_get_price_html', 'cw_change_product_html', 10, 2 );
 // }
 // add_filter( 'woocommerce_cart_item_price', 'sv_change_product_price_cart', 10, 3 );
 
-
-/**
- * 
- */
-
-// function get_posted_data($posted = array()){
-//         if (empty($posted)) {
-//             $posted = $_POST;
-//         }
-// 		$data = array('_persons' => array());
-// 		if ($this->product->has_persons()) {
-//             if ($this->product->has_person_types()) {
-// 				
- // 			<style>
-// 				h1 { color:red;}
-// 				body {background-color: red;}
-// 			</style> -->
- 			
-
-// 			}
-// 		}
-// }
 
 /**
  * DISABLE the zoom in function when the product image is clicked

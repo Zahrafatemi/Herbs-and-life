@@ -127,6 +127,7 @@ if ( post_password_required() ) {
 		</div><!--end of event-details-->
 		<!-- <?php //endif; ?> -->
 		<?php if((has_term('events', 'product_cat', $post->ID))): ?>
+			<h2 class="description-title">Description</h2>
 			<div class="event-description">
 				<?php the_content(); ?>
 			</div>

@@ -51,7 +51,7 @@ jQuery(document).ready(function($) {
             for($i; $i<$j; $i++){
             $class_name_to_display = "li.status-publish:nth-child("+$i+")";
             $class_name_to_not_display = "li.status-publish:nth-child(n+"+$j+")";
-            jQuery($class_name_to_display).css("display", "block");
+            jQuery($class_name_to_display).css("display", "flex");
             jQuery($class_name_to_not_display).css("display", "none");
             if($($class_name_to_display).is($last_product)){
                 $continue = false;

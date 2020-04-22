@@ -4,7 +4,9 @@ jQuery(document).ready(function($) {
 
     if(shop_cat_page){
         let $i = 10;
-        jQuery("li.status-publish:nth-child(n+10)").css("display", "none");
+        let total_products_count = $("ul.product-list").children().length;
+        console.log(total_products_count);
+        jQuery("li.status-publish:nth-child(n+"+$i+")").css("display", "none");
         $last_product = "li.status-publish:last-child";
         $continue = true;
         
@@ -30,7 +32,7 @@ jQuery(document).ready(function($) {
                 
             });
             }else{
-                    
+                    if(total_products_count>$i){
                         load_more_button.style.display = 'block';
                         load_more_button.onclick = function() {
                             if($continue){
@@ -40,6 +42,7 @@ jQuery(document).ready(function($) {
                                 load_more_button.style.display = 'none';
                             }
                         };
+                    }
                     
             }
 

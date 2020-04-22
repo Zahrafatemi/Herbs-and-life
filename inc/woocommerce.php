@@ -386,6 +386,15 @@ function hl_move_product_images( ) {
 add_action( 'woocommerce_before_single_product_summary', 'hl_move_product_images' );
 
 /**
+ * Change Book Now text of booking button on single event page
+ */
+function hl_change_booking_single_add_to_cart_text() {
+	if(has_term('events', 'product_cat', $post->ID)){
+		echo 'Register';
+	}
+}
+add_filter( 'woocommerce_booking_single_add_to_cart_text','hl_change_booking_single_add_to_cart_text' );
+/**
  * Add event type on top of title on single event page
  */
 

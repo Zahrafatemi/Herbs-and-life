@@ -338,6 +338,15 @@
                 }
 
             }
+
+            button.event-book{
+                margin-bottom: 1.5rem;
+                border-radius: 0;
+                a.event-page{
+                    display: block;
+                    width: 100%;
+                }
+            }
             @include mq($mq670){
                 padding-top:0rem;
                 ul{

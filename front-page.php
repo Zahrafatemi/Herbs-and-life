@@ -191,23 +191,28 @@ get_header();
 								$loop->the_post();
 								global $product; ?>
 									<li class="events-wrapper">    
-										<a href="<?php echo get_permalink( $loop->post->ID ) ?>" title="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
+										<!-- <a href="<?php //echo get_permalink( $loop->post->ID ) ?>" title="<?php //echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>"> -->
 											<?php woocommerce_show_product_sale_flash( $post, $product );?>
 											
-											<?php if (has_post_thumbnail( $loop->post->ID )): 
+											<?php //if (has_post_thumbnail( $loop->post->ID )): 
 												//echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog');
-											else: ?>
+											//else: ?>
 												<!-- <img src="<?php //woocommerce_placeholder_img_src()?>" alt="Paceholder" width="300px" height="300px" />-->
-											<?php endif; ?> 
+											<?php //endif; ?> 
 
 											<h3><?php the_title(); ?></h3>
 											<!-- <p> Farm visit | Mar 28, 2020 | 09:00 - 16:00<?php //the_content();?></p>  -->
 												<?php if(get_field('date') && get_field('start_time') && get_field('end_time')):?>
 														<p><?php the_field('date') ?> | <?php echo the_field('start_time')?> - <?php the_field('end_time') ?></p>
 												<?php endif;?>
+												<div class="button-event-book">
+													<button class="event-book woo-btn" id="event-book">
+														<a class="event-page" href="<?php echo get_permalink( $loop->post->ID ) ?>" title="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">Book Now</a>
+													</button>													</button>	
+												</div>
 											
-										</a>
-										<?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
+										<!-- </a> -->
+										<?php //woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
 									</li><!--.events-->
 							<?php endwhile; ?>
 							<?php wp_reset_query(); ?>

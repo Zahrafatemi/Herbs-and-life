@@ -261,12 +261,53 @@ function wporg_add_dashboard_widgets() {
 }
 add_action( 'wp_dashboard_setup', 'wporg_add_dashboard_widgets' );
  
+
+/**
+ * Add video tutorials to the dashboard
+ */
+
+add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
+  
+function my_custom_dashboard_widgets() {
+global $wp_meta_boxes;
+ 
+wp_add_dashboard_widget('custom_help_widget', 'Tutorial Videos', 'custom_dashboard_help');
+}
+ 
+function custom_dashboard_help() {
+ 
+// Content you want to show inside the widget
+echo '<h2>Adding a new Product</h2>';
+echo
+'<video width="320" height="240" controls>
+  <source src="../wp-content/themes/herblife/images/assets/tutorial-videos/tutorials/adding-new-product.mov" type="video/mp4">
+Your browser does not support the video tag.
+</video>';
+
+echo '<hr>';
+
+echo '<h2>Adding a new Event</h2>';
+echo
+'<video width="320" height="240" controls>
+  <source src="../wp-content/themes/herblife/images/assets/tutorial-videos/tutorials/adding-new-event.mov" type="video/mp4">
+Your browser does not support the video tag.
+</video>';
+
+echo '<hr>';
+
+echo '<h2>Adding a new Store</h2>';
+echo
+'<video width="320" height="240" controls>
+  <source src="../wp-content/themes/herblife/images/assets/tutorial-videos/tutorials/adding-store-to-store-locator.mov" type="video/mp4">
+Your browser does not support the video tag.
+</video>';
+}
 /**
  * Create the function to output the content of our Dashboard Widget.
  */
 function wporg_dashboard_widget_render() {
     // Display whatever you want to show.
-    esc_html_e( "Hello, Welcome to herb and life.", "wporg" );
+    esc_html_e( "Welcome to Herb and Life Family", "wporg" );
 }
 
 // function remove_menus() {

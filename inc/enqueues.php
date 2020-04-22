@@ -29,6 +29,12 @@ function herblife_scripts() {
 	}
 
 	/**
+	 * Autoload more products
+	 */
+	wp_enqueue_script( 'herblife-auto-load-more', get_template_directory_uri() . '/js/load-more.js', array(), '20200421', true );
+
+
+	/**
 	 * Navigation JS
 	 */
 	wp_enqueue_script( 'herblife-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );

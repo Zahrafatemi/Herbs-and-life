@@ -113,7 +113,13 @@
     }
 
     .blog-feed {
+
+        display: flex;
+        flex-wrap: wrap;
+        position: static !important;
         .blog-post {
+            display: block;
+            position: static !important;
             width: $blog-post-width-mobile;
             padding: 10px;
             margin-bottom: 20px;

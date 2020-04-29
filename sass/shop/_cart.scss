@@ -140,6 +140,28 @@
                                             }
                                         }
                                     }
+                                    //Gift Card
+                                    dt.variation-To,
+                                    dt.variation-From{
+                                        width: 20%;
+                                        text-align: left;
+                                    }
+                                    dd.variation-To,
+                                    dd.variation-From{
+                                        width: 80%;
+                                    }
+                                    dt.variation-Message,
+                                    dd.variation-Message {
+                                        width: 100%;
+                                        text-align: left;
+                                        @include mq($mq768){
+                                            p {
+                                                text-align: left; 
+                                            }
+                                        }
+                                    }
+                                    
+
                                     //Event products  
                                     dt.variation-BookingDate,
                                     dt.variation-Adults,
@@ -339,7 +361,7 @@
                                 }
                             }
                             .shop_table{
-                                
+                                margin-bottom: 0;
                                 tbody{
                                     tr.cart-subtotal{
                                         td{
@@ -414,6 +436,42 @@
                                 .wc-proceed-to-checkout {
                                     text-align: right;
                                     line-height: 2.8rem;
+                                    //Gift Card option
+                                    #pwgc-redeem-gift-card-form{
+                                        #pwgc-redeem-form{
+                                            #pwgc-redeem-gift-card-container{
+                                                label{
+                                                    text-decoration: underline;
+                                                    color: $color__mossgreen;
+                                                    #{$link-hover-selector}{
+                                                        background-color:lighten($color__mossgreen, 10%);
+                                                        cursor: pointer;
+                                                    }
+                                                }
+                                                #pwgc-redeem-gift-card-number{
+                                                    vertical-align: middle;
+                                                    display: none;
+                                                }
+                                                #pwgc-redeem-gift-card-number.show {
+                                                    display: inline-block;
+                                                }
+                                                #pwgc-redeem-button {
+                                                    display:none;
+                                                   
+                                                }
+                                                #pwgc-redeem-button.show{
+                                                    display: inline-block;
+                                                    border-radius: 0px;
+                                                    @include cart-btn();
+                                                    background-color:$color__darkgray;
+                                                    #{$link-hover-selector}{
+                                                        background-color:lighten($color__darkgray, 10%);
+                                                        cursor: pointer;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 
                                     a.checkout-button.button.alt.wc-forward {
                                             @include cart-btn();

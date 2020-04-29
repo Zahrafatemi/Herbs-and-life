@@ -63,6 +63,19 @@ function herblife_scripts() {
 			'20200329', 
 			true );
 	}
+	/**
+	 * gift Card JS
+	 */
+	if ( is_page('15') || is_page('16')) {
+
+		// call in the js files
+		wp_enqueue_script( 
+			'hl-form-cart-giftcard', 
+			get_template_directory_uri().'/js/cart-giftcard.js', 
+			array('jquery'), 
+			'20200428', 
+			true );
+	}
 	
 	/** Slick Slider Setting in front page top */
 	// enqueue slick slider if it is the front page

@@ -182,6 +182,22 @@
 										dd.variation-CustomTextLocation{
 												width:100%;		
 										}
+
+										//Gift Card
+										dt.variation-To,
+										dd.variation-To,
+										dt.variation-From,
+										dd.variation-From,
+										dt.variation-Message,
+										dd.variation-Message{
+											width: 79%;
+										}
+										dd.variation-To{
+											p{
+												word-wrap:break-word;
+											}
+										}
+
 										//Event products  
 										.variation-BookingDate,
 										.variation-Persons{
@@ -457,6 +473,23 @@
 										color:$color__mossgreen;
 									}
 									
+								}
+							}
+							//Gift Card
+							#pwgc-redeem-gift-card-form{
+								#pwgc-redeem-form{
+									label{
+										background-color: red;
+									}
+									#pwgc-redeem-button{
+										border-radius: 0px;
+										@include cart-btn();
+										background-color:$color__darkgray;
+										#{$link-hover-selector}{
+											background-color:lighten($color__darkgray, 10%);
+											cursor: pointer;
+										}
+									}
 								}
 							}
 							button#place_order{

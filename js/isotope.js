@@ -4,7 +4,10 @@ jQuery(document).ready(function($){
 
   $container.isotope({
       itemSelector: '.blog-post',
-      layoutMode: 'masonry',
+      mansory:{
+        holizontalOrder:true,
+        fitWidth: true
+      },
       percentPosition: true
   });
 

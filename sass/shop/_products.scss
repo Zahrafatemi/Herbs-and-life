@@ -158,7 +158,8 @@ ul.products {
 			
 			// "Add to cart"
             .product_type_simple,
-            .product_type_variable {
+            .product_type_variable, 
+            .product_type_pw-gift-card {
                 @include btn-style();
                 display: block;
                 width: 140px;
@@ -176,7 +177,8 @@ ul.products {
             }
             
             // "Select options"
-            .product_type_variable {
+            .product_type_variable,
+            .product_type_pw-gift-card {
                 @include btn-style();
                 display: block;
                 width: 140px;

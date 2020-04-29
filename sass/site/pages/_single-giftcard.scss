@@ -1,0 +1,34 @@
+#product-799{
+    .summary.entry-summary{
+        .product-summary{
+            .single_variation_wrap{
+                .woocommerce-variation-add-to-cart-enabled{
+                    display: flex;
+                    flex-direction: column;
+                    div#pwgc-purchase-container {
+                        order: 1;
+                    }
+                    span.quantity-label {
+                        order: 2;
+                    }
+                    .quantity {
+                        order: 2;
+                    }
+                    button.single_add_to_cart_button.button.alt {
+                        order: 3;
+                    }
+                }
+            }
+        }   
+    }
+    .after-product-summary{
+        .wc-tabs-wrapper{ 
+            ul.tabs{  
+                li#tab-title-ingredients,
+                li#tab-title-additional_information{
+                    display: none;
+                }
+            }
+        }
+    }
+}

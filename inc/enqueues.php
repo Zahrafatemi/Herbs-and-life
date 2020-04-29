@@ -89,6 +89,13 @@ function herblife_scripts() {
 	/**
 	 * Isotope for Blog page
 	 */
+	wp_enqueue_script( 
+        'hl-imagesloaded', 
+        get_template_directory_uri().'/js/imagesloaded.pkgd.min.js', 
+        array('jquery'), 
+        '20200428', 
+		true );
+		
     wp_enqueue_script( 
         'hl-isotope', 
         get_template_directory_uri().'/js/isotope.pkgd.min.js', 

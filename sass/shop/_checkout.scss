@@ -7,6 +7,7 @@
 			padding-top: 3rem;
 		}
 		.entry-content{
+
 			.woocommerce-form-coupon-toggle{
 				padding-bottom: 1rem;
 				.woocommerce-info{
@@ -124,6 +125,11 @@
 						}
 					}
 				}
+				//Hide gift-cert box
+				.gift-certificate.sc_info_box {
+					display: none;
+				}
+
 				#order_review{
 					
 					table.shop_table{
@@ -475,22 +481,9 @@
 									
 								}
 							}
-							//Gift Card
+							//Hide Gift Card option
 							#pwgc-redeem-gift-card-form{
-								#pwgc-redeem-form{
-									label{
-										background-color: red;
-									}
-									#pwgc-redeem-button{
-										border-radius: 0px;
-										@include cart-btn();
-										background-color:$color__darkgray;
-										#{$link-hover-selector}{
-											background-color:lighten($color__darkgray, 10%);
-											cursor: pointer;
-										}
-									}
-								}
+								display:none;
 							}
 							button#place_order{
 								   background-color: $color__cat_border;

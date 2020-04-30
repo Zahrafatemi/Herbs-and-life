@@ -66,7 +66,7 @@ function herblife_scripts() {
 	/**
 	 * gift Card JS
 	 */
-	if ( is_page('15') || is_page('16')) {
+	if ( is_page('15')) {
 
 		// call in the js files
 		wp_enqueue_script( 

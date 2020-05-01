@@ -280,8 +280,7 @@
                                     font-weight: 400;
                                 }
                             }
-                        }
-                        
+                        }  
  
                         //Gift Card
                         #generated_coupon_data_container{
@@ -371,6 +370,16 @@
                                                 }                              
                                     }
                                 }
+                                #billing_state_field,
+                                #shipping_country_field,
+                                #shipping_state_field{
+                                    span.woocommerce-input-wrapper{
+                                        .select2-container--default .select2-selection--single{
+                                            border-radius: 0;  
+                                        }
+                                    }
+                                }
+ 
                             }
                             p{
                                 .button{
@@ -525,95 +534,150 @@
                         }
                         //Booking
                         .shop_table.my_account_bookings{
-                        //Hide booking id number tr/td both
-                        .booking-id {
-                            display: none;
-                        }
-                        .booking-end-date {
-                            display: none;
-                        }
-                        tr{
-                            width: 100%;
-                            display: inline-flex;
-                            align-items: center;
-    
-                            .order-number{
-                                order: 1;
+                            //Hide booking id number tr/td both
+                            .booking-id {
+                                display: none;
                             }
-                            .booked-product {
-                                order: 2;
+                            .booking-end-date {
+                                display: none;
                             }
-                            .booking-start-date {
-                                order: 3;
-                            }
-                            .booking-status {
-                                order: 4;
-                            }
-                            .booking-cancel {
-                                order: 5;
-                            }
-                            
-                            
-                            }
-                        thead{
-                            font-size: 0.9rem;
-                            text-align: left;
                             tr{
-                                th.order-number {
-                                    margin-left: -8px;
-                                    width: 15%; 
-                                    @include mq($mq400){
-                                    margin-left: 0;
-                                    width: 14%;
+                                width: 100%;
+                                display: inline-grid;
+                                align-items: center;
+                                grid-template-areas:"order-number product date status cancel";
+                                grid-template-columns: 16% 26% 24% 17% 1fr;;
+                                justify-items: start;
+        
+                                .order-number{
+                                    grid-area: order-number;
+                                }
+                                .booked-product {
+                                    grid-area: product;
+                                }
+                                .booking-start-date {
+                                    grid-area: date;
+                                    text-align: left;
+                                }
+                                .booking-status {
+                                    grid-area: status;
+                                }
+                                .booking-cancel {
+                                    grid-area: cancel;
+                                    word-break: break-word;
+                                    font-size: 0.85em;
+                                    overflow-wrap: break-word;
+                                    width: 100%;
+                                    text-align: right;
+                                    a.button.cancel {
+                                        line-height: 1.2;
+                                        max-width: 52px;
+                                        @include mq($mq450){
+                                            max-width: 100px;
+                                            padding: 10px 5px;
+                                        }
                                     }
-                                    @include mq($mq1200){
-                                    width: 15%;   
+                                   
+                                }     
+                            }
+                            thead{
+                                font-size: 0.9rem;   
+                            }
+                            
+                            tbody{
+                                    tr{
+                                        padding-bottom: 1rem;
                                     }
                                 }
-                                th.booked-product {
-                                    width: 28%;
-                                    @include mq($mq420){
-                                        width:30%;
-                                    }
-                                    @include mq($mq500){
-                                        width:32%;
-                                    }
-                                    @include mq($mq900){
-                                        width:34%;
+                        }
+                        //Subscriptions
+                        .woocommerce_account_subscriptions{
+                            .woocommerce-Message.woocommerce-Message--info.woocommerce-info {
+                                display: inline-grid;
+                                justify-content: center;
+                                a.woocommerce-Button.button{
+                                    text-decoration: none;
+                                    margin: 0.5rem 0;
+                                    font-size: 0.85rem;
+                                }
+                            }
+                            table.my_account_subscriptions{
+                                tbody{
+                                    tr.order.woocommerce-orders-table__row{
+                                        td.woocommerce-orders-table__cell-order-number{
+                                            text-align: left;
+                                            &:before{
+                                                display:none;
+                                            }
+                                        }
+                                        td.woocommerce-orders-table__cell-order-date{
+                                            small{
+                                                display:none;
+                                            }
+                                        }
+                                        td.woocommerce-orders-table__cell-order-actions{
+                                            margin-top: 1em;
+                                            &:before{
+                                                display:none;
+                                            }
+                                            a.button.view{
+                                                max-width: 100px;
+                                                font-size: 0.8em;
+                                            }
+                                            @include mq($mq768){
+                                                width:20%;
+                                                text-align: right;
+                                            }
+                                        }
+                                        
                                     }
                                 }
-                                th.booking-start-date {
-                                    width: 22%;
-                                    @include mq($mq600){
-                                        width:24%;
+                            }
+                            @include mq($mq670){
+                                .woocommerce-Message.woocommerce-Message--info.woocommerce-info {
+                                    grid-template-columns: 1fr 1fr;
+                                    align-items: center;
+                                    a.woocommerce-Button.button{
+                                        margin:0;
+                                        justify-self: end;
                                     }
                                 }
-
                             }
                         }
-                        
-                        tbody{
-
+                        //Subsctiption Single page
+                        table.shop_table.subscription_details{
+                            tbody{
                                 tr{
-                                    padding-bottom: 1rem;
-                                    td.order-number {
-                                        width: 15%;
+                                    td{
+                                        width:50%;
+                                        &:last-of-type{  
+                                            text-align: right; 
+                                        }
                                     }
-                                    td.booked-product {
-                                        width: 34%;
-                                    }
-                                    td.booking-start-date {
-                                        width: 25%;
-                                    }
-                                    td.booking-status {
-                                        width: 17%;
+                                    &:last-of-type{
+                                        td{
+                                            &:first-of-type{
+                                                color:transparent;
+                                            }
+                                            a.button{
+                                                max-width: 140px;    
+                                                margin-top: 1rem;
+                                                @include mq($mq670){
+                                                    font-size:0.8em;
+                                                }
+                                            }
+                                            a.button.change_address,
+                                            a.button.change_payment_method,
+                                            a.button.subscription_renewal_early {
+                                                display: none;
+                                            }
+                                        }
                                     }
                                 }
-
                             }
                         }
 
-                    //Order
+                        //Order
                         .my_account_orders.account-orders-table{
                             tr.woocommerce-orders-table__row{
                                 width: 100%;
@@ -1200,95 +1264,12 @@
     }
 }
 //Subscription page
-.woocommerce-view-subscription{
+.page-id-17.woocommerce-view-subscription{
     .site-content{
         .entry-content{
             .woocommerce{
                 .woocommerce-MyAccount-content {
-                    //Subscriptions
                     
-                    .woocommerce_account_subscriptions{
-                        .woocommerce-Message.woocommerce-Message--info.woocommerce-info {
-                            display: inline-grid;
-                            justify-content: center;
-                            a.woocommerce-Button.button{
-                                text-decoration: none;
-                                margin: 0.5rem 0;
-                                font-size: 0.85rem;
-                            }
-                        }
-                        table.my_account_subscriptions{
-                            tbody{
-                                tr.order.woocommerce-orders-table__row{
-                                    td.woocommerce-orders-table__cell-order-number{
-                                        text-align: left;
-                                        &:before{
-                                            display:none;
-                                        }
-                                    }
-                                    td.woocommerce-orders-table__cell-order-date{
-                                        small{
-                                            display:none;
-                                        }
-                                    }
-                                    td.woocommerce-orders-table__cell-order-actions{
-                                        margin-top: 1em;
-                                        &:before{
-                                            display:none;
-                                        }
-                                        a.button.view{
-                                            max-width: 100px;
-                                            font-size: 0.8em;
-                                        }
-                                        @include mq($mq768){
-                                            width:20%;
-                                            text-align: right;
-                                        }
-                                    }
-                                    
-                                }
-                            }
-                        }
-                        @include mq($mq670){
-                            .woocommerce-Message.woocommerce-Message--info.woocommerce-info {
-                                grid-template-columns: 1fr 1fr;
-                                align-items: center;
-                                a.woocommerce-Button.button{
-                                    margin:0;
-                                    justify-self: end;
-                                }
-                            }
-                        }
-                    }
-                    table.shop_table.subscription_details{
-                        tbody{
-                            tr{
-                                td{
-                                    width:50%;
-                                }
-                                &:last-of-type{  
-                                    text-align: right;                                 // &:last-of-type{
-                                    td{
-                                        &:first-of-type{
-                                            color:#fff;
-                                        }
-                                        a.button{
-                                            max-width: 140px;    
-                                            margin-top: 1rem;
-                                            @include mq($mq670){
-                                                font-size:0.8em;
-                                            }
-                                        }
-                                        a.button.change_address,
-                                        a.button.change_payment_method,
-                                        a.button.subscription_renewal_early {
-                                            display: none;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
                     table.shop_table.order_details{
                         thead{
                             tr{
@@ -1302,6 +1283,7 @@
                         }
                         tbody{
                             tr.order_item{
+                                border-collapse: collapse;
                                 td.product-name{
                                     a.wcs-switch-link.button{
                                         max-width: 100px;
@@ -1310,6 +1292,9 @@
                                         @include mq($mq465){
                                             margin-left: 1rem;
                                         }
+                                    }
+                                    @include mq($mq370){
+                                        min-width: 205px;  
                                     }
                                 }
                                 td.product-total{  

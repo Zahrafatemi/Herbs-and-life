@@ -314,7 +314,23 @@
                                 }
                             }
                         }
+                        //Available Coupons 
+                        div#coupons_list{
+                            h3 {
+                                font-size: 1em;
+                                text-align: center;
+                            }
+                            #all_coupon_container {
+                                text-align: center;
+                                padding: 1em 0;
+                                @include mq($mq746){
+                                padding: 1em;
+                                }
+                            }
+                        }
                     }
+                    
+
                     .cart-collaterals{
                         padding: 2rem 0;
                         margin-bottom: 0.8rem;
@@ -346,6 +362,9 @@
                                     
                                 }
                             }
+                            @include mq($mq768){
+                                width:45%;  
+                            }
                         }
 
                         .cart_totals{
@@ -374,15 +393,16 @@
                                             margin-bottom: 0.5rem;
                                         }
                                         p.woocommerce-shipping-destination {
-                                            text-align: left;
+                                            text-align: right;
                                         }
                                         form.woocommerce-shipping-calculator {
-                                            padding-bottom: 0.5rem;
+                                            padding: 0.5rem 0;
                                             a.shipping-calculator-button {
                                                 text-decoration: underline;
-                                                color: #5E6850;
+                                                color: $color__mossgreen;
+                                                font-weight: 300;
                                                 #{$link-hover-selector}{
-                                                    color:lighten(#5E6850, 15%);
+                                                    color:lighten($color__mossgreen, 10%);
                                                     font-weight: 500;
                                                     cursor: pointer;
                                                 }
@@ -410,6 +430,39 @@
                                             
                                         }
                                     } 
+                                    //Gift Card Total
+                                    tr.pwgc-total{
+                                        td{
+                                           width:100%;
+                                           display:inline-grid;
+                                           grid-template-areas:
+                                           "gift-title cd-amount"
+                                           " . remove";
+
+                                           &:before{
+                                               grid-area:gift-title;
+                                            text-align: left;
+                                           }
+                                           span.woocommerce-Price-amount.amount {
+                                            grid-area: cd-amount;
+                                            text-align: right;
+                                           }
+                                           .pwgc-remove-card {
+                                            grid-area: remove;
+                                            border-radius: 0px;
+                                            @include cart-btn();
+                                            background-color:$color__darkgray;
+                                            padding: 0.6em 0.7rem;
+                                            margin: 0.5em 0;
+                                            max-width: 73px;
+                                            justify-self: end;
+                                            #{$link-hover-selector}{
+                                                background-color:lighten($color__darkgray, 10%);
+                                                cursor: pointer;
+                                            }
+                                            }
+                                        }
+                                    }
                                     tr.order-total{
                                         td {
                                             &:before{
@@ -431,6 +484,53 @@
                                         display: none;
                                     }
 
+                                }
+                                //.shop_table mq 
+                                @include mq($mq768){
+                                    border-collapse: collapse; 
+                                    tbody{
+                                        display: table;
+                                        width: 100%;
+                                        tr.cart-subtotal{
+                                            th{
+                                                min-width:200px;
+                                            }
+                                            td{
+                                                min-width: 155px;
+                                                text-align:right;
+
+                                            }
+                                        }
+                                        tr.woocommerce-shipping-totals.shipping{
+                                            th {
+                                                vertical-align: top;
+                                              }
+                                            td{
+                                                display: table;
+                                                table-layout: fixed;
+                                                ul#shipping_method{
+                                                    margin: 0;
+                                                    display: flex;
+                                                    justify-content: flex-end;
+                                                }
+                                                p.woocommerce-shipping-destination{
+                                                    text-align: right;
+                                                }
+                                                form.woocommerce-shipping-calculator {
+                                                    transform: none;
+                                                    text-align: right;
+                                                }
+                                            }
+                                        }
+                                        tr.order-total {
+                                            td{
+                                                display: flex;
+                                                justify-content: flex-end;
+
+                                            }
+                                        }
+
+                                    } 
                                 }
                             }
                                 .wc-proceed-to-checkout {
@@ -484,74 +584,15 @@
                                             }
                                     }
                                 }
-
-
-                        
+                            @include mq($mq768){
+                                width:55%;
+                                padding-left: 0px;
+                            }
                         }
                         @include mq($mq768){
                             display: flex;
                             padding-left: 1rem;
                             padding-right: 1rem;
-                        
-                            .coupon{
-                                width:45%;
-                            }
-                            .cart_totals{
-                                width:55%;
-                                padding-right: 0px;
-                                .shop_table{
-                                    width: 100%;
-                                    table-layout: fixed;
-                                    tbody{
-                                        display: table;
-                                        width: 100%;
-                                        tr.cart-subtotal{
-                                            display: grid;
-                                            grid-template-columns: 18rem 1fr;
-                                            width: 100%;
-                                            td{
-                                                display: flex;
-                                                justify-content: flex-end;
-
-                                            }
-                                        }
-                                        tr.woocommerce-shipping-totals.shipping{
-                                            display: grid;
-                                            grid-template-columns: 11rem 1fr;
-                                            width: 100%;
-                                            td{
-                                                display: table;
-                                                table-layout: fixed;
-                                                ul#shipping_method{
-                                                    margin: 0;
-                                                    display: flex;
-                                                    justify-content: flex-end;
-                                                }
-                                                p.woocommerce-shipping-destination{
-                                                    text-align: right;
-                                                }
-                                                form.woocommerce-shipping-calculator {
-                                                    transform: none;
-                                                    text-align: right;
-                                                }
-                                            }
-                                        }
-                                        tr.order-total {
-                                            width: 100%;
-                                            display: grid;
-                                            grid-template-columns: 16.3rem 1fr;
-                                            td{
-                                                display: flex;
-                                                justify-content: flex-end;
-
-                                            }
-                                        }
-
-                                    }
-                                }
-                                
-                            }
-
                         }
 
                     }

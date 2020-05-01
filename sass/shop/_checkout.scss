@@ -39,6 +39,11 @@
 					}
 				}
 			}
+			//Remove coupon option
+			div#coupons_list {
+				display: none !important;
+			}
+
 			.checkout{
 				h3{
 					padding-bottom:1.5rem;
@@ -134,13 +139,13 @@
 					
 					table.shop_table{
 						border-collapse: collapse;
+    					
 						thead{
 							width:100%;
 							tr {
 								width:100%;
 								display: inline-grid;
-								grid-template-columns: 48% 25% 24%;;
-								grid-column-gap: 1.5%;
+    							grid-template-columns: 53% 25% 23%;	
 								th.product-name,
 								th.product-price {
 									text-align: left;	
@@ -149,17 +154,18 @@
 								th.product-total{
 									text-align: right;
 								}
+								@include mq($mq370){
+									grid-template-columns: 60% 23% 17%;	
+								}
 								
 							}
 						}
 						tbody{
 							.cart_item {
-								display: inline-grid;
-								grid-template-columns: 53% 22% 22%;
-								align-items: center;
-								grid-column-gap: 1.5%;
 								width: 100%;
 								padding-bottom: 1rem;
+								display: inline-grid;
+    							grid-template-columns: 60% 23% 17%;						
 							}				
 							tr{			
 								td.product-name{	
@@ -267,41 +273,46 @@
 									}
 								}
 							}
-							tr.cart-subtotal {
-								display: inline-flex;
-								justify-content: space-between;
-								width: 100%;
-							}
 
-							tr.order-total {
-								display: inline-flex;
-								justify-content: space-between;
+							tr.cart-subtotal,
+							tr.woocommerce-shipping-totals.shipping {
+								display: inline-grid;
+								grid-template-columns: 1fr 1fr;
 								width: 100%;
-								border-top: 1px solid $color__text-main;
-								td{
-									padding-top: 0.5rem;
-								}
 							}
 							tr.cart-discount{
+								width: 100%;
+								display: inline-grid;
+    							grid-template-columns: 1fr 100px;
 								td{
-									text-align: left;
-									a.woocommerce-remove-coupon {
+									a.woocommerce-remove-coupon,
+									a.pwgc-remove-card {
 										background-color:$color__coolgray;
 										font-size: 0.7rem;
 										padding: 0.3rem 0.2rem;
 										margin-left: 5px;
 									}
 									@include mq($mq550){
-										display: inline-flex;
-										align-items: center;
+										// display: inline-flex;
+										// align-items: center;
 									}
 								}
 							}
+							tr.order-total {
+								display: inline-grid;
+								grid-template-columns: 1fr 1fr;
+								width: 100%;
+								border-top: 1px solid $color__text-main;
+								padding-top: 0.5rem;
+							
+							}
 							tr.woocommerce-shipping-totals.shipping{
 								width: 100%;
-								display: inline-flex;
-								justify-content: space-between;
+								th{
+									min-width: 150px;
+								}
 								td{
+								    min-width: 150px;
 									ul#shipping_method {
 										label{
 											span.woocommerce-Price-amount.amount {

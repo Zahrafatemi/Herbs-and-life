@@ -281,7 +281,16 @@
                                 }
                             }
                         }  
- 
+                        
+                        //Coupons
+                        #sc_coupons_list{
+                            padding-top: 1rem;
+
+                            #all_coupon_container {
+                                text-align: center;
+                                padding-top: 1rem;
+                            }
+                        }
                         //Gift Card
                         #generated_coupon_data_container{
                             .generated_coupon_data_wrapper {

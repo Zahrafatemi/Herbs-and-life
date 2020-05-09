@@ -85,13 +85,15 @@
         font-weight: 500;
         font-style: normal;
         padding-left: 30px;
+        display: inline-block;
+        position: relative;
 
         &:before {
-            display: inline-block;
             content: "";
             // margin: 0 auto;
             margin: 0;
             position: absolute;
+            left: 0;
             display: block;
             width: 18px;
             height: 18px;

@@ -1,205 +1,124 @@
-.wpsl-search{
-    #wpsl-search-wrap{
-        font-size: 0.9em;
-        label{
-            line-height: 36px;
-        }
-        input{
-            border-radius: 0px;
-            height: 36px;
-        }
-        form{
-            .wpsl-select-wrap{
-            
-                #wpsl-radius,
-                #wpsl-results{
+section.store-locator{
+    .locator-map{
+        #wpsl-wrap{
+            .wpsl-search{
+                #wpsl-search-wrap{
+                    font-size: 0.9em;
                     label{
                         line-height: 36px;
                     }
-                    .wpsl-dropdown{
-                        height: 36px;   
-                        border-radius: 0px;
-                        -moz-border-radius:0px;
-                        -webkit-border-radius:0px;
-                        .wpsl-selected-item {
-                            line-height: inherit;
-                        }
-                    }
-                }
-            }
-            div.wpsl-search-btn-wrap {
-                input#wpsl-search-btn{
-                    width: 5rem;
-                    background: none;
-                    background-color:$color__mossgreen;
-                    border-radius: 0px;
-                    color: white;
-            }
-
-            }
-        }
-        @include mq($mq670){
-            font-size: 0.7em;
-            #wpsl-search-wrap{
-                max-height: 3rem;
-            form{
-                display:grid;
-                grid-template-columns: 36% 53% 11%;
-                .wpsl-input {
-                    div {
-                   margin-right: -0.7rem;
-                    } 
-                    #wpsl-search-input {
-                        width: 8.5rem;
-                    }
-                }
-                .wpsl-select-wrap{
-                    select{
-                        width: 90px;
-                    }
-                   #wpsl-radius{
-                    label{
-                       margin-right: 0;
-                       width:80px;
-                    }
-                   } 
-                }
-            }
-        }
-            
-        }
-        @include mq($mq720){
-            form{
-              
-                .wpsl-select-wrap{
-                    select{
-                        width: 90px;
-                    }
-                   
-                }
-            } 
-        }
-
-        @include mq($mq800){
-            form{
-                .wpsl-input {
-               
-                    #wpsl-search-input {
-                        width: 10.5rem;
-                    }
-                } 
-                .wpsl-select-wrap{
-                    select{
-                        width: 105px;
-                    }               
-                 } 
-            }
-        
-        }
-        @include mq($mq850){
-            font-size: 0.8em;
-
-            form{
-                grid-template-columns: 37% 1fr 13%;
-                .wpsl-input {
-                    div {
-                    margin-right: 0.2rem;
-                    } 
-                    #wpsl-search-input {
-                        width: 11.5rem;
-                    }
-                } 
-                .wpsl-select-wrap{
-                    #wpsl-radius{
-                     label{
-                        margin-right: 1rem;
-                        width:95px;
-                     }
-                    } 
-                    #wpsl-results{
-                        label{
-                            margin-right: 1.2rem;
-                        }
-                    }
-                 } 
-                 div.wpsl-search-btn-wrap {
-                    input#wpsl-search-btn{
-                        width: 6rem;
-                    }
-                 }
-            }
-        }
-       
-    }
-    @include mq($mq950){
-        padding: 12px 0.8rem 0 0.8rem;
-        #wpsl-search-wrap{
-            font-size: 0.85em;
-
-            form{
-                grid-template-columns: 36% 1fr 12%;
-                .wpsl-input {
                     input{
-                        width: 12rem;
+                        border-radius: 0px;
+                        height: 36px;
                     }
-                } 
-                .wpsl-select-wrap{
-                    .wpsl-dropdown{
-                        width: 7rem;
+                    form{
+                        .wpsl-select-wrap{                        
+                            #wpsl-radius,
+                            #wpsl-results{
+                                label{
+                                    line-height: 36px;
+                                }
+                                .wpsl-dropdown{
+                                    height: 36px;   
+                                    border-radius: 0px !important;
+                                    -moz-border-radius:0px;
+                                    -webkit-border-radius:0px;
+                                    .wpsl-selected-item {
+                                        line-height: inherit;
+                                    }
+                                }
+                            }
+                        }
+                        .wpsl-search-btn-wrap {
+                            margin-top: 1.5em;
+                            input#wpsl-search-btn{
+                                width: 5rem;
+                                background: none;
+                                background-color:$color__mossgreen;
+                                border-radius: 0px;
+                                border:none;
+                                font-weight: inherit;
+                                color: white;
+                            }
+                            @include mq($mq570){
+                                margin:0;
+                            }
+                        }
+                        @include mq($mq570){
+                            width: 100%;
+                            display: inline-grid;
+                            grid-template-areas:
+                                "location ."
+                                "search search-btn";
+                            grid-template-columns: 80% 1fr;
+                            grid-template-rows: 1fr 1fr;
+                            .wpsl-input{
+                                grid-area: location;
+                            }
+                            .wpsl-select-wrap{
+                                grid-area: search;
+                            }
+                            .wpsl-search-btn-wrap{
+                                grid-area: search-btn;
+                                justify-self: end;
+                            }
+                        }
+                        @include mq($mq720){
+                            grid-template-rows: inherit;
+                            grid-template-columns: 36% 52% 12%;
+                            grid-template-areas:"location search search-btn";
+                           label{
+                               max-width:90px;
+                           } 
+                           input#wpsl-search-input{
+                               max-width:10em;
+                           }
+                        }
+                        @include mq($mq768){
+                            grid-template-columns: 39% 49% 12%; 
+                            .wpsl-input{
+                                input#wpsl-search-input{
+                                    max-width: 12em;
+                                }
+                            }
+                        }
+                        @include mq($mq800){
+                            .wpsl-input{
+                                input#wpsl-search-input{
+                                    max-width: 15em;
+                                }
+                            }
+                        }
                     }
-                } 
-                div.wpsl-search-btn-wrap {
-                    input#wpsl-search-btn{
-                        width: 7rem;
+                    @include mq($mq670){
+                        font-size: 0.85em;
+                        #wpsl-search-wrap{
+                            max-height: 3rem;
+                    }
+                        
+                    }
+                }          
+            } 
+            #wpsl-result-list{
+                #wpsl-stores{
+                    ul{
+                        li{
+                            .wpsl-direction-wrap{
+                                font-size:0.85em;
+                                a.wpsl-directions{
+                                    @include cart-btn();
+                                    padding: 0.5rem;
+                                    background-color:$color__darkgray;
+                                    #{$link-hover-selector}{
+                                        background-color:lighten($color__darkgray, 10%);
+                                        cursor: pointer;
+                                    }  
+                                }
+                            } 
+                        }
                     }
                 }
-            }
+            }   
         }
     }
-    @include mq($mq1095){
-        
-        #wpsl-search-wrap{
-            font-size: 0.9em;
-            form{
-                grid-template-columns: 39% 1fr 12%;
-                .wpsl-input {
-                    #wpsl-search-input{
-                        width: 15rem;
-                    }
-                    div {
-                        margin-right: 1rem;
-                        } 
-                } 
-                .wpsl-select-wrap{
-                    .wpsl-dropdown{
-                       width: 8rem;
-                    }
-                } 
-                div.wpsl-search-btn-wrap {
-                    input#wpsl-search-btn{
-                        width: 7.5rem;
-                    }
-                }
-            }
-        }
-    }
-    @include mq($mq1200){
-        #wpsl-search-wrap{
-            form{
-                grid-template-columns: 42% 1fr 14%;
-                .wpsl-input {
-                    #wpsl-search-input{
-                        width: 19rem;
-                    }
-                } 
-   
-                div.wpsl-search-btn-wrap {
-                    input#wpsl-search-btn{
-                        width: 9rem;
-                    }
-                }
-            }
-        }
-    }
-    
 }
